@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		588921F51EB78838005E5606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F41EB78838005E5606 /* AppDelegate.swift */; };
+		588921F71EB78838005E5606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F61EB78838005E5606 /* ViewController.swift */; };
+		588921FA1EB78838005E5606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921F81EB78838005E5606 /* Main.storyboard */; };
+		588921FC1EB78838005E5606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 588921FB1EB78838005E5606 /* Assets.xcassets */; };
+		588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921FD1EB78838005E5606 /* LaunchScreen.storyboard */; };
+		5889220A1EB78838005E5606 /* WayajTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922091EB78838005E5606 /* WayajTests.swift */; };
+		588922151EB78838005E5606 /* WayajUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922141EB78838005E5606 /* WayajUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		588922061EB78838005E5606 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 588921E91EB78837005E5606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 588921F01EB78837005E5606;
+			remoteInfo = Wayaj;
+		};
+		588922111EB78838005E5606 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 588921E91EB78837005E5606 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 588921F01EB78837005E5606;
+			remoteInfo = Wayaj;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		588921F11EB78838005E5606 /* Wayaj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayaj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		588921F41EB78838005E5606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		588921F61EB78838005E5606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		588921F91EB78838005E5606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		588921FB1EB78838005E5606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		588921FE1EB78838005E5606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		588922001EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		588922051EB78838005E5606 /* WayajTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayajTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		588922091EB78838005E5606 /* WayajTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayajTests.swift; sourceTree = "<group>"; };
+		5889220B1EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		588922101EB78838005E5606 /* WayajUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayajUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		588922141EB78838005E5606 /* WayajUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayajUITests.swift; sourceTree = "<group>"; };
+		588922161EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		588921EE1EB78837005E5606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		588922021EB78838005E5606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5889220D1EB78838005E5606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		588921E81EB78837005E5606 = {
+			isa = PBXGroup;
+			children = (
+				588921F31EB78838005E5606 /* Wayaj */,
+				588922081EB78838005E5606 /* WayajTests */,
+				588922131EB78838005E5606 /* WayajUITests */,
+				588921F21EB78838005E5606 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		588921F21EB78838005E5606 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				588921F11EB78838005E5606 /* Wayaj.app */,
+				588922051EB78838005E5606 /* WayajTests.xctest */,
+				588922101EB78838005E5606 /* WayajUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		588921F31EB78838005E5606 /* Wayaj */ = {
+			isa = PBXGroup;
+			children = (
+				588921F41EB78838005E5606 /* AppDelegate.swift */,
+				588921F61EB78838005E5606 /* ViewController.swift */,
+				588921F81EB78838005E5606 /* Main.storyboard */,
+				588921FB1EB78838005E5606 /* Assets.xcassets */,
+				588921FD1EB78838005E5606 /* LaunchScreen.storyboard */,
+				588922001EB78838005E5606 /* Info.plist */,
+			);
+			path = Wayaj;
+			sourceTree = "<group>";
+		};
+		588922081EB78838005E5606 /* WayajTests */ = {
+			isa = PBXGroup;
+			children = (
+				588922091EB78838005E5606 /* WayajTests.swift */,
+				5889220B1EB78838005E5606 /* Info.plist */,
+			);
+			path = WayajTests;
+			sourceTree = "<group>";
+		};
+		588922131EB78838005E5606 /* WayajUITests */ = {
+			isa = PBXGroup;
+			children = (
+				588922141EB78838005E5606 /* WayajUITests.swift */,
+				588922161EB78838005E5606 /* Info.plist */,
+			);
+			path = WayajUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		588921F01EB78837005E5606 /* Wayaj */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 588922191EB78838005E5606 /* Build configuration list for PBXNativeTarget "Wayaj" */;
+			buildPhases = (
+				588921ED1EB78837005E5606 /* Sources */,
+				588921EE1EB78837005E5606 /* Frameworks */,
+				588921EF1EB78837005E5606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wayaj;
+			productName = Wayaj;
+			productReference = 588921F11EB78838005E5606 /* Wayaj.app */;
+			productType = "com.apple.product-type.application";
+		};
+		588922041EB78838005E5606 /* WayajTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5889221C1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajTests" */;
+			buildPhases = (
+				588922011EB78838005E5606 /* Sources */,
+				588922021EB78838005E5606 /* Frameworks */,
+				588922031EB78838005E5606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				588922071EB78838005E5606 /* PBXTargetDependency */,
+			);
+			name = WayajTests;
+			productName = WayajTests;
+			productReference = 588922051EB78838005E5606 /* WayajTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5889220F1EB78838005E5606 /* WayajUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5889221F1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajUITests" */;
+			buildPhases = (
+				5889220C1EB78838005E5606 /* Sources */,
+				5889220D1EB78838005E5606 /* Frameworks */,
+				5889220E1EB78838005E5606 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				588922121EB78838005E5606 /* PBXTargetDependency */,
+			);
+			name = WayajUITests;
+			productName = WayajUITests;
+			productReference = 588922101EB78838005E5606 /* WayajUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		588921E91EB78837005E5606 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = GRC;
+				TargetAttributes = {
+					588921F01EB78837005E5606 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 29C62Z2D26;
+						ProvisioningStyle = Automatic;
+					};
+					588922041EB78838005E5606 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 29C62Z2D26;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 588921F01EB78837005E5606;
+					};
+					5889220F1EB78838005E5606 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 29C62Z2D26;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 588921F01EB78837005E5606;
+					};
+				};
+			};
+			buildConfigurationList = 588921EC1EB78837005E5606 /* Build configuration list for PBXProject "Wayaj" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 588921E81EB78837005E5606;
+			productRefGroup = 588921F21EB78838005E5606 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				588921F01EB78837005E5606 /* Wayaj */,
+				588922041EB78838005E5606 /* WayajTests */,
+				5889220F1EB78838005E5606 /* WayajUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		588921EF1EB78837005E5606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */,
+				588921FC1EB78838005E5606 /* Assets.xcassets in Resources */,
+				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		588922031EB78838005E5606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5889220E1EB78838005E5606 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		588921ED1EB78837005E5606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
+				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		588922011EB78838005E5606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5889220A1EB78838005E5606 /* WayajTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5889220C1EB78838005E5606 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				588922151EB78838005E5606 /* WayajUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		588922071EB78838005E5606 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 588921F01EB78837005E5606 /* Wayaj */;
+			targetProxy = 588922061EB78838005E5606 /* PBXContainerItemProxy */;
+		};
+		588922121EB78838005E5606 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 588921F01EB78837005E5606 /* Wayaj */;
+			targetProxy = 588922111EB78838005E5606 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		588921F81EB78838005E5606 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				588921F91EB78838005E5606 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		588921FD1EB78838005E5606 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				588921FE1EB78838005E5606 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		588922171EB78838005E5606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		588922181EB78838005E5606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5889221A1EB78838005E5606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = Wayaj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5889221B1EB78838005E5606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = Wayaj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		5889221D1EB78838005E5606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = WayajTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.WayajTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wayaj.app/Wayaj";
+			};
+			name = Debug;
+		};
+		5889221E1EB78838005E5606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = WayajTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.WayajTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wayaj.app/Wayaj";
+			};
+			name = Release;
+		};
+		588922201EB78838005E5606 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = WayajUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.WayajUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Wayaj;
+			};
+			name = Debug;
+		};
+		588922211EB78838005E5606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 29C62Z2D26;
+				INFOPLIST_FILE = WayajUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GRC.WayajUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Wayaj;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		588921EC1EB78837005E5606 /* Build configuration list for PBXProject "Wayaj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				588922171EB78838005E5606 /* Debug */,
+				588922181EB78838005E5606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		588922191EB78838005E5606 /* Build configuration list for PBXNativeTarget "Wayaj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5889221A1EB78838005E5606 /* Debug */,
+				5889221B1EB78838005E5606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5889221C1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5889221D1EB78838005E5606 /* Debug */,
+				5889221E1EB78838005E5606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5889221F1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				588922201EB78838005E5606 /* Debug */,
+				588922211EB78838005E5606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 588921E91EB78837005E5606 /* Project object */;
+}
