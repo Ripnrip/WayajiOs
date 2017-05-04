@@ -10,14 +10,15 @@ import UIKit
 
 class OfferPageViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
-
+    var isExpanded = false
+    var selectedSection = 0
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.allowsSelection = false
+       // tableView.allowsSelection = false
         tableView.rowHeight = UITableViewAutomaticDimension
 
         // Do any additional setup after loading the view.
@@ -39,15 +40,49 @@ extension OfferPageViewController{
         return cell!//UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 256
+        
+        if isExpanded == false {
+            if indexPath.section == 0 {
+                return 256
+            } else {
+                return 49
+            }
         } else {
-            return 49
+            if selectedSection == indexPath.section {
+            
+            if selectedSection == 1 {
+                return 347
+            } else if selectedSection == 2 {
+                return 647
+            } else if selectedSection == 3 {
+                return 647
+            } else if selectedSection == 4 {
+                return 767
+            } else if selectedSection == 5 {
+                return 646
+            }
+                
+                
+            }
         }
-    }
+            return UITableViewAutomaticDimension
+        }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
+        
+        if isExpanded == false {
+            isExpanded = true
+            selectedSection = indexPath.section
+        } else {
+            isExpanded = false
+            selectedSection = indexPath.section
+        }
+        
+        tableView.reloadData()
+        print("the isExpanded value is \(isExpanded) and the selectedSection is \(indexPath.section)")
+        
     }
     
 }

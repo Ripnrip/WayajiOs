@@ -185,11 +185,11 @@
                         <viewControllerLayoutGuide type="bottom" id="oh6-Y4-4hn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qg3-9t-v82">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y95-fH-uRD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="2500"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell1" rowHeight="256" id="SAg-0n-nR7" customClass="OfferTableViewCell" customModule="Wayaj" customModuleProvider="target">
@@ -249,7 +249,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EII-Ys-9hY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ecoRating" translatesAutoresizingMaskIntoConstraints="NO" id="EII-Ys-9hY">
                                                     <rect key="frame" x="0.0" y="48" width="375" height="298"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -275,7 +275,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="475-af-Wcm">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="475-af-Wcm">
                                                     <rect key="frame" x="0.0" y="56" width="375" height="600"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -301,7 +301,7 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nRh-H4-3a7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="offerImages" translatesAutoresizingMaskIntoConstraints="NO" id="nRh-H4-3a7">
                                                     <rect key="frame" x="0.0" y="49" width="375" height="710"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -327,8 +327,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-KU-pYL">
-                                                    <rect key="frame" x="0.0" y="48" width="375" height="503"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reviews" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-KU-pYL">
+                                                    <rect key="frame" x="0.0" y="49" width="375" height="497"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -352,7 +352,7 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="2500"/>
+                    <size key="freeformSize" width="375" height="2400"/>
                     <connections>
                         <outlet property="tableView" destination="y95-fH-uRD" id="x02-sh-ug1"/>
                     </connections>
@@ -402,12 +402,16 @@
     </scenes>
     <resources>
         <image name="bg" width="374" height="665"/>
+        <image name="ecoRating" width="690" height="609"/>
         <image name="exploreIcon" width="24" height="24"/>
         <image name="fbLogin" width="832" height="145"/>
         <image name="heartIcon" width="29" height="25"/>
+        <image name="information" width="235" height="488"/>
+        <image name="offerImages" width="236" height="458"/>
         <image name="placeA" width="338" height="200"/>
         <image name="profileIcon" width="24" height="25"/>
         <image name="ratings" width="297" height="59"/>
+        <image name="reviews" width="235" height="484"/>
         <image name="rightArrow" width="13" height="21"/>
         <image name="topBar" width="375" height="97"/>
     </resources>
