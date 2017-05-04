@@ -14,6 +14,9 @@
 		588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921FD1EB78838005E5606 /* LaunchScreen.storyboard */; };
 		5889220A1EB78838005E5606 /* WayajTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922091EB78838005E5606 /* WayajTests.swift */; };
 		588922151EB78838005E5606 /* WayajUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922141EB78838005E5606 /* WayajUITests.swift */; };
+		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
+		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
+		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		588922101EB78838005E5606 /* WayajUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayajUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		588922141EB78838005E5606 /* WayajUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayajUITests.swift; sourceTree = "<group>"; };
 		588922161EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,10 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				840767951EBA63B800238327 /* Cells */,
+				840767921EBA598500238327 /* Profile */,
+				840767911EBA597500238327 /* Explore */,
+				840767901EBA596D00238327 /* Login */,
 				588921F41EB78838005E5606 /* AppDelegate.swift */,
 				588921F61EB78838005E5606 /* ViewController.swift */,
 				588921F81EB78838005E5606 /* Main.storyboard */,
@@ -123,6 +133,37 @@
 				588922161EB78838005E5606 /* Info.plist */,
 			);
 			path = WayajUITests;
+			sourceTree = "<group>";
+		};
+		840767901EBA596D00238327 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		840767911EBA597500238327 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				840767931EBA636800238327 /* ExploreViewController.swift */,
+				84A776981EBB721E00FF709F /* OfferPageViewController.swift */,
+			);
+			name = Explore;
+			sourceTree = "<group>";
+		};
+		840767921EBA598500238327 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		840767951EBA63B800238327 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				840767961EBA654A00238327 /* OfferTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +234,7 @@
 				TargetAttributes = {
 					588921F01EB78837005E5606 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 29C62Z2D26;
+						DevelopmentTeam = 5Y7NBCKHJP;
 						ProvisioningStyle = Automatic;
 					};
 					588922041EB78838005E5606 = {
@@ -262,8 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
+				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
+				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,8 +457,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 29C62Z2D26;
+				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
 				INFOPLIST_FILE = Wayaj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,8 +471,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 29C62Z2D26;
+				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
 				INFOPLIST_FILE = Wayaj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +558,7 @@
 				5889221B1EB78838005E5606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5889221C1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +567,7 @@
 				5889221E1EB78838005E5606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5889221F1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +576,7 @@
 				588922211EB78838005E5606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
