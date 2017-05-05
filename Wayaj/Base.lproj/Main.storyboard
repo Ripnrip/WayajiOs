@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl6-6E-7VL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="-426.83658170914543"/>
+            <point key="canvasLocation" x="2220" y="-1114"/>
         </scene>
         <!--Offer Page View Controller-->
         <scene sceneID="mpF-RJ-jUc">
@@ -227,7 +227,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeA" translatesAutoresizingMaskIntoConstraints="NO" id="GYa-U5-rux">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irt-se-aMw">
@@ -343,22 +343,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="646"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="iZx-dy-QH3">
-                                                    <rect key="frame" x="31" y="11" width="12.5" height="25"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reviews" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-KU-pYL">
+                                                    <rect key="frame" x="0.0" y="49" width="375" height="597"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="eVg-bs-NPX">
+                                                    <rect key="frame" x="31" y="12" width="12.5" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnI-Fc-mft">
-                                                    <rect key="frame" x="59" y="13" width="86" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bC7-hZ-0J5">
+                                                    <rect key="frame" x="59" y="14" width="86" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reviews" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-KU-pYL">
-                                                    <rect key="frame" x="0.0" y="49" width="375" height="497"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qN6-KU-pYL" firstAttribute="leading" secondItem="ev5-a5-6Yb" secondAttribute="leading" id="95F-Xo-0qx"/>
+                                                <constraint firstAttribute="trailing" secondItem="qN6-KU-pYL" secondAttribute="trailing" id="LJO-iY-9jt"/>
+                                                <constraint firstAttribute="bottom" secondItem="qN6-KU-pYL" secondAttribute="bottom" id="pGl-wh-1Kx"/>
+                                                <constraint firstItem="qN6-KU-pYL" firstAttribute="top" secondItem="ev5-a5-6Yb" secondAttribute="top" constant="49" id="z8s-K6-f2b"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.37263736130000003" green="0.76434540750000002" blue="0.36863389610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
@@ -424,7 +429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owx-vW-QVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280.8" y="-426.83658170914543"/>
+            <point key="canvasLocation" x="1281" y="-1114"/>
         </scene>
     </scenes>
     <resources>

@@ -49,7 +49,9 @@ extension OfferPageViewController{
             }
         } else {
             if selectedSection == indexPath.section {
-            
+            if selectedSection == 0 {
+                return 256
+            }
             if selectedSection == 1 {
                 return 347
             } else if selectedSection == 2 {
@@ -59,7 +61,7 @@ extension OfferPageViewController{
             } else if selectedSection == 4 {
                 return 767
             } else if selectedSection == 5 {
-                return 646
+                return 600
             }
                 
                 
