@@ -10,9 +10,15 @@ import UIKit
 
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var whereButton: UIButton!
+    @IBOutlet weak var searchView: UIView!
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.upButton.isHidden = true
+        self.whereButton.isHidden = true
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +26,33 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func showSearchBar(_ sender: Any) {
-        //height is 98
+
+    @IBAction func expandSearchFilter(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.searchView.frame = CGRect(x: 19, y: -90, width: 337, height: 47)
+            self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height)
+        }, completion: {
+            (value: Bool) in
+            //self.blurBg.hidden = true
+            self.upButton.isHidden = false
+            self.whereButton.isHidden = false
+        })
+        
     }
 
+    @IBAction func retractSearchFilter(_ sender: Any) {
+        //height is 98
+        UIView.animate(withDuration: 0.2, animations: {
+            self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
+            self.tableView.frame = CGRect(x: 0, y: 98, width: self.view.frame.width, height: self.view.frame.size.height)
+        }, completion: {
+            (value: Bool) in
+            //self.blurBg.hidden = true
+            self.upButton.isHidden = true
+            self.whereButton.isHidden = true
+        })
+
+    }
 
 
 }
