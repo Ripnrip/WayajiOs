@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */; };
 		588921F51EB78838005E5606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F41EB78838005E5606 /* AppDelegate.swift */; };
 		588921F71EB78838005E5606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F61EB78838005E5606 /* ViewController.swift */; };
 		588921FA1EB78838005E5606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921F81EB78838005E5606 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		588921F11EB78838005E5606 /* Wayaj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayaj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		588921F41EB78838005E5606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		588921F61EB78838005E5606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		840767921EBA598500238327 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
 				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,

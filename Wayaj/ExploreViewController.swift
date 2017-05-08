@@ -16,14 +16,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-        self.upButton.isHidden = true
-        self.whereButton.isHidden = true
+
     
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        self.upButton.isHidden = true
+        self.whereButton.isHidden = true
     }
 
 
@@ -71,6 +71,7 @@ extension ExploreViewController{
         return 256
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "viewOffer", sender: nil)
     }
 
