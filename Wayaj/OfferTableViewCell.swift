@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Spring
+import CoreData
+
 
 class OfferTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
-    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet var heartButton: SpringButton!
+    
     var isSaved = false
     
     override func awakeFromNib() {
@@ -26,13 +30,55 @@ class OfferTableViewCell: UITableViewCell {
     }
     
     @IBAction func saveOffer(_ sender: Any) {
+        heartButton.animation = "pop"
+        heartButton.animate()
+        
+        let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "placeA")!)! as NSData
+
         
         if isSaved == false {
             isSaved = true
             heartButton.setImage(UIImage(named: "greenHeart"), for: .normal)
+            storeOffer(name: nameLabel.text!, location: locationLabel.text!, isFavorited: true, image: imageData , price: 199.99)
+            
         } else {
             isSaved = false
             heartButton.setImage(UIImage(named: "whiteHeart"), for: .normal)
+                        storeOffer(name: nameLabel.text!, location: locationLabel.text!, isFavorited: false, image: imageData , price: 199.99)
+        }
+    }
+    
+
+    
+    func storeOffer (name: String, location: String, isFavorited: Bool, image: NSData, price: Double) {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+            NSEntityDescription.entity(forEntityName: "Offer",
+                                       in: managedContext)!
+        
+        let offer = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+        
+        // 3
+        offer.setValue(name, forKeyPath: "name")
+        offer.setValue(isFavorited, forKey: "isFavorited")
+        offer.setValue(location, forKey: "location")
+        
+        // 4
+        do {
+            try managedContext.save()
+            //people.append(person)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
     

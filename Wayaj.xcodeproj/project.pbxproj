@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */; };
+		586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */; };
+		586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BAD9B1EC200EF00D792A8 /* SavedViewController.swift */; };
 		588921F51EB78838005E5606 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F41EB78838005E5606 /* AppDelegate.swift */; };
 		588921F71EB78838005E5606 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588921F61EB78838005E5606 /* ViewController.swift */; };
 		588921FA1EB78838005E5606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921F81EB78838005E5606 /* Main.storyboard */; };
@@ -18,6 +21,8 @@
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
+		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
+		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
+		34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.debug.xcconfig"; sourceTree = "<group>"; };
 		58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		586BAD981EC1FFF700D792A8 /* Wayaj.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wayaj.xcdatamodel; sourceTree = "<group>"; };
+		586BAD9B1EC200EF00D792A8 /* SavedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		588921F11EB78838005E5606 /* Wayaj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayaj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		588921F41EB78838005E5606 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		588921F61EB78838005E5606 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +64,13 @@
 		588922101EB78838005E5606 /* WayajUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayajUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		588922141EB78838005E5606 /* WayajUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayajUITests.swift; sourceTree = "<group>"; };
 		588922161EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
+		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +94,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03CA45065C1539821AED6927 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */,
+				5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */,
+				34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */,
+				338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */,
+				F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */,
+				0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4D1BDFF88D1AB0F001C889BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */,
+				F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */,
+				1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		586BAD9A1EC200D500D792A8 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				586BAD9B1EC200EF00D792A8 /* SavedViewController.swift */,
+			);
+			name = Saved;
+			sourceTree = "<group>";
+		};
 		588921E81EB78837005E5606 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +139,8 @@
 				588922081EB78838005E5606 /* WayajTests */,
 				588922131EB78838005E5606 /* WayajUITests */,
 				588921F21EB78838005E5606 /* Products */,
+				03CA45065C1539821AED6927 /* Pods */,
+				4D1BDFF88D1AB0F001C889BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +157,8 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
+				586BAD9A1EC200D500D792A8 /* Saved */,
 				840767951EBA63B800238327 /* Cells */,
 				840767921EBA598500238327 /* Profile */,
 				840767911EBA597500238327 /* Explore */,
@@ -176,9 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 588922191EB78838005E5606 /* Build configuration list for PBXNativeTarget "Wayaj" */;
 			buildPhases = (
+				5BC8229B4515AD7729F66A97 /* [CP] Check Pods Manifest.lock */,
 				588921ED1EB78837005E5606 /* Sources */,
 				588921EE1EB78837005E5606 /* Frameworks */,
 				588921EF1EB78837005E5606 /* Resources */,
+				94D0577B3A455565A0182DB9 /* [CP] Embed Pods Frameworks */,
+				42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,9 +250,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5889221C1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajTests" */;
 			buildPhases = (
+				2AC80E765A0346392EEEB3BF /* [CP] Check Pods Manifest.lock */,
 				588922011EB78838005E5606 /* Sources */,
 				588922021EB78838005E5606 /* Frameworks */,
 				588922031EB78838005E5606 /* Resources */,
+				1F12E00997C85FEB449E9F64 /* [CP] Embed Pods Frameworks */,
+				FCC9AC51E63D517744296221 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5889221F1EB78838005E5606 /* Build configuration list for PBXNativeTarget "WayajUITests" */;
 			buildPhases = (
+				CD2FA69842DD5FB670090392 /* [CP] Check Pods Manifest.lock */,
 				5889220C1EB78838005E5606 /* Sources */,
 				5889220D1EB78838005E5606 /* Frameworks */,
 				5889220E1EB78838005E5606 /* Resources */,
+				D31A89A7BE746B7E67FD648C /* [CP] Embed Pods Frameworks */,
+				2F44372B6D05D508E87EE2D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,16 +364,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1F12E00997C85FEB449E9F64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AC80E765A0346392EEEB3BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F44372B6D05D508E87EE2D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BC8229B4515AD7729F66A97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94D0577B3A455565A0182DB9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD2FA69842DD5FB670090392 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D31A89A7BE746B7E67FD648C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCC9AC51E63D517744296221 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		588921ED1EB78837005E5606 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
+				586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */,
 				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
+				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
 				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +662,7 @@
 		};
 		5889221A1EB78838005E5606 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
@@ -473,6 +677,7 @@
 		};
 		5889221B1EB78838005E5606 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5Y7NBCKHJP;
@@ -487,6 +692,7 @@
 		};
 		5889221D1EB78838005E5606 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +708,7 @@
 		};
 		5889221E1EB78838005E5606 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +724,7 @@
 		};
 		588922201EB78838005E5606 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
@@ -531,6 +739,7 @@
 		};
 		588922211EB78838005E5606 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
@@ -583,6 +792,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				586BAD981EC1FFF700D792A8 /* Wayaj.xcdatamodel */,
+			);
+			currentVersion = 586BAD981EC1FFF700D792A8 /* Wayaj.xcdatamodel */;
+			path = Wayaj.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 588921E91EB78837005E5606 /* Project object */;
 }
