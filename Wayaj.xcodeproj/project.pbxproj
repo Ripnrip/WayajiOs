@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
+		5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5862665D1EC9F1DF006FC7BD /* Images.swift */; };
 		58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */; };
 		586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */; };
 		586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BAD9B1EC200EF00D792A8 /* SavedViewController.swift */; };
@@ -48,6 +49,7 @@
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
 		34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.debug.xcconfig"; sourceTree = "<group>"; };
+		5862665D1EC9F1DF006FC7BD /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		586BAD981EC1FFF700D792A8 /* Wayaj.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wayaj.xcdatamodel; sourceTree = "<group>"; };
 		586BAD9B1EC200EF00D792A8 /* SavedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5862665C1EC9F18F006FC7BD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5862665D1EC9F1DF006FC7BD /* Images.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		586BAD9A1EC200D500D792A8 /* Saved */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				5862665C1EC9F18F006FC7BD /* Constants */,
 				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
 				586BAD9A1EC200D500D792A8 /* Saved */,
 				840767951EBA63B800238327 /* Cells */,
@@ -511,6 +522,7 @@
 				586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */,
 				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
+				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,

@@ -7,18 +7,17 @@
 //
 
 import UIKit
-
+import paper_onboarding
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var whereButton: UIButton!
     @IBOutlet weak var searchView: UIView!
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-
     
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -53,10 +52,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         })
 
     }
-
-
+    
 }
-extension ExploreViewController{
+
+extension ExploreViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -74,5 +73,5 @@ extension ExploreViewController{
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "viewOffer", sender: nil)
     }
-
 }
+
