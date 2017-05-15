@@ -21,6 +21,10 @@
 		588922151EB78838005E5606 /* WayajUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922141EB78838005E5606 /* WayajUITests.swift */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
+		8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */; };
+		8419CD881ECA26F300A15B1B /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD841ECA26F300A15B1B /* Nunito-Light.ttf */; };
+		8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */; };
+		8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
 		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
@@ -69,6 +73,10 @@
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		8419CD841ECA26F300A15B1B /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				8419CD821ECA26CC00A15B1B /* Fonts */,
 				5862665C1EC9F18F006FC7BD /* Constants */,
 				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
 				586BAD9A1EC200D500D792A8 /* Saved */,
@@ -232,6 +241,17 @@
 				840767961EBA654A00238327 /* OfferTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		8419CD821ECA26CC00A15B1B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */,
+				8419CD841ECA26F300A15B1B /* Nunito-Light.ttf */,
+				8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */,
+				8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,8 +373,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */,
 				588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */,
+				8419CD881ECA26F300A15B1B /* Nunito-Light.ttf in Resources */,
+				8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */,
 				588921FC1EB78838005E5606 /* Assets.xcassets in Resources */,
+				8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */,
 				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
