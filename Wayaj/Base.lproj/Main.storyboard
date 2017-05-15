@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -264,10 +264,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ratings" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-hY-dk6">
-                                                    <rect key="frame" x="209" y="222" width="148" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDw-SU-yeT" customClass="SpringButton" customModule="Spring">
                                                     <rect key="frame" x="300" y="14" width="39" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -289,6 +285,22 @@
                                                         <action selector="saveOffer:" destination="eus-t1-oTw" eventType="touchUpInside" id="gR2-jj-05f"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="ABB-w7-H8i">
+                                                    <rect key="frame" x="225" y="225" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="GWJ-ec-9CU">
+                                                    <rect key="frame" x="260" y="225" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="0jR-Nd-Ci8">
+                                                    <rect key="frame" x="295" y="225" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="1I5-8i-Ecd">
+                                                    <rect key="frame" x="330" y="225" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -368,8 +380,20 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ratings" translatesAutoresizingMaskIntoConstraints="NO" id="iLJ-XW-bhz">
-                                                    <rect key="frame" x="209" y="222" width="148" height="25"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-it-Yiw">
+                                                    <rect key="frame" x="225" y="222" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="xK7-pg-X99">
+                                                    <rect key="frame" x="260" y="222" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="sUa-Mr-Veh">
+                                                    <rect key="frame" x="295" y="222" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenStar" translatesAutoresizingMaskIntoConstraints="NO" id="6Ui-CL-ufw">
+                                                    <rect key="frame" x="330" y="222" width="27" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -535,7 +559,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -557,6 +581,7 @@
         <image name="editProfileIcon" width="53" height="53"/>
         <image name="exploreIcon" width="24" height="24"/>
         <image name="fbLogin" width="832" height="145"/>
+        <image name="greenStar" width="17" height="16"/>
         <image name="heartIcon" width="29" height="25"/>
         <image name="howManySearch" width="1352" height="200"/>
         <image name="information" width="235" height="488"/>
@@ -565,7 +590,6 @@
         <image name="placeA" width="338" height="200"/>
         <image name="profileContent" width="752" height="1440"/>
         <image name="profileIcon" width="24" height="25"/>
-        <image name="ratings" width="297" height="59"/>
         <image name="reviews" width="235" height="484"/>
         <image name="rightArrow" width="13" height="21"/>
         <image name="upArrow" width="21" height="13"/>
