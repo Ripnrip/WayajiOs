@@ -137,6 +137,16 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="editProfileIcon"/>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-nY-qu0">
+                                                    <rect key="frame" x="292" y="8" width="64" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Settings">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="openSettings:" destination="z7g-dM-L9t" eventType="touchUpInside" id="GQh-FN-hI6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -326,11 +336,40 @@
                         <outlet property="upButton" destination="7IP-0S-sYL" id="XC3-aj-WML"/>
                         <outlet property="whereButton" destination="8ga-SQ-uTs" id="Lxv-dR-J0B"/>
                         <segue destination="cXP-dR-Luk" kind="show" identifier="viewOffer" id="8yM-hf-tcE"/>
+                        <segue destination="BMj-en-RRJ" kind="show" identifier="viewTripAdvisorListing" id="UoV-SA-Xkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl6-6E-7VL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2356" y="-1114.0929535232385"/>
+        </scene>
+        <!--Trip Advisor Web View Controller-->
+        <scene sceneID="0Np-Nq-Xve">
+            <objects>
+                <viewController id="BMj-en-RRJ" customClass="TripAdvisorWebViewController" customModule="Wayaj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kpk-VO-FSJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="WAp-Qq-Hfw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rYF-bC-BEf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzB-nn-POy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="HzB-nn-POy" id="3FC-5p-XZH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaJ-LU-QmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3269.5999999999999" y="-1114.0929535232385"/>
         </scene>
         <!--Offer Page View Controller-->
         <scene sceneID="mpF-RJ-jUc">
@@ -532,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWw-Ur-eRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280.8" y="438.0809595202399"/>
+            <point key="canvasLocation" x="5362" y="-1115"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XG6-ZJ-fC9">

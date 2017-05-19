@@ -8,6 +8,15 @@
 
 import UIKit
 import paper_onboarding
+
+struct listing {
+    let image:Image
+    let name:String
+    let location:String
+    let stars: Int
+    let isFavorited:Bool
+}
+
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 
@@ -73,7 +82,10 @@ extension ExploreViewController {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: "viewOffer", sender: nil)
+        //self.performSegue(withIdentifier: "viewOffer", sender: nil)
+        self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
+
+        
     }
 }
 

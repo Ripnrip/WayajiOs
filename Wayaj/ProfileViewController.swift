@@ -17,6 +17,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.allowsSelection = false
     }
     
+    @IBAction func openSettings(_ sender: Any) {
+        
+    }
 
 }
 
