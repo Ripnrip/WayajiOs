@@ -370,6 +370,7 @@
                                             <outlet property="heartButton" destination="WDw-SU-yeT" id="GOV-hs-2fH"/>
                                             <outlet property="locationLabel" destination="tQ3-KN-DFm" id="Wsl-7x-pOl"/>
                                             <outlet property="nameLabel" destination="96l-iK-x7t" id="6U3-Yg-URZ"/>
+                                            <outlet property="offerImage" destination="4Cb-CA-Jjj" id="DH7-SV-NqX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

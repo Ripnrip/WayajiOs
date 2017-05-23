@@ -16,6 +16,7 @@ class OfferTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var heartButton: SpringButton!
+    @IBOutlet weak var offerImage: UIImageView!
     
     var isSaved = false
     

@@ -85,8 +85,10 @@ extension ExploreViewController {
         return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        return cell!//UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OfferTableViewCell
+        cell.offerImage?.image = Listings[indexPath.section].image
+        
+        return cell//UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 256
