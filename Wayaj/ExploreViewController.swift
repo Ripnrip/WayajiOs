@@ -51,7 +51,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func expandSearchFilter(_ sender: Any) {
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: -90, width: 337, height: 47)
-            self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height)
+            self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height-44)
         }, completion: {
             (value: Bool) in
             //self.blurBg.hidden = true

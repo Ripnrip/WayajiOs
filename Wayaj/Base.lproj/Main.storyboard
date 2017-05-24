@@ -418,13 +418,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzB-nn-POy">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzB-nn-POy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WAp-Qq-Hfw" firstAttribute="top" secondItem="HzB-nn-POy" secondAttribute="bottom" id="Lah-Ly-ZlI"/>
+                            <constraint firstItem="HzB-nn-POy" firstAttribute="top" secondItem="rYF-bC-BEf" secondAttribute="top" id="XVP-qo-pKD"/>
+                            <constraint firstItem="HzB-nn-POy" firstAttribute="leading" secondItem="rYF-bC-BEf" secondAttribute="leading" id="jsn-Qv-a2d"/>
+                            <constraint firstAttribute="trailing" secondItem="HzB-nn-POy" secondAttribute="trailing" id="mZ3-p1-4Um"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="webView" destination="HzB-nn-POy" id="3FC-5p-XZH"/>
