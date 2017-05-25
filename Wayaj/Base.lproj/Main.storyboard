@@ -394,6 +394,7 @@
                     <navigationItem key="navigationItem" id="n25-Ip-z2n"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="keywordButton" destination="01w-Cd-9fU" id="X0D-4g-wnY"/>
                         <outlet property="searchView" destination="Sab-JZ-X9f" id="UzV-un-npT"/>
                         <outlet property="tableView" destination="ibc-hE-z7v" id="BZt-dC-Rcv"/>
                         <outlet property="upButton" destination="7IP-0S-sYL" id="XC3-aj-WML"/>

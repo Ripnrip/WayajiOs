@@ -9,6 +9,7 @@ target 'Wayaj' do
   
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'paper-onboarding', '~> 2.0.1' 
+  pod "AMTooltip"
 
   target 'WayajTests' do
     inherit! :search_paths

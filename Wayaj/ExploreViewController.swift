@@ -8,6 +8,7 @@
 
 import UIKit
 import paper_onboarding
+import AMTooltip
 
 struct Listing {
     let image:Image
@@ -26,6 +27,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var whereButton: UIButton!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var keywordButton: UIButton!
 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
@@ -37,6 +39,15 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.upButton.isHidden = true
         self.whereButton.isHidden = true
         loadListings()
+        
+        //tips
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            AMTooltipView(message: "Start By Searching for a Destination",
+                          focusView: self.searchView, //pass view you want show tooltip over it
+                target: self)
+        }
+
     }
 
     func loadListings() {
@@ -49,6 +60,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     @IBAction func expandSearchFilter(_ sender: Any) {
+ 
+//        //first time
+//        let deadlineTime = DispatchTime.now() + .seconds(2)
+//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+//            AMTooltipView(message: "Search by x,y,z",
+//                          focusView: (self.keywordButton), //pass view you want show tooltip over it
+//                target: self)
+//        }
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: -90, width: 337, height: 47)
             self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height-44)
@@ -57,7 +76,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.blurBg.hidden = true
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
+            AMTooltipView(message: "Search by x,y,z",
+                          focusView: (self.tableView), //pass view you want show tooltip over it
+                target: self)
+
         })
+        
+
         
     }
 
