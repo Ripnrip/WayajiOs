@@ -8,16 +8,19 @@
 
 import UIKit
 import paper_onboarding
+import Spring
 
 class ViewController: UIViewController {
     @IBOutlet weak var onboarding: PaperOnboarding!
-    @IBOutlet var skipButton: UIButton!
+    @IBOutlet var skipButton: SpringButton!
     var onboardingView = PaperOnboarding()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        self.skipButton.isHidden = true
         onboardingView = PaperOnboarding(itemsCount: 3)
         onboardingView.dataSource = self
+        onboardingView.delegate = self
         onboardingView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(onboardingView)
         
@@ -33,7 +36,7 @@ class ViewController: UIViewController {
             view.addConstraint(constraint)
             
         }
-        skipButton.frame = CGRect(x: self.view.frame.width - 50, y: 20, width: 54, height: 30)
+        skipButton.frame = CGRect(x: 251, y: self.view.frame.size.height-70, width: 98, height: 30)
         onboardingView.addSubview(skipButton)
     }
     
@@ -67,10 +70,15 @@ extension ViewController: PaperOnboardingDelegate {
     
     func onboardingWillTransitonToIndex(_ index: Int) {
         //    skipButton.isHidden = index == 2 ? false : true
+        if index == 3 {
+            print("last Index")
+            self.skipButton.isHidden = false
+            self.skipButton.animate()
+        }
     }
     
     func onboardingDidTransitonToIndex(_ index: Int) {
-        
+
     }
     
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
@@ -86,13 +94,15 @@ extension ViewController: PaperOnboardingDelegate {
 extension ViewController: PaperOnboardingDataSource {
     
     func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
+
+        
         let titleFont = UIFont(name: "Nunito-Bold", size: 34.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
-        let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)
+        let descriptionFont = UIFont(name: "OpenSans-Regular", size: 18.0) ?? UIFont.systemFont(ofSize: 18.0)
         
         let item1 = (imageName: "intro-icon1", title: "Welcome to Wayaj", description: "The first app for sustainable and socially responsible vacations.", iconName: "", color: UIColor(red:97/255, green:198/255, blue:97/255, alpha:1.00), titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
         
         let item2 = (imageName: "intro-icon4", title: "Discover", description: "The Wayaj app let you explore destinations...", iconName: "", color: UIColor(red:97/255, green:198/255, blue:97/255, alpha:1.00), titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
-        let item3 = (imageName: "intro-icon3", title: "Book", description: "...and book eco-friendly trips", iconName: "", color: UIColor(red:97/255, green:198/255, blue:97/255, alpha:1.00), titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
+        let item3 = (imageName: "intro-icon3", title: "Book", description: "...and book eco-friendly trips.", iconName: "", color: UIColor(red:97/255, green:198/255, blue:97/255, alpha:1.00), titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
         
         let item4 = (imageName: "intro-icon5" , title: "Enjoy!🙏", description: "Choose the perfect hotel for you by learning about the sustainability of your destination based on a detailed eco-rating system.", iconName: "", color: UIColor(red:97/255, green:198/255, blue:97/255, alpha:1.00), titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
         
@@ -130,5 +140,13 @@ extension ViewController: PaperOnboardingDataSource {
     func onboardingItemsCount() -> Int {
         return 4
     }
-}
+    
+    func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
 
+        //    item.titleLabel?.backgroundColor = .redColor()
+        //    item.descriptionLabel?.backgroundColor = .redColor()
+        //    item.imageView = ...
+    }
+    
+    
+}

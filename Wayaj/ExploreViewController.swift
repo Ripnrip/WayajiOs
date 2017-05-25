@@ -60,14 +60,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     @IBAction func expandSearchFilter(_ sender: Any) {
- 
-//        //first time
-//        let deadlineTime = DispatchTime.now() + .seconds(2)
-//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-//            AMTooltipView(message: "Search by Tacos",
-//                          focusFrame: CGRect(x:100, y:150, width:40, height:25),
-//                target: self)
-//        }
+
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: -90, width: 337, height: 47)
             self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height-44)
@@ -77,6 +70,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
         })
+        //first time user 
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             AMTooltipView(message: "Search by Tacos",
