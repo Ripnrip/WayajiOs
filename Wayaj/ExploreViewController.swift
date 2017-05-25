@@ -64,8 +64,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 //        //first time
 //        let deadlineTime = DispatchTime.now() + .seconds(2)
 //        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-//            AMTooltipView(message: "Search by x,y,z",
-//                          focusView: (self.keywordButton), //pass view you want show tooltip over it
+//            AMTooltipView(message: "Search by Tacos",
+//                          focusFrame: CGRect(x:100, y:150, width:40, height:25),
 //                target: self)
 //        }
         UIView.animate(withDuration: 0.2, animations: {
@@ -76,11 +76,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.blurBg.hidden = true
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
-            AMTooltipView(message: "Search by x,y,z",
-                          focusView: (self.tableView), //pass view you want show tooltip over it
-                target: self)
-
         })
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            AMTooltipView(message: "Search by Tacos",
+                          focusFrame: CGRect(x:20, y:50, width:self.keywordButton.frame.width, height:270),
+                          target: self.tabBarController)
+        }
         
 
         
