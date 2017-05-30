@@ -7,6 +7,7 @@ target 'Wayaj' do
 
   # Pods for Wayaj
   
+  pod 'OneSignal'	
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'paper-onboarding', '~> 2.0.1' 
   pod "AMTooltip"
@@ -20,5 +21,10 @@ target 'Wayaj' do
     inherit! :search_paths
     # Pods for testing
   end
+  
+  target 'OneSignalNotificationServiceExtension' do
+      pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  end
+  
 
 end

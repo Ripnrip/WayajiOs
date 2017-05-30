@@ -36,6 +36,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
         self.upButton.isHidden = true
         self.whereButton.isHidden = true
         loadListings()
@@ -70,10 +71,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
         })
-        //first time user 
+        //first time user
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            AMTooltipView(message: "Search by Tacos",
+            AMTooltipView(message: "Search by any criteria, or any keywords",
                           focusFrame: CGRect(x:20, y:50, width:self.keywordButton.frame.width, height:270),
                           target: self.tabBarController)
         }
