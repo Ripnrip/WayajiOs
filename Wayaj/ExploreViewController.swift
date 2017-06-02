@@ -12,6 +12,7 @@ import AMTooltip
 
 struct Listing {
     let image:Image
+    let images:[Image]?
     let name:String
     let location:String
     let stars: Int
@@ -52,11 +53,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     func loadListings() {
-        let listing1 = Listing(image: #imageLiteral(resourceName: "innByTheSea"), name: "Inn By The Sea", location: "example", stars: 4, isFavorited: false)
-        let listing2 = Listing(image: #imageLiteral(resourceName: "destinationHotel"), name: "Destination Hotel", location: "example", stars: 4, isFavorited: false)
-        let listing3 = Listing(image: #imageLiteral(resourceName: "MaunaLani"), name: "Mauna Lani", location: "example", stars: 4, isFavorited: false)
-        let listing4 = Listing(image: #imageLiteral(resourceName: "markSpencerHotel"), name: "Mark Spencer HHotel", location: "example", stars: 4, isFavorited: false)
-        let listing5 = Listing(image: #imageLiteral(resourceName: "hotelSkylar"), name: "Hotel Skylar", location: "example", stars: 4, isFavorited: false)
+        let listing1 = Listing(image: #imageLiteral(resourceName: "innByTheSea"), images: nil, name: "Inn By The Sea", location: "example", stars: 4, isFavorited: false)
+        let listing2 = Listing(image: #imageLiteral(resourceName: "destinationHotel"), images: nil, name: "Destination Hotel", location: "example", stars: 4, isFavorited: false)
+        let listing3 = Listing(image: #imageLiteral(resourceName: "MaunaLani"), images: nil, name: "Mauna Lani", location: "example", stars: 4, isFavorited: false)
+        let listing4 = Listing(image: #imageLiteral(resourceName: "markSpencerHotel"), images: nil, name: "Mark Spencer HHotel", location: "example", stars: 4, isFavorited: false)
+        let listing5 = Listing(image: #imageLiteral(resourceName: "hotelSkylar"), images: nil , name: "Hotel Skylar", location: "example", stars: 4, isFavorited: false)
         Listings = [listing1,listing2,listing3,listing4,listing5]
     }
 

@@ -225,6 +225,13 @@
 			name = Eureka;
 			sourceTree = "<group>";
 		};
+		58608F661EE1B9F400A0FDF3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		5862665C1EC9F18F006FC7BD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +275,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				58608F661EE1B9F400A0FDF3 /* Resources */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
 				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				8419CD821ECA26CC00A15B1B /* Fonts */,

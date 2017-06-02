@@ -498,9 +498,16 @@ class CustomCellsController : FormViewController {
 
 //MARK: Field row customization Example
 class FieldRowCustomizationController : FormViewController {
-    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .white
         form +++
             Section(header: "Default field rows", footer: "Rows with title have a right-aligned text field.\nRows without title have a left-aligned text field.\nBut this can be changed...")
             
