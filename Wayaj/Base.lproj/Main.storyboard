@@ -9,6 +9,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Custom Cells Controller-->
+        <scene sceneID="d45-QO-L7M">
+            <objects>
+                <viewController id="hgn-rK-7rr" customClass="CustomCellsController" customModule="Wayaj" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5gh-Vo-fXo"/>
+                        <viewControllerLayoutGuide type="bottom" id="orL-MG-l8L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fm9-fj-jT8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="4AA-h3-Bpz" kind="show" identifier="goHome" id="fRt-ig-MRU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouq-5N-DNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1077" y="-107"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -31,7 +52,7 @@
                                 </constraints>
                                 <state key="normal" image="fbLogin"/>
                                 <connections>
-                                    <segue destination="4AA-h3-Bpz" kind="show" id="0lz-k6-KSO"/>
+                                    <segue destination="hgn-rK-7rr" kind="show" id="Fjg-gH-4gZ"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-7m-BDG">
@@ -94,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1239.2" y="-105.69715142428787"/>
+            <point key="canvasLocation" x="-2106" y="-113"/>
         </scene>
         <!--Saved-->
         <scene sceneID="rTZ-9U-jXG">
@@ -109,13 +130,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saveBG" translatesAutoresizingMaskIntoConstraints="NO" id="fll-S3-t4t">
-                                <rect key="frame" x="0.0" y="28" width="414" height="398"/>
+                                <rect key="frame" x="0.0" y="58" width="414" height="398"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="398" id="rUZ-uP-1cx"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All your Saved Hotels will appear here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-8F-xKp">
-                                <rect key="frame" x="20" y="502" width="342.33333333333331" height="44"/>
+                                <rect key="frame" x="0.0" y="502" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aKx-5L-pJ7"/>
                                 </constraints>
@@ -127,11 +148,12 @@
                         <color key="backgroundColor" red="0.17174203609343117" green="0.42236260629164385" blue="0.84712421894073486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fll-S3-t4t" firstAttribute="top" secondItem="8Wt-HS-RIS" secondAttribute="bottom" constant="8" id="A5K-Vc-UZ4"/>
+                            <constraint firstItem="SQK-8F-xKp" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" id="1fd-HV-DAb"/>
+                            <constraint firstItem="fll-S3-t4t" firstAttribute="top" secondItem="8Wt-HS-RIS" secondAttribute="bottom" constant="38" id="BF1-FK-H07"/>
+                            <constraint firstAttribute="trailing" secondItem="SQK-8F-xKp" secondAttribute="trailing" id="D5O-wH-Q1D"/>
                             <constraint firstAttribute="trailing" secondItem="fll-S3-t4t" secondAttribute="trailing" id="Wds-ca-Hbs"/>
                             <constraint firstItem="fll-S3-t4t" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" id="a3U-Ov-6Hh"/>
-                            <constraint firstItem="SQK-8F-xKp" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" constant="20" id="ado-EF-AXU"/>
-                            <constraint firstItem="SQK-8F-xKp" firstAttribute="top" secondItem="fll-S3-t4t" secondAttribute="bottom" constant="76" id="jPG-wh-ysu"/>
+                            <constraint firstItem="SQK-8F-xKp" firstAttribute="top" secondItem="fll-S3-t4t" secondAttribute="bottom" constant="46" id="hZc-Gw-v3v"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
@@ -700,4 +722,5 @@
         <image name="whereSearch" width="1352" height="202"/>
         <image name="whiteHeart" width="39" height="33"/>
     </resources>
+    <color key="tintColor" red="0.37263736130000003" green="0.76434540750000002" blue="0.36863389610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

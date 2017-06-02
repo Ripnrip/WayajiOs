@@ -10,6 +10,13 @@
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		58608F221EDDDFB600A0FDF3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F211EDDDFB600A0FDF3 /* NotificationService.swift */; };
 		58608F261EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */; };
+		58608F601EE0769400A0FDF3 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F591EE0769400A0FDF3 /* ImagePickerController.swift */; };
+		58608F611EE0769400A0FDF3 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5A1EE0769400A0FDF3 /* ImageRow.swift */; };
+		58608F621EE0769400A0FDF3 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */; };
+		58608F631EE0769400A0FDF3 /* WeekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58608F5D1EE0769400A0FDF3 /* WeekDaysCell.xib */; };
+		58608F641EE0769400A0FDF3 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5E1EE0769400A0FDF3 /* CustomCells.swift */; };
+		58608F651EE0769400A0FDF3 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */; };
 		5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5862665D1EC9F1DF006FC7BD /* Images.swift */; };
 		586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */; };
 		58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */; };
@@ -83,6 +90,13 @@
 		58608F231EDDDFB600A0FDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58608F2B1EDDE16600A0FDF3 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wayaj.entitlements; sourceTree = "<group>"; };
+		58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
+		58608F591EE0769400A0FDF3 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomRows/ImageRow/ImagePickerController.swift"; sourceTree = "<absolute>"; };
+		58608F5A1EE0769400A0FDF3 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomRows/ImageRow/ImageRow.swift"; sourceTree = "<absolute>"; };
+		58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FloatLabelTextField.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/Helpers/FloatLabelTextField.swift"; sourceTree = "<absolute>"; };
+		58608F5C1EE0769400A0FDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Example/Base.lproj/WeekDaysCell.xib; sourceTree = "<group>"; };
+		58608F5E1EE0769400A0FDF3 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CustomCells.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomCells.swift"; sourceTree = "<absolute>"; };
+		58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EurekaSectionHeader.xib; path = ../../Desktop/Projects/ESPNW/ESPNW/EurekaSectionHeader.xib; sourceTree = "<group>"; };
 		5862665D1EC9F1DF006FC7BD /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripAdvisorWebViewController.swift; sourceTree = "<group>"; };
 		58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +203,28 @@
 			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
+		58608F2D1EE0746700A0FDF3 /* Questionaire */ = {
+			isa = PBXGroup;
+			children = (
+				58608F581EE075B700A0FDF3 /* Eureka */,
+				58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */,
+			);
+			name = Questionaire;
+			sourceTree = "<group>";
+		};
+		58608F581EE075B700A0FDF3 /* Eureka */ = {
+			isa = PBXGroup;
+			children = (
+				58608F591EE0769400A0FDF3 /* ImagePickerController.swift */,
+				58608F5A1EE0769400A0FDF3 /* ImageRow.swift */,
+				58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */,
+				58608F5D1EE0769400A0FDF3 /* WeekDaysCell.xib */,
+				58608F5E1EE0769400A0FDF3 /* CustomCells.swift */,
+				58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */,
+			);
+			name = Eureka;
+			sourceTree = "<group>";
+		};
 		5862665C1EC9F18F006FC7BD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +268,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				58608F2D1EE0746700A0FDF3 /* Questionaire */,
 				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				8419CD821ECA26CC00A15B1B /* Fonts */,
 				5862665C1EC9F18F006FC7BD /* Constants */,
@@ -488,6 +525,8 @@
 				8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */,
 				588921FC1EB78838005E5606 /* Assets.xcassets in Resources */,
 				8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */,
+				58608F651EE0769400A0FDF3 /* EurekaSectionHeader.xib in Resources */,
+				58608F631EE0769400A0FDF3 /* WeekDaysCell.xib in Resources */,
 				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,8 +735,13 @@
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
+				58608F641EE0769400A0FDF3 /* CustomCells.swift in Sources */,
+				58608F621EE0769400A0FDF3 /* FloatLabelTextField.swift in Sources */,
+				58608F601EE0769400A0FDF3 /* ImagePickerController.swift in Sources */,
+				58608F611EE0769400A0FDF3 /* ImageRow.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
+				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +783,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		58608F5D1EE0769400A0FDF3 /* WeekDaysCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58608F5C1EE0769400A0FDF3 /* Base */,
+			);
+			name = WeekDaysCell.xib;
+			path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example";
+			sourceTree = "<absolute>";
+		};
 		588921F81EB78838005E5606 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

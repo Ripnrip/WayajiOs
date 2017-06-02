@@ -117,8 +117,8 @@ extension ExploreViewController {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //self.performSegue(withIdentifier: "viewOffer", sender: nil)
-        self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
+        self.performSegue(withIdentifier: "viewOffer", sender: nil)
+        //self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
 
         
     }
