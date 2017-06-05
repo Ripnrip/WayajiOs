@@ -39,12 +39,13 @@ extension OfferPageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        let identifier = "cell\(indexPath.section+1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+        return cell!
     }
     
     
