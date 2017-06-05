@@ -12,6 +12,7 @@ import UIKit
 
 
 class OfferPageViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
     var isExpanded = false
     var selectedSection = 0
@@ -32,3 +33,19 @@ class OfferPageViewController: UIViewController {
 
 }
 
+extension OfferPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        return cell
+    }
+    
+    
+}
