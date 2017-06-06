@@ -302,6 +302,9 @@
                                             <constraint firstAttribute="width" constant="337" id="UlI-aq-7SD"/>
                                         </constraints>
                                         <state key="normal" image="whereSearch"/>
+                                        <connections>
+                                            <action selector="whereSearch:" destination="ITX-rB-axw" eventType="touchUpInside" id="q8M-rB-4P5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-jS-RzL">
                                         <rect key="frame" x="19" y="137.66666666666666" width="337" height="49"/>
@@ -310,6 +313,9 @@
                                             <constraint firstAttribute="width" constant="337" id="eJ1-ws-LJP"/>
                                         </constraints>
                                         <state key="normal" image="whenSearch"/>
+                                        <connections>
+                                            <action selector="whenSearch:" destination="ITX-rB-axw" eventType="touchUpInside" id="OYr-7Y-JBr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3i-2F-ZPH">
                                         <rect key="frame" x="19" y="197" width="337" height="49"/>
@@ -318,11 +324,17 @@
                                             <constraint firstAttribute="height" constant="49" id="vDJ-ha-Lor"/>
                                         </constraints>
                                         <state key="normal" image="howManySearch"/>
+                                        <connections>
+                                            <action selector="howManySearch:" destination="ITX-rB-axw" eventType="touchUpInside" id="DvM-77-bcS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01w-Cd-9fU">
                                         <rect key="frame" x="19" y="256.5" width="337" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="keywordSearch"/>
+                                        <connections>
+                                            <action selector="keywordSearch:" destination="ITX-rB-axw" eventType="touchUpInside" id="TAb-eE-23T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IP-0S-sYL">
                                         <rect key="frame" x="19" y="41" width="38" height="29"/>
@@ -518,7 +530,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzB-nn-POy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -1026,7 +1038,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1044,7 +1056,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LmU-cA-vZM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jvb-Ws-vhX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jvb-Ws-vhX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -12,7 +12,8 @@ target 'Wayaj' do
   pod 'paper-onboarding', '~> 2.0.1' 
   pod "AMTooltip"
   pod 'Eureka', '~> 2.0.0-beta.1'
-
+  pod 'LocationPickerViewController'
+  
   target 'WayajTests' do
     inherit! :search_paths
     # Pods for testing

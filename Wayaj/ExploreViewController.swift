@@ -9,6 +9,8 @@
 import UIKit
 import paper_onboarding
 import AMTooltip
+import LocationPickerViewController
+
 
 struct Listing {
     let image:Image
@@ -104,6 +106,33 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         })
 
     }
+    
+    @IBAction func whereSearch(_ sender: Any) {
+        let locationPicker = LocationPicker()
+        locationPicker.pickCompletion = { (pickedLocationItem) in
+            // Do something with the location the user picked.
+        }
+
+
+        locationPicker.addBarButtons()
+        let navBar = UINavigationController(rootViewController: locationPicker)
+        //self.navigationController?.pushViewController(locationPicker, animated: true)
+        self.present(navBar, animated: true, completion: nil)
+    }
+    
+    @IBAction func whenSearch(_ sender: Any) {
+        
+    }
+    
+    @IBAction func howManySearch(_ sender: Any) {
+        
+    }
+    
+    @IBAction func keywordSearch(_ sender: Any) {
+        
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewOffer" {

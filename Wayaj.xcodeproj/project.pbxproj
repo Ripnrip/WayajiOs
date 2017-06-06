@@ -275,12 +275,12 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
+				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
 				58608F661EE1B9F400A0FDF3 /* Resources */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
-				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				8419CD821ECA26CC00A15B1B /* Fonts */,
 				5862665C1EC9F18F006FC7BD /* Constants */,
-				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
 				586BAD9A1EC200D500D792A8 /* Saved */,
 				840767951EBA63B800238327 /* Cells */,
 				840767921EBA598500238327 /* Profile */,
