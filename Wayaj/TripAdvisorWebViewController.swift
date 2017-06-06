@@ -10,11 +10,14 @@ import UIKit
 
 class TripAdvisorWebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
-
+    var url:URL!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.tripadvisor.com/VacationRentalReview-g3135627-d5987900-Magical_Lava_Temple_on_Big_Island_Hawaii-Kalapana_Island_of_Hawaii_Hawaii.html")
-        let urlRequest = URLRequest(url: url!)
+       // let url = URL(string: "https://www.tripadvisor.com/VacationRentalReview-g3135627-d5987900-Magical_Lava_Temple_on_Big_Island_Hawaii-Kalapana_Island_of_Hawaii_Hawaii.html")
+        guard let bookURL = url else {
+          return
+        }
+        let urlRequest = URLRequest(url: bookURL)
         self.webView.loadRequest(urlRequest)
     }
 

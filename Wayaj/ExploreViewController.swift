@@ -17,9 +17,11 @@ struct Listing {
     let location:String
     let stars: Int
     let isFavorited:Bool
+    let URL:URL?
 }
 
 var Listings = [Listing]()
+var selectedListing = Listing(image: #imageLiteral(resourceName: "CayoBeach"), images: nil, name: "", location: "", stars: 4, isFavorited: false, URL: nil)
 
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -53,12 +55,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     func loadListings() {
-        let listing1 = Listing(image: #imageLiteral(resourceName: "innByTheSea"), images: nil, name: "Inn By The Sea", location: "example", stars: 4, isFavorited: false)
-        let listing2 = Listing(image: #imageLiteral(resourceName: "destinationHotel"), images: nil, name: "Destination Hotel", location: "example", stars: 4, isFavorited: false)
-        let listing3 = Listing(image: #imageLiteral(resourceName: "MaunaLani"), images: nil, name: "Mauna Lani", location: "example", stars: 4, isFavorited: false)
-        let listing4 = Listing(image: #imageLiteral(resourceName: "markSpencerHotel"), images: nil, name: "Mark Spencer HHotel", location: "example", stars: 4, isFavorited: false)
-        let listing5 = Listing(image: #imageLiteral(resourceName: "hotelSkylar"), images: nil , name: "Hotel Skylar", location: "example", stars: 4, isFavorited: false)
-        Listings = [listing1,listing2,listing3,listing4,listing5]
+        let listing1 = Listing(image: #imageLiteral(resourceName: "DelMar"), images: nil, name: "L'Auberge Del Mar", location: "Del Mar, CA", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g32286-d76752-Reviews-L_Auberge_Del_Mar-Del_Mar_California.html"))
+        let listing2 = Listing(image: #imageLiteral(resourceName: "Inspira"), images: nil, name: "Inspira Santa Marta Hotel", location: "Portugal", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g189158-d1580631-Reviews-Inspira_Santa_Marta_Hotel-Lisbon_Lisbon_District_Central_Portugal.html"))
+        let listing3 = Listing(image: #imageLiteral(resourceName: "MaunaLani"), images: nil, name: "Mauna Lani", location: "Waimea, HI", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g2312116-d111599-Reviews-Mauna_Lani_Bay_Hotel_Bungalows-Puako_Kohala_Coast_Island_of_Hawaii_Hawaii.html"))
+        let listing4 = Listing(image: #imageLiteral(resourceName: "markSpencerHotel"), images: nil, name: "Mark Spencer Hotel", location: "Portland, OR", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g52024-d96156-Reviews-Mark_Spencer_Hotel-Portland_Oregon.html"))
+        let listing5 = Listing(image: #imageLiteral(resourceName: "hotelSkylar"), images: nil , name: "Hotel Skylar", location: "Fingerlakes, NY", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g48713-d2138174-Reviews-Hotel_Skyler-Syracuse_Finger_Lakes_New_York.html"))
+        let listing6 = Listing(image: #imageLiteral(resourceName: "CayoBeach"), images: nil, name: "Cayo Arena Beach Eco Hotel", location: "Dominican Republic", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g4156412-d7335762-Reviews-Cayo_Arena_Beach_EcoHotel-Punta_Rucia_Puerto_Plata_Province_Dominican_Republic.html"))
+        let listing7 = Listing(image: #imageLiteral(resourceName: "CasaSol"), images: nil, name: "Casa Sol Bed and Breakfast", location: "Puerto Rico", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g147320-d5964475-Reviews-Casa_Sol_Bed_and_Breakfast-San_Juan_Puerto_Rico.html"))
+        let listing8 = Listing(image: #imageLiteral(resourceName: "Rainforest"), images: nil, name: "Rainforest Inn Bed & Breakfast", location: "Puerto Rico", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g147324-d503287-Reviews-Rainforest_Inn-El_Yunque_National_Forest_Puerto_Rico.html"))
+        let listing9 = Listing(image: #imageLiteral(resourceName: "innByTheSea"), images: nil, name: "Inn By The Sea", location: "Cape Elizabeth, ME", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g40554-d198688-Reviews-Inn_by_the_Sea-Cape_Elizabeth_Maine.html"))
+
+        Listings = [listing1,listing2,listing3,listing4,listing5,listing6,listing7,listing8,listing9]
     }
 
     @IBAction func expandSearchFilter(_ sender: Any) {
@@ -98,6 +105,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewOffer" {
+            if let controller = segue.destination as? OfferPageViewController {
+                controller.currentListing = selectedListing
+            }
+        }
+    }
 }
 
 extension ExploreViewController {
@@ -105,11 +119,13 @@ extension ExploreViewController {
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return Listings.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OfferTableViewCell
         cell.offerImage?.image = Listings[indexPath.section].image
+        cell.nameLabel.text = Listings[indexPath.section].name
+        cell.locationLabel.text = Listings[indexPath.section].location
         
         return cell//UITableViewCell()
     }
@@ -118,8 +134,14 @@ extension ExploreViewController {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: "viewOffer", sender: nil)
+        selectedListing = Listings[indexPath.section]
+        //self.performSegue(withIdentifier: "viewOffer", sender: nil)
         //self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "offerPageDetail") as! OfferPageViewController
+        myVC.currentListing = selectedListing
+        myVC.bookURL = selectedListing.URL!
+        myVC.image = selectedListing.image
+        self.navigationController?.pushViewController(myVC, animated: true)
 
         
     }
