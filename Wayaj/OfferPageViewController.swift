@@ -18,7 +18,7 @@ class OfferPageViewController: UIViewController {
     var isExpanded = false
     var selectedSection = 0
     var currentListing:Listing!
-    
+    var descriptionText:String!
 
     override func viewWillAppear(_ animated: Bool) {
         self.imageView.image = image
@@ -29,9 +29,15 @@ class OfferPageViewController: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
+    override func viewDidLayoutSubviews() {
+        
+        self.descriptionTextView.setContentOffset(.zero, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        descriptionTextView.text = descriptionText
     }
 
     @IBAction func book(_ sender: Any) {
