@@ -488,6 +488,7 @@ class CustomCellsController : FormViewController {
             $0.tag = "Submit"
             }
             <<< ButtonRow("Get Started") { (row: ButtonRow) -> Void in
+                UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
                 row.title = row.tag
                 row.presentationMode = .segueName(segueName: "goHome", onDismiss: nil)
     

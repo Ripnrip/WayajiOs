@@ -54,7 +54,7 @@
                                 </constraints>
                                 <state key="normal" image="fbLogin"/>
                                 <connections>
-                                    <segue destination="LmU-cA-vZM" kind="showDetail" action="showViewController:sender:" id="Fjg-gH-4gZ"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bXQ-Th-GuC"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-7m-BDG">
@@ -63,8 +63,8 @@
                                     <constraint firstAttribute="height" constant="188" id="JyP-eT-L4G"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-lL-fnS" customClass="PaperOnboarding" customModule="Current - Wayaj">
-                                <rect key="frame" x="0.0" y="74" width="375" height="593"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQV-lL-fnS" customClass="PaperOnboarding" customModule="Current - Wayaj">
+                                <rect key="frame" x="-389" y="105" width="375" height="593"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoV-cD-aiz" customClass="SpringButton" customModule="Spring">
@@ -113,6 +113,8 @@
                     <connections>
                         <outlet property="onboarding" destination="sQV-lL-fnS" id="FdM-TY-WPJ"/>
                         <outlet property="skipButton" destination="ZoV-cD-aiz" id="NEu-Y7-0mj"/>
+                        <segue destination="LmU-cA-vZM" kind="show" identifier="goToQuestionaire" id="HxB-ux-a0p"/>
+                        <segue destination="4AA-h3-Bpz" kind="show" identifier="goHome" id="Ozf-dD-HmK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1095,5 +1097,8 @@
         <image name="whereSearch" width="1352" height="202"/>
         <image name="whiteHeart" width="39" height="33"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ozf-dD-HmK"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37263736130000003" green="0.76434540750000002" blue="0.36863389610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

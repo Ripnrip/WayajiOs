@@ -46,13 +46,25 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.whereButton.isHidden = true
         loadListings()
         
+        
         //tips
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            AMTooltipView(message: "Start By Searching for a Destination",
-                          focusView: self.searchView, //pass view you want show tooltip over it
-                target: self)
+        let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial3"))
+        if shouldShowQuestionaire == false {
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                AMTooltipView(message: "Start By Searching for a Destination",
+                              focusView: self.searchView, //pass view you want show tooltip over it
+                    target: self)
+                UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial3")
+            }
+            
+        }else{
+            
         }
+        
+
+        
+        
 
     }
 
@@ -81,13 +93,23 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
         })
+        
+        
         //first time user
-        let deadlineTime = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            AMTooltipView(message: "Search by any criteria, or any keywords",
-                          focusFrame: CGRect(x:20, y:50, width:self.keywordButton.frame.width, height:270),
-                          target: self.tabBarController)
+        //tips
+        let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial4"))
+        if shouldShowQuestionaire == false {
+            let deadlineTime = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                AMTooltipView(message: "Search by any criteria, or any keywords",
+                              focusFrame: CGRect(x:20, y:50, width:self.keywordButton.frame.width, height:270),
+                              target: self.tabBarController)
+                UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial4")
+            }
+        }else{
+            
         }
+
         
 
         

@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     var onboardingView = PaperOnboarding()
     
     override func viewWillAppear(_ animated: Bool) {
+        onboarding.isHidden = true
+        let shouldShowTutorial:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial1"))
+        if ( shouldShowTutorial == false ) {
         self.navigationController?.isNavigationBarHidden = true
         self.skipButton.isHidden = true
         onboardingView = PaperOnboarding(itemsCount: 3)
@@ -38,6 +41,7 @@ class ViewController: UIViewController {
         }
         skipButton.frame = CGRect(x: 251, y: self.view.frame.size.height-70, width: 98, height: 30)
         onboardingView.addSubview(skipButton)
+        }
     }
     
     override func viewDidLoad() {
@@ -60,9 +64,32 @@ class ViewController: UIViewController {
                                                 constant: 0)
             view.removeConstraint(constraint)
         }
+        UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial1")
+        print("\(UserDefaults.standard.value(forKey: "userViewedInitialTutorial1")!)")
+        
     }
 
+    @IBAction func signIn(_ sender: Any) {
+        let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
+        if shouldShowQuestionaire == false {
+            performSegue(withIdentifier: "goToQuestionaire", sender: self)
+
+        }else{
+            performSegue(withIdentifier: "goHome", sender: self)
+        }
+        
+    }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ 
+        if segue.identifier == "goHome" {
+            
+            
+        } else if segue.identifier == "goToQuestionaire" {
+            
+        }
+    }
 
 
 }
