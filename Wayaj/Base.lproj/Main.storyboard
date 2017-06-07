@@ -139,7 +139,7 @@
                                     <constraint firstAttribute="height" constant="398" id="rUZ-uP-1cx"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All your Saved Hotels will appear here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-8F-xKp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All your saved hotels will appear here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-8F-xKp">
                                 <rect key="frame" x="0.0" y="502" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aKx-5L-pJ7"/>
@@ -308,7 +308,7 @@
                                             <action selector="whereSearch:" destination="ITX-rB-axw" eventType="touchUpInside" id="q8M-rB-4P5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-jS-RzL">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n2L-jS-RzL">
                                         <rect key="frame" x="19" y="137.66666666666666" width="337" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="49" id="0Cq-p7-jMB"/>
@@ -506,10 +506,12 @@
                     <navigationItem key="navigationItem" id="n25-Ip-z2n"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="howManyButton" destination="h3i-2F-ZPH" id="n4V-fZ-moy"/>
                         <outlet property="keywordButton" destination="01w-Cd-9fU" id="X0D-4g-wnY"/>
                         <outlet property="searchView" destination="Sab-JZ-X9f" id="UzV-un-npT"/>
                         <outlet property="tableView" destination="ibc-hE-z7v" id="BZt-dC-Rcv"/>
                         <outlet property="upButton" destination="7IP-0S-sYL" id="XC3-aj-WML"/>
+                        <outlet property="whenButton" destination="n2L-jS-RzL" id="2mu-fy-cfM"/>
                         <outlet property="whereButton" destination="8ga-SQ-uTs" id="Lxv-dR-J0B"/>
                         <segue destination="cXP-dR-Luk" kind="show" identifier="viewOffer" id="8yM-hf-tcE"/>
                         <segue destination="BMj-en-RRJ" kind="show" identifier="viewTripAdvisorListing" id="UoV-SA-Xkb"/>
@@ -1040,7 +1042,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1058,7 +1060,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LmU-cA-vZM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jvb-Ws-vhX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jvb-Ws-vhX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

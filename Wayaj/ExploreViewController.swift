@@ -26,6 +26,7 @@ struct Listing {
 var Listings = [Listing]()
 var selectedListing = Listing(image: #imageLiteral(resourceName: "CayoBeach"), images: nil, name: "", location: "", stars: 4, isFavorited: false, URL: nil, description: "")
 
+
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 
@@ -34,7 +35,27 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var whereButton: UIButton!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var keywordButton: UIButton!
+    @IBOutlet weak var whenButton: UIButton!
+    @IBOutlet weak var howManyButton: UIButton!
 
+    lazy var datePicker: AirbnbDatePicker = {
+        let btn = AirbnbDatePicker()
+        btn.frame = CGRect(x: 19, y: 137.67, width: 337, height: 49)
+        //btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.delegate = self
+        return btn
+        
+    }()
+    
+    lazy var occupantFilter: AirbnbOccupantFilter = {
+        let btn = AirbnbOccupantFilter()
+        btn.frame = CGRect(x: 25, y: 197, width: 300, height: 49)
+        //btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.delegate = self
+        return btn
+    }()
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }
@@ -45,9 +66,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
         self.upButton.isHidden = true
         self.whereButton.isHidden = true
+        datePicker.isHidden = true
+        occupantFilter.isHidden = true
         loadListings()
         
-        
+        datePicker.frame = whenButton.frame
+        //occupantFilter.frame = howManyButton.frame
+        view.addSubview(datePicker)
+        view.addSubview(occupantFilter)
         //tips
         let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial3"))
         if shouldShowQuestionaire == false {
@@ -94,6 +120,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.blurBg.hidden = true
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
+            self.datePicker.isHidden = false
+            self.occupantFilter.isHidden = false
+
+
         })
         
         
@@ -119,6 +149,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBAction func retractSearchFilter(_ sender: Any) {
         //height is 98
+        self.datePicker.isHidden = true
+        self.occupantFilter.isHidden = true
+
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
             self.tableView.frame = CGRect(x: 0, y: 98, width: self.view.frame.width, height: self.view.frame.size.height)
@@ -127,6 +160,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.blurBg.hidden = true
             self.upButton.isHidden = true
             self.whereButton.isHidden = true
+
+
         })
 
     }

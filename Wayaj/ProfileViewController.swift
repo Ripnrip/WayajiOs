@@ -12,6 +12,17 @@ class ProfileViewController: UIViewController {
 
    // @IBOutlet weak var tableView: UITableView!
     @IBOutlet var scrollView: UIScrollView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //alert user to check back later and swift root vc
+        let alert = UIAlertController(title: "In Progress", message: "Check back later for this feature", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            // perhaps use action.title here
+            self.tabBarController?.selectedIndex = 0
+
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1029)

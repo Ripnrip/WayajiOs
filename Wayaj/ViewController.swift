@@ -72,7 +72,9 @@ class ViewController: UIViewController {
     @IBAction func signIn(_ sender: Any) {
         let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
         if shouldShowQuestionaire == false {
-            performSegue(withIdentifier: "goToQuestionaire", sender: self)
+            //performSegue(withIdentifier: "goToQuestionaire", sender: self) TEMP stopping becase userData not setup
+            performSegue(withIdentifier: "goHome", sender: self)
+
 
         }else{
             performSegue(withIdentifier: "goHome", sender: self)
