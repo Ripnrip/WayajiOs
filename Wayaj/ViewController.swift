@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
+        btn.isHidden = true
         onboarding.isHidden = true
         let shouldShowTutorial:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial1"))
         if ( shouldShowTutorial == false ) {
@@ -54,15 +55,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          //Set Facebook login permission scopes before the user logs in. Additional permissions can added here if desired.
-        AWSFacebookSignInProvider.sharedInstance().setPermissions(["public_profile"])
-        let facebookButton = AWSFacebookSignInButton(frame: btn.frame)
+        AWSFacebookSignInProvider.sharedInstance().setPermissions(["public_profile", "email", "user_friends"])
+        let facebookButton = AWSFacebookSignInButton(frame: CGRect(x: 30, y: self.view.frame.height-100, width: 300, height: 50))
         // Set button style large to show the text "Continue with Facebook"
         // use the label property named "providerText" to format the text or change the content
         facebookButton.buttonStyle = .large
         
         // Set the button sign in delegate to handle feedback from sign in attempt
         facebookButton.delegate = self
-        
+        self.view.addSubview(facebookButton)
     }
     
     
@@ -151,8 +152,17 @@ extension ViewController: AWSSignInDelegate {
                  result: Any?,
                  authState: AWSIdentityManagerAuthState,
                  error: Error?) {
+        
+        if error != nil {
+            print("Error with login, returning")
+            return
+        }
+        
+        
         if let result = result {
             // handle success here
+            print("the fb login result is \(result) and the auth state is \(authState.rawValue) and the error is \(String(describing: error))")
+            
             //store user info (user_settings)
             //get fb pre-filled data to go to questionaire, if the user hasn't already completed
             performSegue(withIdentifier: "goHome", sender: self)

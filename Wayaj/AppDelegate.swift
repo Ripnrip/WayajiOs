@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import OneSignal
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -36,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sync hashed email if you have a login system or collect it.
         //   Will be used to reach the user at the most optimal time of day.
         // OneSignal.syncHashedEmail(userEmail)                 application launch.
-        return true
+        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -55,11 +56,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        AWSMobileClient.sharedInstance.applicationDidBecomeActive(application)
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return AWSMobileClient.sharedInstance.withApplication(application, withURL: url, withSourceApplication: sourceApplication, withAnnotation: annotation)
+    }
+    
     
     // MARK: - Core Data stack
 //    lazy var persistentContainer: NSPersistentContainer = {

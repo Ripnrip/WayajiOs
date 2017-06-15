@@ -53,6 +53,7 @@
 		58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD21EF2C09B0049E477 /* AWSMobileHubHelper.framework */; };
 		58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD61EF2C15D0049E477 /* libz.tbd */; };
 		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
+		58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */; };
 		5C7DE884B8A2F9CE0B5F1411 /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
@@ -164,6 +165,7 @@
 		58910CD21EF2C09B0049E477 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
 		58910CD61EF2C15D0049E477 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		71A8CC2AC6AB9EC49FAF79A3 /* Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj-OneSignalNotificationServiceExtension/Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		5817D7AF1EF18A2400ACA9E9 /* AWS */ = {
 			isa = PBXGroup;
 			children = (
+				58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */,
 				5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */,
 				5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */,
 			);
@@ -842,6 +845,7 @@
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
+				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */,
