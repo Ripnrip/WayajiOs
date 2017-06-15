@@ -9,11 +9,18 @@
 import UIKit
 import paper_onboarding
 import Spring
+import AWSCore
+import AWSCognito
+import AWSMobileHubHelper
+import AWSFacebookSignIn
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var onboarding: PaperOnboarding!
     @IBOutlet var skipButton: SpringButton!
+    
     var onboardingView = PaperOnboarding()
+    @IBOutlet weak var btn: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         onboarding.isHidden = true
@@ -46,7 +53,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+         //Set Facebook login permission scopes before the user logs in. Additional permissions can added here if desired.
+        AWSFacebookSignInProvider.sharedInstance().setPermissions(["public_profile"])
+        let facebookButton = AWSFacebookSignInButton(frame: btn.frame)
+        // Set button style large to show the text "Continue with Facebook"
+        // use the label property named "providerText" to format the text or change the content
+        facebookButton.buttonStyle = .large
+        
+        // Set the button sign in delegate to handle feedback from sign in attempt
+        facebookButton.delegate = self
+        
     }
     
     
@@ -70,6 +86,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
+        
+        //fb login and make the cognito user-settings thingy
+        
+        
+        
+        
+        //decides to go to either questionaire or home
         let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
         if shouldShowQuestionaire == false {
             //performSegue(withIdentifier: "goToQuestionaire", sender: self) TEMP stopping becase userData not setup
@@ -81,6 +104,8 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,6 +143,28 @@ extension ViewController: PaperOnboardingDelegate {
     }
 }
 
+
+// MARK: AWSFacebookSignIn
+extension ViewController: AWSSignInDelegate {
+    
+    func onLogin(signInProvider: AWSSignInProvider,
+                 result: Any?,
+                 authState: AWSIdentityManagerAuthState,
+                 error: Error?) {
+        if let result = result {
+            // handle success here
+            //store user info (user_settings)
+            //get fb pre-filled data to go to questionaire, if the user hasn't already completed
+            performSegue(withIdentifier: "goHome", sender: self)
+        } else {
+            // handle error here
+        }
+    }
+}
+
+
+
+
 // MARK: PaperOnboardingDataSource
 
 extension ViewController: PaperOnboardingDataSource {
@@ -153,17 +200,7 @@ extension ViewController: PaperOnboardingDataSource {
         }
         
         return item1
-        //        return [
-        //            ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00), descriptionFont, titleFont, descriptionFont),
-        //            ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00), descriptionFont, titleFont, descriptionFont),
-        //            ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00), descriptionFont, titleFont, descriptionFont)
-        //            ][index]
-        ////        return [
-        
-        //            (Asset.hotels.image, "Hotels", "All hotels and hostels are sorted by hospitality rating", Asset.key.image, UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00), UIColor.white, UIColor.white, titleFont,descriptionFont),
-        //            (Asset.banks.image, "Banks", "We carefully verify all banks before add them into the app", Asset.wallet.image, UIColor(red:0.40, green:0.69, blue:0.71, alpha:1.00), UIColor.white, UIColor.white, titleFont,descriptionFont),
-        //            (Asset.stores.image, "Stores", "All local stores are categorized for your convenience", Asset.shoppingCart.image, UIColor(red:0.61, green:0.56, blue:0.74, alpha:1.00), UIColor.white, UIColor.white, titleFont,descriptionFont)
-        //            ][index]
+
     }
     
     func onboardingItemsCount() -> Int {
@@ -179,3 +216,4 @@ extension ViewController: PaperOnboardingDataSource {
     
     
 }
+

@@ -13,7 +13,16 @@ target 'Wayaj' do
   pod "AMTooltip"
   pod 'Eureka', '~> 2.0.0-beta.1'
   pod 'LocationPickerViewController'
-  
+  pod 'AWSCore'
+  pod 'AWSCognito'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSDynamoDB'
+  pod 'AWSS3'
+  pod 'AWSLambda'
+  pod 'AWSSNS'
+
+
+
   target 'WayajTests' do
     inherit! :search_paths
     # Pods for testing

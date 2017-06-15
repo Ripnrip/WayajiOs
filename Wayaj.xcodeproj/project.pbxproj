@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
+		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
+		5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */; };
+		5817D7BA1EF18C4E00ACA9E9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5817D7B81EF18C4E00ACA9E9 /* FBSDKCoreKit.framework */; };
+		5817D7BB1EF18C4E00ACA9E9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5817D7B91EF18C4E00ACA9E9 /* FBSDKLoginKit.framework */; };
+		5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7BC1EF18CDE00ACA9E9 /* ImagePickerController.swift */; };
+		5817D7BF1EF18CDE00ACA9E9 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7BD1EF18CDE00ACA9E9 /* ImageRow.swift */; };
+		5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */; };
+		5817D7C31EF18D1000ACA9E9 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */; };
+		5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */; };
 		58608F221EDDDFB600A0FDF3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F211EDDDFB600A0FDF3 /* NotificationService.swift */; };
 		58608F261EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */; };
-		58608F601EE0769400A0FDF3 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F591EE0769400A0FDF3 /* ImagePickerController.swift */; };
-		58608F611EE0769400A0FDF3 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5A1EE0769400A0FDF3 /* ImageRow.swift */; };
-		58608F621EE0769400A0FDF3 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */; };
-		58608F631EE0769400A0FDF3 /* WeekDaysCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58608F5D1EE0769400A0FDF3 /* WeekDaysCell.xib */; };
-		58608F641EE0769400A0FDF3 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F5E1EE0769400A0FDF3 /* CustomCells.swift */; };
-		58608F651EE0769400A0FDF3 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */; };
 		58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */; };
 		58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */; };
 		58608F901EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F891EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift */; };
@@ -45,6 +48,11 @@
 		588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 588921FD1EB78838005E5606 /* LaunchScreen.storyboard */; };
 		5889220A1EB78838005E5606 /* WayajTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922091EB78838005E5606 /* WayajTests.swift */; };
 		588922151EB78838005E5606 /* WayajUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588922141EB78838005E5606 /* WayajUITests.swift */; };
+		58910CD31EF2C09B0049E477 /* AWSFacebookSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD01EF2C09B0049E477 /* AWSFacebookSignIn.framework */; };
+		58910CD41EF2C09B0049E477 /* AWSFacebookSignInResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58910CD11EF2C09B0049E477 /* AWSFacebookSignInResources.bundle */; };
+		58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD21EF2C09B0049E477 /* AWSMobileHubHelper.framework */; };
+		58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD61EF2C15D0049E477 /* libz.tbd */; };
+		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
 		5C7DE884B8A2F9CE0B5F1411 /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
@@ -101,18 +109,22 @@
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
 		34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.debug.xcconfig"; sourceTree = "<group>"; };
+		5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookIdentityProfile.swift; sourceTree = "<group>"; };
+		5817D7B81EF18C4E00ACA9E9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5817D7B91EF18C4E00ACA9E9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5817D7BC1EF18CDE00ACA9E9 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		5817D7BD1EF18CDE00ACA9E9 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
+		5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
+		5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EurekaSectionHeader.xib; sourceTree = "<group>"; };
 		58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		58608F211EDDDFB600A0FDF3 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		58608F231EDDDFB600A0FDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58608F2B1EDDE16600A0FDF3 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wayaj.entitlements; sourceTree = "<group>"; };
 		58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
-		58608F591EE0769400A0FDF3 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomRows/ImageRow/ImagePickerController.swift"; sourceTree = "<absolute>"; };
-		58608F5A1EE0769400A0FDF3 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomRows/ImageRow/ImageRow.swift"; sourceTree = "<absolute>"; };
-		58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = FloatLabelTextField.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/Helpers/FloatLabelTextField.swift"; sourceTree = "<absolute>"; };
 		58608F5C1EE0769400A0FDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Example/Base.lproj/WeekDaysCell.xib; sourceTree = "<group>"; };
-		58608F5E1EE0769400A0FDF3 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = CustomCells.swift; path = "/Users/singhg/Desktop/Projects/ESPNW/ESPNW/../../../../Downloads/Eureka-master/Example/Example/CustomCells.swift"; sourceTree = "<absolute>"; };
-		58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EurekaSectionHeader.xib; path = ../../Desktop/Projects/ESPNW/ESPNW/EurekaSectionHeader.xib; sourceTree = "<group>"; };
 		58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePicker.swift; sourceTree = "<group>"; };
 		58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerCell.swift; sourceTree = "<group>"; };
 		58608F891EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerFlowLayout.swift; sourceTree = "<group>"; };
@@ -147,6 +159,11 @@
 		588922101EB78838005E5606 /* WayajUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayajUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		588922141EB78838005E5606 /* WayajUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayajUITests.swift; sourceTree = "<group>"; };
 		588922161EB78838005E5606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58910CD01EF2C09B0049E477 /* AWSFacebookSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSFacebookSignIn.framework; sourceTree = "<group>"; };
+		58910CD11EF2C09B0049E477 /* AWSFacebookSignInResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AWSFacebookSignInResources.bundle; sourceTree = "<group>"; };
+		58910CD21EF2C09B0049E477 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
+		58910CD61EF2C15D0049E477 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		71A8CC2AC6AB9EC49FAF79A3 /* Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj-OneSignalNotificationServiceExtension/Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +193,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */,
+				58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */,
+				58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */,
+				58910CD31EF2C09B0049E477 /* AWSFacebookSignIn.framework in Frameworks */,
+				5817D7BA1EF18C4E00ACA9E9 /* FBSDKCoreKit.framework in Frameworks */,
+				5817D7BB1EF18C4E00ACA9E9 /* FBSDKLoginKit.framework in Frameworks */,
 				D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,12 +240,28 @@
 		4D1BDFF88D1AB0F001C889BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58910CD81EF2C1700049E477 /* libsqlite3.tbd */,
+				58910CD61EF2C15D0049E477 /* libz.tbd */,
+				58910CD01EF2C09B0049E477 /* AWSFacebookSignIn.framework */,
+				58910CD11EF2C09B0049E477 /* AWSFacebookSignInResources.bundle */,
+				58910CD21EF2C09B0049E477 /* AWSMobileHubHelper.framework */,
+				5817D7B81EF18C4E00ACA9E9 /* FBSDKCoreKit.framework */,
+				5817D7B91EF18C4E00ACA9E9 /* FBSDKLoginKit.framework */,
 				C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */,
 				F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */,
 				1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */,
 				F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5817D7AF1EF18A2400ACA9E9 /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */,
+				5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */,
+			);
+			name = AWS;
 			sourceTree = "<group>";
 		};
 		58608F201EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */ = {
@@ -247,12 +286,12 @@
 		58608F581EE075B700A0FDF3 /* Eureka */ = {
 			isa = PBXGroup;
 			children = (
-				58608F591EE0769400A0FDF3 /* ImagePickerController.swift */,
-				58608F5A1EE0769400A0FDF3 /* ImageRow.swift */,
-				58608F5B1EE0769400A0FDF3 /* FloatLabelTextField.swift */,
+				5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */,
+				5817D7BC1EF18CDE00ACA9E9 /* ImagePickerController.swift */,
+				5817D7BD1EF18CDE00ACA9E9 /* ImageRow.swift */,
 				58608F5D1EE0769400A0FDF3 /* WeekDaysCell.xib */,
-				58608F5E1EE0769400A0FDF3 /* CustomCells.swift */,
-				58608F5F1EE0769400A0FDF3 /* EurekaSectionHeader.xib */,
+				5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */,
+				5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */,
 			);
 			name = Eureka;
 			sourceTree = "<group>";
@@ -260,6 +299,7 @@
 		58608F661EE1B9F400A0FDF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8419CD821ECA26CC00A15B1B /* Fonts */,
 				58608F861EE86D9F00A0FDF3 /* AirbnbTools */,
 			);
 			name = Resources;
@@ -333,15 +373,15 @@
 			children = (
 				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
-				58608F661EE1B9F400A0FDF3 /* Resources */,
+				5817D7AF1EF18A2400ACA9E9 /* AWS */,
+				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
-				8419CD821ECA26CC00A15B1B /* Fonts */,
 				5862665C1EC9F18F006FC7BD /* Constants */,
 				586BAD9A1EC200D500D792A8 /* Saved */,
 				840767951EBA63B800238327 /* Cells */,
 				840767921EBA598500238327 /* Profile */,
 				840767911EBA597500238327 /* Explore */,
-				840767901EBA596D00238327 /* Login */,
+				58608F661EE1B9F400A0FDF3 /* Resources */,
 				588921F41EB78838005E5606 /* AppDelegate.swift */,
 				588921F61EB78838005E5606 /* ViewController.swift */,
 				588921F81EB78838005E5606 /* Main.storyboard */,
@@ -589,9 +629,9 @@
 				8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */,
 				588921FC1EB78838005E5606 /* Assets.xcassets in Resources */,
 				8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */,
-				58608F651EE0769400A0FDF3 /* EurekaSectionHeader.xib in Resources */,
-				58608F631EE0769400A0FDF3 /* WeekDaysCell.xib in Resources */,
+				5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */,
 				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
+				58910CD41EF2C09B0049E477 /* AWSFacebookSignInResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,27 +841,29 @@
 				58608F971EE86DC800A0FDF3 /* Theme.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
+				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
-				58608F641EE0769400A0FDF3 /* CustomCells.swift in Sources */,
 				58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */,
 				58608FAA1EE875D100A0FDF3 /* UIImage.swift in Sources */,
+				5817D7BF1EF18CDE00ACA9E9 /* ImageRow.swift in Sources */,
 				58608F901EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift in Sources */,
-				58608F621EE0769400A0FDF3 /* FloatLabelTextField.swift in Sources */,
 				58608F9C1EE86DCF00A0FDF3 /* Date.swift in Sources */,
 				58608F921EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift in Sources */,
 				58608F911EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift in Sources */,
-				58608F601EE0769400A0FDF3 /* ImagePickerController.swift in Sources */,
-				58608F611EE0769400A0FDF3 /* ImageRow.swift in Sources */,
+				5817D7C31EF18D1000ACA9E9 /* CustomCells.swift in Sources */,
 				58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */,
+				5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */,
 				58608F931EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
 				58608F9B1EE86DCF00A0FDF3 /* UIColor.swift in Sources */,
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
+				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,
 				58608FA01EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift in Sources */,
 				58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */,
+				5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */,
 				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1022,6 +1064,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wayaj/Wayaj.entitlements;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Wayaj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1039,6 +1085,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Wayaj/Wayaj.entitlements;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Wayaj/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
