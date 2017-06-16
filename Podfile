@@ -20,6 +20,8 @@ target 'Wayaj' do
   pod 'AWSS3'
   pod 'AWSLambda'
   pod 'AWSSNS'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 
 
 
@@ -33,9 +35,9 @@ target 'Wayaj' do
     # Pods for testing
   end
   
-  target 'OneSignalNotificationServiceExtension' do
-      pod 'OneSignal', '>= 2.5.2', '< 3.0'
-  end
+  # target 'OneSignalNotificationServiceExtension' do
+  #       pod 'OneSignal', '>= 2.5.2', '< 3.0'
+  #end
   
 
 end

@@ -13,7 +13,8 @@ import AWSCore
 import AWSCognito
 import AWSMobileHubHelper
 import AWSFacebookSignIn
-
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var onboarding: PaperOnboarding!
@@ -161,15 +162,39 @@ extension ViewController: AWSSignInDelegate {
         
         if let result = result {
             // handle success here
-            print("the fb login result is \(result) and the auth state is \(authState.rawValue) and the error is \(String(describing: error))")
             
+            print("the fb login result is \(result) and the auth state is \(authState.rawValue) and the error is \(String(describing: error)) and the loaded data from FB is \(FacebookIdentityProfile.sharedInstance().userName) and the other info  is \(FacebookIdentityProfile.sharedInstance().getAttributeForKey("email"))")
+            let syncClient: AWSCognito = AWSCognito.default()
+            let userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
+                //userSettings.se
+            getFBUserInfo()
             //store user info (user_settings)
+            
+            
             //get fb pre-filled data to go to questionaire, if the user hasn't already completed
             performSegue(withIdentifier: "goHome", sender: self)
         } else {
             // handle error here
         }
     }
+    
+    func getFBUserInfo() {
+        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"])
+        request?.start(completionHandler: { (connection, object, error) in
+            if error != nil {
+                print("there was some error with getting the persons fb data \(String(describing: error))")
+                return
+            }
+            print("all the data from this bogus thingy is \(object)")
+            
+
+    
+            
+            
+        })
+
+    }
+    
 }
 
 

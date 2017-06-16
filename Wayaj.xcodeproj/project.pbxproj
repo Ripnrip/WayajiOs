@@ -17,8 +17,6 @@
 		5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */; };
 		5817D7C31EF18D1000ACA9E9 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */; };
 		5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */; };
-		58608F221EDDDFB600A0FDF3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F211EDDDFB600A0FDF3 /* NotificationService.swift */; };
-		58608F261EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */; };
 		58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */; };
 		58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */; };
@@ -54,7 +52,6 @@
 		58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD61EF2C15D0049E477 /* libz.tbd */; };
 		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
 		58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */; };
-		5C7DE884B8A2F9CE0B5F1411 /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
 		8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */; };
@@ -67,13 +64,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		58608F241EDDDFB600A0FDF3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 588921E91EB78837005E5606 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58608F1E1EDDDFB600A0FDF3;
-			remoteInfo = OneSignalNotificationServiceExtension;
-		};
 		588922061EB78838005E5606 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 588921E91EB78837005E5606 /* Project object */;
@@ -97,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				58608F261EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,10 +108,6 @@
 		5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EurekaSectionHeader.xib; sourceTree = "<group>"; };
-		58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		58608F211EDDDFB600A0FDF3 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		58608F231EDDDFB600A0FDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58608F2B1EDDE16600A0FDF3 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wayaj.entitlements; sourceTree = "<group>"; };
 		58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
 		58608F5C1EE0769400A0FDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Example/Base.lproj/WeekDaysCell.xib; sourceTree = "<group>"; };
@@ -167,7 +152,6 @@
 		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
-		71A8CC2AC6AB9EC49FAF79A3 /* Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj-OneSignalNotificationServiceExtension/Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
 		8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -177,20 +161,11 @@
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F128A1DD75B756A540CA9020 /* Pods-Wayaj-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj-OneSignalNotificationServiceExtension/Pods-Wayaj-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		58608F1C1EDDDFB600A0FDF3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5C7DE884B8A2F9CE0B5F1411 /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		588921EE1EB78837005E5606 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,8 +208,6 @@
 				338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */,
 				F31F31DEE0A422383AD2EB6F /* Pods-WayajUITests.debug.xcconfig */,
 				0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */,
-				F128A1DD75B756A540CA9020 /* Pods-Wayaj-OneSignalNotificationServiceExtension.debug.xcconfig */,
-				71A8CC2AC6AB9EC49FAF79A3 /* Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -265,16 +238,6 @@
 				5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */,
 			);
 			name = AWS;
-			sourceTree = "<group>";
-		};
-		58608F201EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXGroup;
-			children = (
-				58608F2B1EDDE16600A0FDF3 /* OneSignalNotificationServiceExtension.entitlements */,
-				58608F211EDDDFB600A0FDF3 /* NotificationService.swift */,
-				58608F231EDDDFB600A0FDF3 /* Info.plist */,
-			);
-			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		58608F2D1EE0746700A0FDF3 /* Questionaire */ = {
@@ -353,7 +316,6 @@
 				588921F31EB78838005E5606 /* Wayaj */,
 				588922081EB78838005E5606 /* WayajTests */,
 				588922131EB78838005E5606 /* WayajUITests */,
-				58608F201EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */,
 				588921F21EB78838005E5606 /* Products */,
 				03CA45065C1539821AED6927 /* Pods */,
 				4D1BDFF88D1AB0F001C889BD /* Frameworks */,
@@ -366,7 +328,6 @@
 				588921F11EB78838005E5606 /* Wayaj.app */,
 				588922051EB78838005E5606 /* WayajTests.xctest */,
 				588922101EB78838005E5606 /* WayajUITests.xctest */,
-				58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -460,25 +421,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58608F1E1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58608F291EDDDFB600A0FDF3 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
-			buildPhases = (
-				390D1A6D5BF25D41F0AA2E66 /* [CP] Check Pods Manifest.lock */,
-				58608F1B1EDDDFB600A0FDF3 /* Sources */,
-				58608F1C1EDDDFB600A0FDF3 /* Frameworks */,
-				58608F1D1EDDDFB600A0FDF3 /* Resources */,
-				51B66D501F53751E23E974A5 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OneSignalNotificationServiceExtension;
-			productName = OneSignalNotificationServiceExtension;
-			productReference = 58608F1F1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		588921F01EB78837005E5606 /* Wayaj */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 588922191EB78838005E5606 /* Build configuration list for PBXNativeTarget "Wayaj" */;
@@ -494,7 +436,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				58608F251EDDDFB600A0FDF3 /* PBXTargetDependency */,
 			);
 			name = Wayaj;
 			productName = Wayaj;
@@ -553,19 +494,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = GRC;
 				TargetAttributes = {
-					58608F1E1EDDDFB600A0FDF3 = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 29C62Z2D26;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.DataProtection = {
-								enabled = 0;
-							};
-							com.apple.Push = {
-								enabled = 0;
-							};
-						};
-					};
 					588921F01EB78837005E5606 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 29C62Z2D26;
@@ -609,19 +537,11 @@
 				588921F01EB78837005E5606 /* Wayaj */,
 				588922041EB78838005E5606 /* WayajTests */,
 				5889220F1EB78838005E5606 /* WayajUITests */,
-				58608F1E1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		58608F1D1EDDDFB600A0FDF3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		588921EF1EB78837005E5606 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -700,21 +620,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		390D1A6D5BF25D41F0AA2E66 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -728,21 +633,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51B66D501F53751E23E974A5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj-OneSignalNotificationServiceExtension/Pods-Wayaj-OneSignalNotificationServiceExtension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5BC8229B4515AD7729F66A97 /* [CP] Check Pods Manifest.lock */ = {
@@ -823,14 +713,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		58608F1B1EDDDFB600A0FDF3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58608F221EDDDFB600A0FDF3 /* NotificationService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		588921ED1EB78837005E5606 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -891,11 +773,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		58608F251EDDDFB600A0FDF3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58608F1E1EDDDFB600A0FDF3 /* OneSignalNotificationServiceExtension */;
-			targetProxy = 58608F241EDDDFB600A0FDF3 /* PBXContainerItemProxy */;
-		};
 		588922071EB78838005E5606 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 588921F01EB78837005E5606 /* Wayaj */;
@@ -937,38 +814,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		58608F271EDDDFB600A0FDF3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F128A1DD75B756A540CA9020 /* Pods-Wayaj-OneSignalNotificationServiceExtension.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 29C62Z2D26;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		58608F281EDDDFB600A0FDF3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71A8CC2AC6AB9EC49FAF79A3 /* Pods-Wayaj-OneSignalNotificationServiceExtension.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = 29C62Z2D26;
-				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj.OneSignalNotificationServiceExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		588922171EB78838005E5606 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1064,8 +909,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C5B5F6364397A5EC12CE2C2 /* Pods-Wayaj.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Wayaj/Wayaj.entitlements;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1085,8 +930,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Wayaj/Wayaj.entitlements;
 				DEVELOPMENT_TEAM = 29C62Z2D26;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1167,15 +1012,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58608F291EDDDFB600A0FDF3 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58608F271EDDDFB600A0FDF3 /* Debug */,
-				58608F281EDDDFB600A0FDF3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		588921EC1EB78837005E5606 /* Build configuration list for PBXProject "Wayaj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
