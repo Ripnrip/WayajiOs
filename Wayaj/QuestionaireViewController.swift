@@ -32,6 +32,7 @@ import AWSFacebookSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 //MARK: HomeViewController
+import SwiftSpinner
 
 class QuestionaireViewController : FormViewController {
     
@@ -425,6 +426,13 @@ class CustomCellsController : FormViewController {
         super.viewDidLoad()
         var shownOnce = false
         self.tableView?.backgroundColor = UIColor(red: 38/255, green: 201/255, blue: 82/255, alpha: 1.0)
+        
+        var aboutMe = ""
+        var whereHaveYouTraveled = ""
+        var favoriteItems = ""
+        var bucketList = ""
+        
+        
         form +++
             Section() {
                 var header = HeaderFooterView<EurekaLogoViewNib>(.nibFile(name: "EurekaSectionHeader", bundle: nil))
@@ -465,77 +473,57 @@ class CustomCellsController : FormViewController {
                 $0.options = ["Male", "Female", "Other"]
                 $0.value = self.gender
             }
-//            <<< MultipleSelectorRow<Emoji>() {
-//                $0.title = "Which sports do you like?"
-//                $0.options = ["⚽"," ⚾"," 🏀"," 🏐"," 🏈"," 🎾"," 🎳"," 🏑"," ⛳"," 🏊‍♀️","🏋️‍♀️"]
-//                }
-//                .onPresent { from, to in
-//                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
-//            }
+          
             
             +++ Section("Tell Us More")
-            
-//            <<< SegmentedRow<String>("segments"){
-//                $0.options = ["Sport", "Music", "Lifestyle"]
-//                $0.value = "Films"
-//            }
-//            +++ Section(){
-//                $0.tag = "sport_s"
-//                $0.hidden = "$segments != 'Sport'" // .Predicate(NSPredicate(format: "$segments != 'Sport'"))
-//            }
-//            <<< TextRow(){
-//                $0.baseCell.textLabel?.sizeToFit()
-//                $0.placeholder = "Which is your favourite athlete?"
-//            }
-//            
-//            <<< TextRow(){
-//                $0.placeholder = "Which is your favourite coach?"
-//            }
-//            
-//            <<< TextRow(){
-//                $0.placeholder = "Which is your favourite team?"
-//            }
-            
-//            +++ Section(){
-//                $0.tag = "music_s"
-//                $0.hidden = "$segments != 'Music'"
-//            }
-//            <<< TextRow(){
-//                $0.placeholder = "Which music style do you like most?"
-//            }
-//            
-//            <<< TextRow(){
-//                $0.placeholder = "Which is your favourite singer?"
-//            }
-//            <<< TextRow(){
-//                $0.placeholder = "How many albums have you got?"
-//            }
-            
-//            +++ Section(){
-//                $0.tag = "films_s"
-//                $0.hidden = "$segments != 'Lifestyle'"
-//            }
+
+                    
             <<< TextAreaRow(){
                 $0.placeholder = "I like long walks on the beach, and eating tacos all day"
-            }
+                }.onChange({ (tRow) in
+                    aboutMe = tRow.value!
+                    print(aboutMe)
+                })
             <<< TextRow(){
                 $0.placeholder = "Where have you traveled?"
-            }
+            }.onChange({ (tRow) in
+                whereHaveYouTraveled = tRow.value!
+                print(whereHaveYouTraveled)
+            })
             
             <<< TextRow(){
                 $0.placeholder = "What are some of your favorite activities?"
-            }
+                }.onChange({ (tRow) in
+                    favoriteItems = tRow.value!
+                    print(favoriteItems)
+                })
             <<< TextRow(){
                 $0.placeholder = "What are some items on your bucket list?"
-            }
+                }.onChange({ (tRow) in
+                    bucketList = tRow.value!
+                    print(bucketList)
+                })
             +++ Section(){
             $0.tag = "Submit"
             }
             <<< ButtonRow("Get Started") { (row: ButtonRow) -> Void in
                 row.title = row.tag
-                row.presentationMode = .segueName(segueName: "goHome", onDismiss: nil)
+                //row.presentationMode = .segueName(segueName: "goHome", onDismiss: nil)
+                
+                
         }.onCellSelection({ (btn, row) in
             UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
+            UserDefaults.standard.setValue(aboutMe, forKey: "aboutMe")
+            UserDefaults.standard.setValue(whereHaveYouTraveled, forKey: "whereHaveYouTraveled")
+            UserDefaults.standard.setValue(favoriteItems, forKey: "favoriteItems")
+            UserDefaults.standard.setValue(bucketList, forKey: "bucketList")
+            UserDefaults.standard.synchronize()
+            
+            DispatchQueue.main.async{
+            let mainVC = MainTabViewController()
+            self.present(mainVC, animated: true, completion: nil)
+            }
+            
         })
     }
 }

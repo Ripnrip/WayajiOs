@@ -25,12 +25,12 @@
                     <navigationItem key="navigationItem" id="N7c-oA-PJm"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="4AA-h3-Bpz" kind="showDetail" identifier="goHome" action="showViewController:sender:" id="fRt-ig-MRU"/>
+                        <segue destination="4AA-h3-Bpz" kind="show" identifier="goHome" id="m0D-sl-hEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouq-5N-DNi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208.69565217391306" y="-113.31521739130436"/>
+            <point key="canvasLocation" x="-210" y="-689"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -242,7 +242,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVf-Og-vse">
-                                <rect key="frame" x="18" y="279" width="52" height="21"/>
+                                <rect key="frame" x="18" y="279" width="277" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -266,12 +266,14 @@
                     </scrollView>
                     <tabBarItem key="tabBarItem" title="Profile" image="profileIcon" id="SnX-ci-auy"/>
                     <connections>
+                        <outlet property="nameLabel" destination="vVf-Og-vse" id="tkj-Wv-cc4"/>
+                        <outlet property="profileImage" destination="5lH-59-Tyn" id="PhE-1e-m9V"/>
                         <outlet property="scrollView" destination="nbB-D0-waZ" id="DZy-mW-Ttd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTc-fM-mZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4608.695652173913" y="-419.83695652173918"/>
+            <point key="canvasLocation" x="4607.2463768115949" y="-419.83695652173918"/>
         </scene>
         <!--Explore View Controller-->
         <scene sceneID="uh7-kz-0s6">
@@ -1008,10 +1010,10 @@
             </objects>
             <point key="canvasLocation" x="5360.8695652173919" y="-1115.217391304348"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="XG6-ZJ-fC9">
             <objects>
-                <tabBarController id="4AA-h3-Bpz" sceneMemberID="viewController">
+                <tabBarController id="4AA-h3-Bpz" customClass="MainTabViewController" customModule="Wayaj" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3hm-Dw-fik">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1091,7 +1093,7 @@
         <image name="whiteHeart" width="39" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ozf-dD-HmK"/>
+        <segue reference="m0D-sl-hEK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.37263736130000003" green="0.76434540750000002" blue="0.36863389610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

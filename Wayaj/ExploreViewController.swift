@@ -10,7 +10,7 @@ import UIKit
 import paper_onboarding
 import AMTooltip
 import LocationPickerViewController
-
+import SwiftSpinner
 
 struct Listing {
     let image:Image
@@ -58,6 +58,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        SwiftSpinner.hide()
+
     }
 
     override func viewDidLoad() {

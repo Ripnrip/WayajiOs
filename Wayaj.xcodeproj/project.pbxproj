@@ -52,6 +52,7 @@
 		58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD61EF2C15D0049E477 /* libz.tbd */; };
 		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
 		58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */; };
+		58C03D9F1EF866E30038E9B5 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
 		8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */; };
@@ -151,6 +152,7 @@
 		58910CD61EF2C15D0049E477 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
+		58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			children = (
 				8419CD821ECA26CC00A15B1B /* Fonts */,
 				58608F861EE86D9F00A0FDF3 /* AirbnbTools */,
+				58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
 				58608FA61EE8754100A0FDF3 /* AirbnbOccupantFilter.swift in Sources */,
 				586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */,
+				58C03D9F1EF866E30038E9B5 /* MainTabViewController.swift in Sources */,
 				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
 				58608F971EE86DC800A0FDF3 /* Theme.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,

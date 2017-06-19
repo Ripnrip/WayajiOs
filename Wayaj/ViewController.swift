@@ -178,9 +178,18 @@ extension ViewController: AWSSignInDelegate {
             userSettings.setString(dict["name"] as! String, forKey: "name")
             userSettings.setString(dict["email"] as! String, forKey: "email")
             userSettings.setString(dict["gender"] as! String, forKey: "gender")
-
             userSettings.setString(imageURL! , forKey: "pictureURL")
             userSettings.synchronize()
+            
+            //NSUSERDEFAULTS
+            UserDefaults.standard.setValue(dict.description, forKey: "profileInfo")
+            UserDefaults.standard.setValue(dict["id"] as! String, forKey: "facebookID")
+            UserDefaults.standard.setValue(dict["name"] as! String, forKey: "name")
+            UserDefaults.standard.setValue(dict["email"] as! String, forKey: "email")
+            UserDefaults.standard.setValue(dict["gender"] as! String, forKey: "gender")
+            UserDefaults.standard.setValue(imageURL!, forKey: "pictureURL")
+            UserDefaults.standard.synchronize()
+            
             //DispatchQueue.main.async {
                 //decides to go to either questionaire or home
                 let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
