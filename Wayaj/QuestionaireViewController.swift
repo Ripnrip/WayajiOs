@@ -520,8 +520,9 @@ class CustomCellsController : FormViewController {
             UserDefaults.standard.synchronize()
             
             DispatchQueue.main.async{
-            let mainVC = MainTabViewController()
-            self.present(mainVC, animated: true, completion: nil)
+            //let mainVC = MainTabViewController()
+            //self.present(mainVC, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "goHome", sender: nil)
             }
             
         })
