@@ -15,6 +15,8 @@ import AWSMobileHubHelper
 import AWSFacebookSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SwiftSpinner
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var onboarding: PaperOnboarding!
@@ -88,23 +90,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signIn(_ sender: Any) {
-        
-        //fb login and make the cognito user-settings thingy
-        
-        
-        
-        
-        //decides to go to either questionaire or home
-        let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
-        if shouldShowQuestionaire == false {
-            //performSegue(withIdentifier: "goToQuestionaire", sender: self) TEMP stopping becase userData not setup
-            performSegue(withIdentifier: "goHome", sender: self)
 
-
-        }else{
-            performSegue(withIdentifier: "goHome", sender: self)
-        }
-        
     }
     
     
@@ -169,6 +155,8 @@ extension ViewController: AWSSignInDelegate {
     }
     
     func getFBUserInfo() {
+        SwiftSpinner.show("Loading...")
+
         let syncClient: AWSCognito = AWSCognito.default()
         var userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
         
@@ -193,13 +181,39 @@ extension ViewController: AWSSignInDelegate {
 
             userSettings.setString(imageURL! , forKey: "pictureURL")
             userSettings.synchronize()
-            DispatchQueue.main.async {
-            //get fb pre-filled data to go to questionaire, if the user hasn't already completed
-            self.performSegue(withIdentifier: "goHome", sender: self)
-            }
+            //DispatchQueue.main.async {
+                //decides to go to either questionaire or home
+                let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
+                if shouldNotShowQuestionaire == false {
+                    //self.performSegue(withIdentifier: "goToQuestionaire", sender: self)
+                    let vc = CustomCellsController()
+                    vc.name = dict["name"] as! String
+                    vc.email = dict["email"] as! String
+                    vc.gender = dict["gender"] as! String
+                    self.getDataFromUrl(url: URL(string:imageURL!)!, completion: { (data, response, error) in
+                        if error == nil {
+                            vc.image = UIImage(data: data!)!
+                            SwiftSpinner.hide()
+                            self.present(vc, animated: true, completion: nil)
+                        }else {
+                            print("there was an error getting the picure url \(error)")
+                        }
+                    })
+                    
+                    
+                }else{
+                    self.performSegue(withIdentifier: "goHome", sender: self)
+                }
+            //}
 
         })
     
+    }
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
     }
     
 }

@@ -25,7 +25,12 @@
 import UIKit
 import Eureka
 import CoreLocation
-
+import AWSCore
+import AWSCognito
+import AWSMobileHubHelper
+import AWSFacebookSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 //MARK: HomeViewController
 
 class QuestionaireViewController : FormViewController {
@@ -378,9 +383,43 @@ class RowsExampleViewController: FormViewController {
 
 class CustomCellsController : FormViewController {
     
+    var imageURL:String = ""
+    var name:String = ""
+    var email:String = ""
+    var gender:String = ""
+    var image:UIImage = UIImage()
+    
     func multipleSelectorDone(_ item:UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    func loadSettings() {
+        let syncClient: AWSCognito = AWSCognito.default()
+        let userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
+        
+        userSettings.synchronize().continueWith { (task: AWSTask<AnyObject>) -> Any? in
+            if let error = task.error as? NSError {
+                print("loadSettings error: \(error)")
+                return nil
+            }
+            self.imageURL = userSettings.string(forKey: "pictureURL")
+            self.name = userSettings.string(forKey: "name")
+            self.email = userSettings.string(forKey: "email")
+            self.gender = userSettings.string(forKey: "gender")
+            
+
+            print("the values retrieved are \(self.imageURL) and \(self.name) \(self.email)")
+            return 1
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //get user info 
+        loadSettings()
+        
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -408,7 +447,7 @@ class CustomCellsController : FormViewController {
             }
             <<< ImageRow(){
                 $0.title = "Profile Image"
-                $0.value = UIImage.init(named: "cara-1")
+                $0.value = self.image
             }
 
             
@@ -416,84 +455,88 @@ class CustomCellsController : FormViewController {
             
             <<< NameRow() {
                 $0.title =  "Name:"
-                $0.value = "Cara Delevigne"
+                $0.value = self.name
             }
             <<< EmailRow() {
                 $0.title = "Email:"
-                $0.value = "CaraDelevigne@me.com"
+                $0.value = self.email
             }
             <<< SegmentedRow<String>(){
                 $0.options = ["Male", "Female", "Other"]
-                $0.value = "Female"
+                $0.value = self.gender
             }
-            <<< MultipleSelectorRow<Emoji>() {
-                $0.title = "Which sports do you like?"
-                $0.options = ["⚽"," ⚾"," 🏀"," 🏐"," 🏈"," 🎾"," 🎳"," 🏑"," ⛳"," 🏊‍♀️","🏋️‍♀️"]
-                }
-                .onPresent { from, to in
-                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
-            }
+//            <<< MultipleSelectorRow<Emoji>() {
+//                $0.title = "Which sports do you like?"
+//                $0.options = ["⚽"," ⚾"," 🏀"," 🏐"," 🏈"," 🎾"," 🎳"," 🏑"," ⛳"," 🏊‍♀️","🏋️‍♀️"]
+//                }
+//                .onPresent { from, to in
+//                    to.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: from, action: #selector(RowsExampleViewController.multipleSelectorDone(_:)))
+//            }
             
             +++ Section("Tell Us More")
             
-            <<< SegmentedRow<String>("segments"){
-                $0.options = ["Sport", "Music", "Lifestyle"]
-                $0.value = "Films"
-            }
-            +++ Section(){
-                $0.tag = "sport_s"
-                $0.hidden = "$segments != 'Sport'" // .Predicate(NSPredicate(format: "$segments != 'Sport'"))
+//            <<< SegmentedRow<String>("segments"){
+//                $0.options = ["Sport", "Music", "Lifestyle"]
+//                $0.value = "Films"
+//            }
+//            +++ Section(){
+//                $0.tag = "sport_s"
+//                $0.hidden = "$segments != 'Sport'" // .Predicate(NSPredicate(format: "$segments != 'Sport'"))
+//            }
+//            <<< TextRow(){
+//                $0.baseCell.textLabel?.sizeToFit()
+//                $0.placeholder = "Which is your favourite athlete?"
+//            }
+//            
+//            <<< TextRow(){
+//                $0.placeholder = "Which is your favourite coach?"
+//            }
+//            
+//            <<< TextRow(){
+//                $0.placeholder = "Which is your favourite team?"
+//            }
+            
+//            +++ Section(){
+//                $0.tag = "music_s"
+//                $0.hidden = "$segments != 'Music'"
+//            }
+//            <<< TextRow(){
+//                $0.placeholder = "Which music style do you like most?"
+//            }
+//            
+//            <<< TextRow(){
+//                $0.placeholder = "Which is your favourite singer?"
+//            }
+//            <<< TextRow(){
+//                $0.placeholder = "How many albums have you got?"
+//            }
+            
+//            +++ Section(){
+//                $0.tag = "films_s"
+//                $0.hidden = "$segments != 'Lifestyle'"
+//            }
+            <<< TextAreaRow(){
+                $0.placeholder = "I like long walks on the beach, and eating tacos all day"
             }
             <<< TextRow(){
-                $0.baseCell.textLabel?.sizeToFit()
-                $0.placeholder = "Which is your favourite athlete?"
+                $0.placeholder = "Where have you traveled?"
             }
             
             <<< TextRow(){
-                $0.placeholder = "Which is your favourite coach?"
-            }
-            
-            <<< TextRow(){
-                $0.placeholder = "Which is your favourite team?"
-            }
-            
-            +++ Section(){
-                $0.tag = "music_s"
-                $0.hidden = "$segments != 'Music'"
+                $0.placeholder = "What are some of your favorite activities?"
             }
             <<< TextRow(){
-                $0.placeholder = "Which music style do you like most?"
+                $0.placeholder = "What are some items on your bucket list?"
             }
-            
-            <<< TextRow(){
-                $0.placeholder = "Which is your favourite singer?"
-            }
-            <<< TextRow(){
-                $0.placeholder = "How many albums have you got?"
-            }
-            
-            +++ Section(){
-                $0.tag = "films_s"
-                $0.hidden = "$segments != 'Lifestyle'"
-            }
-            <<< TextRow(){
-                $0.placeholder = "Which is your favourite actor?"
-            }
-            
-            <<< TextRow(){
-                $0.placeholder = "Which is your favourite workout?"
-            }
-            
             +++ Section(){
             $0.tag = "Submit"
             }
             <<< ButtonRow("Get Started") { (row: ButtonRow) -> Void in
-                UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
                 row.title = row.tag
                 row.presentationMode = .segueName(segueName: "goHome", onDismiss: nil)
-    
-
-        }
+        }.onCellSelection({ (btn, row) in
+            UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
+        })
     }
 }
 

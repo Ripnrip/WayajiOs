@@ -22,7 +22,7 @@ target 'Wayaj' do
   pod 'AWSSNS'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
-
+  pod "SwiftSpinner"
 
 
   target 'WayajTests' do
