@@ -159,40 +159,47 @@ extension ViewController: AWSSignInDelegate {
             return
         }
         
-        
         if let result = result {
             // handle success here
-            
             print("the fb login result is \(result) and the auth state is \(authState.rawValue) and the error is \(String(describing: error)) and the loaded data from FB is \(FacebookIdentityProfile.sharedInstance().userName) and the other info  is \(FacebookIdentityProfile.sharedInstance().getAttributeForKey("email"))")
-            let syncClient: AWSCognito = AWSCognito.default()
-            let userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
-                //userSettings.se
             getFBUserInfo()
-            //store user info (user_settings)
-            
-            
-            //get fb pre-filled data to go to questionaire, if the user hasn't already completed
-            performSegue(withIdentifier: "goHome", sender: self)
         } else {
             // handle error here
         }
     }
     
     func getFBUserInfo() {
-        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"])
-        request?.start(completionHandler: { (connection, object, error) in
+        let syncClient: AWSCognito = AWSCognito.default()
+        var userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
+        
+        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.type(large), gender, birthday"])
+        request?.start(completionHandler: { (connection, object , error) in
             if error != nil {
                 print("there was some error with getting the persons fb data \(String(describing: error))")
                 return
             }
-            print("all the data from this bogus thingy is \(object)")
+            //let dict = object as! Dictionary<AnyHashable, Any>
+            let dict:[String:AnyObject] = object as! [String : AnyObject]
+            let imageURL = ((dict["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String
+                //Download image from imageURL
             
+            print("the picture URL is \(imageURL)")
+            print("all the data from this bogus thingy is \(dict)")
+            userSettings.setString(dict.description, forKey: "profileInfo")
+            userSettings.setString(dict["id"] as! String, forKey: "facebookID")
+            userSettings.setString(dict["name"] as! String, forKey: "name")
+            userSettings.setString(dict["email"] as! String, forKey: "email")
+            userSettings.setString(dict["gender"] as! String, forKey: "gender")
 
-    
-            
-            
+            userSettings.setString(imageURL! , forKey: "pictureURL")
+            userSettings.synchronize()
+            DispatchQueue.main.async {
+            //get fb pre-filled data to go to questionaire, if the user hasn't already completed
+            self.performSegue(withIdentifier: "goHome", sender: self)
+            }
+
         })
-
+    
     }
     
 }
