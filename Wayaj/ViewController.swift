@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
          //Set Facebook login permission scopes before the user logs in. Additional permissions can added here if desired.
         AWSFacebookSignInProvider.sharedInstance().setPermissions(["public_profile", "email", "user_friends"])
-        let facebookButton = AWSFacebookSignInButton(frame: CGRect(x: 30, y: self.view.frame.height-100, width: 300, height: 50))
+        let facebookButton = AWSFacebookSignInButton(frame: CGRect(x: 30, y: self.view.frame.height-100, width: self.view.frame.width - 60 , height: 50))
         // Set button style large to show the text "Continue with Facebook"
         // use the label property named "providerText" to format the text or change the content
         facebookButton.buttonStyle = .large

@@ -14,6 +14,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var aboutMeTextView: UITextView!
+    @IBOutlet weak var countriesVisitedTextView: UITextView!
+    @IBOutlet weak var favoriteActivitiesTextView: UITextView!
+    @IBOutlet weak var bucketListTextView: UITextView!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +42,18 @@ class ProfileViewController: UIViewController {
         if let name = UserDefaults.standard.string(forKey: "name") {
             self.nameLabel.text = name
         }
+        if let aboutMe = UserDefaults.standard.string(forKey: "aboutMe") {
+            self.aboutMeTextView.text = aboutMe
+        }
+        if let whereHaveYouTraveled = UserDefaults.standard.string(forKey: "whereHaveYouTraveled") {
+            self.countriesVisitedTextView.text = whereHaveYouTraveled
+        }
+        if let favoriteItems = UserDefaults.standard.string(forKey: "favoriteItems") {
+            self.favoriteActivitiesTextView.text = favoriteItems
+        }
+        if let bucketList = UserDefaults.standard.string(forKey: "bucketList") {
+            self.bucketListTextView.text = bucketList
+        }
     
         
         
@@ -53,6 +69,10 @@ class ProfileViewController: UIViewController {
             (data, response, error) in
             completion(data, response, error)
             }.resume()
+    }
+    @IBAction func editProfile(_ sender: Any) {
+        let vc = CustomCellsController()
+        self.present(vc, animated: true, completion: nil)
     }
     
     
