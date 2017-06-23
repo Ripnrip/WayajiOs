@@ -53,6 +53,10 @@
 		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
 		58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */; };
 		58A0500B1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */; };
+		58A050111EFC50130050F718 /* CRNotificationsMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A0500D1EFC50130050F718 /* CRNotificationsMedia.xcassets */; };
+		58A050121EFC50130050F718 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500E1EFC50130050F718 /* Colors.swift */; };
+		58A050131EFC50130050F718 /* CRNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500F1EFC50130050F718 /* CRNotification.swift */; };
+		58A050141EFC50130050F718 /* CRNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A050101EFC50130050F718 /* CRNotifications.swift */; };
 		58C03D9F1EF866E30038E9B5 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
@@ -154,6 +158,10 @@
 		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExploreViewController+SearchBarController.swift"; sourceTree = "<group>"; };
+		58A0500D1EFC50130050F718 /* CRNotificationsMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CRNotificationsMedia.xcassets; sourceTree = "<group>"; };
+		58A0500E1EFC50130050F718 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		58A0500F1EFC50130050F718 /* CRNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRNotification.swift; sourceTree = "<group>"; };
+		58A050101EFC50130050F718 /* CRNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRNotifications.swift; sourceTree = "<group>"; };
 		58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 		58608F661EE1B9F400A0FDF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				58A0500C1EFC4FFB0050F718 /* Notifications */,
 				8419CD821ECA26CC00A15B1B /* Fonts */,
 				58608F861EE86D9F00A0FDF3 /* AirbnbTools */,
 				58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */,
@@ -377,6 +386,17 @@
 				588922161EB78838005E5606 /* Info.plist */,
 			);
 			path = WayajUITests;
+			sourceTree = "<group>";
+		};
+		58A0500C1EFC4FFB0050F718 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				58A0500D1EFC50130050F718 /* CRNotificationsMedia.xcassets */,
+				58A0500E1EFC50130050F718 /* Colors.swift */,
+				58A0500F1EFC50130050F718 /* CRNotification.swift */,
+				58A050101EFC50130050F718 /* CRNotifications.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		840767901EBA596D00238327 /* Login */ = {
@@ -558,6 +578,7 @@
 				8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */,
 				588921FC1EB78838005E5606 /* Assets.xcassets in Resources */,
 				8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */,
+				58A050111EFC50130050F718 /* CRNotificationsMedia.xcassets in Resources */,
 				5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */,
 				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
 				58910CD41EF2C09B0049E477 /* AWSFacebookSignInResources.bundle in Resources */,
@@ -724,6 +745,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58608FA51EE8754100A0FDF3 /* AirbnbCounter.swift in Sources */,
+				58A050131EFC50130050F718 /* CRNotification.swift in Sources */,
 				58608FA71EE8754100A0FDF3 /* AirbnbSwitch.swift in Sources */,
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
 				58608FA61EE8754100A0FDF3 /* AirbnbOccupantFilter.swift in Sources */,
@@ -733,6 +755,7 @@
 				58608F971EE86DC800A0FDF3 /* Theme.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
+				58A050141EFC50130050F718 /* CRNotifications.swift in Sources */,
 				58A0500B1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift in Sources */,
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
@@ -750,6 +773,7 @@
 				5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */,
 				58608F931EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
+				58A050121EFC50130050F718 /* Colors.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
 				58608F9B1EE86DCF00A0FDF3 /* UIColor.swift in Sources */,
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
