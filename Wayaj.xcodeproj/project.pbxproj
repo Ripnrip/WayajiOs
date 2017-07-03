@@ -17,6 +17,7 @@
 		5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */; };
 		5817D7C31EF18D1000ACA9E9 /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */; };
 		5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */; };
+		5848A9821F0A866B0021C92F /* AACarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848A9811F0A866B0021C92F /* AACarousel.swift */; };
 		58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */; };
 		58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */; };
 		58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */; };
@@ -114,6 +115,7 @@
 		5817D7C01EF18CF900ACA9E9 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		5817D7C21EF18D1000ACA9E9 /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
 		5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EurekaSectionHeader.xib; sourceTree = "<group>"; };
+		5848A9811F0A866B0021C92F /* AACarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AACarousel.swift; sourceTree = "<group>"; };
 		58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wayaj.entitlements; sourceTree = "<group>"; };
 		58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
 		58608F5C1EE0769400A0FDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Example/Base.lproj/WeekDaysCell.xib; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 		58608F661EE1B9F400A0FDF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5848A9811F0A866B0021C92F /* AACarousel.swift */,
 				58A0500C1EFC4FFB0050F718 /* Notifications */,
 				8419CD821ECA26CC00A15B1B /* Fonts */,
 				58608F861EE86D9F00A0FDF3 /* AirbnbTools */,
@@ -747,6 +750,7 @@
 				58608FA51EE8754100A0FDF3 /* AirbnbCounter.swift in Sources */,
 				58A050131EFC50130050F718 /* CRNotification.swift in Sources */,
 				58608FA71EE8754100A0FDF3 /* AirbnbSwitch.swift in Sources */,
+				5848A9821F0A866B0021C92F /* AACarousel.swift in Sources */,
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
 				58608FA61EE8754100A0FDF3 /* AirbnbOccupantFilter.swift in Sources */,
 				586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */,
