@@ -50,12 +50,12 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
                          "https://imgct2.aeplcdn.com/img/800x600/car-data/big/honda-amaze-image-12749.png",
                          "http://www.conversion-uplift.co.uk/wp-content/uploads/2016/09/Lamborghini-Huracan-Image-672x372.jpg",
                          "very-large-flamingo"]
-        titleArray = ["picture 1","picture 2","picture 3","picture 4","picture 5"]
+        titleArray = [currentListing.name]
         AACarousel.delegate = self
         AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 5.0, defaultImage: "defaultImage")
         //optional methods
         AACarousel.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
-        AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 5, pageIndicatorColor: nil, describedTitleColor: nil, layerColor: nil)
+        AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 1, pageIndicatorColor: nil, describedTitleColor: nil, layerColor: nil)
         
     }
     //require method

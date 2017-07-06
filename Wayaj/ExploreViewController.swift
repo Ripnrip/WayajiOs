@@ -14,7 +14,7 @@ import SwiftSpinner
 
 struct Listing {
     let image:Image
-    let images:[Image]?
+    let images:[String]?
     let name:String
     let location:String
     let stars: Int
