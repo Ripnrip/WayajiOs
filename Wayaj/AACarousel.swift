@@ -198,7 +198,7 @@ class AACarousel: UIView,UIScrollViewDelegate {
     
     fileprivate func setLayerViewFrame() {
         
-        layerView.frame = CGRect.init(x: 0 , y: scrollView.frame.size.height - 80, width: scrollView.frame.size.width * 5, height: 80)
+        layerView.frame = CGRect.init(x: 0 , y: scrollView.frame.size.height - 40, width: scrollView.frame.size.width * 5, height: 40)
         layerView.isUserInteractionEnabled = false
     }
     
@@ -220,7 +220,7 @@ class AACarousel: UIView,UIScrollViewDelegate {
     
     fileprivate func setLabelFrame() {
         
-        describedLabel.frame = CGRect.init(x: scrollView.frame.size.width * 2 + 10 , y: layerView.frame.size.height - 75, width: scrollView.frame.size.width - 20, height: 70)
+        describedLabel.frame = CGRect.init(x: scrollView.frame.size.width * 2 + 10 , y: layerView.frame.size.height - 55, width: scrollView.frame.size.width - 20, height: 70)
     
     }
     
