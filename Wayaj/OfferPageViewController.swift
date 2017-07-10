@@ -45,11 +45,8 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         descriptionTextView.text = descriptionText
         
         //gallery
-        let pathArray = ["http://www.gettyimages.ca/gi-resources/images/Embed/new/embed2.jpg",
-                         "https://ak.picdn.net/assets/cms/97e1dd3f8a3ecb81356fe754a1a113f31b6dbfd4-stock-photo-photo-of-a-common-kingfisher-alcedo-atthis-adult-male-perched-on-a-lichen-covered-branch-107647640.jpg",
-                         "https://imgct2.aeplcdn.com/img/800x600/car-data/big/honda-amaze-image-12749.png",
-                         "http://www.conversion-uplift.co.uk/wp-content/uploads/2016/09/Lamborghini-Huracan-Image-672x372.jpg",
-                         "very-large-flamingo"]
+        //let pathArray = ["https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar-%20Cabana%20Accommodations.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar-%20Spa.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20MAr-%20Suite.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar.jpg"]
+        let pathArray:[String] = currentListing.images!
         titleArray = [currentListing.name]
         AACarousel.delegate = self
         AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 5.0, defaultImage: "defaultImage")
@@ -64,7 +61,13 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         //here is download images area
         let imageView = UIImageView()
         imageView.kf.setImage(with: URL(string: url)!, placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(0))], progressBlock: nil, completionHandler: { (downloadImage, error, cacheType, url) in
-            self.AACarousel.images[index] = downloadImage!
+            
+            if error == nil {
+                self.AACarousel.images[index] = downloadImage!
+                }else{
+                print("the error in downloading the image is \(error)")
+            }
+            
         })
     }
     
