@@ -363,6 +363,7 @@ class AACarousel: UIView,UIScrollViewDelegate {
         //right direct
         case .right:
             //change ImageView
+            layerView.frame = CGRect.init(x: 0 , y: scrollView.frame.size.height - 40, width: scrollView.frame.size.width * 5, height: 0)
             beforeImageView.image = currentImageView.image
             currentImageView.image = images[currentIndex]
             
