@@ -51,8 +51,9 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         AACarousel.delegate = self
         AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 5.0, defaultImage: "defaultImage")
         //optional methods
+        AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
         AACarousel.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
-        AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 1, pageIndicatorColor: nil, describedTitleColor: nil, layerColor: nil)
+       // AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 1, pageIndicatorColor: nil, describedTitleColor: nil, layerColor: nil)
         
     }
     //require method
