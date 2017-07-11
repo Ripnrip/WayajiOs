@@ -96,15 +96,7 @@ class ViewController: UIViewController {
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- 
-        if segue.identifier == "goHome" {
-            
-            
-        } else if segue.identifier == "goToQuestionaire" {
-            
-        }
-    }
+
 
 
 }
@@ -190,31 +182,13 @@ extension ViewController: AWSSignInDelegate {
             UserDefaults.standard.setValue(imageURL!, forKey: "pictureURL")
             UserDefaults.standard.synchronize()
             
-            //DispatchQueue.main.async {
-                //decides to go to either questionaire or home
-                let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
-                if shouldNotShowQuestionaire == false {
-                    //self.performSegue(withIdentifier: "goToQuestionaire", sender: self)
-                    let vc = CustomCellsController()
-                    vc.name = dict["name"] as! String
-                    vc.email = dict["email"] as! String
-                    vc.gender = dict["gender"] as! String
-                    self.getDataFromUrl(url: URL(string:imageURL!)!, completion: { (data, response, error) in
-                        if error == nil {
-                            vc.image = UIImage(data: data!)!
-                            SwiftSpinner.hide()
-                            self.present(vc, animated: true, completion: nil)
-                        }else {
-                            print("there was an error getting the picure url \(error)")
-                        }
-                    })
-                    
-                    
-                }else{
-                    self.performSegue(withIdentifier: "goHome", sender: self)
-                }
-            //}
-
+            
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "MainController")
+            self.present(controller, animated: true, completion: nil)
+            
+            
         })
     
     }

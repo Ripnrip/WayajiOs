@@ -179,9 +179,10 @@ class CustomCellsController : FormViewController {
     
     
     func goHome() {
-        //DispatchQueue.main.async{
-        performSegue(withIdentifier: "goToHome", sender: self)
-        //}
+        DispatchQueue.main.async{
+        //self.performSegue(withIdentifier: "goToHome", sender: self)
+        self.dismiss(animated: true, completion: nil)
+        }
 
     }
 }

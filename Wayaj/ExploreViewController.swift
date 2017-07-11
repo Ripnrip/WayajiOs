@@ -66,6 +66,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         SwiftSpinner.hide()
+        shouldShowQuestionare()
 
     }
 
@@ -110,7 +111,46 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
 
     }
+    
+    func shouldShowQuestionare(){
+      //  let dict:[String:AnyObject] = object as! [String : AnyObject]
 
+        //DispatchQueue.main.async {
+        //decides to go to either questionaire or home
+        let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
+        if shouldNotShowQuestionaire == false {
+            //self.performSegue(withIdentifier: "goToQuestionaire", sender: self)
+            let vc = CustomCellsController()
+            vc.name = UserDefaults.standard.value(forKey: "name") as! String
+            vc.email = UserDefaults.standard.value(forKey: "email") as! String
+            vc.gender = UserDefaults.standard.value(forKey: "gender") as! String
+            let usersImageUrl = UserDefaults.standard.value(forKey: "pictureURL") as! String
+            
+            self.getDataFromUrl(url: URL(string:usersImageUrl)!, completion: { (data, response, error) in
+                if error == nil {
+                    vc.image = UIImage(data: data!)!
+                    SwiftSpinner.hide()
+                    self.present(vc, animated: true, completion: nil)
+                }else {
+                    print("there was an error getting the picure url \(error)")
+                }
+            })
+            
+            
+        }else{
+            //self.performSegue(withIdentifier: "goHome", sender: self)
+        }
+    }
+
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+    
+    
+    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
