@@ -44,21 +44,22 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         // Do any additional setup after loading the view.
         descriptionTextView.text = descriptionText
         
-        //gallery
-        //let pathArray = ["https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar-%20Cabana%20Accommodations.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar-%20Spa.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20MAr-%20Suite.jpg","https://gedeongrc-my.sharepoint.com/personal/mvelardi_gedeongrc_com/Documents/Wayaj/assets/app%20and%20site%20photos/hotel-photos/L%27Auberge%20Del%20Mar-CA--/L%27Auberge%20Del%20Mar.jpg"]
         let pathArray:[String] = currentListing.images!
         titleArray = [currentListing.name]
         AACarousel.delegate = self
-        AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 5.0, defaultImage: "defaultImage")
+        AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 1.0, defaultImage:
+            "defaultImage")
+        //handleFirstImageView()
         //optional methods
         AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
         AACarousel.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
-       // AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 1, pageIndicatorColor: nil, describedTitleColor: nil, layerColor: nil)
+
         
     }
     //require method
     func downloadImages(_ url: String, _ index: Int) {
-        
+        AACarousel.images[0] = currentListing.image
+
         //here is download images area
         let imageView = UIImageView()
         imageView.kf.setImage(with: URL(string: url)!, placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(0))], progressBlock: nil, completionHandler: { (downloadImage, error, cacheType, url) in
@@ -70,6 +71,27 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
             }
             
         })
+    }
+    
+    func handleFirstImageView() {
+        let url = URL(string: currentListing.images![0])
+        var pictures = AACarousel.images as! NSArray
+        var firstImage = pictures[0] as! UIImage
+
+        
+        //firstImage.kf.setImage(with: url)
+        
+        let imageView = UIImageView()
+        imageView.kf.setImage(with: URL(string: (url?.absoluteString)!)!, placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(0))], progressBlock: nil, completionHandler: { (downloadImage, error, cacheType, url) in
+            
+            if error == nil {
+                self.AACarousel.images[0] = downloadImage!
+            }else{
+                print("the error in downloading the image is \(error)")
+            }
+            
+        })
+        
     }
     
     
