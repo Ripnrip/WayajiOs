@@ -111,7 +111,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
 
     }
-    
+
     func shouldShowQuestionare(){
       //  let dict:[String:AnyObject] = object as! [String : AnyObject]
 
@@ -213,6 +213,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBAction func retractSearchFilter(_ sender: Any) {
         //height is 98
+        dismissKeyboard()
         self.datePicker.isHidden = true
         self.occupantFilter.isHidden = true
         self.whereSearchBar.isHidden = true
