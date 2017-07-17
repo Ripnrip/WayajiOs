@@ -171,6 +171,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         tableView.reloadData()
         
     }
+    
+    
 
     @IBAction func expandSearchFilter(_ sender: Any) {
 
@@ -185,8 +187,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.datePicker.isHidden = false
             self.occupantFilter.isHidden = false
             self.whereSearchBar.isHidden = false
-
-
 
         })
         

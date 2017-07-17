@@ -488,7 +488,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="256"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eus-t1-oTw" id="wLd-dU-eev">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="255.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="placeA" translatesAutoresizingMaskIntoConstraints="NO" id="4Cb-CA-Jjj">
@@ -741,7 +741,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lt9-1y-VhH" id="Gkb-F3-bo9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material &amp; Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zr-dr-zFI">
@@ -818,7 +818,7 @@
                                                         <rect key="frame" x="0.0" y="72" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dp0-E2-CSA" id="gkb-mm-Yit">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwR-il-wHw">
@@ -895,7 +895,7 @@
                                                         <rect key="frame" x="0.0" y="116" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C2l-Do-zAz" id="Vex-49-wUL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBK-yS-B3k">
@@ -972,7 +972,7 @@
                                                         <rect key="frame" x="0.0" y="160" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UFZ-Yp-C8C" id="min-7z-Gzz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYB-aq-Y3G">
@@ -1049,7 +1049,7 @@
                                                         <rect key="frame" x="0.0" y="204" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="saj-fU-bWc" id="ZIc-KP-8nb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recycle &amp; Waste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9H-pL-4NA">
@@ -1126,7 +1126,7 @@
                                                         <rect key="frame" x="0.0" y="248" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FIm-iK-v5W" id="Wnz-CS-l25">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Energy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HU-eT-A9U">
@@ -1203,7 +1203,7 @@
                                                         <rect key="frame" x="0.0" y="292" width="340" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rLs-Me-5rF" id="W7v-hz-NSg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="340" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indoors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZX-EQ-l2B">
@@ -1361,6 +1361,7 @@
                         <outlet property="AACarousel" destination="8cD-77-WYB" id="0cF-89-Ad1"/>
                         <outlet property="descriptionTextView" destination="TKJ-fb-JGv" id="Afv-VL-9V9"/>
                         <outlet property="tableView" destination="BtQ-c9-hA9" id="iwx-Y8-HRw"/>
+                        <outletCollection property="ratingButtons" destination="Xcx-iX-767" collectionClass="NSMutableArray" id="3Gx-Gd-qPs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWw-Ur-eRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
