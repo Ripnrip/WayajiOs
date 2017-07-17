@@ -1361,7 +1361,7 @@
                         <outlet property="AACarousel" destination="8cD-77-WYB" id="0cF-89-Ad1"/>
                         <outlet property="descriptionTextView" destination="TKJ-fb-JGv" id="Afv-VL-9V9"/>
                         <outlet property="tableView" destination="BtQ-c9-hA9" id="iwx-Y8-HRw"/>
-                        <outletCollection property="ratingButtons" destination="Xcx-iX-767" collectionClass="NSMutableArray" id="3Gx-Gd-qPs"/>
+                        <outletCollection property="collectionOfButtons" destination="bCr-OG-Pbu" collectionClass="NSMutableArray" id="b5g-bc-Irl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWw-Ur-eRO" userLabel="First Responder" sceneMemberID="firstResponder"/>

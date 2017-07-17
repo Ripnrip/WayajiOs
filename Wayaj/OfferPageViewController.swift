@@ -14,8 +14,8 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var AACarousel: AACarousel!
-    @IBOutlet var ratingButtons: [UIButton]!
-    
+    @IBOutlet var collectionOfButtons: Array<UIButton>?
+
     var titleArray = [String]()
 
     
