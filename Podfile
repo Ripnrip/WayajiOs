@@ -24,6 +24,7 @@ target 'Wayaj' do
   pod 'FBSDKLoginKit'
   pod 'SwiftSpinner'
   pod 'Kingfisher'
+  pod "Popover"
 
 
 

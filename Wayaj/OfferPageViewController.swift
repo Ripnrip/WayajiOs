@@ -8,13 +8,14 @@
 
 import UIKit
 import Kingfisher
+import Popover
 
 class OfferPageViewController: UIViewController, AACarouselDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var AACarousel: AACarousel!
-    @IBOutlet var collectionOfButtons: Array<UIButton>?
+    //@IBOutlet var collectionOfButtons: Array<UIButton>?
 
     var titleArray = [String]()
 
@@ -54,6 +55,11 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         //optional methods
         AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
         AACarousel.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
+        
+        let startPoint = CGPoint(x: self.view.frame.width - 60, y: 55)
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 180))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
 
         
     }
