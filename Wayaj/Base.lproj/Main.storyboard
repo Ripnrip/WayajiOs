@@ -786,6 +786,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="3A2-pJ-8dx"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="HUW-Us-mRu"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -863,6 +866,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="DnU-d9-1mg"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="managementInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="1fU-DH-8em"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -940,6 +946,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="O6r-Ua-vMu"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="communityInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="bmL-aU-WHO"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -1017,6 +1026,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="GaM-x4-f0l"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="waterInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="R0G-EV-vwQ"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -1094,6 +1106,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="vxZ-5r-6dp"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="recycleInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="tHW-FF-Rgi"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -1171,6 +1186,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="aqi-ZF-4nm"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="energyInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="120-fM-kDz"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -1248,6 +1266,9 @@
                                                                         <constraint firstAttribute="width" constant="25" id="dF3-Mp-Joc"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="indoorsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="LOP-oC-QrT"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

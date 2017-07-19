@@ -16,6 +16,18 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var AACarousel: AACarousel!
     //@IBOutlet var collectionOfButtons: Array<UIButton>?
+    
+//    @IBOutlet weak var materialsButton: UIButton!
+//    @IBOutlet weak var managementButton: UIButton!
+//    @IBOutlet weak var communityButton: UIButton!
+//    @IBOutlet weak var waterButton: UIButton!
+//    @IBOutlet weak var recycleButton: UIButton!
+//    @IBOutlet weak var energyButton: UIButton!
+//    @IBOutlet weak var indoorsButton: UIButton!
+    
+    
+    
+    
 
     var titleArray = [String]()
 
@@ -56,10 +68,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         AACarousel.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
         AACarousel.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
         
-        let startPoint = CGPoint(x: self.view.frame.width - 60, y: 55)
-        let aView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 180))
-        let popover = Popover()
-        popover.show(aView, point: startPoint)
+
 
         
     }
@@ -109,6 +118,65 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         self.navigationController?.pushViewController(myVC, animated: true)
         
     }
+    
+    @IBAction func materialsInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func managementInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func communityInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func waterInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func recycleInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func energyInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    @IBAction func indoorsInfo(_ sender: Any) {
+        let startPoint = tableView.center
+        let aView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let popover = Popover()
+        popover.show(aView, point: startPoint)
+        
+    }
+    
+    
+    
 
 }
 
@@ -126,6 +194,11 @@ extension OfferPageViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         return cell!
     }
+    
+    
+}
+
+extension OfferPageViewController {
     
     
 }
