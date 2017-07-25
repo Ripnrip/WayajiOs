@@ -61,7 +61,7 @@ class CustomCellsController : FormViewController {
             }
             self.imageURL = userSettings.string(forKey: "pictureURL")
             self.name = userSettings.string(forKey: "name")
-            self.email = userSettings.string(forKey: "email")
+            self.email = "TACOS@tacos.com"//userSettings.string(forKey: "email")
             self.gender = userSettings.string(forKey: "gender")
             
 

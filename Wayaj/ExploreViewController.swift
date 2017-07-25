@@ -122,7 +122,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.performSegue(withIdentifier: "goToQuestionaire", sender: self)
             let vc = CustomCellsController()
             vc.name = UserDefaults.standard.value(forKey: "name") as! String
-            vc.email = UserDefaults.standard.value(forKey: "email") as! String
+            //vc.email = UserDefaults.standard.value(forKey: "email") as! String
             vc.gender = UserDefaults.standard.value(forKey: "gender") as! String
             let usersImageUrl = UserDefaults.standard.value(forKey: "pictureURL") as! String
             
