@@ -86,7 +86,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         textFieldInsideSearchBar?.textColor = UIColor.white
         
         self.upButton.isHidden = true
-        self.whereButton.isHidden = true
+        //self.whereButton.isHidden = true
         datePicker.isHidden = true
         occupantFilter.isHidden = true
         loadListings()
