@@ -94,10 +94,9 @@
                                 </constraints>
                                 <state key="normal" image="fbLogin"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J2-fa-XbY">
-                                <rect key="frame" x="348" y="686" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skip">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J2-fa-XbY">
+                                <rect key="frame" x="164.66666666666666" y="691" width="85" height="30"/>
+                                <state key="normal" title="Skip for now">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -107,10 +106,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7J2-fa-XbY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="038-nQ-sCp"/>
                             <constraint firstAttribute="trailing" secondItem="bjq-7m-BDG" secondAttribute="trailing" constant="30" id="4Lc-nT-bZd"/>
                             <constraint firstItem="bjq-7m-BDG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="CC4-TG-ReZ"/>
                             <constraint firstItem="bjq-7m-BDG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="29" id="EPo-3V-gbW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="32V-CO-JGp" secondAttribute="bottom" id="HnW-Bj-Aaq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7J2-fa-XbY" secondAttribute="bottom" constant="15" id="bgu-Nd-uNY"/>
                             <constraint firstAttribute="trailing" secondItem="32V-CO-JGp" secondAttribute="trailing" id="jH9-Ok-HT0"/>
                             <constraint firstItem="32V-CO-JGp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pIs-LU-eL6"/>
                             <constraint firstItem="177-oD-hPm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rer-Il-Eov"/>
@@ -1423,7 +1424,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
