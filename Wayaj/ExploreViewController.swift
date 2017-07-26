@@ -11,6 +11,10 @@ import paper_onboarding
 import AMTooltip
 import LocationPickerViewController
 import SwiftSpinner
+import AudioToolbox
+import AVFoundation
+import Cheers
+
 
 struct Listing {
     let image:Image
@@ -42,6 +46,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var whenButton: UIButton!
     @IBOutlet weak var howManyButton: UIButton!
 
+    var player: AVAudioPlayer?
+
+    
     lazy var datePicker: AirbnbDatePicker = {
         let btn = AirbnbDatePicker()
         btn.frame = CGRect(x: 19, y: 137.67, width: 337, height: 49)
@@ -62,11 +69,35 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
     var filtered:[Listing] = []
     
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            //shakeLabel.text = "Shaken, not stirred"
+            print("shaken, not stirred")
+            
+            playSound()
+            
+            // Create the view
+            let cheerView = CheerView()
+            view.addSubview(cheerView)
+            
+            // Configure
+            cheerView.config.particle = .confetti
+            
+            // Start
+            cheerView.start()
+            
+            // Stop
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                cheerView.stop()
+            })
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         SwiftSpinner.hide()
-        shouldShowQuestionare()
+        
+        //shouldShowQuestionare()
 
     }
 
@@ -156,6 +187,22 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         view.endEditing(true)
     }
     
+    
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "china", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     func loadListings() {
         let listing1 = Listing(image: #imageLiteral(resourceName: "DelMar"), images: ["https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+MAr-+Suite.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar-+Cabana+Accommodations.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar-+Spa.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar.jpg"], name: "L'Auberge Del Mar", location: "Del Mar, California", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g32286-d76752-Reviews-L_Auberge_Del_Mar-Del_Mar_California.html"), description: "Experience the best California has to offer at this fabulous beach resort located in the heart of Southern California's most picturesque coastal village of Del Mar in San Diego's North County. L’Auberge du Mar features 121 deluxe guest rooms, including 7 well-appointed luxury suites, offer Del Mar Village views, coastal ocean views, and/or garden terrace views in a luxurious beach estate setting. Local attractions include the Encinitas Tide pools, tours of local Temecula wineries and the San Diego Polo Fields. Fresh and health conscious, the restaurant menus at L'Auberge Del Mar showcase local, organic produce, and sustainable seafood.")

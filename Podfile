@@ -25,6 +25,7 @@ target 'Wayaj' do
   pod 'SwiftSpinner'
   pod 'Kingfisher'
   pod "Popover"
+  pod "Cheers"
 
 
 
