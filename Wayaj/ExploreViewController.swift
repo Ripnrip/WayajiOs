@@ -48,7 +48,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     var player: AVAudioPlayer?
 
-    
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+
     lazy var datePicker: AirbnbDatePicker = {
         let btn = AirbnbDatePicker()
         btn.frame = CGRect(x: 19, y: 137.67, width: 337, height: 49)
@@ -105,12 +106,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         
-        searchView.addGestureRecognizer(tap)
         
         whereSearchBar.delegate = self
         let textFieldInsideSearchBar = whereSearchBar.value(forKey: "searchField") as? UITextField
@@ -351,19 +350,26 @@ extension ExploreViewController:UISearchBarDelegate  {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
+        view.addGestureRecognizer(tap)
+
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
+        view.removeGestureRecognizer(tap)
+
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        
+        view.removeGestureRecognizer(tap)
+
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
+        view.removeGestureRecognizer(tap)
+
         print(searchBar.text)
         
         SwiftSpinner.show("Searching")
