@@ -261,14 +261,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diane" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-59-Tyn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-59-Tyn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="C7t-dT-oRq"/>
                                     <constraint firstAttribute="height" constant="255" id="YWy-qr-zJp"/>
                                 </constraints>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrg-nD-z5a">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrg-nD-z5a">
                                 <rect key="frame" x="303" y="231" width="53" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="editProfileIcon"/>
@@ -1424,7 +1424,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1446,7 +1446,6 @@
         <image name="bg" width="746" height="1332"/>
         <image name="bucketList" width="388" height="99"/>
         <image name="countriesVisited" width="373" height="99"/>
-        <image name="diane" width="750" height="510"/>
         <image name="editProfileIcon" width="53" height="53"/>
         <image name="exploreIcon" width="24" height="24"/>
         <image name="favoriteActivities" width="388" height="99"/>
