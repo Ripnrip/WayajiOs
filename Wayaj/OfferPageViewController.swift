@@ -61,7 +61,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         let pathArray:[String] = currentListing.images!
         titleArray = [currentListing.name]
         AACarousel.delegate = self
-        AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 1.0, defaultImage:
+        AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 1.5, defaultImage:
             "defaultImage")
         //handleFirstImageView()
         //optional methods

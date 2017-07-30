@@ -28,15 +28,10 @@ class ProfileViewController: UIViewController {
         print(UserDefaults.standard.string(forKey: "favoriteItems"))
         print(UserDefaults.standard.string(forKey: "bucketList"))
 
-        if let imageURL = (UserDefaults.standard.string(forKey: "pictureURL")){
-            getDataFromUrl(url: URL(string:imageURL)!, completion: { (data, response, error) in
-            if error == nil {
-                self.profileImage.image = UIImage(data: data!)!
-            }else {
-                print("there was an error getting the picure url \(error)")
-            }
-        })
-            
+        
+        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
+            let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
+            self.profileImage.image =  image
         }
         
         if let name = UserDefaults.standard.string(forKey: "name") {

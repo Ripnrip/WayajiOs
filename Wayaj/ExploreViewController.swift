@@ -97,7 +97,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.isNavigationBarHidden = true
         SwiftSpinner.hide()
         
-        //shouldShowQuestionare()
+        shouldShowQuestionare()
 
     }
 

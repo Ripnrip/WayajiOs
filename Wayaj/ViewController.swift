@@ -152,7 +152,7 @@ extension ViewController: AWSSignInDelegate {
         let syncClient: AWSCognito = AWSCognito.default()
         var userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
         
-        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.type(large), gender, birthday"])
+        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.width(500).height(400), gender, birthday"])
         request?.start(completionHandler: { (connection, object , error) in
             if error != nil {
                 print("there was some error with getting the persons fb data \(String(describing: error))")
@@ -172,6 +172,7 @@ extension ViewController: AWSSignInDelegate {
             userSettings.setString(dict["gender"] as! String, forKey: "gender")
             userSettings.setString(imageURL! , forKey: "pictureURL")
             userSettings.synchronize()
+
             
             //NSUSERDEFAULTS
             UserDefaults.standard.setValue(dict.description, forKey: "profileInfo")
@@ -180,13 +181,28 @@ extension ViewController: AWSSignInDelegate {
             //UserDefaults.standard.setValue(dict["email"] as! String, forKey: "email")
             UserDefaults.standard.setValue(dict["gender"] as! String, forKey: "gender")
             UserDefaults.standard.setValue(imageURL!, forKey: "pictureURL")
-            UserDefaults.standard.synchronize()
             
             
+            var profileImage = UIImage()
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "MainController")
-            self.present(controller, animated: true, completion: nil)
+            self.getDataFromUrl(url: URL(string:imageURL!)!, completion: { (data, response, error) in
+                if error == nil {
+                    let imageDownload = UIImage(data: data!)
+                    profileImage = imageDownload!
+                    
+                    UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: imageDownload!), forKey: "profileImage")
+                    UserDefaults.standard.synchronize()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: "MainController")
+                    self.present(controller, animated: true, completion: nil)
+                }else{
+                    print("the error in getting the datafromURL is \(error) with response \(response)")
+                    
+                }
+            })
+            
+            
+
             
             
         })

@@ -268,14 +268,6 @@
                                     <constraint firstAttribute="height" constant="255" id="YWy-qr-zJp"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrg-nD-z5a">
-                                <rect key="frame" x="303" y="231" width="53" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="editProfileIcon"/>
-                                <connections>
-                                    <action selector="editProfile:" destination="z7g-dM-L9t" eventType="touchUpInside" id="5JT-wo-WjH"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutMe" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-TJ-76b">
                                 <rect key="frame" x="9" y="308" width="115" height="50"/>
                                 <constraints>
@@ -348,6 +340,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrg-nD-z5a">
+                                <rect key="frame" x="298" y="227" width="53" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="editProfileIcon"/>
+                                <connections>
+                                    <action selector="editProfile:" destination="z7g-dM-L9t" eventType="touchUpInside" id="5JT-wo-WjH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1424,7 +1424,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

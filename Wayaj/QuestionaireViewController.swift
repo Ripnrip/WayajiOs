@@ -64,6 +64,11 @@ class CustomCellsController : FormViewController {
             self.email = "TACOS@tacos.com"//userSettings.string(forKey: "email")
             self.gender = userSettings.string(forKey: "gender")
             
+            if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
+                let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
+                self.image =  image
+            }
+
 
             print("the values retrieved are \(self.imageURL) and \(self.name) \(self.email)")
             return 1
