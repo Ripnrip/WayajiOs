@@ -382,6 +382,7 @@
                         <outlet property="nameLabel" destination="vVf-Og-vse" id="tkj-Wv-cc4"/>
                         <outlet property="profileImage" destination="5lH-59-Tyn" id="PhE-1e-m9V"/>
                         <outlet property="scrollView" destination="nbB-D0-waZ" id="DZy-mW-Ttd"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="b6K-Xk-9kS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTc-fM-mZe" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,6 +21,31 @@ class ProfileViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if let ns = (UserDefaults.standard.value(forKey: "name") as? String) {
+
+        }else{
+            let alertController = UIAlertController(title: "Alert", message: "Please login to access this page", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                // ...
+                self.tabBarController?.selectedIndex = 0
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+                // ...
+                self.performSegue(withIdentifier: "goToLogin", sender: nil)
+            }
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true) {
+                // ...
+            }
+        }
+
+
+        
         print(UserDefaults.standard.string(forKey: "name"))
         print(UserDefaults.standard.string(forKey: "pictureURL"))
         print(UserDefaults.standard.string(forKey: "aboutMe"))
