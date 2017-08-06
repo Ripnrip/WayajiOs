@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="32V-CO-JGp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-7m-BDG">
                                 <rect key="frame" x="29" y="60" width="355" height="188"/>
@@ -95,7 +95,7 @@
                                 <state key="normal" image="fbLogin"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7J2-fa-XbY">
-                                <rect key="frame" x="164.66666666666666" y="691" width="85" height="30"/>
+                                <rect key="frame" x="164.66666666666666" y="642" width="85" height="30"/>
                                 <state key="normal" title="Skip for now">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -221,19 +221,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x8t-b4-MYd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EGg-xy-zNM" id="M27-d2-twj"/>
+                                    <outlet property="delegate" destination="EGg-xy-zNM" id="hh5-ny-WeK"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.17174203609343117" green="0.42236260629164385" blue="0.84712421894073486" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="x8t-b4-MYd" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" id="0oR-s8-VN3"/>
                             <constraint firstItem="SQK-8F-xKp" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" id="1fd-HV-DAb"/>
+                            <constraint firstAttribute="trailing" secondItem="x8t-b4-MYd" secondAttribute="trailing" id="87O-3I-PQE"/>
                             <constraint firstItem="fll-S3-t4t" firstAttribute="top" secondItem="8Wt-HS-RIS" secondAttribute="bottom" constant="38" id="BF1-FK-H07"/>
                             <constraint firstAttribute="trailing" secondItem="SQK-8F-xKp" secondAttribute="trailing" id="D5O-wH-Q1D"/>
                             <constraint firstAttribute="trailing" secondItem="fll-S3-t4t" secondAttribute="trailing" id="Wds-ca-Hbs"/>
                             <constraint firstItem="fll-S3-t4t" firstAttribute="leading" secondItem="vnp-3B-gcb" secondAttribute="leading" id="a3U-Ov-6Hh"/>
+                            <constraint firstItem="x8t-b4-MYd" firstAttribute="top" secondItem="vnp-3B-gcb" secondAttribute="top" id="gRb-eQ-7aC"/>
                             <constraint firstItem="SQK-8F-xKp" firstAttribute="top" secondItem="fll-S3-t4t" secondAttribute="bottom" constant="46" id="hZc-Gw-v3v"/>
+                            <constraint firstItem="7u9-Af-lY8" firstAttribute="top" secondItem="x8t-b4-MYd" secondAttribute="bottom" id="sPS-yw-4ng"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
+                    <connections>
+                        <outlet property="tableView" destination="x8t-b4-MYd" id="eNL-a1-2zz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdI-MD-Wdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
