@@ -9,35 +9,21 @@
 import UIKit
 import CoreData
 
+
 class SavedViewController: UIViewController {
     
     var offers: [NSManagedObject] = []
     @IBOutlet var tableView: UITableView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-//        // Do any additional setup after loading the view.
-//        //1
-//        guard let appDelegate =
-//            UIApplication.shared.delegate as? AppDelegate else {
-//                return
-//        }
-//        
-//     //   let managedContext =
-//         //   appDelegate.persistentContainer.viewContext
-//        
-//        //2
-//        let fetchRequest =
-//            NSFetchRequest<NSManagedObject>(entityName: "Offer")
-//        
-//        //3
-//        do {
-//            offers = try managedContext.fetch(fetchRequest)
-//            print("the offers saved are \(offers.count)")
-//        } catch let error as NSError {
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//        }
     }
 
 }
@@ -48,13 +34,21 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return AllListings.listings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OfferTableViewCell
+        cell.listingObject = AllListings.listings[indexPath.section]
+        cell.offerImage?.image = AllListings.listings[indexPath.section].image
+        cell.nameLabel.text = AllListings.listings[indexPath.section].name
+        cell.locationLabel.text = AllListings.listings[indexPath.section].location
+        
+        return cell//UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 256
+    }
     
 }

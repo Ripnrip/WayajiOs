@@ -16,21 +16,63 @@ import AVFoundation
 import Cheers
 
 
-struct Listing {
-    let image:Image
-    let images:[String]?
-    let name:String
-    let location:String
-    let stars: Int
-    let isFavorited:Bool
-    let URL:URL?
-    let description:String?
+struct AllListings {
+    static var listings = [Listing]()
+}
+
+
+class Listing: NSObject, NSCoding {
+    var image:Image
+    var images:[String]?
+    var name:String
+    var location:String
+    var stars: Int
+    var isFavorited:Bool
+    var URL:URL?
+    var listingDescription:String?
+    
+    
+    init(image: Image, images:[String]?, name: String, location: String, stars: Int, isFavorited: Bool, URL:URL?, description:String?) {
+        self.image = image
+        self.images = images
+        self.name = name
+        self.location = location
+        self.stars = stars
+        self.isFavorited = isFavorited
+        self.URL = URL
+        self.listingDescription = description!
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let image = aDecoder.decodeObject(forKey: "image") as! Image
+        let images = aDecoder.decodeObject(forKey: "images") as! [String]?
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let location = aDecoder.decodeObject(forKey: "location") as! String
+        let stars = 0
+        let isFavorited = false
+        let URL = aDecoder.decodeObject(forKey: "url") as! URL
+        let desc = aDecoder.decodeObject(forKey: "desc") as! String
+        self.init(image: image, images:images, name: name, location: location, stars: stars, isFavorited: isFavorited, URL:URL, description:desc)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(image, forKey: "image")
+        aCoder.encode(images, forKey: "images")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(location, forKey: "location")
+        aCoder.encode(stars, forKey: "stars")
+        aCoder.encode(isFavorited, forKey:"isFavorited")
+        aCoder.encode(listingDescription, forKey:"description")
+    }
+    
 }
 
 var Listings = [Listing]()
 var locationsArray = [String]()
 
-var selectedListing = Listing(image: #imageLiteral(resourceName: "CayoBeach"), images: nil, name: "", location: "", stars: 4, isFavorited: false, URL: nil, description: "")
+//var selectedListing = Listing(image: #imageLiteral(resourceName: "CayoBeach"), images: nil, name: "", location: "", stars: 4, isFavorited: false, URL: nil, description: "")
+
+var selectedListing = Listing(image: UIImage(), images: nil, name: "", location: "", stars: 0, isFavorited: false, URL: nil, description: "")
 var searchActive : Bool = false
 
 
@@ -121,10 +163,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         occupantFilter.isHidden = true
         loadListings()
         
-        datePicker.frame = whenButton.frame
+        //datePicker.frame = whenButton.frame
         //occupantFilter.frame = howManyButton.frame
-        view.addSubview(datePicker)
-        view.addSubview(occupantFilter)
+        //view.addSubview(datePicker)
+        //view.addSubview(occupantFilter)
         //tips
         let shouldShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial3"))
         if shouldShowQuestionaire == false {
@@ -202,6 +244,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func loadListings() {
+
         let listing1 = Listing(image: #imageLiteral(resourceName: "DelMar"), images: ["https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+MAr-+Suite.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar-+Cabana+Accommodations.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar-+Spa.jpg","https://s3.amazonaws.com/my-test-bucket9983/L'Auberge+Del+Mar-CA--/L'Auberge+Del+Mar.jpg"], name: "L'Auberge Del Mar", location: "Del Mar, California", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g32286-d76752-Reviews-L_Auberge_Del_Mar-Del_Mar_California.html"), description: "Experience the best California has to offer at this fabulous beach resort located in the heart of Southern California's most picturesque coastal village of Del Mar in San Diego's North County. L’Auberge du Mar features 121 deluxe guest rooms, including 7 well-appointed luxury suites, offer Del Mar Village views, coastal ocean views, and/or garden terrace views in a luxurious beach estate setting. Local attractions include the Encinitas Tide pools, tours of local Temecula wineries and the San Diego Polo Fields. Fresh and health conscious, the restaurant menus at L'Auberge Del Mar showcase local, organic produce, and sustainable seafood.")
         let listing2 = Listing(image: #imageLiteral(resourceName: "Inspira"), images: ["https://s3.amazonaws.com/my-test-bucket9983/Inspira+Santa+Marta+Hotel-+Portugal--/Inspira+Santa+MArta+Hotel-+Suite.jpg","https://s3.amazonaws.com/my-test-bucket9983/Inspira+Santa+Marta+Hotel-+Portugal--/Inspira+Santa+Marta+Hotel+-+Jaccuzzi.jpg","https://s3.amazonaws.com/my-test-bucket9983/Inspira+Santa+Marta+Hotel-+Portugal--/Inspira+Santa+Marta+Hotel.jpg","https://s3.amazonaws.com/my-test-bucket9983/Inspira+Santa+Marta+Hotel-+Portugal--/Inspira+Santa+marta+Hotel-+Bedroom.jpg"], name: "Inspira Santa Marta Hotel", location: "Lisbon, Portugal", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g189158-d1580631-Reviews-Inspira_Santa_Marta_Hotel-Lisbon_Lisbon_District_Central_Portugal.html"), description: "Behind its austere neoclassical facade, an oasis of peace and harmony welcomes the guests of the Santa Marta Hotel. Located in the historical center of Lisbon, the hotel has been completely designed following the principles of Feng Shui, so that mind and body can be revitalized and regenerated by the surrounding flow of positive energies. Not only the five basic elements of Feng-Shui, metal, wood, fire, water and earth, are always present, but the furniture has been carefully chosen and the location of each space and its inherent functions also respect its principles of Feng Shui.")
         let listing3 = Listing(image: #imageLiteral(resourceName: "MaunaLani"), images: ["https://s3.amazonaws.com/my-test-bucket9983/Mauna+Lani+Resort-Hawaii--/Mauna+Lani+Bay-+Bedroom.jpg","https://s3.amazonaws.com/my-test-bucket9983/Mauna+Lani+Resort-Hawaii--/Mauna+Lani+Bay-+Spa.jpg","https://s3.amazonaws.com/my-test-bucket9983/Mauna+Lani+Resort-Hawaii--/mauna+Lani+Bay-+Bungalow.jpg","https://s3.amazonaws.com/my-test-bucket9983/Mauna+Lani+Resort-Hawaii--/mauna+Lani+Resort.jpg"], name: "Mauna Lani", location: "Waimea, Hawaii", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g2312116-d111599-Reviews-Mauna_Lani_Bay_Hotel_Bungalows-Puako_Kohala_Coast_Island_of_Hawaii_Hawaii.html"), description: "Nestled oceanfront on a sandy beach of Kohala Coast the Mauna Lani Bay Hotel & Bungalows is recognized as a pacesetter in historic preservation and stewardship of the land.  Guests experience the rich history and culture of the Big Island of Hawaii, through a myriad of resort activities like exploring the historic Kalahuiupua'a fishponds, play a round of golf, learn to play a ukulele, or hike through Hawaii’s largest petroglyph field. Accommodations include ocean front or ocean view bungalows, as well as rooms and suites in the resort’s main building.")
@@ -212,6 +255,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let listing8 = Listing(image: #imageLiteral(resourceName: "Rainforest"), images: ["https://s3.amazonaws.com/my-test-bucket9983/Rainforest+Inn+Bed+%26+Breakfast-PR-/Rainforest+In+Bed+and+Breakfast-+Chalet.jpg","https://s3.amazonaws.com/my-test-bucket9983/Rainforest+Inn+Bed+%26+Breakfast-PR-/Rainforest+Inn+Bed+%26+Breakfast.jpg","https://s3.amazonaws.com/my-test-bucket9983/Rainforest+Inn+Bed+%26+Breakfast-PR-/Rainforest+Inn+Bed+and+Breakfast-+Suite.jpg"], name: "Rainforest Inn Bed & Breakfast", location: "El Yunque, Puerto Rico", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g147324-d503287-Reviews-Rainforest_Inn-El_Yunque_National_Forest_Puerto_Rico.html"), description: "Elegant, secluded, and enveloped by the jungle, The Rainforest Inn Bed and Breakfast offers an ideal getaway to those who are looking for a luxurious vacation immersed in nature and local culture. Tucked away on the Northern edge of the El Yunque National Forest, at these rustic boutique style villas furnished with antiques you can experience a touch of luxury while footsteps from one of the most impressive natural sites in the United States. Amenities include complimentary vegetarian breakfast, yoga room and a natural koi pond.")
         let listing9 = Listing(image: #imageLiteral(resourceName: "innByTheSea"), images: ["https://s3.amazonaws.com/my-test-bucket9983/inn+by+the+sea+-+maine/innbythesea-bedroom.jpg","https://s3.amazonaws.com/my-test-bucket9983/inn+by+the+sea+-+maine/innbythesea-main-bldg.jpg","https://s3.amazonaws.com/my-test-bucket9983/inn+by+the+sea+-+maine/innbythesea-room1.jpg","https://s3.amazonaws.com/my-test-bucket9983/inn+by+the+sea+-+maine/innbythesea-spa.jpg","https://s3.amazonaws.com/my-test-bucket9983/inn+by+the+sea+-+maine/innbythesea-suite.jpg"], name: "Inn By The Sea", location: "Cape Elizabeth, Maine", stars: 4, isFavorited: false, URL: URL(string: "https://www.tripadvisor.com/Hotel_Review-g40554-d198688-Reviews-Inn_by_the_Sea-Cape_Elizabeth_Maine.html"), description: "Named among the top 10 US green hotels by Forbes Traveler and MSNBC, the Inn by the Sea features beach front luxury accomodations in a modern and relaxed atmosphere. With 61 guest rooms, suites and cottages, this unique Maine resort offers the ideal getaway for everyone, couples, families or groups. Located in the historic town of Cape Elizabeth, just 15 minutes from Portland, Inn by the Sea caters a great range of activities for its guests, including food, natural and cultural tours of the area. Enjoy your view of Crescent Beach from the comfort of your luxuriously appointed room or suite, and make sure you leave time for serene relaxation. Inn Activities include nightly fire pits, beachfront sunsets, early morning yoga and garden tours courtesy of the Inn's head gardener, Derrick Daly. Our beach front luxury hotel has been nationally recognized for green hotel practices, including a LEED Silver certified Spa. Inn by the Sea is also well known as a pet-friendly destination in the Portland area, so please bring your four legged companions with you! The Spa at Inn by the Sea is ready to spoil you with Signature Treatments, Massage Therapies, Facial Treatments, and Body Therapies. Come to relax for an hour or a day of restorative spa treatments that will leave you feeling rejuvenated and refreshed. The Inn also offers event space for your business or social gathering, and features a signaturerestaurant,Sea Glass. Portland, Maine is known for exquisite dining, and the Sea Glass restaurant is no exception. Enjoy the oceanfront view while you dine on Executive Chef Andrew Chadwick's latest creations, featuring fresh, local seafood and produce. Whether for a weekend getaway, wedding celebration at the beach or group meeting, you will experience a Maine destination where luxury comes naturally.")
         Listings = [listing1,listing2,listing3,listing4,listing5,listing6,listing7,listing8,listing9]
+        AllListings.listings = Listings
         tableView.reloadData()
         
     }
@@ -257,10 +301,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     @IBAction func retractSearchFilter(_ sender: Any) {
         //height is 98
-        dismissKeyboard()
+       dismissKeyboard()
         self.datePicker.isHidden = true
         self.occupantFilter.isHidden = true
-        self.whereSearchBar.isHidden = true
+        //self.whereSearchBar.isHidden = true
         
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
@@ -269,7 +313,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             (value: Bool) in
             //self.blurBg.hidden = true
             self.upButton.isHidden = true
-            self.whereButton.isHidden = true
+            //self.whereButton.isHidden = true
 
 
         })
@@ -319,6 +363,7 @@ extension ExploreViewController {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OfferTableViewCell
+        cell.listingObject = Listings[indexPath.section]
         cell.offerImage?.image = Listings[indexPath.section].image
         cell.nameLabel.text = Listings[indexPath.section].name
         cell.locationLabel.text = Listings[indexPath.section].location
@@ -329,6 +374,9 @@ extension ExploreViewController {
         return 256
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        dismissKeyboard()
+        
         tableView.deselectRow(at: indexPath, animated: true)
         selectedListing = Listings[indexPath.section]
         //self.performSegue(withIdentifier: "viewOffer", sender: nil)
@@ -337,7 +385,7 @@ extension ExploreViewController {
         myVC.currentListing = selectedListing
         myVC.bookURL = selectedListing.URL!
         myVC.image = selectedListing.image
-        myVC.descriptionText = selectedListing.description!
+        myVC.descriptionText = selectedListing.listingDescription
         self.navigationController?.pushViewController(myVC, animated: true)
 
         
@@ -348,25 +396,25 @@ extension ExploreViewController:UISearchBarDelegate  {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
-        view.addGestureRecognizer(tap)
+        //view.addGestureRecognizer(tap)
 
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
-        view.removeGestureRecognizer(tap)
+        //view.removeGestureRecognizer(tap)
 
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        view.removeGestureRecognizer(tap)
+        //view.removeGestureRecognizer(tap)
 
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
-        view.removeGestureRecognizer(tap)
+        //view.removeGestureRecognizer(tap)
 
         print(searchBar.text)
         
