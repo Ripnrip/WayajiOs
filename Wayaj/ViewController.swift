@@ -152,7 +152,7 @@ extension ViewController: AWSSignInDelegate {
         let syncClient: AWSCognito = AWSCognito.default()
         var userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
         
-        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.width(500).height(400), gender, birthday"])
+        let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.width(414).height(255), gender, birthday"])
         request?.start(completionHandler: { (connection, object , error) in
             if error != nil {
                 print("there was some error with getting the persons fb data \(String(describing: error))")

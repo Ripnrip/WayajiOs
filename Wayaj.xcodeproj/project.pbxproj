@@ -165,7 +165,6 @@
 		58A0500F1EFC50130050F718 /* CRNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRNotification.swift; sourceTree = "<group>"; };
 		58A050101EFC50130050F718 /* CRNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRNotifications.swift; sourceTree = "<group>"; };
 		58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
-		58F346021F291C7F004E2575 /* china.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = china.mp3; sourceTree = "<group>"; };
 		5A62239920C4064918F1F749 /* Pods-Wayaj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wayaj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj.release.xcconfig"; sourceTree = "<group>"; };
 		840767931EBA636800238327 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		840767961EBA654A00238327 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
@@ -368,7 +367,6 @@
 				588921F61EB78838005E5606 /* ViewController.swift */,
 				588921F81EB78838005E5606 /* Main.storyboard */,
 				588921FB1EB78838005E5606 /* Assets.xcassets */,
-				58F346021F291C7F004E2575 /* china.mp3 */,
 				588921FD1EB78838005E5606 /* LaunchScreen.storyboard */,
 				588922001EB78838005E5606 /* Info.plist */,
 			);
