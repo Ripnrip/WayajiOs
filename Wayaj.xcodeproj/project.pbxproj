@@ -59,7 +59,6 @@
 		58A050131EFC50130050F718 /* CRNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500F1EFC50130050F718 /* CRNotification.swift */; };
 		58A050141EFC50130050F718 /* CRNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A050101EFC50130050F718 /* CRNotifications.swift */; };
 		58C03D9F1EF866E30038E9B5 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C03D9E1EF866E30038E9B5 /* MainTabViewController.swift */; };
-		58F346031F291C7F004E2575 /* china.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58F346021F291C7F004E2575 /* china.mp3 */; };
 		840767941EBA636800238327 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767931EBA636800238327 /* ExploreViewController.swift */; };
 		840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840767961EBA654A00238327 /* OfferTableViewCell.swift */; };
 		8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD831ECA26F300A15B1B /* Nunito-Bold.ttf */; };
@@ -579,7 +578,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */,
-				58F346031F291C7F004E2575 /* china.mp3 in Resources */,
 				588921FF1EB78838005E5606 /* LaunchScreen.storyboard in Resources */,
 				8419CD881ECA26F300A15B1B /* Nunito-Light.ttf in Resources */,
 				8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */,
