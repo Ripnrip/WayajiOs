@@ -534,7 +534,7 @@ extension ExploreViewController {
         dismissKeyboard()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedListing = Listings[indexPath.section]
+        selectedListing = itemResults[indexPath.section]
         //self.performSegue(withIdentifier: "viewOffer", sender: nil)
         //self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
         let myVC = storyboard?.instantiateViewController(withIdentifier: "offerPageDetail") as! OfferPageViewController
@@ -542,8 +542,9 @@ extension ExploreViewController {
         myVC.bookURL = URL(string:selectedListing.URL)
         let imageView = UIImageView()
         imageView.kf.setImage(with: URL(string: selectedListing.image1))
+        
         myVC.image = imageView.image
-        myVC.descriptionText = selectedListing.listingDescription
+        myVC.descriptionText = itemResults[indexPath.section].listingDescription
         self.navigationController?.pushViewController(myVC, animated: true)
 
         
