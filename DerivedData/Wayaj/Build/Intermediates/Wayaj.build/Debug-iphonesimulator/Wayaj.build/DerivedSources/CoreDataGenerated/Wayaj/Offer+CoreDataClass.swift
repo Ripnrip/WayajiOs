@@ -2,7 +2,7 @@
 //  Offer+CoreDataClass.swift
 //  
 //
-//  Created by Admin on 5/15/17.
+//  Created by Admin on 8/11/17.
 //
 //  This file was automatically generated and should not be edited.
 //

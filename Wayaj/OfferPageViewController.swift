@@ -15,19 +15,6 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var AACarousel: AACarousel!
-    //@IBOutlet var collectionOfButtons: Array<UIButton>?
-    
-//    @IBOutlet weak var materialsButton: UIButton!
-//    @IBOutlet weak var managementButton: UIButton!
-//    @IBOutlet weak var communityButton: UIButton!
-//    @IBOutlet weak var waterButton: UIButton!
-//    @IBOutlet weak var recycleButton: UIButton!
-//    @IBOutlet weak var energyButton: UIButton!
-//    @IBOutlet weak var indoorsButton: UIButton!
-    
-    
-    
-    
 
     var titleArray = [String]()
 
@@ -40,12 +27,8 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     var descriptionText:String!
 
     override func viewWillAppear(_ animated: Bool) {
-        //self.imageView.image = image
         self.navigationController?.isNavigationBarHidden = false
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        //self.navigationController?.navigationBar.shadowImage = UIImage()
-        //self.navigationController?.navigationBar.isTranslucent = true
-        //self.navigationController?.view.backgroundColor = .clear
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,7 +41,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         // Do any additional setup after loading the view.
         descriptionTextView.text = descriptionText
         
-        let pathArray:[String] = currentListing.images!
+        let pathArray:[String] = [currentListing.image1,currentListing.image2,currentListing.image3]
         titleArray = [currentListing.name]
         AACarousel.delegate = self
         AACarousel.setCarouselData(paths: pathArray,  describedTitle: titleArray, isAutoScroll: true, timer: 1.5, defaultImage:
@@ -74,7 +57,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     }
     //require method
     func downloadImages(_ url: String, _ index: Int) {
-        AACarousel.images[0] = currentListing.image
+        //TEMP AACarousel.images[0] = currentListing.image1
 
         //here is download images area
         let imageView = UIImageView()
@@ -90,7 +73,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     }
     
     func handleFirstImageView() {
-        let url = URL(string: currentListing.images![0])
+        let url = URL(string: currentListing.image1)
         var pictures = AACarousel.images as! NSArray
         var firstImage = pictures[0] as! UIImage
 

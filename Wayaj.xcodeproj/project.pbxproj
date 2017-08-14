@@ -65,6 +65,12 @@
 		8419CD881ECA26F300A15B1B /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD841ECA26F300A15B1B /* Nunito-Light.ttf */; };
 		8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */; };
 		8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */; };
+		841FF4431F40FEB00003A37F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
+		841FF4441F40FEB00003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
+		841FF4451F4118440003A37F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
+		841FF4461F4118440003A37F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		841FF4481F4118480003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
+		841FF4491F4118480003A37F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
 		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
@@ -96,6 +102,18 @@
 			files = (
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841FF4471F4118440003A37F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				841FF4491F4118480003A37F /* RealmSwift.framework in Embed Frameworks */,
+				841FF4461F4118440003A37F /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -172,6 +190,8 @@
 		8419CD841ECA26F300A15B1B /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		841FF4411F40FEB00003A37F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		841FF4421F40FEB00003A37F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,8 +206,12 @@
 			files = (
 				58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */,
 				58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */,
+				841FF4441F40FEB00003A37F /* RealmSwift.framework in Frameworks */,
 				58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */,
+				841FF4451F4118440003A37F /* Realm.framework in Frameworks */,
 				58910CD31EF2C09B0049E477 /* AWSFacebookSignIn.framework in Frameworks */,
+				841FF4481F4118480003A37F /* RealmSwift.framework in Frameworks */,
+				841FF4431F40FEB00003A37F /* Realm.framework in Frameworks */,
 				5817D7BA1EF18C4E00ACA9E9 /* FBSDKCoreKit.framework in Frameworks */,
 				5817D7BB1EF18C4E00ACA9E9 /* FBSDKLoginKit.framework in Frameworks */,
 				D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */,
@@ -229,6 +253,8 @@
 		4D1BDFF88D1AB0F001C889BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841FF4411F40FEB00003A37F /* Realm.framework */,
+				841FF4421F40FEB00003A37F /* RealmSwift.framework */,
 				58910CD81EF2C1700049E477 /* libsqlite3.tbd */,
 				58910CD61EF2C15D0049E477 /* libz.tbd */,
 				58910CD01EF2C09B0049E477 /* AWSFacebookSignIn.framework */,
@@ -461,6 +487,7 @@
 				94D0577B3A455565A0182DB9 /* [CP] Embed Pods Frameworks */,
 				42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */,
 				58608F2A1EDDDFB600A0FDF3 /* Embed App Extensions */,
+				841FF4471F4118440003A37F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
