@@ -780,7 +780,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-UE-RHc">
-                                <rect key="frame" x="19" y="149" width="375" height="93"/>
+                                <rect key="frame" x="19" y="129" width="375" height="93"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcD-wt-3QP">
                                         <rect key="frame" x="23" y="12" width="124" height="21"/>
@@ -886,13 +886,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFORMATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRn-Y9-UPP">
-                                <rect key="frame" x="37" y="277" width="104" height="17"/>
+                                <rect key="frame" x="37" y="257" width="104" height="17"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" red="0.40603220462799072" green="0.59934026002883911" blue="0.41714298725128174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="87U-JL-LoL">
-                                <rect key="frame" x="19" y="306" width="375" height="140"/>
+                                <rect key="frame" x="19" y="286" width="375" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="wNl-Wt-fbu"/>
@@ -911,7 +911,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ito-56-ThQ">
-                                <rect key="frame" x="20" y="504" width="374" height="436"/>
+                                <rect key="frame" x="20" y="484" width="374" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="436" id="kAu-wM-ZyD"/>
@@ -1400,7 +1400,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXD-te-zTk">
-                                <rect key="frame" x="20" y="422" width="374" height="24"/>
+                                <rect key="frame" x="20" y="402" width="374" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="deJ-Mg-fot"/>
@@ -1409,6 +1409,14 @@
                                 <state key="normal" title="EXPAND TO READ MORE...">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsb-eC-bHv">
+                                <rect key="frame" x="8" y="15" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="backArrow"/>
+                                <connections>
+                                    <action selector="goBack:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="OkA-fS-HCZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1439,6 +1447,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dmo-UE-RHc" secondAttribute="trailing" constant="20" id="yxx-YI-NXd"/>
                         </constraints>
                     </scrollView>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
@@ -2260,6 +2269,7 @@
         <image name="CasaSol" width="1548" height="1080"/>
         <image name="aboutMe" width="264" height="99"/>
         <image name="appLogo" width="391" height="250"/>
+        <image name="backArrow" width="24" height="24"/>
         <image name="bg" width="746" height="1332"/>
         <image name="bucketList" width="388" height="99"/>
         <image name="countriesVisited" width="373" height="99"/>
@@ -2278,7 +2288,7 @@
         <image name="saveBG" width="800" height="800"/>
         <image name="upArrow" width="21" height="13"/>
         <image name="whenSearch" width="1352" height="198"/>
-        <image name="whereSearch" width="1352" height="202"/>
+        <image name="whereSearch" width="688" height="104"/>
         <image name="whiteHeart" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
