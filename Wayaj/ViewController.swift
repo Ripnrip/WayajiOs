@@ -16,12 +16,15 @@ import AWSFacebookSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 import SwiftSpinner
-
+import RealmSwift
+import ReplayKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var onboarding: PaperOnboarding!
     @IBOutlet var skipButton: SpringButton!
     
+    var realm: Realm!
+
     var onboardingView = PaperOnboarding()
     @IBOutlet weak var btn: UIButton!
     
@@ -67,6 +70,9 @@ class ViewController: UIViewController {
         // Set the button sign in delegate to handle feedback from sign in attempt
         facebookButton.delegate = self
         self.view.addSubview(facebookButton)
+
+        setupRealm()
+
     }
     
     
@@ -140,18 +146,60 @@ extension ViewController: AWSSignInDelegate {
         if let result = result {
             // handle success here
             print("the fb login result is \(result) and the auth state is \(authState.rawValue) and the error is \(String(describing: error)) and the loaded data from FB is \(FacebookIdentityProfile.sharedInstance().userName) and the other info  is \(FacebookIdentityProfile.sharedInstance().getAttributeForKey("email"))")
-            getFBUserInfo()
+            
+            // Authenticating the User
+            SyncUser.logIn(with: .facebook(token: FBSDKAccessToken.current().tokenString),
+                           server: URL(string: "http://ec2-34-230-65-31.compute-1.amazonaws.com:9080")!)
+            { user, error in
+                if let user = user {
+
+                    print("the user is \(user)")
+                    DispatchQueue.main.async {
+                        SwiftSpinner.show("Loading...")
+
+                    }
+
+                    self.getFBUserInfo()
+        
+                } else if let error = error {
+                    // handle error
+                    print("error in saving user \(error)")
+                }
+            }
+            
         } else {
             // handle error here
         }
     }
     
-    func getFBUserInfo() {
-        SwiftSpinner.show("Loading...")
-
-        let syncClient: AWSCognito = AWSCognito.default()
-        var userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
+    func setupRealm(){
+        // Log in existing user with username and password
+        let username = "gurinder@beeback.io"  // <--- Update this
+        let password = "Binarybros1"  // <--- Update this
         
+        var fetchedItems =
+            
+            
+            SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-34-230-65-31.compute-1.amazonaws.com:9080")!) { user, error in
+                guard let user = user else {
+                    fatalError(String(describing: error))
+                }
+                
+                DispatchQueue.main.async {
+                    // Open Realm
+                    let configuration = Realm.Configuration(
+                        syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-34-230-65-31.compute-1.amazonaws.com:9080/4ca6917f529505872e6260600cf0d7ae/users")!)
+                    )
+                    self.realm = try! Realm(configuration: configuration)
+                    
+                    
+                    print("all the objects are \(self.realm.objects(Listing.self))")
+                }
+        }
+    }
+    
+    func getFBUserInfo() {
+
         let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,picture.width(414).height(255), gender, birthday"])
         request?.start(completionHandler: { (connection, object , error) in
             if error != nil {
@@ -163,17 +211,24 @@ extension ViewController: AWSSignInDelegate {
             let imageURL = ((dict["picture"] as? [String: Any])?["data"] as? [String: Any])?["url"] as? String
                 //Download image from imageURL
             
+
+            try! self.realm.write() {
+                //self.realm.beginWrite()
+                var number: Int = Int(arc4random())
+                let u = User()
+                u.name = "test"
+                u.email = "taco@taco.com"
+                u.facebook_id = dict["id"] as! String
+                u.gender = "male"
+                u.photo = "sampl.jpg"
+                u.info = dict.description
+                u.id = number
+                self.realm.add(u, update: true)
+            }
+            
             print("the picture URL is \(imageURL)")
             print("all the data from this bogus thingy is \(dict)")
-            userSettings.setString(dict.description, forKey: "profileInfo")
-            userSettings.setString(dict["id"] as! String, forKey: "facebookID")
-            userSettings.setString(dict["name"] as! String, forKey: "name")
-            //userSettings.setString(dict["email"] as! String, forKey: "email")
-            userSettings.setString(dict["gender"] as! String, forKey: "gender")
-            userSettings.setString(imageURL! , forKey: "pictureURL")
-            userSettings.synchronize()
 
-            
             //NSUSERDEFAULTS
             UserDefaults.standard.setValue(dict.description, forKey: "profileInfo")
             UserDefaults.standard.setValue(dict["id"] as! String, forKey: "facebookID")

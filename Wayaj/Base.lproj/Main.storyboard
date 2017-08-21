@@ -717,6 +717,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="baseInfoView" destination="dvJ-7c-P8B" id="A0r-7j-NTR"/>
                                             <outlet property="heartButton" destination="5pS-KF-Ysp" id="myG-cZ-An8"/>
                                             <outlet property="locationLabel" destination="6J4-lH-zwo" id="vyv-UW-T0j"/>
                                             <outlet property="nameLabel" destination="tcS-72-hXI" id="aPF-1T-VTZ"/>
@@ -791,8 +792,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuuk, Groenland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-Pi-Ngi">
-                                        <rect key="frame" x="23" y="36" width="128" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nuuk, Groenland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-Pi-Ngi">
+                                        <rect key="frame" x="23" y="36" width="188" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="k5x-h5-Nwn"/>
                                         </constraints>
@@ -891,7 +892,7 @@
                                 <color key="textColor" red="0.40603220462799072" green="0.59934026002883911" blue="0.41714298725128174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="87U-JL-LoL">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="87U-JL-LoL">
                                 <rect key="frame" x="19" y="286" width="375" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -955,6 +956,7 @@
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="G6g-AQ-6Hb"/>
+                                                        <action selector="materialsInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="OBn-fb-yC3"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outstanding" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-Iq-aYt">
@@ -1022,6 +1024,7 @@
                                                     </constraints>
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
+                                                        <action selector="managementInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="vlq-Sf-tyb"/>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="eAy-rX-wfp"/>
                                                     </connections>
                                                 </button>
@@ -1090,6 +1093,7 @@
                                                     </constraints>
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
+                                                        <action selector="communityInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="joQ-uq-Nbt"/>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="lB9-cq-977"/>
                                                     </connections>
                                                 </button>
@@ -1159,6 +1163,7 @@
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="eUD-Rv-7pH"/>
+                                                        <action selector="waterInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="CAf-rH-QXb"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outstanding" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqr-Xc-rWj">
@@ -1227,6 +1232,7 @@
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="ukh-8I-Beu"/>
+                                                        <action selector="recycleInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="qUc-ox-4ud"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outstanding" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm1-n2-o56">
@@ -1294,6 +1300,7 @@
                                                     </constraints>
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
+                                                        <action selector="energyInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="Tlu-O2-2Rp"/>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="wb0-TK-ppR"/>
                                                     </connections>
                                                 </button>
@@ -1362,6 +1369,7 @@
                                                     </constraints>
                                                     <state key="normal" image="infoIcon"/>
                                                     <connections>
+                                                        <action selector="indoorsInfo:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="5Le-hh-U0F"/>
                                                         <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="xor-1W-VsW"/>
                                                     </connections>
                                                 </button>
@@ -1409,6 +1417,9 @@
                                 <state key="normal" title="EXPAND TO READ MORE...">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="expandInfoView:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="Dx8-FA-wXK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsb-eC-bHv">
                                 <rect key="frame" x="8" y="15" width="24" height="24"/>
@@ -1451,6 +1462,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
+                        <outlet property="barView" destination="Dmo-UE-RHc" id="Rxr-3B-Hvx"/>
+                        <outlet property="baseImageView" destination="sfs-sX-Cl8" id="aTg-Fc-xDs"/>
+                        <outlet property="infoLabel" destination="87U-JL-LoL" id="7Pp-dm-etD"/>
+                        <outlet property="informationTextView" destination="87U-JL-LoL" id="lQm-wr-iKf"/>
+                        <outlet property="locationLabel" destination="Eud-Pi-Ngi" id="SlS-9i-wdc"/>
+                        <outlet property="nameLabel" destination="HcD-wt-3QP" id="OCl-ud-BJA"/>
+                        <outlet property="priceLabel" destination="4aS-qE-T5o" id="180-r7-ehp"/>
                         <outlet property="ratingsTableView" destination="ito-56-ThQ" id="35p-Qq-Su4"/>
                     </connections>
                 </viewController>

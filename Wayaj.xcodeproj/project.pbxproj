@@ -71,6 +71,9 @@
 		841FF4461F4118440003A37F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		841FF4481F4118480003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
 		841FF4491F4118480003A37F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		842074701F4729B100980800 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420746F1F4729B100980800 /* User.swift */; };
+		842074721F47307600980800 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074711F47307600980800 /* Listing.swift */; };
+		842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074731F4ABD1400980800 /* OfferDetailViewController.swift */; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
 		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
@@ -192,6 +195,9 @@
 		8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		841FF4411F40FEB00003A37F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		841FF4421F40FEB00003A37F /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		8420746F1F4729B100980800 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		842074711F47307600980800 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		842074731F4ABD1400980800 /* OfferDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferDetailViewController.swift; sourceTree = "<group>"; };
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -380,6 +386,7 @@
 			children = (
 				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
+				8420746D1F47291E00980800 /* Realm */,
 				5817D7AF1EF18A2400ACA9E9 /* AWS */,
 				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
@@ -390,7 +397,6 @@
 				840767911EBA597500238327 /* Explore */,
 				58608F661EE1B9F400A0FDF3 /* Resources */,
 				588921F41EB78838005E5606 /* AppDelegate.swift */,
-				588921F61EB78838005E5606 /* ViewController.swift */,
 				588921F81EB78838005E5606 /* Main.storyboard */,
 				588921FB1EB78838005E5606 /* Assets.xcassets */,
 				588921FD1EB78838005E5606 /* LaunchScreen.storyboard */,
@@ -431,6 +437,7 @@
 		840767901EBA596D00238327 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				588921F61EB78838005E5606 /* ViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -442,6 +449,7 @@
 				58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */,
 				84A776981EBB721E00FF709F /* OfferPageViewController.swift */,
 				5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */,
+				842074731F4ABD1400980800 /* OfferDetailViewController.swift */,
 			);
 			name = Explore;
 			sourceTree = "<group>";
@@ -471,6 +479,23 @@
 				8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		8420746D1F47291E00980800 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8420746E1F47292500980800 /* Models */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		8420746E1F47292500980800 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8420746F1F4729B100980800 /* User.swift */,
+				842074711F47307600980800 /* Listing.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -776,6 +801,7 @@
 			files = (
 				58608FA51EE8754100A0FDF3 /* AirbnbCounter.swift in Sources */,
 				58A050131EFC50130050F718 /* CRNotification.swift in Sources */,
+				842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */,
 				58608FA71EE8754100A0FDF3 /* AirbnbSwitch.swift in Sources */,
 				5848A9821F0A866B0021C92F /* AACarousel.swift in Sources */,
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
@@ -792,9 +818,11 @@
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
+				842074701F4729B100980800 /* User.swift in Sources */,
 				58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */,
 				58608FAA1EE875D100A0FDF3 /* UIImage.swift in Sources */,
 				5817D7BF1EF18CDE00ACA9E9 /* ImageRow.swift in Sources */,
+				842074721F47307600980800 /* Listing.swift in Sources */,
 				58608F901EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift in Sources */,
 				58608F9C1EE86DCF00A0FDF3 /* Date.swift in Sources */,
 				58608F921EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift in Sources */,

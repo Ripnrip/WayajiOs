@@ -18,6 +18,7 @@ class OfferTableViewCell: UITableViewCell {
     @IBOutlet var heartButton: SpringButton!
     @IBOutlet weak var offerImage: UIImageView!
     var id = ""
+    @IBOutlet var baseInfoView: UIView!
     
     var isSaved = false
     var listingObject:Listing!
