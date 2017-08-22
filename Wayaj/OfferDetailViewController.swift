@@ -22,6 +22,11 @@ class OfferDetailViewController: UIViewController {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var infoLabel: UITextView!
     
+    @IBOutlet var expandButton: UIButton!
+    @IBOutlet var ecoRatingLabel: UILabel!
+    
+    @IBOutlet var scrollView: UIScrollView!
+    
     var imageURL:String = ""
     var name = ""
     var location = ""
@@ -39,10 +44,22 @@ class OfferDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1050)
 
+        
     }
 
     @IBAction func expandInfoView(_ sender: Any) {
+        
+        let x = informationTextView.frame.origin.x
+        let y = informationTextView.frame.origin.y
+        let width = informationTextView.frame.size.width
+        let height = informationTextView.frame.size.height
+        informationTextView.frame = CGRect(x: x, y: y, width: width, height: height+100)
+        expandButton.isHidden = true
+        expandButton.frame.origin.y = expandButton.frame.origin.y + 100
+        ecoRatingLabel.frame.origin.y = ecoRatingLabel.frame.origin.y + 100
+        ratingsTableView.frame.origin.y = ratingsTableView.frame.origin.y + 100
         
     }
     @IBAction func goBack(_ sender: Any) {
