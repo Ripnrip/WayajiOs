@@ -367,6 +367,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         if self.items.realm == nil  {
                             self.items = converted
                         }
+                        Listings = Array(converted)
                         self.itemResults = Array(converted)
                         self.itemResults.shuffle()
                         self.tableView.reloadData()
@@ -515,7 +516,7 @@ extension ExploreViewController:UISearchBarDelegate  {
             print("Are we there yet?")
             SwiftSpinner.hide()
             
-            self.filtered = Listings.filter({ (item) -> Bool in
+            self.filtered = self.itemResults.filter({ (item) -> Bool in
                 let tmp: NSString = item.location as NSString
                 let range = tmp.range(of: searchBar.text!, options: .caseInsensitive)
                 return range.location != NSNotFound
@@ -537,7 +538,7 @@ extension ExploreViewController:UISearchBarDelegate  {
             } else {
                 searchActive = true
                 print("results \(self.filtered)")
-                Listings = self.filtered
+                self.itemResults = self.filtered
                 self.retractSearchFilter(self)
                 searchBar.resignFirstResponder()
                 self.tableView.reloadData()
@@ -552,7 +553,7 @@ extension ExploreViewController:UISearchBarDelegate  {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         if searchBar.text?.length == 0 {
-            loadListings()
+            //loadListings() SETUPREALM()
         }
 
     }
