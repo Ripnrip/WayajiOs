@@ -722,6 +722,7 @@
                                             <outlet property="locationLabel" destination="6J4-lH-zwo" id="vyv-UW-T0j"/>
                                             <outlet property="nameLabel" destination="tcS-72-hXI" id="aPF-1T-VTZ"/>
                                             <outlet property="offerImage" destination="4Cb-CA-Jjj" id="bFr-Hq-k8E"/>
+                                            <outlet property="priceLabel" destination="dTg-RV-Aq5" id="Xka-TE-3Oo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2190,7 +2191,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

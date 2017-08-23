@@ -436,6 +436,7 @@ extension ExploreViewController {
         cell.nameLabel.text = itemResults[indexPath.section].name
         cell.locationLabel.text = itemResults[indexPath.section].location
         cell.id = itemResults[indexPath.section].id
+        cell.priceLabel.text = itemResults[indexPath.section].price
         
         return cell//UITableViewCell()
     }

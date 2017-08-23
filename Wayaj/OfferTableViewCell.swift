@@ -19,6 +19,8 @@ class OfferTableViewCell: UITableViewCell {
     @IBOutlet weak var offerImage: UIImageView!
     var id = ""
     @IBOutlet var baseInfoView: UIView!
+    @IBOutlet var priceLabel: UILabel!
+    
     
     var isSaved = false
     var listingObject:Listing!
