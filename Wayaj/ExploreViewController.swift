@@ -461,6 +461,7 @@ extension ExploreViewController {
         myVC.location = selectedListing.location
         myVC.information = selectedListing.listingDescription
         myVC.isFavorited = false
+        myVC.price = selectedListing.price
         
         
         //myVC.currentListing = selectedListing
