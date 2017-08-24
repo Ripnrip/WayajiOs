@@ -25,6 +25,7 @@ class SavedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
 
     }
 
@@ -97,7 +98,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 256
+        return 306
     }
     
 }

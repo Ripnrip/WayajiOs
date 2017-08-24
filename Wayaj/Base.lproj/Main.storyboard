@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="-2107.2463768115945" y="-113.31521739130436"/>
         </scene>
-        <!--Saved-->
+        <!--Saved View Controller-->
         <scene sceneID="rTZ-9U-jXG">
             <objects>
                 <viewController id="EGg-xy-zNM" customClass="SavedViewController" customModule="Wayaj" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,13 +147,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saveBG" translatesAutoresizingMaskIntoConstraints="NO" id="fll-S3-t4t">
-                                <rect key="frame" x="0.0" y="58" width="414" height="398"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="398"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="398" id="rUZ-uP-1cx"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All your saved hotels will appear here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQK-8F-xKp">
-                                <rect key="frame" x="0.0" y="502" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="546" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aKx-5L-pJ7"/>
                                 </constraints>
@@ -230,89 +230,105 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="256" id="Obp-D0-BAd" customClass="OfferTableViewCell" customModule="Wayaj" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="256"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="305" id="UfW-AH-18Y" customClass="OfferTableViewCell" customModule="Wayaj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Obp-D0-BAd" id="OhB-qx-BaU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="255.66666666666666"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UfW-AH-18Y" id="or1-lC-0z3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="304.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeA" translatesAutoresizingMaskIntoConstraints="NO" id="INo-2N-8r3">
-                                                    <rect key="frame" x="9" y="0.0" width="395" height="187"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeA" translatesAutoresizingMaskIntoConstraints="NO" id="OWj-hN-AKN">
+                                                    <rect key="frame" x="0.0" y="17" width="414" height="187"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="187" id="v3Y-JB-WK7"/>
+                                                        <constraint firstAttribute="height" constant="187" id="f83-CQ-pEM"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-cQ-jHY">
-                                                    <rect key="frame" x="17" y="190" width="123.66666666666666" height="21"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0E-X3-TLN">
+                                                    <rect key="frame" x="0.0" y="212" width="414" height="93"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkY-4s-71U">
+                                                            <rect key="frame" x="16" y="12" width="226" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuuk, Groenland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABd-DV-8vR">
+                                                            <rect key="frame" x="16" y="36" width="128.33333333333334" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbP-ti-hc3">
+                                                            <rect key="frame" x="345" y="36" width="43" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsC-6K-RuW" customClass="SpringButton" customModule="Spring">
+                                                            <rect key="frame" x="338" y="-13" width="44" height="44"/>
+                                                            <state key="normal" image="whiteHeart"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="saveOffer:" destination="UfW-AH-18Y" eventType="touchUpInside" id="iA2-50-vbD"/>
+                                                            </connections>
+                                                        </button>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k2m-E2-sar">
+                                                            <rect key="frame" x="0.0" y="63" width="414" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXCELLENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edq-Pz-7nE">
+                                                                    <rect key="frame" x="21" y="5" width="105" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.38048788909999998" green="0.77612864969999995" blue="0.3803980649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </view>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="rGM-Nv-v8r"/>
+                                                        <constraint firstItem="ABd-DV-8vR" firstAttribute="leading" secondItem="Z0E-X3-TLN" secondAttribute="leading" constant="16" id="2Ab-4B-2go"/>
+                                                        <constraint firstItem="UbP-ti-hc3" firstAttribute="top" secondItem="VsC-6K-RuW" secondAttribute="bottom" constant="5" id="75O-uf-fHZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UbP-ti-hc3" secondAttribute="trailing" constant="26" id="CEx-bV-yd0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VsC-6K-RuW" secondAttribute="trailing" constant="32" id="Pgp-27-2j9"/>
+                                                        <constraint firstItem="UbP-ti-hc3" firstAttribute="centerY" secondItem="Z0E-X3-TLN" secondAttribute="centerY" id="cmi-0n-UAV"/>
+                                                        <constraint firstItem="UbP-ti-hc3" firstAttribute="baseline" secondItem="ABd-DV-8vR" secondAttribute="baseline" id="vEz-pa-bK5"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuuk, Groenland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ony-v9-30D">
-                                                    <rect key="frame" x="17" y="214" width="129" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="McN-s0-0RJ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$137" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvN-lX-jxK">
-                                                    <rect key="frame" x="358" y="190" width="38" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="4UM-Se-lDA"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBq-SP-6Pk" customClass="SpringButton" customModule="Spring">
-                                                    <rect key="frame" x="334" y="153" width="44" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="VTw-wJ-8XA"/>
-                                                    </constraints>
-                                                    <state key="normal" image="whiteHeart"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="curve" value="spring"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="force">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="saveOffer:" destination="Obp-D0-BAd" eventType="touchUpInside" id="EYG-XW-Mz7"/>
-                                                    </connections>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XvN-lX-jxK" firstAttribute="top" secondItem="INo-2N-8r3" secondAttribute="bottom" constant="3" id="110-uA-Osv"/>
-                                                <constraint firstItem="INo-2N-8r3" firstAttribute="leading" secondItem="OhB-qx-BaU" secondAttribute="leading" constant="9" id="1zD-yV-YkV"/>
-                                                <constraint firstItem="Ony-v9-30D" firstAttribute="leading" secondItem="OhB-qx-BaU" secondAttribute="leading" constant="17" id="7gg-ep-dQO"/>
-                                                <constraint firstItem="ITR-cQ-jHY" firstAttribute="leading" secondItem="OhB-qx-BaU" secondAttribute="leading" constant="17" id="Rh2-zW-kv2"/>
-                                                <constraint firstAttribute="trailing" secondItem="INo-2N-8r3" secondAttribute="trailing" constant="10" id="T1K-KZ-ZZc"/>
-                                                <constraint firstAttribute="trailing" secondItem="XvN-lX-jxK" secondAttribute="trailing" constant="18" id="f3f-t0-CyO"/>
-                                                <constraint firstItem="XvN-lX-jxK" firstAttribute="top" secondItem="QBq-SP-6Pk" secondAttribute="bottom" constant="3" id="gGg-fi-X74"/>
-                                                <constraint firstItem="INo-2N-8r3" firstAttribute="top" secondItem="OhB-qx-BaU" secondAttribute="top" id="gUy-8v-Yyq"/>
-                                                <constraint firstItem="Ony-v9-30D" firstAttribute="top" secondItem="ITR-cQ-jHY" secondAttribute="bottom" constant="3" id="gx5-HA-3s6"/>
-                                                <constraint firstAttribute="trailing" secondItem="QBq-SP-6Pk" secondAttribute="trailing" constant="36" id="jsX-zK-CwK"/>
-                                                <constraint firstItem="ITR-cQ-jHY" firstAttribute="top" secondItem="INo-2N-8r3" secondAttribute="bottom" constant="3" id="thY-mT-XD6"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z0E-X3-TLN" secondAttribute="bottom" id="8EE-pe-UBC"/>
+                                                <constraint firstItem="Z0E-X3-TLN" firstAttribute="top" secondItem="OWj-hN-AKN" secondAttribute="bottom" constant="8" symbolic="YES" id="HKa-3l-xLI"/>
+                                                <constraint firstItem="Z0E-X3-TLN" firstAttribute="trailing" secondItem="OWj-hN-AKN" secondAttribute="trailing" id="LZj-ts-ku4"/>
+                                                <constraint firstItem="Z0E-X3-TLN" firstAttribute="leading" secondItem="OWj-hN-AKN" secondAttribute="leading" id="SMN-K4-tsP"/>
+                                                <constraint firstAttribute="trailing" secondItem="OWj-hN-AKN" secondAttribute="trailing" id="TGw-kr-tLl"/>
+                                                <constraint firstItem="OWj-hN-AKN" firstAttribute="leading" secondItem="or1-lC-0z3" secondAttribute="leading" id="aft-JD-eUI"/>
+                                                <constraint firstItem="OWj-hN-AKN" firstAttribute="top" secondItem="or1-lC-0z3" secondAttribute="top" constant="17" id="te0-kx-rEP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="heartButton" destination="QBq-SP-6Pk" id="s4G-pT-2uE"/>
-                                            <outlet property="locationLabel" destination="Ony-v9-30D" id="wus-yE-hNx"/>
-                                            <outlet property="nameLabel" destination="ITR-cQ-jHY" id="hiz-R7-Nso"/>
-                                            <outlet property="offerImage" destination="INo-2N-8r3" id="608-0V-8HE"/>
+                                            <outlet property="baseInfoView" destination="Z0E-X3-TLN" id="mzS-bR-siy"/>
+                                            <outlet property="greenBar" destination="k2m-E2-sar" id="rbs-HD-xvG"/>
+                                            <outlet property="heartButton" destination="VsC-6K-RuW" id="Mg0-zf-40Q"/>
+                                            <outlet property="locationLabel" destination="ABd-DV-8vR" id="4n3-GI-KeJ"/>
+                                            <outlet property="nameLabel" destination="ZkY-4s-71U" id="2wT-t0-IwH"/>
+                                            <outlet property="offerImage" destination="OWj-hN-AKN" id="1cy-HC-Xg8"/>
+                                            <outlet property="priceLabel" destination="UbP-ti-hc3" id="cta-qv-VcG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -337,14 +353,14 @@
                             <constraint firstItem="7u9-Af-lY8" firstAttribute="top" secondItem="x8t-b4-MYd" secondAttribute="bottom" id="sPS-yw-4ng"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
+                    <navigationItem key="navigationItem" id="5SB-Hn-Rku"/>
                     <connections>
                         <outlet property="tableView" destination="x8t-b4-MYd" id="eNL-a1-2zz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdI-MD-Wdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3930.434782608696" y="-423.09782608695656"/>
+            <point key="canvasLocation" x="4837.68115942029" y="-423.09782608695656"/>
         </scene>
         <!--Profile-->
         <scene sceneID="s2N-Af-daO">
@@ -494,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTc-fM-mZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4607.2463768115949" y="-419.83695652173918"/>
+            <point key="canvasLocation" x="5514.4927536231889" y="-419.83695652173918"/>
         </scene>
         <!--Explore View Controller-->
         <scene sceneID="uh7-kz-0s6">
@@ -2014,7 +2030,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Nfy-fe-ZD7" kind="relationship" relationship="viewControllers" id="CSU-7D-t4k"/>
-                        <segue destination="EGg-xy-zNM" kind="relationship" relationship="viewControllers" id="p6A-n6-eKd"/>
+                        <segue destination="ZUV-iI-beL" kind="relationship" relationship="viewControllers" id="p6A-n6-eKd"/>
                         <segue destination="z7g-dM-L9t" kind="relationship" relationship="viewControllers" id="xZm-Sf-dgx"/>
                     </connections>
                 </tabBarController>
@@ -2040,6 +2056,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owx-vW-QVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1281" y="-1114"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="7ax-zP-S5r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUV-iI-beL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Smj-GZ-1SZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EGg-xy-zNM" kind="relationship" relationship="rootViewController" id="V71-sS-Rsq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vSi-kP-1NE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3930.434782608696" y="-423.09782608695656"/>
         </scene>
     </scenes>
     <resources>
