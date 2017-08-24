@@ -14,7 +14,7 @@ class RatingScoreTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var infoButton: UIButton!
     @IBOutlet var percentLabel: UILabel!
-    
+    var type:RatingType?
     
     override func awakeFromNib() {
         super.awakeFromNib()

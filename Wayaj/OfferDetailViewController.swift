@@ -48,6 +48,8 @@ class OfferDetailViewController: UIViewController {
     var price = "$$$"
     var isFavorited = false
     
+    var types:[RatingType] = [.Material,.Management,.Community,.Water,.Recycle,.Energy,.Indoors]
+    
     override func viewWillAppear(_ animated: Bool) {
         let url = URL(string: imageURL)
         baseImageView.kf.setImage(with: url)
@@ -164,21 +166,77 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return 7
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = "cell\(indexPath.row)"
+        let identifier = "cell0"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RatingScoreTableViewCell
+        cell.type = types[indexPath.row]
+
+        switch (cell.type!) {
         
-        switch type{
-            case 
+        case RatingType.Material:
+            cell.nameLabel.text = "Material & Resources"
+            guard let score = currentListing?.materialAndResourceScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
             
+        case RatingType.Management:
+            cell.nameLabel.text = "Management"
+            guard let score = currentListing?.managementScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
+            
+        case RatingType.Community:
+            cell.nameLabel.text = "Community"
+            guard let score = currentListing?.communityScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
+            
+        case RatingType.Water:
+            cell.nameLabel.text = "Water"
+            guard let score = currentListing?.waterScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
+            
+        case RatingType.Recycle:
+            cell.nameLabel.text = "Recycle"
+            guard let score = currentListing?.recycleAndWaterScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
+            
+            
+        case RatingType.Energy:
+            cell.nameLabel.text = "Energy"
+            guard let score = currentListing?.energyScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
+            
+        case RatingType.Indoors:
+            cell.nameLabel.text = "Indoors"
+            guard let score = currentListing?.indoorsScore else {break}
+            let divideValue = CGFloat(score)/100.00
+            let dynamicWidth = cell.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
+            cell.scoreBar.frame = frame
+            break
         }
-        
-        
-        let divideValue = CGFloat(currentListing?.waterScore)/100.00
-        let dynamicWidth = myVC.scoreBar.frame.width * divideValue
-        let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
-        //print("the green bar dynamic width is \(dynamicWidth)")
-        //print("the score fraction to divide/multiply by is \(divideValue)")
-        myVC.scoreBar.frame = frame
+
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
