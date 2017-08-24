@@ -441,8 +441,8 @@ extension ExploreViewController {
         let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
         let dynamicWidth = cell.frame.width * divideValue
         let frame = CGRect(x: cell.greenBar.frame.origin.x, y: cell.greenBar.frame.origin.y, width:dynamicWidth , height: cell.greenBar.frame.height)
-        print("the green bar dynamic width is \(dynamicWidth)")
-        print("the score fraction to divide/multiply by is \(divideValue)")
+        //print("the green bar dynamic width is \(dynamicWidth)")
+        //print("the score fraction to divide/multiply by is \(divideValue)")
         cell.greenBar.frame = frame
         return cell//UITableViewCell()
     }
@@ -466,6 +466,14 @@ extension ExploreViewController {
         myVC.information = selectedListing.listingDescription
         myVC.isFavorited = false
         myVC.price = selectedListing.price
+        myVC.currentListing = selectedListing
+        
+        let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
+        let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+        let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+        //print("the green bar dynamic width is \(dynamicWidth)")
+        //print("the score fraction to divide/multiply by is \(divideValue)")
+        myVC.scoreBar.frame = frame
 
         self.navigationController?.pushViewController(myVC, animated: true)
     }

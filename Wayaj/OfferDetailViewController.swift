@@ -10,8 +10,19 @@ import UIKit
 import Kingfisher
 import Popover
 
+enum RatingType {
+    case Material
+    case Management
+    case Community
+    case Water
+    case Recycle
+    case Energy
+    case Indoors
+}
+
 class OfferDetailViewController: UIViewController {
 
+    var type = RatingType.self
     @IBOutlet var ratingsTableView: UITableView!
     
     @IBOutlet var baseImageView: UIImageView!
@@ -21,11 +32,14 @@ class OfferDetailViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var infoLabel: UITextView!
+    @IBOutlet var scoreBar: UIView!
     
     @IBOutlet var expandButton: UIButton!
     @IBOutlet var ecoRatingLabel: UILabel!
     
     @IBOutlet var scrollView: UIScrollView!
+    
+    var currentListing:Listing?
     
     var imageURL:String = ""
     var name = ""
@@ -151,11 +165,26 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "cell\(indexPath.row)"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RatingScoreTableViewCell
+        
+        switch type{
+            case 
+            
+        }
+        
+        
+        let divideValue = CGFloat(currentListing?.waterScore)/100.00
+        let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+        let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+        //print("the green bar dynamic width is \(dynamicWidth)")
+        //print("the score fraction to divide/multiply by is \(divideValue)")
+        myVC.scoreBar.frame = frame
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    
     
 }
