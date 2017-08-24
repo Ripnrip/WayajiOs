@@ -111,11 +111,13 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! RatingScoreTableViewCell
         cell.type = types[indexPath.row]
         cell.popUpString = popUpStrings[indexPath.row]
+        
         switch (cell.type!) {
         
         case RatingType.Material:
             cell.nameLabel.text = "Material & Resources"
             guard let score = currentListing?.materialAndResourceScore else {break}
+            cell.percentLabel.text = String(score) + "%"
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -125,6 +127,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Management:
             cell.nameLabel.text = "Management"
             guard let score = currentListing?.managementScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -134,6 +138,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Community:
             cell.nameLabel.text = "Community"
             guard let score = currentListing?.communityScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -143,6 +149,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Water:
             cell.nameLabel.text = "Water"
             guard let score = currentListing?.waterScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -152,6 +160,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Recycle:
             cell.nameLabel.text = "Recycle"
             guard let score = currentListing?.recycleAndWaterScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -162,6 +172,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Energy:
             cell.nameLabel.text = "Energy"
             guard let score = currentListing?.energyScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)
@@ -171,6 +183,8 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
         case RatingType.Indoors:
             cell.nameLabel.text = "Indoors"
             guard let score = currentListing?.indoorsScore else {break}
+            cell.percentLabel.text = String(score) + "%"
+
             let divideValue = CGFloat(score)/100.00
             let dynamicWidth = cell.scoreBar.frame.width * divideValue
             let frame = CGRect(x: cell.scoreBar.frame.origin.x, y: cell.scoreBar.frame.origin.y, width:dynamicWidth , height: cell.scoreBar.frame.height)

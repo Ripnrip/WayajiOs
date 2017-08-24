@@ -1223,10 +1223,10 @@
                                 <action selector="goBack:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="OkA-fS-HCZ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-gs-je0">
-                            <rect key="frame" x="165" y="956" width="46" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-gs-je0">
+                            <rect key="frame" x="89" y="928" width="196" height="76"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Book"/>
+                            <state key="normal" image="Action Book"/>
                             <connections>
                                 <action selector="book:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="jRC-Wr-gYp"/>
                             </connections>
@@ -2043,6 +2043,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Action Book" width="196" height="76"/>
         <image name="Airplane" width="159" height="159"/>
         <image name="Boat" width="126" height="114"/>
         <image name="CasaSol" width="1548" height="1080"/>
