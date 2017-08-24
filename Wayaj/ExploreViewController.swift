@@ -437,7 +437,13 @@ extension ExploreViewController {
         cell.locationLabel.text = itemResults[indexPath.section].location
         cell.id = itemResults[indexPath.section].id
         cell.priceLabel.text = itemResults[indexPath.section].price
-        
+        //cell.overallScore = 100
+        let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
+        let dynamicWidth = cell.frame.width * divideValue
+        let frame = CGRect(x: cell.greenBar.frame.origin.x, y: cell.greenBar.frame.origin.y, width:dynamicWidth , height: cell.greenBar.frame.height)
+        print("the green bar dynamic width is \(dynamicWidth)")
+        print("the score fraction to divide/multiply by is \(divideValue)")
+        cell.greenBar.frame = frame
         return cell//UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -449,9 +455,7 @@ extension ExploreViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         selectedListing = itemResults[indexPath.section]
-        //self.performSegue(withIdentifier: "viewOffer", sender: nil)
-        //self.performSegue(withIdentifier: "viewTripAdvisorListing", sender: nil)
-        
+
         var cell:OfferTableViewCell = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
 
         var myVC = storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
@@ -462,28 +466,8 @@ extension ExploreViewController {
         myVC.information = selectedListing.listingDescription
         myVC.isFavorited = false
         myVC.price = selectedListing.price
-        
-        
-        //myVC.currentListing = selectedListing
-        //myVC.bookURL = URL(string:selectedListing.URL)
-        //let imageView = UIImageView()
-        //imageView.kf.setImage(with: URL(string: selectedListing.image1))
-        
-        //myVC.image = imageView.image
-        //myVC.descriptionText = itemResults[indexPath.section].listingDescription
+
         self.navigationController?.pushViewController(myVC, animated: true)
-        /*
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "offerPageDetail") as! OfferPageViewController
-        myVC.currentListing = selectedListing
-        myVC.bookURL = URL(string:selectedListing.URL)
-        let imageView = UIImageView()
-        imageView.kf.setImage(with: URL(string: selectedListing.image1))
-        
-        myVC.image = imageView.image
-        myVC.descriptionText = itemResults[indexPath.section].listingDescription
-        self.navigationController?.pushViewController(myVC, animated: true)
-        */
-        
     }
 }
 

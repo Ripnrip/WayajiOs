@@ -20,7 +20,9 @@ class OfferTableViewCell: UITableViewCell {
     var id = ""
     @IBOutlet var baseInfoView: UIView!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var greenBar: UIView!
     
+    var overallScore:Int = 100
     
     var isSaved = false
     var listingObject:Listing!
@@ -28,6 +30,7 @@ class OfferTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
