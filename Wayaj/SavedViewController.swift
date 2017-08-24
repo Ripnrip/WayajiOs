@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Kingfisher
 
+
 class SavedViewController: UIViewController {
     
     var offers: [NSManagedObject] = []
@@ -56,6 +57,16 @@ class SavedViewController: UIViewController {
                 offer.isFavorited = _datecreated.isFavorited
                 offer.id = _datecreated.id!
                 offer.image1 = _datecreated.imageURL!
+                offer.price = String(_datecreated.price)
+                offer.stars = Int(_datecreated.stars)
+                //offer.URL = _datecreated.url?
+                offer.materialAndResourceScore = Int(_datecreated.materialAndResourceScore)
+                offer.managementScore = Int(_datecreated.managementScore)
+                offer.communityScore = Int(_datecreated.communityScore)
+                offer.waterScore = Int(_datecreated.waterScore)
+                offer.recycleAndWaterScore = Int(_datecreated.recycleAndWaterScore)
+                offer.energyScore = Int(_datecreated.energyScore)
+                offer.indoorsScore = Int(_datecreated.indoorsScore)
                 let imageURL = URL(string:_datecreated.imageURL!)
                 //var imageView = UIImageView().kf.setImage(with: imageURL)
                 
@@ -71,6 +82,7 @@ class SavedViewController: UIViewController {
         
         
     }
+    
 }
 
 extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
@@ -99,6 +111,41 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 306
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        dismissKeyboard()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedListing = results[indexPath.section]
+        
+        var cell:OfferTableViewCell = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
+        
+        var myVC = storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
+        
+        myVC.imageURL = selectedListing.image1
+        myVC.name = selectedListing.name
+        myVC.location = selectedListing.location
+        myVC.information = selectedListing.listingDescription
+        myVC.isFavorited = false
+        myVC.price = selectedListing.price
+        myVC.currentListing = selectedListing
+        
+        let divideValue = CGFloat(results[indexPath.section].overallRating)/100.00
+        let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+        let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+        //print("the green bar dynamic width is \(dynamicWidth)")
+        //print("the score fraction to divide/multiply by is \(divideValue)")
+        myVC.scoreBar.frame = frame
+        
+        self.navigationController?.pushViewController(myVC, animated: true)
+
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }

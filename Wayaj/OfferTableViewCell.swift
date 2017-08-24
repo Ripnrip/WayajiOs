@@ -88,6 +88,16 @@ class OfferTableViewCell: UITableViewCell {
         offer.setValue(listingObject.image1, forKey: "imageURL")
         offer.setValue(0.00, forKey: "price")
         offer.setValue(listingObject.id, forKey: "id")
+        offer.setValue(listingObject.listingDescription, forKey: "information")
+        offer.setValue(listingObject.overallRating, forKey: "overallRating")
+        offer.setValue(listingObject.communityScore, forKey: "communityScore")
+        offer.setValue(listingObject.energyScore, forKey: "energyScore")
+        offer.setValue(listingObject.indoorsScore, forKey: "indoorsScore")
+        offer.setValue(listingObject.managementScore, forKey: "managementScore")
+        offer.setValue(listingObject.materialAndResourceScore, forKey: "materialAndResourceScore")
+        offer.setValue(listingObject.recycleAndWaterScore, forKey: "recycleAndWaterScore")
+        offer.setValue(listingObject.waterScore, forKey: "waterScore")
+        
 
         
         // 4

@@ -356,11 +356,12 @@
                     <navigationItem key="navigationItem" id="5SB-Hn-Rku"/>
                     <connections>
                         <outlet property="tableView" destination="x8t-b4-MYd" id="eNL-a1-2zz"/>
+                        <segue destination="3Jb-0E-NeR" kind="show" identifier="viewOffer2" id="vf3-dL-X65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RdI-MD-Wdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4837.68115942029" y="-423.09782608695656"/>
+            <point key="canvasLocation" x="4719" y="-423"/>
         </scene>
         <!--Profile-->
         <scene sceneID="s2N-Af-daO">
@@ -1251,7 +1252,7 @@
                     <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </scrollView>
             </objects>
-            <point key="canvasLocation" x="3202.898550724638" y="-1114.4021739130435"/>
+            <point key="canvasLocation" x="3262" y="-1105"/>
         </scene>
         <!--Trip Advisor Web View Controller-->
         <scene sceneID="0Np-Nq-Xve">
@@ -2063,7 +2064,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUV-iI-beL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Smj-GZ-1SZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Smj-GZ-1SZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
