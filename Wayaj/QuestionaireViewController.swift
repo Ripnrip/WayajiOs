@@ -38,7 +38,7 @@ import SwiftSpinner
 
 //MARK: Custom Cells Example
 
-class CustomCellsController : FormViewController {
+class CustomCellsController : FormViewController, UIImagePickerControllerDelegate {
     
     var imageURL:String = ""
     var name:String = ""
@@ -50,7 +50,15 @@ class CustomCellsController : FormViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    func loadImage(){
+        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
+            let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
+            self.image =  image
+            
+        }
+    }
     func loadSettings() {
+        
         let syncClient: AWSCognito = AWSCognito.default()
         let userSettings: AWSCognitoDataset = syncClient.openOrCreateDataset("user_settings")
         
@@ -77,7 +85,6 @@ class CustomCellsController : FormViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //get user info 
-        loadSettings()
         
     }
     
@@ -86,6 +93,9 @@ class CustomCellsController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var shownOnce = false
+        loadImage()
+        loadSettings()
+
         self.tableView?.backgroundColor = UIColor(red: 38/255, green: 201/255, blue: 82/255, alpha: 1.0)
         
         var aboutMe = ""
@@ -117,6 +127,8 @@ class CustomCellsController : FormViewController {
             <<< ImageRow(){
                 $0.title = "Profile Image"
                 $0.value = self.image
+                $0.imageURL = URL(string:self.imageURL)
+                
             }
 
             
@@ -177,8 +189,6 @@ class CustomCellsController : FormViewController {
             UserDefaults.standard.setValue(bucketList, forKey: "bucketList")
             UserDefaults.standard.synchronize()
             self.goHome()
-
-            
         })
     }
     
@@ -190,6 +200,35 @@ class CustomCellsController : FormViewController {
         }
 
     }
+
+    
+    /// what app will do when user choose & complete the selection image :
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        /// chcek if you can return edited image that user choose it if user already edit it(crop it), return it as image
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            
+            /// if user update it and already got it , just return it to 'self.imgView.image'
+            //self.imgView.image = editedImage
+            
+            /// else if you could't find the edited image that means user select original image same is it without editing .
+        } else if let orginalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            /// if user update it and already got it , just return it to 'self.imgView.image'.
+           // self.imgView.image = orginalImage
+        }
+        else { print ("error") }
+        
+        /// if the request successfully done just dismiss
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
 }
 
 
@@ -206,7 +245,7 @@ class EurekaLogoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let imageView = UIImageView(image: UIImage(named: "Eureka"))
+        let imageView = UIImageView(image: UIImage(named: "AppIcon"))
         imageView.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
         imageView.autoresizingMask = .flexibleWidth
         self.frame = CGRect(x: 0, y: 0, width: 320, height: 130)
