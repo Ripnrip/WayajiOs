@@ -535,7 +535,9 @@ extension ExploreViewController:UISearchBarDelegate  {
                 let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
                     (result : UIAlertAction) -> Void in
                     print("OK")
+                    self.itemResults = Listings
                 }
+                
                 
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -545,7 +547,6 @@ extension ExploreViewController:UISearchBarDelegate  {
                 searchActive = true
                 print("results \(self.filtered)")
                 self.itemResults = self.filtered
-                self.retractSearchFilter(self)
                 searchBar.resignFirstResponder()
                 self.tableView.reloadData()
             }
@@ -560,6 +561,8 @@ extension ExploreViewController:UISearchBarDelegate  {
         
         if searchBar.text?.length == 0 {
             //loadListings() SETUPREALM()
+            self.itemResults = Listings
+            self.tableView.reloadData()
         }
 
     }
