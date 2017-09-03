@@ -51,6 +51,8 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
     }
     
     func loadImage(){
+        self.name = FacebookIdentityProfile.sharedInstance().userName!
+        
         if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
             let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
             self.image =  image
@@ -98,10 +100,12 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
 
         self.tableView?.backgroundColor = UIColor(red: 38/255, green: 201/255, blue: 82/255, alpha: 1.0)
         
-        var aboutMe = ""
-        var whereHaveYouTraveled = ""
-        var favoriteItems = ""
-        var bucketList = ""
+        var aboutMe = UserDefaults.standard.value(forKey: "aboutMe") as? String
+        var whereHaveYouTraveled = UserDefaults.standard.value(forKey: "whereHaveYouTraveled") as? String
+        var favoriteItems = UserDefaults.standard.value(forKey: "favoriteItems") as? String
+        var bucketList = UserDefaults.standard.value(forKey: "bucketList") as? String
+        
+        
         
         
         form +++
@@ -132,43 +136,48 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
             }
 
             
-            +++ Section("Basic Information")
+//            +++ Section("Basic Information")
             
-            <<< NameRow() {
-                $0.title =  "Name:"
-                $0.value = self.name
-            }
-            <<< EmailRow() {
-                $0.title = "Email:"
-                $0.value = self.email
-            }
-            <<< SegmentedRow<String>(){
-                $0.options = ["Male", "Female", "Other"]
-                $0.value = self.gender
-            }
-          
+//            <<< NameRow() {
+//                $0.title =  "Name:"
+//                $0.value = self.name
+//            }
+//            <<< EmailRow() {
+//                $0.title = "Email:"
+//                $0.value = self.email
+//            }
+//            <<< SegmentedRow<String>(){
+//                $0.options = ["Male", "Female", "Other"]
+//                $0.value = self.gender
+//            }
+//          
+
             
-            +++ Section("Tell Us More")
+            +++ Section("Tell Us About Yourself")
 
                     
             <<< TextAreaRow(){
+                $0.value = aboutMe
                 $0.placeholder = "I like long walks on the beach, and eating tacos all day"
                 }.onChange({ (tRow) in
                     aboutMe = tRow.value!
                     print(aboutMe)
                 })
             <<< TextRow(){
+                $0.value = whereHaveYouTraveled
                 $0.placeholder = "Where have you traveled?"
             }.onChange({ (tRow) in
                 whereHaveYouTraveled = tRow.value!
             })
             
             <<< TextRow(){
+                $0.value = favoriteItems
                 $0.placeholder = "What are some of your favorite activities?"
                 }.onChange({ (tRow) in
                     favoriteItems = tRow.value!
                 })
             <<< TextRow(){
+                $0.value = bucketList
                 $0.placeholder = "What are some items on your bucket list?"
                 }.onChange({ (tRow) in
                     bucketList = tRow.value!
@@ -176,7 +185,7 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
             +++ Section(){
             $0.tag = "Submit"
             }
-            <<< ButtonRow("Get Started") { (row: ButtonRow) -> Void in
+            <<< ButtonRow("Done") { (row: ButtonRow) -> Void in
                 row.title = row.tag
                 //row.presentationMode = .segueName(segueName: "goHome", onDismiss: nil)
                 
