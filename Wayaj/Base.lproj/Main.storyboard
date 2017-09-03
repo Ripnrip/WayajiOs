@@ -628,7 +628,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeA" translatesAutoresizingMaskIntoConstraints="NO" id="4Cb-CA-Jjj">
-                                                    <rect key="frame" x="0.0" y="17" width="414" height="187"/>
+                                                    <rect key="frame" x="13" y="17" width="388" height="187"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="187" id="9Lm-AC-rb0"/>
                                                     </constraints>
@@ -637,14 +637,14 @@
                                                     <rect key="frame" x="0.0" y="212" width="414" height="93"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-72-hXI">
-                                                            <rect key="frame" x="16" y="8" width="314" height="21"/>
+                                                            <rect key="frame" x="22" y="8" width="314" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nuuk, Groenland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6J4-lH-zwo">
-                                                            <rect key="frame" x="16" y="36" width="128.33333333333334" height="21"/>
+                                                            <rect key="frame" x="22" y="36" width="128.33333333333334" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -676,7 +676,7 @@
                                                             </connections>
                                                         </button>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="joB-hx-3nj">
-                                                            <rect key="frame" x="0.0" y="63" width="414" height="30"/>
+                                                            <rect key="frame" x="16" y="63" width="383" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXCELLENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="252-YX-bqJ">
@@ -691,7 +691,7 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="6J4-lH-zwo" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="16" id="4q4-Sg-8Lw"/>
+                                                        <constraint firstItem="6J4-lH-zwo" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="22" id="4q4-Sg-8Lw"/>
                                                         <constraint firstAttribute="trailing" secondItem="dTg-RV-Aq5" secondAttribute="trailing" constant="26" id="796-yE-4G7"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="baseline" secondItem="6J4-lH-zwo" secondAttribute="baseline" id="AT5-bY-gBF"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="top" secondItem="5pS-KF-Ysp" secondAttribute="bottom" constant="5" id="McQ-Vd-0In"/>
@@ -703,11 +703,11 @@
                                             <constraints>
                                                 <constraint firstItem="dvJ-7c-P8B" firstAttribute="top" secondItem="4Cb-CA-Jjj" secondAttribute="bottom" constant="8" symbolic="YES" id="5ym-VW-e07"/>
                                                 <constraint firstAttribute="bottom" secondItem="dvJ-7c-P8B" secondAttribute="bottom" id="9Zn-uL-NpK"/>
-                                                <constraint firstAttribute="trailing" secondItem="4Cb-CA-Jjj" secondAttribute="trailing" id="NqB-nH-Afb"/>
-                                                <constraint firstItem="dvJ-7c-P8B" firstAttribute="trailing" secondItem="4Cb-CA-Jjj" secondAttribute="trailing" id="SQm-1e-PzR"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Cb-CA-Jjj" secondAttribute="trailing" constant="13" id="NqB-nH-Afb"/>
+                                                <constraint firstItem="dvJ-7c-P8B" firstAttribute="trailing" secondItem="4Cb-CA-Jjj" secondAttribute="trailing" constant="13" id="SQm-1e-PzR"/>
                                                 <constraint firstItem="4Cb-CA-Jjj" firstAttribute="top" secondItem="wLd-dU-eev" secondAttribute="top" constant="17" id="cU5-TK-cVL"/>
-                                                <constraint firstItem="dvJ-7c-P8B" firstAttribute="leading" secondItem="4Cb-CA-Jjj" secondAttribute="leading" id="dkh-r7-yeU"/>
-                                                <constraint firstItem="4Cb-CA-Jjj" firstAttribute="leading" secondItem="wLd-dU-eev" secondAttribute="leading" id="lVe-uP-2r9"/>
+                                                <constraint firstItem="dvJ-7c-P8B" firstAttribute="leading" secondItem="4Cb-CA-Jjj" secondAttribute="leading" constant="-13" id="dkh-r7-yeU"/>
+                                                <constraint firstItem="4Cb-CA-Jjj" firstAttribute="leading" secondItem="wLd-dU-eev" secondAttribute="leading" constant="13" id="lVe-uP-2r9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -719,6 +719,7 @@
                                             <outlet property="nameLabel" destination="tcS-72-hXI" id="aPF-1T-VTZ"/>
                                             <outlet property="offerImage" destination="4Cb-CA-Jjj" id="bFr-Hq-k8E"/>
                                             <outlet property="priceLabel" destination="dTg-RV-Aq5" id="Xka-TE-3Oo"/>
+                                            <outlet property="scoreLabel" destination="252-YX-bqJ" id="mid-rG-7bi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

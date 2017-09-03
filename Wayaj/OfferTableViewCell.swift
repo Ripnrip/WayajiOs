@@ -21,6 +21,8 @@ class OfferTableViewCell: UITableViewCell {
     @IBOutlet var baseInfoView: UIView!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var greenBar: UIView!
+    @IBOutlet var scoreLabel: UILabel!
+    
     
     var overallScore:Int = 100
     

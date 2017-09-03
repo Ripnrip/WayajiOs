@@ -437,12 +437,24 @@ extension ExploreViewController {
         cell.locationLabel.text = itemResults[indexPath.section].location
         cell.id = itemResults[indexPath.section].id
         cell.priceLabel.text = itemResults[indexPath.section].price
-        //cell.overallScore = 100
+        
+
+        if itemResults[indexPath.section].overallRating >= 90 {
+            cell.scoreLabel.text = "Excellent"
+        }
+        else if itemResults[indexPath.section].overallRating >= 80 {
+            cell.scoreLabel.text = "Great"
+        }
+        else if itemResults[indexPath.section].overallRating >= 40 {
+            cell.scoreLabel.text = "Good"
+        }
+
+        
         let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
-        let dynamicWidth = cell.frame.width * divideValue
+        let dynamicWidth = (cell.frame.width * divideValue) - 30
         let frame = CGRect(x: cell.greenBar.frame.origin.x, y: cell.greenBar.frame.origin.y, width:dynamicWidth , height: cell.greenBar.frame.height)
-        //print("the green bar dynamic width is \(dynamicWidth)")
-        //print("the score fraction to divide/multiply by is \(divideValue)")
+
+        
         cell.greenBar.frame = frame
         return cell//UITableViewCell()
     }
