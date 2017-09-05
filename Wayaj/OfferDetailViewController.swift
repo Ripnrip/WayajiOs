@@ -38,6 +38,7 @@ class OfferDetailViewController: UIViewController {
     @IBOutlet var ecoRatingLabel: UILabel!
     
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var bookButton: UIButton!
     
     var currentListing:Listing?
     
@@ -59,12 +60,12 @@ class OfferDetailViewController: UIViewController {
         priceLabel.text = price
         informationTextView.text = information
         
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1050)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1150)
 
         
     }
@@ -80,7 +81,7 @@ class OfferDetailViewController: UIViewController {
         expandButton.frame.origin.y = expandButton.frame.origin.y + 100
         ecoRatingLabel.frame.origin.y = ecoRatingLabel.frame.origin.y + 100
         ratingsTableView.frame.origin.y = ratingsTableView.frame.origin.y + 100
-        
+        bookButton.frame.origin.y = bookButton.frame.origin.y + 100
     }
     @IBAction func goBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
