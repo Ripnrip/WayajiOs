@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
         btn.isHidden = true
         onboarding.isHidden = true
         let shouldShowTutorial:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial1"))
@@ -62,7 +64,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
          //Set Facebook login permission scopes before the user logs in. Additional permissions can added here if desired.
         AWSFacebookSignInProvider.sharedInstance().setPermissions(["public_profile", "email", "user_friends"])
-        let facebookButton = AWSFacebookSignInButton(frame: CGRect(x: 30, y: self.view.frame.height-100, width: self.view.frame.width - 60 , height: 50))
+        let facebookButton = AWSFacebookSignInButton(frame: CGRect(x: 30, y: self.view.frame.height-150, width: self.view.frame.width - 60 , height: 50))
+        let termsButton = UIButton(frame: CGRect(x: 30, y: self.view.frame.height-100, width: self.view.frame.width - 60 , height: 30))
+            termsButton.setTitle("By signing in, you agree to the terms of use", for: .normal)
+            termsButton.titleLabel?.font = UIFont(name:"Times New Roman", size: 17)
+            termsButton.titleLabel?.textColor = UIColor.white
+            termsButton.addTarget(self, action: #selector(pressed(sender:)), for: .touchUpInside)
+
+
         // Set button style large to show the text "Continue with Facebook"
         // use the label property named "providerText" to format the text or change the content
         facebookButton.buttonStyle = .large
@@ -70,11 +79,18 @@ class ViewController: UIViewController {
         // Set the button sign in delegate to handle feedback from sign in attempt
         facebookButton.delegate = self
         self.view.addSubview(facebookButton)
+        self.view.addSubview(termsButton)
 
         setupRealm()
 
     }
-    
+    func pressed(sender: UIButton!) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "offerWebPage") as! TripAdvisorWebViewController
+        guard let url = URL(string:"https://s3.amazonaws.com/gedeon-1/Terms+of+Use+final+(1).pdf") else {return}
+        myVC.url = url
+        self.navigationController?.pushViewController(myVC, animated: true)
+        
+    }
     
     @IBAction func skip(_ sender: Any) {
         onboardingView.removeFromSuperview()
