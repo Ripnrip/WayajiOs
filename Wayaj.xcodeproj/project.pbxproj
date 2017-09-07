@@ -53,7 +53,6 @@
 		58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD61EF2C15D0049E477 /* libz.tbd */; };
 		58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58910CD81EF2C1700049E477 /* libsqlite3.tbd */; };
 		58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */; };
-		58A0500B1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */; };
 		58A050111EFC50130050F718 /* CRNotificationsMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A0500D1EFC50130050F718 /* CRNotificationsMedia.xcassets */; };
 		58A050121EFC50130050F718 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500E1EFC50130050F718 /* Colors.swift */; };
 		58A050131EFC50130050F718 /* CRNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A0500F1EFC50130050F718 /* CRNotification.swift */; };
@@ -181,7 +180,6 @@
 		58910CD61EF2C15D0049E477 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		58910CD81EF2C1700049E477 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		58910CDB1EF2C5760049E477 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
-		58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExploreViewController+SearchBarController.swift"; sourceTree = "<group>"; };
 		58A0500D1EFC50130050F718 /* CRNotificationsMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CRNotificationsMedia.xcassets; sourceTree = "<group>"; };
 		58A0500E1EFC50130050F718 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		58A0500F1EFC50130050F718 /* CRNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRNotification.swift; sourceTree = "<group>"; };
@@ -448,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				840767931EBA636800238327 /* ExploreViewController.swift */,
-				58A0500A1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift */,
 				84A776981EBB721E00FF709F /* OfferPageViewController.swift */,
 				5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */,
 				842074731F4ABD1400980800 /* OfferDetailViewController.swift */,
@@ -816,7 +813,6 @@
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
 				58A050141EFC50130050F718 /* CRNotifications.swift in Sources */,
-				58A0500B1EFC0E2A0050F718 /* ExploreViewController+SearchBarController.swift in Sources */,
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,

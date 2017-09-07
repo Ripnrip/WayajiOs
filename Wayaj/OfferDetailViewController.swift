@@ -20,7 +20,7 @@ enum RatingType {
     case Indoors
 }
 
-class OfferDetailViewController: UIViewController {
+class OfferDetailViewController: UIViewController, AACarouselDelegate {
 
     var type = RatingType.self
     @IBOutlet var ratingsTableView: UITableView!
@@ -39,6 +39,8 @@ class OfferDetailViewController: UIViewController {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var bookButton: UIButton!
+    
+    @IBOutlet var gallery: AACarousel!
     
     var currentListing:Listing?
     
@@ -61,15 +63,42 @@ class OfferDetailViewController: UIViewController {
         informationTextView.text = information
         
         self.navigationController?.isNavigationBarHidden = false
+        
+        guard let listing = currentListing else {return}
+        let pathArray:[String] = [listing.image1,listing.image2,listing.image3]
+        gallery.frame = baseImageView.frame
+        gallery.delegate = self
+        gallery.setCarouselData(paths: pathArray,  describedTitle: [listing.name], isAutoScroll: true, timer: 1.5, defaultImage:
+            "defaultImage")
+        //optional methods
+        gallery.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
+        gallery.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
+        self.view.addSubview(gallery)
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1150)
-
-        
+ 
     }
 
+    //require method
+    func downloadImages(_ url: String, _ index: Int) {
+        
+        //here is download images area
+        let imageView = UIImageView()
+        imageView.kf.setImage(with: URL(string: url)!, placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(0))], progressBlock: nil, completionHandler: { (downloadImage, error, cacheType, url) in
+            
+            if error == nil {
+                self.gallery.images[index] = downloadImage!
+            }else{
+                print("the error in downloading the image is \(error)")
+            }
+            
+        })
+    }
+
+    
     @IBAction func expandInfoView(_ sender: Any) {
         
         let x = informationTextView.frame.origin.x

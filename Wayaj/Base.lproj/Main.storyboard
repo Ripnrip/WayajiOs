@@ -776,6 +776,7 @@
                         <outlet property="bookButton" destination="j64-gs-je0" id="QhY-J8-tzR"/>
                         <outlet property="ecoRatingLabel" destination="hgH-Ir-qmV" id="bcA-V1-Xas"/>
                         <outlet property="expandButton" destination="GXD-te-zTk" id="FWR-HQ-pUA"/>
+                        <outlet property="gallery" destination="XdW-vJ-hxg" id="rY0-Rp-P3S"/>
                         <outlet property="infoLabel" destination="87U-JL-LoL" id="7Pp-dm-etD"/>
                         <outlet property="informationTextView" destination="87U-JL-LoL" id="lQm-wr-iKf"/>
                         <outlet property="locationLabel" destination="Eud-Pi-Ngi" id="SlS-9i-wdc"/>
@@ -792,6 +793,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XdW-vJ-hxg" customClass="AACarousel" customModule="Wayaj" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CasaSol" translatesAutoresizingMaskIntoConstraints="NO" id="sfs-sX-Cl8">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2051,7 +2057,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2070,7 +2076,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUV-iI-beL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Smj-GZ-1SZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Smj-GZ-1SZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
