@@ -74,7 +74,7 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
         gallery.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)
         gallery.setCarouselOpaque(layer: false, describedTitle: false, pageIndicator: false)
         self.view.addSubview(gallery)
-
+        self.view.bringSubview(toFront: barView)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
