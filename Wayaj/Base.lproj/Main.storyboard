@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aYS-Ar-d4t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aYS-Ar-d4t">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -233,7 +233,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="305" id="UfW-AH-18Y" customClass="OfferTableViewCell" customModule="Wayaj" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell2" rowHeight="305" id="UfW-AH-18Y" customClass="OfferTableViewCell" customModule="Wayaj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UfW-AH-18Y" id="or1-lC-0z3">
@@ -332,6 +332,7 @@
                                             <outlet property="nameLabel" destination="ZkY-4s-71U" id="2wT-t0-IwH"/>
                                             <outlet property="offerImage" destination="OWj-hN-AKN" id="1cy-HC-Xg8"/>
                                             <outlet property="priceLabel" destination="UbP-ti-hc3" id="cta-qv-VcG"/>
+                                            <outlet property="scoreLabel" destination="edq-Pz-7nE" id="oKO-Cx-w0M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -475,6 +476,78 @@
                                     <action selector="editProfile:" destination="z7g-dM-L9t" eventType="touchUpInside" id="5JT-wo-WjH"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzQ-GG-akL">
+                                <rect key="frame" x="9" y="308" width="163" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wayaj-profile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Jgc-7H-Uek">
+                                        <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzP-hV-3vf">
+                                        <rect key="frame" x="48" y="15" width="107" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.76794921869999999" blue="0.0099070069870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJb-tg-vAB">
+                                <rect key="frame" x="9" y="433" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="countriesVisited" translatesAutoresizingMaskIntoConstraints="NO" id="ur4-TM-76C">
+                                        <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countries Visited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-Ws-cfk">
+                                        <rect key="frame" x="48" y="15" width="146" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.76794921869999999" blue="0.0099070069870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPc-aj-txP">
+                                <rect key="frame" x="9" y="580" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wayaj-activity-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fry-fR-vCq">
+                                        <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorite Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJf-3v-6Y7">
+                                        <rect key="frame" x="48" y="15" width="144" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.76794921869999999" blue="0.0099070069870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AI-LY-pE9">
+                                <rect key="frame" x="9" y="730" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wayaj-bucket-list-icon" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-Zl-NPW">
+                                        <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bucket List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTD-CN-Vjw">
+                                        <rect key="frame" x="48" y="15" width="107" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.76794921869999999" blue="0.0099070069870000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -585,7 +658,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-hR-f14">
-                                                <rect key="frame" x="0.0" y="0.0" width="337" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="387" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.99683946371078491" green="0.99205619096755981" blue="0.99196141958236694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
@@ -640,9 +713,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvJ-7c-P8B">
                                                     <rect key="frame" x="0.0" y="212" width="414" height="93"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-72-hXI">
-                                                            <rect key="frame" x="22" y="8" width="314" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The White Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcS-72-hXI">
+                                                            <rect key="frame" x="22" y="8" width="308" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -661,6 +733,10 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pS-KF-Ysp" customClass="SpringButton" customModule="Spring">
                                                             <rect key="frame" x="338" y="-13" width="44" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="Y2l-3H-S0f"/>
+                                                                <constraint firstAttribute="width" constant="44" id="tVV-VX-W2V"/>
+                                                            </constraints>
                                                             <state key="normal" image="whiteHeart"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
@@ -684,7 +760,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXCELLENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="252-YX-bqJ">
-                                                                    <rect key="frame" x="21" y="5" width="105" height="21"/>
+                                                                    <rect key="frame" x="21" y="5" width="187" height="21"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -695,10 +771,14 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="tcS-72-hXI" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="22" id="0FE-a4-xri"/>
                                                         <constraint firstItem="6J4-lH-zwo" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="22" id="4q4-Sg-8Lw"/>
                                                         <constraint firstAttribute="trailing" secondItem="dTg-RV-Aq5" secondAttribute="trailing" constant="26" id="796-yE-4G7"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="baseline" secondItem="6J4-lH-zwo" secondAttribute="baseline" id="AT5-bY-gBF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5pS-KF-Ysp" secondAttribute="trailing" constant="32" id="Bx8-32-saW"/>
+                                                        <constraint firstItem="5pS-KF-Ysp" firstAttribute="leading" secondItem="tcS-72-hXI" secondAttribute="trailing" constant="8" id="ENR-pQ-uSG"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="top" secondItem="5pS-KF-Ysp" secondAttribute="bottom" constant="5" id="McQ-Vd-0In"/>
+                                                        <constraint firstItem="tcS-72-hXI" firstAttribute="top" secondItem="dvJ-7c-P8B" secondAttribute="top" constant="8" id="PcE-zK-gmZ"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="centerY" secondItem="dvJ-7c-P8B" secondAttribute="centerY" id="cJU-k6-iPP"/>
                                                         <constraint firstAttribute="trailing" secondItem="5pS-KF-Ysp" secondAttribute="trailing" constant="32" id="gzq-h2-1bS"/>
                                                     </constraints>
@@ -2057,7 +2137,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nfy-fe-ZD7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="exploreIcon" id="Gtb-8k-EbN"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pec-0C-lcH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pec-0C-lcH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2076,7 +2156,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUV-iI-beL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="heartIcon" id="LXI-H9-yov"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Smj-GZ-1SZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Smj-GZ-1SZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2094,7 +2174,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYS-Ar-d4t" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUm-BJ-arg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="aUm-BJ-arg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2117,7 +2197,7 @@
         <image name="appLogo" width="391" height="250"/>
         <image name="bg" width="746" height="1332"/>
         <image name="bucketList" width="388" height="99"/>
-        <image name="countriesVisited" width="373" height="99"/>
+        <image name="countriesVisited" width="78" height="98"/>
         <image name="editProfileIcon" width="53" height="53"/>
         <image name="exploreIcon" width="24" height="24"/>
         <image name="favoriteActivities" width="388" height="99"/>
@@ -2133,6 +2213,9 @@
         <image name="profileIcon" width="24" height="25"/>
         <image name="saveBG" width="800" height="800"/>
         <image name="upArrow" width="21" height="13"/>
+        <image name="wayaj-activity-icon" width="191" height="191"/>
+        <image name="wayaj-bucket-list-icon" width="191" height="191"/>
+        <image name="wayaj-profile-icon" width="191" height="191"/>
         <image name="whenSearch" width="1352" height="198"/>
         <image name="whereSearch" width="688" height="104"/>
         <image name="whiteHeart" width="44" height="44"/>

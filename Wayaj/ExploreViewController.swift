@@ -16,6 +16,7 @@ import AVFoundation
 import Cheers
 import RealmSwift
 import Kingfisher
+import CoreData
 
 struct AllListings {
     static var listings = [Listing]()
@@ -26,6 +27,7 @@ struct AllListings {
 
 var Listings = [Listing]()
 var locationsArray = [String]()
+var savedListings = [Listing]()
 
 
 
@@ -104,6 +106,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         SwiftSpinner.hide()
         
         shouldShowQuestionare()
+        fetchData()
 
     }
 
@@ -118,6 +121,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         whereSearchBar.delegate = self
         let textFieldInsideSearchBar = whereSearchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor.white
+        
+        if let textFieldInsideSearchBar = whereSearchBar.value(forKey: "searchField") as? UITextField,
+            let glassIconView = textFieldInsideSearchBar.leftView as? UIImageView {
+            
+            //Magnifying glass
+            glassIconView.image = glassIconView.image?.withRenderingMode(.alwaysTemplate)
+            glassIconView.tintColor = .white
+        }
         
         self.upButton.isHidden = true
         //self.whereButton.isHidden = true
@@ -143,6 +154,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }else{
             
         }
+        
         
         setupRealm()
 
@@ -309,7 +321,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     @IBAction func whereSearch(_ sender: Any) {
         UIView.animate(withDuration: 0.2) {
-            self.whereSearchBar.frame = CGRect(x: self.whereButton.frame.origin.x + 100, y: self.whereButton.center.y - 22  , width: 240, height: 44)
+            self.whereSearchBar.frame = CGRect(x: self.whereButton.frame.origin.x + 100, y: self.whereButton.center.y - 22  , width: 180, height: 44)
             
         }
         
@@ -423,34 +435,69 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
 extension ExploreViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return itemResults.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return itemResults.count
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OfferTableViewCell
-        cell.listingObject = itemResults[indexPath.section]
-        let imageURL = URL(string:itemResults[indexPath.section].image1)
+        cell.listingObject = itemResults[indexPath.row]
+        let imageURL = URL(string:itemResults[indexPath.row].image1)
         cell.offerImage.kf.setImage(with: imageURL)
-        cell.nameLabel.text = itemResults[indexPath.section].name
-        cell.locationLabel.text = itemResults[indexPath.section].location
-        cell.id = itemResults[indexPath.section].id
-        cell.priceLabel.text = itemResults[indexPath.section].price
+        cell.nameLabel.text = itemResults[indexPath.row].name
+        cell.locationLabel.text = itemResults[indexPath.row].location
+        cell.id = itemResults[indexPath.row].id
+        cell.priceLabel.text = itemResults[indexPath.row].price
         
+        if savedListings.contains(itemResults[indexPath.row]) {
+            cell.heartButton.setImage(#imageLiteral(resourceName: "greenHeart"), for: UIControlState.normal)
+        } else {
+            cell.heartButton.setImage(#imageLiteral(resourceName: "whiteHeart"), for: UIControlState.normal)
 
-        if itemResults[indexPath.section].overallRating >= 90 {
-            cell.scoreLabel.text = "Excellent"
         }
-        else if itemResults[indexPath.section].overallRating >= 80 {
-            cell.scoreLabel.text = "Great"
+        
+        
+        
+        var mutableString = NSMutableAttributedString(string: "Eco-Rating")
+        mutableString.addAttribute(NSFontAttributeName,
+                                   value: UIFont.boldSystemFont(ofSize: 12),
+                                   range: NSRange(location:0, length: mutableString.length)
+        )
+
+
+        if itemResults[indexPath.row].overallRating > 90 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": OUTSTANDING"))
+            
+            cell.scoreLabel.text = "Eco-Rating: OUTSTANDING"
+            //cell.scoreLabel.attributedText = combo
         }
-        else if itemResults[indexPath.section].overallRating >= 40 {
-            cell.scoreLabel.text = "Good"
+        else if itemResults[indexPath.row].overallRating >= 76 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": EXCELLENT"))
+            
+            cell.scoreLabel.text = "Eco-Rating: EXCELLENT"
+        }   else if itemResults[indexPath.row].overallRating >= 61 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GREAT"))
+            
+            cell.scoreLabel.text = "Eco-Rating: GREAT"
+            //cell.scoreLabel.attributedText = combo
+        }   else  {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GOOD"))
+            
+            cell.scoreLabel.text = "Eco-Rating: GOOD"
+            //cell.scoreLabel.attributedText = combo
         }
 
         
-        let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
+        let divideValue = CGFloat(itemResults[indexPath.row].overallRating)/100.00
         let dynamicWidth = (cell.frame.width * divideValue) - 30
         let frame = CGRect(x: cell.greenBar.frame.origin.x, y: cell.greenBar.frame.origin.y, width:dynamicWidth , height: cell.greenBar.frame.height)
 
@@ -466,7 +513,7 @@ extension ExploreViewController {
         dismissKeyboard()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedListing = itemResults[indexPath.section]
+        selectedListing = itemResults[indexPath.row]
 
         var cell:OfferTableViewCell = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
 
@@ -488,6 +535,49 @@ extension ExploreViewController {
         myVC.scoreBar.frame = frame
 
         self.navigationController?.pushViewController(myVC, animated: true)
+    }
+    func fetchData(){
+        savedListings.removeAll()
+        //onlyDateArr.removeAll()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Offer")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            let dateCreated = results as! [Offer]
+            
+            
+            for _datecreated in dateCreated {
+                let offer = Listing()
+                offer.name = _datecreated.name!
+                offer.location = _datecreated.location!
+                offer.isFavorited = _datecreated.isFavorited
+                offer.id = _datecreated.id!
+                offer.image1 = _datecreated.imageURL!
+                offer.price = _datecreated.price!
+                offer.stars = Int(_datecreated.stars)
+                offer.listingDescription = _datecreated.information!
+                //offer.URL = _datecreated.url?
+                offer.materialAndResourceScore = Int(_datecreated.materialAndResourceScore)
+                offer.managementScore = Int(_datecreated.managementScore)
+                offer.communityScore = Int(_datecreated.communityScore)
+                offer.waterScore = Int(_datecreated.waterScore)
+                offer.recycleAndWaterScore = Int(_datecreated.recycleAndWaterScore)
+                offer.energyScore = Int(_datecreated.energyScore)
+                offer.indoorsScore = Int(_datecreated.indoorsScore)
+                let imageURL = URL(string:_datecreated.imageURL!)
+                //var imageView = UIImageView().kf.setImage(with: imageURL)
+                
+                if offer.isFavorited == true {
+                    savedListings.append(offer)
+                }
+            }
+            
+        }catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        
     }
 }
 

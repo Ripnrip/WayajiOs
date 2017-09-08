@@ -60,7 +60,11 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
         nameLabel.text = name
         locationLabel.text = location
         priceLabel.text = price
-        informationTextView.text = information
+        var infoText = information
+        let attributedInfoString = NSMutableAttributedString(string: infoText)
+        attributedInfoString.addAttribute(NSKernAttributeName, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedInfoString.length))
+        informationTextView.attributedText = attributedInfoString
+        //informationTextView.text = information
         
         self.navigationController?.isNavigationBarHidden = false
         
@@ -79,6 +83,13 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1150)
+        informationTextView.layer.cornerRadius = 5
+        informationTextView.layer.shadowColor = UIColor.white.cgColor
+        informationTextView.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        informationTextView.layer.shadowRadius = 4.0
+        informationTextView.layer.shadowOpacity = 1.0
+        informationTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+
  
     }
 
@@ -188,7 +199,7 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
             break
             
         case RatingType.Recycle:
-            cell.nameLabel.text = "Recycle"
+            cell.nameLabel.text = "Waste"
             guard let score = currentListing?.recycleAndWaterScore else {break}
             cell.percentLabel.text = String(score) + "%"
 
@@ -231,3 +242,5 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     
 }
+
+

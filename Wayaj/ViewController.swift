@@ -56,7 +56,12 @@ class ViewController: UIViewController {
             
         }
         skipButton.frame = CGRect(x: 251, y: self.view.frame.size.height-70, width: 98, height: 30)
+            
+            
+            
         onboardingView.addSubview(skipButton)
+            
+           
         }
     }
     

@@ -69,7 +69,7 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
                 print("loadSettings error: \(error)")
                 return nil
             }
-            self.imageURL = userSettings.string(forKey: "pictureURL")
+            //self.imageURL = userSettings.string(forKey: "pictureURL")
             self.name = userSettings.string(forKey: "name")
             self.email = "TACOS@tacos.com"//userSettings.string(forKey: "email")
             self.gender = userSettings.string(forKey: "gender")
@@ -100,7 +100,7 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
         
         var shownOnce = false
         loadImage()
-        loadSettings()
+        //loadSettings()
 
         self.tableView?.backgroundColor = UIColor(red: 38/255, green: 201/255, blue: 82/255, alpha: 1.0)
         
@@ -164,28 +164,32 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
                 $0.value = aboutMe
                 $0.placeholder = "I like long walks on the beach, and eating tacos all day"
                 }.onChange({ (tRow) in
-                    aboutMe = tRow.value!
+                    guard let value = tRow.value else {return}
+                    aboutMe = value
                     print(aboutMe)
                 })
             <<< TextRow(){
                 $0.value = whereHaveYouTraveled
                 $0.placeholder = "Where have you traveled?"
             }.onChange({ (tRow) in
-                whereHaveYouTraveled = tRow.value!
+                
+                guard let value = tRow.value else {return}
+                whereHaveYouTraveled = value
             })
             
             <<< TextRow(){
                 $0.value = favoriteItems
                 $0.placeholder = "What are some of your favorite activities?"
                 }.onChange({ (tRow) in
-                    favoriteItems = tRow.value!
+                    guard let value = tRow.value else {return}
+                    favoriteItems = value
                 })
             <<< TextRow(){
                 $0.value = bucketList
                 $0.placeholder = "What are some items on your bucket list?"
                 }.onChange({ (tRow) in
-                    bucketList = tRow.value!
-                })
+                    guard let value = tRow.value else {return}
+                    bucketList = value                })
             +++ Section(){
             $0.tag = "Submit"
             }

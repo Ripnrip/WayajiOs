@@ -33,6 +33,7 @@ class RatingScoreTableViewCell: UITableViewCell {
         let startPoint = infoButton.center
         let txtLabel = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 250))
         txtLabel.text = popUpString
+        txtLabel.isEditable = false
     
         let popover = Popover()
         popover.show(txtLabel, point: startPoint)

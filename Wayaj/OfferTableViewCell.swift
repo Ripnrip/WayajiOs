@@ -26,7 +26,7 @@ class OfferTableViewCell: UITableViewCell {
     
     var overallScore:Int = 100
     
-    var isSaved = false
+    var isSaved = Bool()
     var listingObject:Listing!
     
     override func awakeFromNib() {
@@ -88,7 +88,7 @@ class OfferTableViewCell: UITableViewCell {
         offer.setValue(location, forKey: "location")
         offer.setValue(image, forKey: "image")
         offer.setValue(listingObject.image1, forKey: "imageURL")
-        offer.setValue(0.00, forKey: "price")
+        offer.setValue(listingObject.price, forKey: "price")
         offer.setValue(listingObject.id, forKey: "id")
         offer.setValue(listingObject.listingDescription, forKey: "information")
         offer.setValue(listingObject.overallRating, forKey: "overallRating")
