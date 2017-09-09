@@ -138,25 +138,7 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
                 $0.imageURL = URL(string:self.imageURL)
                 
             }
-
-            
-//            +++ Section("Basic Information")
-            
-//            <<< NameRow() {
-//                $0.title =  "Name:"
-//                $0.value = self.name
-//            }
-//            <<< EmailRow() {
-//                $0.title = "Email:"
-//                $0.value = self.email
-//            }
-//            <<< SegmentedRow<String>(){
-//                $0.options = ["Male", "Female", "Other"]
-//                $0.value = self.gender
-//            }
-//          
-
-            
+        
             +++ Section("Tell Us About Yourself")
 
                     
