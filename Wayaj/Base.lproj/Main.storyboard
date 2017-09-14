@@ -390,10 +390,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-59-Tyn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="255"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="191"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="C7t-dT-oRq"/>
-                                    <constraint firstAttribute="height" constant="255" id="YWy-qr-zJp"/>
+                                    <constraint firstAttribute="height" constant="191" id="LPT-nK-5Ol"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutMe" translatesAutoresizingMaskIntoConstraints="NO" id="ZV7-TJ-76b">
@@ -548,24 +548,41 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sf1-pd-wyN">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="bTn-08-U58">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="XqP-Uv-fTT">
+                                            <connections>
+                                                <action selector="shareButtonTapped:" destination="z7g-dM-L9t" id="vJt-qD-YQp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="I4j-8w-B4L" firstAttribute="top" secondItem="U7Z-Uk-aCb" secondAttribute="bottom" constant="33" id="1oR-gb-HyD"/>
                             <constraint firstItem="y7z-YX-XIj" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="20" id="2KI-ud-ezA"/>
                             <constraint firstItem="XBv-VN-8Dw" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="20" id="4kT-Yo-7JP"/>
+                            <constraint firstItem="sf1-pd-wyN" firstAttribute="centerX" secondItem="nbB-D0-waZ" secondAttribute="centerX" id="79d-ED-gWB"/>
                             <constraint firstItem="y7z-YX-XIj" firstAttribute="top" secondItem="P3b-SF-9je" secondAttribute="bottom" constant="8" id="8SU-5R-sqV"/>
                             <constraint firstItem="0lq-8T-yfH" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="9" id="DWg-Ks-XSW"/>
+                            <constraint firstItem="sf1-pd-wyN" firstAttribute="top" secondItem="bzG-ST-Odd" secondAttribute="bottom" id="Dcz-pl-ONT"/>
                             <constraint firstItem="U7Z-Uk-aCb" firstAttribute="top" secondItem="0lq-8T-yfH" secondAttribute="bottom" constant="8" id="Fcl-X6-jup"/>
+                            <constraint firstAttribute="trailing" secondItem="5lH-59-Tyn" secondAttribute="trailing" id="FrN-Yt-RIO"/>
                             <constraint firstItem="vVf-Og-vse" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="18" id="Gg2-EH-9de"/>
                             <constraint firstItem="vVf-Og-vse" firstAttribute="top" secondItem="5lH-59-Tyn" secondAttribute="bottom" constant="24" id="Jek-tW-5FL"/>
+                            <constraint firstItem="5lH-59-Tyn" firstAttribute="top" secondItem="sf1-pd-wyN" secondAttribute="bottom" id="MoX-KL-kPi"/>
+                            <constraint firstItem="sf1-pd-wyN" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" id="Rko-ca-5WP"/>
                             <constraint firstItem="0lq-8T-yfH" firstAttribute="top" secondItem="y7z-YX-XIj" secondAttribute="bottom" constant="8" id="dCc-8F-jad"/>
-                            <constraint firstItem="5lH-59-Tyn" firstAttribute="top" secondItem="nbB-D0-waZ" secondAttribute="top" id="g2y-08-fjk"/>
                             <constraint firstItem="XBv-VN-8Dw" firstAttribute="top" secondItem="I4j-8w-B4L" secondAttribute="bottom" constant="25" id="giG-qO-R0q"/>
                             <constraint firstItem="I4j-8w-B4L" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="9" id="irS-ad-qI2"/>
+                            <constraint firstAttribute="trailing" secondItem="sf1-pd-wyN" secondAttribute="trailing" id="ivT-YV-8ej"/>
                             <constraint firstItem="zFg-Aw-qrT" firstAttribute="top" secondItem="ZV7-TJ-76b" secondAttribute="bottom" constant="8" id="jJv-Rh-PA4"/>
-                            <constraint firstItem="5lH-59-Tyn" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" id="oyN-IM-PZF"/>
                             <constraint firstItem="U7Z-Uk-aCb" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="20" id="pH5-iU-09e"/>
+                            <constraint firstItem="5lH-59-Tyn" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" id="ps2-pc-tbH"/>
                             <constraint firstItem="P3b-SF-9je" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="9" id="pyN-CA-isS"/>
                             <constraint firstItem="P3b-SF-9je" firstAttribute="top" secondItem="zFg-Aw-qrT" secondAttribute="bottom" constant="8" id="q7B-ZI-gTM"/>
                             <constraint firstItem="zFg-Aw-qrT" firstAttribute="leading" secondItem="nbB-D0-waZ" secondAttribute="leading" constant="20" id="ut6-ql-feL"/>

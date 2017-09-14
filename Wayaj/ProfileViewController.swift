@@ -43,8 +43,6 @@ class ProfileViewController: UIViewController {
                 // ...
             }
         }
-
-
         
         print(UserDefaults.standard.string(forKey: "name"))
         print(UserDefaults.standard.string(forKey: "pictureURL"))
@@ -100,6 +98,23 @@ class ProfileViewController: UIViewController {
         
     }
 
+    @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
+        let textToShare = "Hey! Check out this awesome earth friendly travel app calle Wayaj!"
+        
+        if let appURL = NSURL(string: "https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8") {
+            let objectsToShare = [textToShare, appURL] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            
+            //Prevents crash on iPads
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
+        }
+        print("shared!")
+    }
+    
+    
 }
 
 //extension ProfileViewController {
