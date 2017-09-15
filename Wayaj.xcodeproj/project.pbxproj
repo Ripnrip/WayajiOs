@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
 		5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */; };
@@ -65,12 +66,8 @@
 		8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */; };
 		8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */; };
 		841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C07C11F4F422900E17958 /* RatingScoreTableViewCell.swift */; };
-		841FF4431F40FEB00003A37F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
 		841FF4441F40FEB00003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
 		841FF4451F4118440003A37F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
-		841FF4461F4118440003A37F /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		841FF4481F4118480003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
-		841FF4491F4118480003A37F /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		842074701F4729B100980800 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420746F1F4729B100980800 /* User.swift */; };
 		842074721F47307600980800 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074711F47307600980800 /* Listing.swift */; };
 		842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074731F4ABD1400980800 /* OfferDetailViewController.swift */; };
@@ -107,22 +104,11 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		841FF4471F4118440003A37F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				841FF4491F4118480003A37F /* RealmSwift.framework in Embed Frameworks */,
-				841FF4461F4118440003A37F /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
+		18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapPinAnnotation.swift; sourceTree = "<group>"; };
 		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
 		34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,8 +202,6 @@
 				58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */,
 				841FF4451F4118440003A37F /* Realm.framework in Frameworks */,
 				58910CD31EF2C09B0049E477 /* AWSFacebookSignIn.framework in Frameworks */,
-				841FF4481F4118480003A37F /* RealmSwift.framework in Frameworks */,
-				841FF4431F40FEB00003A37F /* Realm.framework in Frameworks */,
 				5817D7BA1EF18C4E00ACA9E9 /* FBSDKCoreKit.framework in Frameworks */,
 				5817D7BB1EF18C4E00ACA9E9 /* FBSDKLoginKit.framework in Frameworks */,
 				D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */,
@@ -449,6 +433,7 @@
 				84A776981EBB721E00FF709F /* OfferPageViewController.swift */,
 				5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */,
 				842074731F4ABD1400980800 /* OfferDetailViewController.swift */,
+				18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */,
 			);
 			name = Explore;
 			sourceTree = "<group>";
@@ -512,7 +497,6 @@
 				94D0577B3A455565A0182DB9 /* [CP] Embed Pods Frameworks */,
 				42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */,
 				58608F2A1EDDDFB600A0FDF3 /* Embed App Extensions */,
-				841FF4471F4118440003A37F /* Embed Frameworks */,
 				84712D9D1F639C70005BBE15 /* ShellScript */,
 			);
 			buildRules = (
@@ -851,6 +835,7 @@
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,
+				18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */,
 				58608FA01EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift in Sources */,
 				58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */,
 				841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */,

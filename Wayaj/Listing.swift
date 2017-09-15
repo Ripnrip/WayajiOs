@@ -32,6 +32,8 @@ final class Listing: Object {
     dynamic var recycleAndWaterScore:Int = 0
     dynamic var energyScore:Int = 0
     dynamic var indoorsScore:Int = 0
+    dynamic var longitude:Double = 0.0
+    dynamic var latitude:Double = 0.0
 
     
     override static func primaryKey() -> String? {

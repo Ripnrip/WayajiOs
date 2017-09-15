@@ -23,7 +23,8 @@ target 'Wayaj' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'SwiftSpinner'
-  pod 'Kingfisher'
+  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'swift3'
+  pod 'RealmSwift'
   pod "Popover"
   pod "Cheers"
 

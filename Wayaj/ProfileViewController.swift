@@ -97,8 +97,8 @@ class ProfileViewController: UIViewController {
     @IBAction func openSettings(_ sender: Any) {
         
     }
-
-    @IBAction func shareButtonTapped(_ sender: UIBarButtonItem) {
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
         let textToShare = "Hey! Check out this awesome earth friendly travel app calle Wayaj!"
         
         if let appURL = NSURL(string: "https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8") {
@@ -113,6 +113,8 @@ class ProfileViewController: UIViewController {
         }
         print("shared!")
     }
+    
+
     
     
 }

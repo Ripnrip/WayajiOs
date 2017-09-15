@@ -112,5 +112,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to help enhance your experience, and enjoy all the features</string>
 </dict>
 </plist>

@@ -17,6 +17,9 @@ import Cheers
 import RealmSwift
 import Kingfisher
 import CoreData
+import CoreLocation
+import AddressBookUI
+import MapKit
 
 struct AllListings {
     static var listings = [Listing]()
@@ -29,6 +32,8 @@ var Listings = [Listing]()
 var locationsArray = [String]()
 var savedListings = [Listing]()
 
+var localPins = [CLLocation(latitude: 19.2, longitude: -66),CLLocation(latitude: 18.2, longitude: -67),CLLocation(latitude: 16.2, longitude: -72),CLLocation(latitude: 16.8, longitude: -69),CLLocation(latitude: 19.5, longitude: -65)]
+
 
 
 
@@ -36,9 +41,13 @@ var selectedListing = Listing()
 var searchActive : Bool = false
 
 
-class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
 
 
+    //let googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
+    //let googleApikey = "AIzaSyCvaFusdMkQsS7VRZCIWbmkOFI7xP4qAQA"
+    
+    var locationManager2:CLLocationManager!
     @IBOutlet weak var whereSearchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var upButton: UIButton!
@@ -47,6 +56,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var keywordButton: UIButton!
     @IBOutlet weak var whenButton: UIButton!
     @IBOutlet weak var howManyButton: UIButton!
+    
+    @IBOutlet weak var mapButton: UIButton!
+    var listingState = "List"
+    
+    
+    @IBOutlet weak var listingsMapView: MKMapView!
+    
+
 
     var player: AVAudioPlayer?
 
@@ -112,6 +129,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager2 = CLLocationManager()
+
         // Do any additional setup after loading the view.
         
         
@@ -155,9 +174,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
         }
         
-        
-        setupRealm()
-
+        self.setupRealm()
+        addAnnotations()
+        //self.loadMapSettings()
     }
 
     func shouldShowQuestionare(){
@@ -201,6 +220,135 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    func loadMapSettings(){
+        self.locationManager2.delegate = self
+        self.locationManager2.startUpdatingLocation()
+        self.locationManager2.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager2.requestWhenInUseAuthorization()
+        self.listingsMapView.showsUserLocation = true
+        self.listingsMapView.delegate = self
+    }
+    
+    func addAnnotations() {
+        localPins.forEach { (pin) in
+            
+            
+            let annotationView = MKPointAnnotation()
+            //let annotationView = MKAnnotationView()
+            
+            annotationView.coordinate = pin.coordinate
+            annotationView.title = "Hotel"
+            
+            
+            listingsMapView.addAnnotation(annotationView)
+            
+
+        }
+    }
+    
+   
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("checking")
+        
+        let location = locations.last
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
+        
+        self.listingsMapView.setRegion(region, animated: true)
+        
+        itemResults.forEach { (listing) in
+            
+            
+            
+            let annotationView = MKPointAnnotation()
+            //let annotationView = MKAnnotationView()
+            var location = CLLocation(latitude: listing.latitude, longitude: listing.longitude)
+
+            listing.latitude > 0.0 ? print("positive listing \(listing.latitude)") : print("empty")
+            annotationView.coordinate = location.coordinate
+            annotationView.title = listing.name
+            annotationView.subtitle = listing.location
+            //annotationView.listingObject = listing
+            
+            let annotationViewForMap = MKPinAnnotationView(annotation: annotationView, reuseIdentifier: "pin")
+            /*DispatchQueue.main.async {
+                if let anno = annotationViewForMap.annotation {
+                    self.listingsMapView.addAnnotation(anno)
+                }
+ 
+            
+            }*/
+        
+        listingsMapView.addAnnotation(annotationView)
+
+        }
+    
+        
+        locationManager2.stopUpdatingLocation()
+    }
+
+    
+    @IBAction func mapButtonTapped(_ sender: Any) {
+      
+        
+        //self.locationManager2.startUpdatingLocation()
+        //self.loadMapSettings()
+        if listingState == "List" {
+            mapButton.setTitle("List", for: .normal)
+            listingsMapView.isHidden = false
+            tableView.isHidden = true
+            listingState = "Map"
+        } else if listingState == "Map" {
+            mapButton.setTitle("Map", for: .normal)
+            listingsMapView.isHidden = true
+            tableView.isHidden = false
+            listingState = "List"
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManager2.startUpdatingLocation()
+    }
+    
+    //MARK: - Custom Annotation
+    
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        //annotationView?.image = UIImage(named: "CafeIcon")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 75)
+        annotationView?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        return annotationView
+    }
+
+    
+    
+    
+    
+    
+    
+    
     
     
     func playSound() {
@@ -381,7 +529,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         }
                         Listings = Array(converted)
                         self.itemResults = Array(converted)
-                        self.itemResults.shuffle()
+                        //self.itemResults.shuffle()
                         self.tableView.reloadData()
                     }
                     updateList()
@@ -503,6 +651,10 @@ extension ExploreViewController {
 
         
         cell.greenBar.frame = frame
+        
+        
+        
+        
         return cell//UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -656,6 +808,8 @@ extension ExploreViewController:UISearchBarDelegate  {
         }
 
     }
+    
+    
 
     
 }
