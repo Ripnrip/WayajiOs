@@ -66,11 +66,13 @@
 		8419CD891ECA26F300A15B1B /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD851ECA26F300A15B1B /* Nunito-Regular.ttf */; };
 		8419CD8A1ECA26F300A15B1B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8419CD861ECA26F300A15B1B /* OpenSans-Regular.ttf */; };
 		841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C07C11F4F422900E17958 /* RatingScoreTableViewCell.swift */; };
-		841FF4441F40FEB00003A37F /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
-		841FF4451F4118440003A37F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
 		842074701F4729B100980800 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420746F1F4729B100980800 /* User.swift */; };
 		842074721F47307600980800 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074711F47307600980800 /* Listing.swift */; };
 		842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074731F4ABD1400980800 /* OfferDetailViewController.swift */; };
+		842213E91F7167FA0025FD36 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; };
+		842213EA1F7167FA0025FD36 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4411F40FEB00003A37F /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		842213EB1F7168070025FD36 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; };
+		842213EC1F7168070025FD36 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841FF4421F40FEB00003A37F /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
 		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
@@ -102,6 +104,18 @@
 			files = (
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		842213E81F7167EF0025FD36 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				842213EC1F7168070025FD36 /* RealmSwift.framework in Embed Frameworks */,
+				842213EA1F7167FA0025FD36 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -198,10 +212,10 @@
 			files = (
 				58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */,
 				58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */,
-				841FF4441F40FEB00003A37F /* RealmSwift.framework in Frameworks */,
+				842213EB1F7168070025FD36 /* RealmSwift.framework in Frameworks */,
 				58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */,
-				841FF4451F4118440003A37F /* Realm.framework in Frameworks */,
 				58910CD31EF2C09B0049E477 /* AWSFacebookSignIn.framework in Frameworks */,
+				842213E91F7167FA0025FD36 /* Realm.framework in Frameworks */,
 				5817D7BA1EF18C4E00ACA9E9 /* FBSDKCoreKit.framework in Frameworks */,
 				5817D7BB1EF18C4E00ACA9E9 /* FBSDKLoginKit.framework in Frameworks */,
 				D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */,
@@ -498,6 +512,7 @@
 				42C29158B9C91B5C19DC1C44 /* [CP] Copy Pods Resources */,
 				58608F2A1EDDDFB600A0FDF3 /* Embed App Extensions */,
 				84712D9D1F639C70005BBE15 /* ShellScript */,
+				842213E81F7167EF0025FD36 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
