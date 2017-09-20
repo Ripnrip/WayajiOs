@@ -256,22 +256,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             print(anno)
         }
         
-        
-        
-//        localPins.forEach { (pin) in
-//
-//
-//            let annotationView = MKPointAnnotation()
-//            //let annotationView = MKAnnotationView()
-//
-//            annotationView.coordinate = pin.coordinate
-//            annotationView.title = "Hotel"
-//
-//
-//            listingsMapView.addAnnotation(annotationView)
-//
-//
-//        }
     }
     
    
