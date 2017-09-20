@@ -11,7 +11,7 @@ target 'Wayaj' do
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'paper-onboarding', '~> 2.0.1' 
   pod "AMTooltip"
-  pod 'Eureka', '~> 2.0.0-beta.1'
+  pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Xcode9-Swift3_2'
   pod 'LocationPickerViewController'
   pod 'AWSCore'
   pod 'AWSCognito'

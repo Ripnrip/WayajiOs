@@ -32,7 +32,7 @@ var Listings = [Listing]()
 var locationsArray = [String]()
 var savedListings = [Listing]()
 
-var localPins = [CLLocation(latitude: 19.2, longitude: -66),CLLocation(latitude: 18.2, longitude: -67),CLLocation(latitude: 16.2, longitude: -72),CLLocation(latitude: 16.8, longitude: -69),CLLocation(latitude: 19.5, longitude: -65)]
+var annotations = [MKPointAnnotation]()
 
 
 
@@ -154,6 +154,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         datePicker.isHidden = true
         occupantFilter.isHidden = true
         loadListings()
+        self.loadMapSettings()
         
         //datePicker.frame = whenButton.frame
         //occupantFilter.frame = howManyButton.frame
@@ -175,8 +176,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         
         self.setupRealm()
-        addAnnotations()
-        //self.loadMapSettings()
+        
+        
     }
 
     func shouldShowQuestionare(){
@@ -223,28 +224,54 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func loadMapSettings(){
         self.locationManager2.delegate = self
-        self.locationManager2.startUpdatingLocation()
         self.locationManager2.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager2.requestWhenInUseAuthorization()
+        self.locationManager2.startUpdatingLocation()
         self.listingsMapView.showsUserLocation = true
-        self.listingsMapView.delegate = self
+        //self.listingsMapView.delegate = self
     }
     
     func addAnnotations() {
-        localPins.forEach { (pin) in
+        
+        print("IM IN HERE")
+        
+        print(itemResults.count)
+        
+        itemResults.forEach { (listing) in
             
+         let lat = listing.latitude, long = listing.longitude
             
-            let annotationView = MKPointAnnotation()
-            //let annotationView = MKAnnotationView()
-            
-            annotationView.coordinate = pin.coordinate
-            annotationView.title = "Hotel"
-            
-            
-            listingsMapView.addAnnotation(annotationView)
-            
-
+         let location = CLLocation(latitude: lat, longitude: long)
+          
+         let anno = MKPointAnnotation()
+         anno.coordinate = location.coordinate
+         anno.title = "Hotel Test"
+         //listingsMapView.addAnnotation(anno)
+         print("this hotel is \(listing.name)")
+         annotations.append(anno)
         }
+        
+        annotations.forEach { (anno) in
+            listingsMapView.addAnnotation(anno)
+            print(anno)
+        }
+        
+        
+        
+//        localPins.forEach { (pin) in
+//
+//
+//            let annotationView = MKPointAnnotation()
+//            //let annotationView = MKAnnotationView()
+//
+//            annotationView.coordinate = pin.coordinate
+//            annotationView.title = "Hotel"
+//
+//
+//            listingsMapView.addAnnotation(annotationView)
+//
+//
+//        }
     }
     
    
@@ -257,38 +284,12 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
         
         self.listingsMapView.setRegion(region, animated: true)
-        
-        itemResults.forEach { (listing) in
-            
-            
-            
-            let annotationView = MKPointAnnotation()
-            //let annotationView = MKAnnotationView()
-            var location = CLLocation(latitude: listing.latitude, longitude: listing.longitude)
-
-            listing.latitude > 0.0 ? print("positive listing \(listing.latitude)") : print("empty")
-            annotationView.coordinate = location.coordinate
-            annotationView.title = listing.name
-            annotationView.subtitle = listing.location
-            //annotationView.listingObject = listing
-            
-            let annotationViewForMap = MKPinAnnotationView(annotation: annotationView, reuseIdentifier: "pin")
-            /*DispatchQueue.main.async {
-                if let anno = annotationViewForMap.annotation {
-                    self.listingsMapView.addAnnotation(anno)
-                }
- 
-            
-            }*/
-        
-        listingsMapView.addAnnotation(annotationView)
-
-        }
-    
-        
+       
         locationManager2.stopUpdatingLocation()
     }
 
+    
+    
     
     @IBAction func mapButtonTapped(_ sender: Any) {
       
@@ -313,40 +314,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         print(error.localizedDescription)
     }
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        locationManager2.startUpdatingLocation()
-    }
+    
     
     //MARK: - Custom Annotation
-    
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        
-        let reuseIdentifier = "pin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
-            
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        //annotationView?.image = UIImage(named: "CafeIcon")
-        annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 75)
-        annotationView?.contentMode = UIViewContentMode.scaleAspectFit
-        
-        return annotationView
-    }
-
-    
-    
-    
-    
-    
     
     
     
@@ -530,6 +500,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         Listings = Array(converted)
                         self.itemResults = Array(converted)
                         //self.itemResults.shuffle()
+                        self.addAnnotations()
                         self.tableView.reloadData()
                     }
                     updateList()
