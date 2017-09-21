@@ -69,6 +69,8 @@
 		842074701F4729B100980800 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420746F1F4729B100980800 /* User.swift */; };
 		842074721F47307600980800 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074711F47307600980800 /* Listing.swift */; };
 		842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842074731F4ABD1400980800 /* OfferDetailViewController.swift */; };
+		843073561F744584007D6A70 /* ViewController+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843073551F744584007D6A70 /* ViewController+Onboarding.swift */; };
+		843073581F74467A007D6A70 /* ViewController+SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843073571F74467A007D6A70 /* ViewController+SignIn.swift */; };
 		84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A776981EBB721E00FF709F /* OfferPageViewController.swift */; };
 		D61D87EEA2544470C87A67C7 /* Pods_Wayaj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */; };
 		DAB75F14E7D8686795B0F559 /* Pods_WayajUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */; };
@@ -182,6 +184,8 @@
 		8420746F1F4729B100980800 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		842074711F47307600980800 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		842074731F4ABD1400980800 /* OfferDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferDetailViewController.swift; sourceTree = "<group>"; };
+		843073551F744584007D6A70 /* ViewController+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Onboarding.swift"; sourceTree = "<group>"; };
+		843073571F74467A007D6A70 /* ViewController+SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+SignIn.swift"; sourceTree = "<group>"; };
 		84A776981EBB721E00FF709F /* OfferPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferPageViewController.swift; sourceTree = "<group>"; };
 		C5ED3D4F5FC1D0C9B5694EA8 /* Pods_Wayaj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04369AC06CC9B3D3740B82B /* Pods_Wayaj_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wayaj_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,10 +368,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
-				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
-				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
-				8420746D1F47291E00980800 /* Realm */,
-				5817D7AF1EF18A2400ACA9E9 /* AWS */,
+				843073541F744555007D6A70 /* Networking */,
 				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
 				5862665C1EC9F18F006FC7BD /* Constants */,
@@ -381,6 +382,8 @@
 				588921FB1EB78838005E5606 /* Assets.xcassets */,
 				588921FD1EB78838005E5606 /* LaunchScreen.storyboard */,
 				588922001EB78838005E5606 /* Info.plist */,
+				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
+				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
 			);
 			path = Wayaj;
 			sourceTree = "<group>";
@@ -418,6 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				588921F61EB78838005E5606 /* ViewController.swift */,
+				843073551F744584007D6A70 /* ViewController+Onboarding.swift */,
+				843073571F74467A007D6A70 /* ViewController+SignIn.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -477,6 +482,15 @@
 				842074711F47307600980800 /* Listing.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		843073541F744555007D6A70 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8420746D1F47291E00980800 /* Realm */,
+				5817D7AF1EF18A2400ACA9E9 /* AWS */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -810,6 +824,7 @@
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
+				843073561F744584007D6A70 /* ViewController+Onboarding.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				842074701F4729B100980800 /* User.swift in Sources */,
 				58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */,
@@ -834,6 +849,7 @@
 				18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */,
 				58608FA01EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift in Sources */,
 				58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */,
+				843073581F74467A007D6A70 /* ViewController+SignIn.swift in Sources */,
 				841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */,
 				5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */,
 				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,
