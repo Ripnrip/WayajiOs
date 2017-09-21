@@ -33,6 +33,7 @@ var locationsArray = [String]()
 var savedListings = [Listing]()
 
 var annotations = [MKPointAnnotation]()
+//var annos = [MKPointAnnotation, Listing]
 
 
 
@@ -243,11 +244,15 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
          let location = CLLocation(latitude: lat, longitude: long)
           
-         let anno = MKPointAnnotation()
+         let anno = CustomMapPinAnnotation()
          anno.coordinate = location.coordinate
-         anno.title = "Hotel Test"
+         anno.title = listing.name
+         anno.subtitle = listing.location
+         anno.listingObject = listing
          //listingsMapView.addAnnotation(anno)
          print("this hotel is \(listing.name)")
+            
+         //TODO - custom anno with listing object then open listing when anno is tapped
          annotations.append(anno)
         }
         
@@ -268,11 +273,71 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
         
         self.listingsMapView.setRegion(region, animated: true)
-       
+       //Random comment
         locationManager2.stopUpdatingLocation()
     }
 
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("Annotation selected")
+        
+        if let annotation = view.annotation {
+            print("Your annotation title: \(String(describing: annotation.title))");
+        }
+    }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        
+        if let anno = view.annotation as? CustomMapPinAnnotation {
+        
+            let selectedListing2 = anno.listingObject
+
+            var myVC = storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
+
+            myVC.imageURL = selectedListing2.image1
+            myVC.name = selectedListing2.name
+            myVC.location = selectedListing2.location
+            myVC.information = selectedListing2.listingDescription
+            myVC.isFavorited = false
+            myVC.price = selectedListing2.price
+            myVC.currentListing = selectedListing2
+
+            let divideValue = CGFloat(selectedListing2.overallRating)/100.00
+            let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+            //print("the green bar dynamic width is \(dynamicWidth)")
+            //print("the score fraction to divide/multiply by is \(divideValue)")
+            myVC.scoreBar.frame = frame
+
+            self.navigationController?.pushViewController(myVC, animated: true)
+        
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) {
+            return nil
+        }
+        
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        annotationView?.image = UIImage(named: "CafeIcon")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 75)
+        annotationView?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        return annotationView
+    }
     
     
     @IBAction func mapButtonTapped(_ sender: Any) {
