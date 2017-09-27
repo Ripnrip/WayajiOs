@@ -332,8 +332,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "CafeIcon")
-        annotationView?.frame = CGRect(x: 0, y: 0, width: 50, height: 75)
+        annotationView?.image = UIImage(named: "Pin")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 45)
         annotationView?.contentMode = UIViewContentMode.scaleAspectFit
         
         return annotationView

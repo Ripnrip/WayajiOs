@@ -1032,9 +1032,6 @@
                                                 <rect key="frame" x="166" y="13" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="infoIcon"/>
-                                                <connections>
-                                                    <action selector="presentPopUp:" destination="vFE-6h-7pe" eventType="touchUpInside" id="HD5-Hb-qyA"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outstanding" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-Iq-aYt">
                                                 <rect key="frame" x="273" y="15.000000000000002" width="54" height="11.66666666666667"/>
@@ -1537,9 +1534,6 @@
                                                                         <constraint firstAttribute="width" constant="25" id="3A2-pJ-8dx"/>
                                                                     </constraints>
                                                                     <state key="normal" image="infoIcon"/>
-                                                                    <connections>
-                                                                        <action selector="materialsInfo:" destination="cXP-dR-Luk" eventType="touchUpInside" id="HUW-Us-mRu"/>
-                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

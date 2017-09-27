@@ -32,6 +32,12 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
         
     }
     
+    
+    @IBAction func pressedButtonInfo(_ sender: Any) {
+        print("PRESSED THE INFO BUTTON")
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         
         self.descriptionTextView.setContentOffset(.zero, animated: false)

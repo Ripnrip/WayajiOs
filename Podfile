@@ -25,7 +25,7 @@ target 'Wayaj' do
   pod 'SwiftSpinner'
   pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher', :branch => 'swift3'
   pod 'RealmSwift'
-  pod "Popover"
+  pod 'Popover'
   pod "Cheers"
 
 
