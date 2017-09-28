@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         setupRealm()
 
     }
-    func pressed(sender: UIButton!) {
+    @objc func pressed(sender: UIButton!) {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "offerWebPage") as! TripAdvisorWebViewController
         guard let url = URL(string:"https://s3.amazonaws.com/gedeon-1/Terms+of+Use+final+(1).pdf") else {return}
         myVC.url = url

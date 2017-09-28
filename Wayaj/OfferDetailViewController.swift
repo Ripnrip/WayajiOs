@@ -62,7 +62,7 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
         priceLabel.text = price
         var infoText = information
         let attributedInfoString = NSMutableAttributedString(string: infoText)
-        attributedInfoString.addAttribute(NSKernAttributeName, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedInfoString.length))
+        attributedInfoString.addAttribute(NSAttributedStringKey.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedInfoString.length))
         informationTextView.attributedText = attributedInfoString
         //informationTextView.text = information
         

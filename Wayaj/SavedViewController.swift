@@ -110,7 +110,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         cell.priceLabel.text = results[indexPath.row].price
         
         var mutableString = NSMutableAttributedString(string: "Eco-Rating")
-        mutableString.addAttribute(NSFontAttributeName,
+        mutableString.addAttribute(NSAttributedStringKey.font,
                                    value: UIFont.boldSystemFont(ofSize: 12),
                                    range: NSRange(location:0, length: mutableString.length)
         )

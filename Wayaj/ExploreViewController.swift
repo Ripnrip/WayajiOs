@@ -68,24 +68,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     var player: AVAudioPlayer?
 
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExploreViewController.dismissKeyboard))
 
-    lazy var datePicker: AirbnbDatePicker = {
-        let btn = AirbnbDatePicker()
-        btn.frame = CGRect(x: 19, y: 137.67, width: 337, height: 49)
-        //btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.delegate = self
-        return btn
-        
-    }()
-    
-    lazy var occupantFilter: AirbnbOccupantFilter = {
-        let btn = AirbnbOccupantFilter()
-        btn.frame = CGRect(x: 25, y: 197, width: 300, height: 49)
-        //btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.delegate = self
-        return btn
-    }()
     
     var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
     var filtered:[Listing] = []
@@ -151,9 +135,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         
         self.upButton.isHidden = true
-        //self.whereButton.isHidden = true
-        datePicker.isHidden = true
-        occupantFilter.isHidden = true
         loadListings()
         self.loadMapSettings()
         
@@ -218,7 +199,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
@@ -438,8 +419,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.blurBg.hidden = true
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
-            self.datePicker.isHidden = false
-            self.occupantFilter.isHidden = false
             self.whereSearchBar.isHidden = false
 
         })
@@ -468,8 +447,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBAction func retractSearchFilter(_ sender: Any) {
         //height is 98
        dismissKeyboard()
-        self.datePicker.isHidden = true
-        self.occupantFilter.isHidden = true
         //self.whereSearchBar.isHidden = true
         
         UIView.animate(withDuration: 0.2, animations: {
@@ -555,7 +532,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     updateList()
                     
                     // Notify us when Realm changes
-                    self.notificationToken = self.realm.addNotificationBlock { _ in
+                    self.notificationToken = self.realm.addNotificationBlock { _,_  in
                         updateList()
                     }
                     
@@ -628,7 +605,7 @@ extension ExploreViewController {
         
         
         var mutableString = NSMutableAttributedString(string: "Eco-Rating")
-        mutableString.addAttribute(NSFontAttributeName,
+        mutableString.addAttribute(NSAttributedStringKey.font,
                                    value: UIFont.boldSystemFont(ofSize: 12),
                                    range: NSRange(location:0, length: mutableString.length)
         )
@@ -844,7 +821,7 @@ extension MutableCollection where Indices.Iterator.Element == Index {
             let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
             guard d != 0 else { continue }
             let i = index(firstUnshuffled, offsetBy: d)
-            swap(&self[firstUnshuffled], &self[i])
+            self.swapAt(firstUnshuffled, i)
         }
     }
 }

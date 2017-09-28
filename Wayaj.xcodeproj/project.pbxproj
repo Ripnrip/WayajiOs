@@ -20,21 +20,10 @@
 		5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5817D7C41EF18D1B00ACA9E9 /* EurekaSectionHeader.xib */; };
 		5848A9821F0A866B0021C92F /* AACarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5848A9811F0A866B0021C92F /* AACarousel.swift */; };
 		58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */; };
-		58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */; };
-		58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */; };
-		58608F901EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F891EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift */; };
-		58608F911EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F8A1EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift */; };
-		58608F921EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F8B1EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift */; };
-		58608F931EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F8C1EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift */; };
 		58608F971EE86DC800A0FDF3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F951EE86DC800A0FDF3 /* Theme.swift */; };
 		58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F961EE86DC800A0FDF3 /* Utility.swift */; };
 		58608F9B1EE86DCF00A0FDF3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F991EE86DCF00A0FDF3 /* UIColor.swift */; };
 		58608F9C1EE86DCF00A0FDF3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F9A1EE86DCF00A0FDF3 /* Date.swift */; };
-		58608FA01EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608F9F1EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift */; };
-		58608FA51EE8754100A0FDF3 /* AirbnbCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608FA11EE8754100A0FDF3 /* AirbnbCounter.swift */; };
-		58608FA61EE8754100A0FDF3 /* AirbnbOccupantFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608FA21EE8754100A0FDF3 /* AirbnbOccupantFilter.swift */; };
-		58608FA71EE8754100A0FDF3 /* AirbnbSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608FA31EE8754100A0FDF3 /* AirbnbSwitch.swift */; };
-		58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608FA41EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift */; };
 		58608FAA1EE875D100A0FDF3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58608FA91EE875D100A0FDF3 /* UIImage.swift */; };
 		5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5862665D1EC9F1DF006FC7BD /* Images.swift */; };
 		586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */; };
@@ -126,21 +115,10 @@
 		58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wayaj.entitlements; sourceTree = "<group>"; };
 		58608F2E1EE0747800A0FDF3 /* QuestionaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionaireViewController.swift; sourceTree = "<group>"; };
 		58608F5C1EE0769400A0FDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Example/Base.lproj/WeekDaysCell.xib; sourceTree = "<group>"; };
-		58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePicker.swift; sourceTree = "<group>"; };
-		58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerCell.swift; sourceTree = "<group>"; };
-		58608F891EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerFlowLayout.swift; sourceTree = "<group>"; };
-		58608F8A1EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerFooter.swift; sourceTree = "<group>"; };
-		58608F8B1EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerHeader.swift; sourceTree = "<group>"; };
-		58608F8C1EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerMonthHeader.swift; sourceTree = "<group>"; };
 		58608F951EE86DC800A0FDF3 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		58608F961EE86DC800A0FDF3 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		58608F991EE86DCF00A0FDF3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		58608F9A1EE86DCF00A0FDF3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		58608F9F1EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbDatePickerViewController.swift; sourceTree = "<group>"; };
-		58608FA11EE8754100A0FDF3 /* AirbnbCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbCounter.swift; sourceTree = "<group>"; };
-		58608FA21EE8754100A0FDF3 /* AirbnbOccupantFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbOccupantFilter.swift; sourceTree = "<group>"; };
-		58608FA31EE8754100A0FDF3 /* AirbnbSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbSwitch.swift; sourceTree = "<group>"; };
-		58608FA41EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirbnbOccupantFilterController.swift; sourceTree = "<group>"; };
 		58608FA91EE875D100A0FDF3 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5862665D1EC9F1DF006FC7BD /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripAdvisorWebViewController.swift; sourceTree = "<group>"; };
@@ -312,17 +290,6 @@
 				58608F9A1EE86DCF00A0FDF3 /* Date.swift */,
 				58608F951EE86DC800A0FDF3 /* Theme.swift */,
 				58608F961EE86DC800A0FDF3 /* Utility.swift */,
-				58608F871EE86DB900A0FDF3 /* AirbnbDatePicker.swift */,
-				58608F881EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift */,
-				58608F891EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift */,
-				58608F8A1EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift */,
-				58608F8B1EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift */,
-				58608F8C1EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift */,
-				58608F9F1EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift */,
-				58608FA11EE8754100A0FDF3 /* AirbnbCounter.swift */,
-				58608FA21EE8754100A0FDF3 /* AirbnbOccupantFilter.swift */,
-				58608FA31EE8754100A0FDF3 /* AirbnbSwitch.swift */,
-				58608FA41EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift */,
 			);
 			name = AirbnbTools;
 			sourceTree = "<group>";
@@ -573,6 +540,7 @@
 					588921F01EB78837005E5606 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 29C62Z2D26;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -807,13 +775,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58608FA51EE8754100A0FDF3 /* AirbnbCounter.swift in Sources */,
 				58A050131EFC50130050F718 /* CRNotification.swift in Sources */,
 				842074741F4ABD1400980800 /* OfferDetailViewController.swift in Sources */,
-				58608FA71EE8754100A0FDF3 /* AirbnbSwitch.swift in Sources */,
 				5848A9821F0A866B0021C92F /* AACarousel.swift in Sources */,
 				58646ACA1EC0C3E5000BAC36 /* ProfileViewController.swift in Sources */,
-				58608FA61EE8754100A0FDF3 /* AirbnbOccupantFilter.swift in Sources */,
 				586BAD991EC1FFF700D792A8 /* Wayaj.xcdatamodeld in Sources */,
 				58C03D9F1EF866E30038E9B5 /* MainTabViewController.swift in Sources */,
 				840767971EBA654A00238327 /* OfferTableViewCell.swift in Sources */,
@@ -827,18 +792,12 @@
 				843073561F744584007D6A70 /* ViewController+Onboarding.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				842074701F4729B100980800 /* User.swift in Sources */,
-				58608FA81EE8754100A0FDF3 /* AirbnbOccupantFilterController.swift in Sources */,
 				58608FAA1EE875D100A0FDF3 /* UIImage.swift in Sources */,
 				5817D7BF1EF18CDE00ACA9E9 /* ImageRow.swift in Sources */,
 				842074721F47307600980800 /* Listing.swift in Sources */,
-				58608F901EE86DB900A0FDF3 /* AirbnbDatePickerFlowLayout.swift in Sources */,
 				58608F9C1EE86DCF00A0FDF3 /* Date.swift in Sources */,
-				58608F921EE86DB900A0FDF3 /* AirbnbDatePickerHeader.swift in Sources */,
-				58608F911EE86DB900A0FDF3 /* AirbnbDatePickerFooter.swift in Sources */,
 				5817D7C31EF18D1000ACA9E9 /* CustomCells.swift in Sources */,
-				58608F8E1EE86DB900A0FDF3 /* AirbnbDatePicker.swift in Sources */,
 				5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */,
-				58608F931EE86DB900A0FDF3 /* AirbnbDatePickerMonthHeader.swift in Sources */,
 				588921F51EB78838005E5606 /* AppDelegate.swift in Sources */,
 				58A050121EFC50130050F718 /* Colors.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
@@ -847,8 +806,6 @@
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,
 				18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */,
-				58608FA01EE86E6600A0FDF3 /* AirbnbDatePickerViewController.swift in Sources */,
-				58608F8F1EE86DB900A0FDF3 /* AirbnbDatePickerCell.swift in Sources */,
 				843073581F74467A007D6A70 /* ViewController+SignIn.swift in Sources */,
 				841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */,
 				5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */,
@@ -1026,7 +983,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1047,7 +1005,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = GRC.Wayaj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

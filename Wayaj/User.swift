@@ -11,13 +11,13 @@ import RealmSwift
 
 final class User: Object {
     
-    dynamic var email = ""
-    dynamic var facebook_id = ""
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var photo = ""
-    dynamic var info = ""
-    dynamic var gender = ""
+    @objc dynamic var email = ""
+    @objc dynamic var facebook_id = ""
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var photo = ""
+    @objc dynamic var info = ""
+    @objc dynamic var gender = ""
     
     override class func primaryKey() -> String? {
         return "facebook_id"

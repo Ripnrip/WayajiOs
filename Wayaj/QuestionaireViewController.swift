@@ -96,7 +96,7 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(FormViewController.keyboardWillShow(_:)), name:NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
-        NotificationCenter.default.addObserver(self, selector: Selector("keyboardWillHide:"), name:NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(FormViewController.keyboardWillHide(_:)), name:NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
         
         var shownOnce = false
         loadImage()

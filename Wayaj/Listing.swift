@@ -10,30 +10,30 @@ import Foundation
 import RealmSwift
 
 final class Listing: Object {
-    dynamic var id: String = ""
-    dynamic var image1:String = ""
-    dynamic var image2:String = ""
-    dynamic var image3:String = ""
-    dynamic var image4:String = ""
-    dynamic var name:String = ""
-    dynamic var location:String = ""
-    dynamic var stars: Int = 0
-    dynamic var isFavorited:Bool = false
-    dynamic var URL:String = ""
-    dynamic var listingDescription:String = ""
-    dynamic var completed = false
+    @objc dynamic var id: String = ""
+    @objc dynamic var image1:String = ""
+    @objc dynamic var image2:String = ""
+    @objc dynamic var image3:String = ""
+    @objc dynamic var image4:String = ""
+    @objc dynamic var name:String = ""
+    @objc dynamic var location:String = ""
+    @objc dynamic var stars: Int = 0
+    @objc dynamic var isFavorited:Bool = false
+    @objc dynamic var URL:String = ""
+    @objc dynamic var listingDescription:String = ""
+    @objc dynamic var completed = false
     
-    dynamic var price:String = ""
-    dynamic var overallRating:Int = 0
-    dynamic var materialAndResourceScore:Int = 0
-    dynamic var managementScore:Int = 0
-    dynamic var communityScore:Int = 0
-    dynamic var waterScore:Int = 0
-    dynamic var recycleAndWaterScore:Int = 0
-    dynamic var energyScore:Int = 0
-    dynamic var indoorsScore:Int = 0
-    dynamic var longitude:Double = 0.0
-    dynamic var latitude:Double = 0.0
+    @objc dynamic var price:String = ""
+    @objc dynamic var overallRating:Int = 0
+    @objc dynamic var materialAndResourceScore:Int = 0
+    @objc dynamic var managementScore:Int = 0
+    @objc dynamic var communityScore:Int = 0
+    @objc dynamic var waterScore:Int = 0
+    @objc dynamic var recycleAndWaterScore:Int = 0
+    @objc dynamic var energyScore:Int = 0
+    @objc dynamic var indoorsScore:Int = 0
+    @objc dynamic var longitude:Double = 0.0
+    @objc dynamic var latitude:Double = 0.0
 
     
     override static func primaryKey() -> String? {

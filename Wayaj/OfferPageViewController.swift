@@ -81,7 +81,7 @@ class OfferPageViewController: UIViewController, AACarouselDelegate {
     
     func handleFirstImageView() {
         let url = URL(string: currentListing.image1)
-        var pictures = AACarousel.images as! NSArray
+        var pictures = AACarousel.images as NSArray
         var firstImage = pictures[0] as! UIImage
 
         
