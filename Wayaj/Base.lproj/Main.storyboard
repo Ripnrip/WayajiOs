@@ -783,7 +783,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.38048788909999998" green="0.77612864969999995" blue="0.3803980649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="backgroundColor" red="0.38039215686274508" green="0.77647058823529413" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </view>
                                                     </subviews>
                                                     <constraints>

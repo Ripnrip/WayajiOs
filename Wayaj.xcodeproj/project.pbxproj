@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */; };
 		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
@@ -97,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
+		187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWayajAnnotationView.swift; sourceTree = "<group>"; };
 		18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapPinAnnotation.swift; sourceTree = "<group>"; };
 		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				5862665F1ECDECD3006FC7BD /* TripAdvisorWebViewController.swift */,
 				842074731F4ABD1400980800 /* OfferDetailViewController.swift */,
 				18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */,
+				187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */,
 			);
 			name = Explore;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				58608F971EE86DC800A0FDF3 /* Theme.swift in Sources */,
 				588921F71EB78838005E5606 /* ViewController.swift in Sources */,
 				5862665E1EC9F1DF006FC7BD /* Images.swift in Sources */,
+				187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */,
 				58A050141EFC50130050F718 /* CRNotifications.swift in Sources */,
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,

@@ -219,6 +219,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         print(itemResults.count)
         
+        annotations.removeAll()
+        
+        let existingAnnotations = listingsMapView.annotations
+        listingsMapView.removeAnnotations(existingAnnotations)
+        
         itemResults.forEach { (listing) in
             
          let lat = listing.latitude, long = listing.longitude
@@ -261,10 +266,32 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("Annotation selected")
         
-        if let annotation = view.annotation {
+        
+        /*if let annotation = view.annotation {
             print("Your annotation title: \(String(describing: annotation.title))");
         }
+        */
+        if let annoView = view as? CustomWayajAnnotationView {
+            if let anno = view.annotation as? CustomMapPinAnnotation {
+
+                
+                
+                let annoListing = anno.listingObject
+                
+                annoView.annoHotelNameLabel.text = annoListing.name
+                annoView.annoHotelLocationLabel.text = annoListing.location
+                annoView.annoHotelPriceLabel.text = annoListing.price
+                annoView.annoImageView.kf.setImage(with: URL(string: annoListing.image1))
+                let divideValue = CGFloat(annoListing.overallRating)/100.00
+                let dynamicWidth = 280 * divideValue
+                let frame = CGRect(x: 0, y: 75, width:dynamicWidth , height: 7)
+                annoView.annoRatingBar.frame = frame
+                
+            }
+        }
+        
     }
+    
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
@@ -304,15 +331,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            annotationView = CustomWayajAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            //annotationView?.canShowCallout = true
+            //annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
             
             
         } else {
             annotationView?.annotation = annotation
         }
-        
         annotationView?.image = UIImage(named: "Pin")
         annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 45)
         annotationView?.contentMode = UIViewContentMode.scaleAspectFit
@@ -787,6 +813,7 @@ extension ExploreViewController:UISearchBarDelegate  {
                 print("results \(self.filtered)")
                 self.itemResults = self.filtered
                 searchBar.resignFirstResponder()
+                self.addAnnotations()
                 self.tableView.reloadData()
             }
         }
