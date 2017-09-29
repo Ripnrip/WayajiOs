@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class CustomWayajAnnotationView: MKAnnotationView {
+class CustomWayajAnnotationView: MKAnnotationView, UIGestureRecognizerDelegate {
     
     var listing:Listing = Listing()
     
@@ -20,7 +20,7 @@ class CustomWayajAnnotationView: MKAnnotationView {
     var annoHotelLocationLabel:UILabel = UILabel.init(frame: CGRect(x: 0, y: 0, width: 185, height: 12))
     var annoHotelPriceLabel:UILabel = UILabel.init(frame: CGRect(x: 0, y: 0, width: 185, height: 12))
     var annoRatingBar = UIView()
-    
+
     
     override func setSelected(_ selected: Bool, animated: Bool)
     {
@@ -28,6 +28,8 @@ class CustomWayajAnnotationView: MKAnnotationView {
         
         if(selected)
         {
+            
+            
             
             /*let divideValue = CGFloat(listing.overallRating)/100.00
             let dynamicWidth = annoRatingBar.frame.width * divideValue
@@ -69,6 +71,8 @@ class CustomWayajAnnotationView: MKAnnotationView {
             annoView.addSubview(annoImageView)
             annoView.addSubview(annoRatingBar)
             annoView.backgroundColor = .white
+            annoView.isUserInteractionEnabled = true
+            
             self.addSubview(annoView)
         }
         else
@@ -77,4 +81,5 @@ class CustomWayajAnnotationView: MKAnnotationView {
         }
     }
 
+    
 }

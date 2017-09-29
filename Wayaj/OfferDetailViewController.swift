@@ -34,6 +34,9 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
     @IBOutlet var infoLabel: UITextView!
     @IBOutlet var scoreBar: UIView!
     
+    @IBOutlet weak var ecoRatingScoreLabel: UILabel!
+    
+    
     @IBOutlet var expandButton: UIButton!
     @IBOutlet var ecoRatingLabel: UILabel!
     

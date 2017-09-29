@@ -883,6 +883,7 @@
                         <outlet property="baseImageView" destination="sfs-sX-Cl8" id="aTg-Fc-xDs"/>
                         <outlet property="bookButton" destination="j64-gs-je0" id="QhY-J8-tzR"/>
                         <outlet property="ecoRatingLabel" destination="hgH-Ir-qmV" id="bcA-V1-Xas"/>
+                        <outlet property="ecoRatingScoreLabel" destination="HhS-VW-Gah" id="yLl-5I-zDz"/>
                         <outlet property="expandButton" destination="GXD-te-zTk" id="FWR-HQ-pUA"/>
                         <outlet property="gallery" destination="XdW-vJ-hxg" id="rY0-Rp-P3S"/>
                         <outlet property="infoLabel" destination="87U-JL-LoL" id="7Pp-dm-etD"/>
@@ -945,7 +946,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EXCELLENT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhS-VW-Gah">
-                                            <rect key="frame" x="21" y="5" width="105" height="21"/>
+                                            <rect key="frame" x="21" y="5" width="307" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

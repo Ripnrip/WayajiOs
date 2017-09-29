@@ -36,13 +36,13 @@ var annotations = [MKPointAnnotation]()
 //var annos = [MKPointAnnotation, Listing]
 
 
-
+var annoSelectedListing = Listing()
 
 var selectedListing = Listing()
 var searchActive : Bool = false
 
 
-class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
+class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
 
 
     //let googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
@@ -262,22 +262,33 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
        //Random comment
         locationManager2.stopUpdatingLocation()
     }
+    
 
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("Annotation selected")
+        
         
         
         /*if let annotation = view.annotation {
             print("Your annotation title: \(String(describing: annotation.title))");
         }
         */
+        
+        
         if let annoView = view as? CustomWayajAnnotationView {
             if let anno = view.annotation as? CustomMapPinAnnotation {
-
+              
                 
                 
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
+                tapGesture.delegate = self
+                annoSelectedListing = anno.listingObject
+                annoView.addGestureRecognizer(tapGesture)
+                
+                //annoView.annoView.addGestureRecognizer(tapGesture)
                 let annoListing = anno.listingObject
-                
+                annoView.addSubview(annoView)
                 annoView.annoHotelNameLabel.text = annoListing.name
                 annoView.annoHotelLocationLabel.text = annoListing.location
                 annoView.annoHotelPriceLabel.text = annoListing.price
@@ -286,12 +297,34 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 let dynamicWidth = 280 * divideValue
                 let frame = CGRect(x: 0, y: 75, width:dynamicWidth , height: 7)
                 annoView.annoRatingBar.frame = frame
-                
             }
         }
         
     }
     
+    
+    @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
+     
+        
+            var myVC = self.storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
+        
+            myVC.imageURL = annoSelectedListing.image1
+            myVC.name = annoSelectedListing.name
+            myVC.location = annoSelectedListing.location
+            myVC.information = annoSelectedListing.listingDescription
+            myVC.isFavorited = false
+            myVC.price = annoSelectedListing.price
+            myVC.currentListing = annoSelectedListing
+        
+            let divideValue = CGFloat(annoSelectedListing.overallRating)/100.00
+            let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+            let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+            //print("the green bar dynamic width is \(dynamicWidth)")
+            //print("the score fraction to divide/multiply by is \(divideValue)")
+            myVC.scoreBar.frame = frame
+        
+            self.navigationController?.pushViewController(myVC, animated: true)
+    }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
@@ -309,6 +342,42 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             myVC.isFavorited = false
             myVC.price = selectedListing2.price
             myVC.currentListing = selectedListing2
+            
+            var mutableString = NSMutableAttributedString(string: "Eco-Rating")
+            mutableString.addAttribute(NSAttributedStringKey.font,
+                                       value: UIFont.boldSystemFont(ofSize: 12),
+                                       range: NSRange(location:0, length: mutableString.length)
+            )
+            
+            if selectedListing2.overallRating > 90 {
+                var combo = NSMutableAttributedString()
+                combo.append(mutableString)
+                combo.append(NSMutableAttributedString(string: ": OUTSTANDING"))
+                myVC.ecoRatingScoreLabel.text = "Eco-Rating: OUTSTANDING"
+                //cell.scoreLabel.attributedText = combo
+            }
+            else if selectedListing2.overallRating >= 76 {
+                var combo = NSMutableAttributedString()
+                combo.append(mutableString)
+                combo.append(NSMutableAttributedString(string: ": EXCELLENT"))
+                
+                myVC.ecoRatingScoreLabel.text = "Eco-Rating: EXCELLENT"
+            }   else if selectedListing2.overallRating >= 61 {
+                var combo = NSMutableAttributedString()
+                combo.append(mutableString)
+                combo.append(NSMutableAttributedString(string: ": GREAT"))
+                
+                myVC.ecoRatingScoreLabel.text = "Eco-Rating: GREAT"
+                //cell.scoreLabel.attributedText = combo
+            }   else  {
+                var combo = NSMutableAttributedString()
+                combo.append(mutableString)
+                combo.append(NSMutableAttributedString(string: ": GOOD"))
+                
+                myVC.ecoRatingScoreLabel.text = "Eco-Rating: GOOD"
+                //cell.scoreLabel.attributedText = combo
+            }
+
 
             let divideValue = CGFloat(selectedListing2.overallRating)/100.00
             let dynamicWidth = myVC.scoreBar.frame.width * divideValue
@@ -331,10 +400,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
-            annotationView = CustomWayajAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            //annotationView?.canShowCallout = true
-            //annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
             
+            
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+
             
         } else {
             annotationView?.annotation = annotation
@@ -342,6 +414,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         annotationView?.image = UIImage(named: "Pin")
         annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 45)
         annotationView?.contentMode = UIViewContentMode.scaleAspectFit
+        //annotationView?.addGestureRecognizer(tap)
         
         return annotationView
     }
@@ -701,6 +774,41 @@ extension ExploreViewController {
         myVC.isFavorited = false
         myVC.price = selectedListing.price
         myVC.currentListing = selectedListing
+        
+        var mutableString = NSMutableAttributedString(string: "Eco-Rating")
+        mutableString.addAttribute(NSAttributedStringKey.font,
+                                   value: UIFont.boldSystemFont(ofSize: 12),
+                                   range: NSRange(location:0, length: mutableString.length)
+        )
+        
+        if selectedListing.overallRating > 90 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": OUTSTANDING"))
+            myVC.ecoRatingScoreLabel.text = "Eco-Rating: OUTSTANDING"
+            //cell.scoreLabel.attributedText = combo
+        }
+        else if selectedListing.overallRating >= 76 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": EXCELLENT"))
+            
+            myVC.ecoRatingScoreLabel.text = "Eco-Rating: EXCELLENT"
+        }   else if selectedListing.overallRating >= 61 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GREAT"))
+            
+            myVC.ecoRatingScoreLabel.text = "Eco-Rating: GREAT"
+            //cell.scoreLabel.attributedText = combo
+        }   else  {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GOOD"))
+            
+            myVC.ecoRatingScoreLabel.text = "Eco-Rating: GOOD"
+            //cell.scoreLabel.attributedText = combo
+        }
         
         let divideValue = CGFloat(itemResults[indexPath.section].overallRating)/100.00
         let dynamicWidth = myVC.scoreBar.frame.width * divideValue
