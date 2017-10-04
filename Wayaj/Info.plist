@@ -59,7 +59,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.62</string>
+	<string>2.67</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -91,6 +91,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We use your library for selecting pictures</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to help enhance your experience, and enjoy all the features</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We Use your photos in some of our features</string>
 	<key>UIBackgroundModes</key>
@@ -112,7 +114,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to help enhance your experience, and enjoy all the features</string>
 </dict>
 </plist>

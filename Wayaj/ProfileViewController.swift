@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import MapKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
 
    // @IBOutlet weak var tableView: UITableView!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
-    @IBOutlet weak var countriesVisitedTextView: UITextView!
-    @IBOutlet weak var favoriteActivitiesTextView: UITextView!
-    @IBOutlet weak var bucketListTextView: UITextView!
+    
+    @IBOutlet weak var favoriteActivitiesCollectionView: UICollectionView!
+    @IBOutlet weak var bucketListCollectionView: UICollectionView!
+    
+    @IBOutlet weak var placesVisitedMapView: MKMapView!
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,13 +70,13 @@ class ProfileViewController: UIViewController {
             self.aboutMeTextView.text = aboutMe
         }
         if let whereHaveYouTraveled = UserDefaults.standard.string(forKey: "whereHaveYouTraveled") {
-            self.countriesVisitedTextView.text = whereHaveYouTraveled
+            //self.countriesVisitedTextView.text = whereHaveYouTraveled
         }
         if let favoriteItems = UserDefaults.standard.string(forKey: "favoriteItems") {
-            self.favoriteActivitiesTextView.text = favoriteItems
+            //self.favoriteActivitiesTextView.text = favoriteItems
         }
         if let bucketList = UserDefaults.standard.string(forKey: "bucketList") {
-            self.bucketListTextView.text = bucketList
+            //self.bucketListTextView.text = bucketList
         }
     
         
@@ -78,7 +84,13 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1029)
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1172)
+        
+        favoriteActivitiesCollectionView.delegate = self
+        bucketListCollectionView.delegate = self
+        
+        favoriteActivitiesCollectionView.dataSource = self
+        bucketListCollectionView.dataSource = self
         
     }
     
@@ -115,7 +127,41 @@ class ProfileViewController: UIViewController {
     }
     
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == self.bucketListCollectionView {
+            return 10
+        } else {
+            return 5
+        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == self.bucketListCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bucketListCell", for: indexPath as IndexPath)
+
+            cell.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
+            cell.backgroundColor = UIColor.green
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath)
+
+            cell.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            cell.backgroundColor = UIColor.green
+            return cell
+        }
+        
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == self.bucketListCollectionView {
+            return 2
+        } else {
+            return 1
+        }
+    }
     
 }
 
