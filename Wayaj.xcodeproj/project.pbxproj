@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */; };
+		188A0F021F8558DC00673F66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A0F011F8558DC00673F66 /* EditProfileViewController.swift */; };
 		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
@@ -99,6 +100,8 @@
 /* Begin PBXFileReference section */
 		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
 		187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWayajAnnotationView.swift; sourceTree = "<group>"; };
+		188A0F011F8558DC00673F66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTokenInputBridgingHeader.h; sourceTree = "<group>"; };
 		18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapPinAnnotation.swift; sourceTree = "<group>"; };
 		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -337,6 +340,7 @@
 		588921F31EB78838005E5606 /* Wayaj */ = {
 			isa = PBXGroup;
 			children = (
+				188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */,
 				843073541F744555007D6A70 /* Networking */,
 				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
@@ -413,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */,
+				188A0F011F8558DC00673F66 /* EditProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -806,6 +811,7 @@
 				58A050121EFC50130050F718 /* Colors.swift in Sources */,
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
 				58608F9B1EE86DCF00A0FDF3 /* UIColor.swift in Sources */,
+				188A0F021F8558DC00673F66 /* EditProfileViewController.swift in Sources */,
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,
@@ -991,7 +997,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1017,7 +1023,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

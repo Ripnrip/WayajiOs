@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
 
@@ -19,11 +19,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutMeTextView: UITextView!
     
+    @IBOutlet weak var nameView: UIView!
+    
+    
+    @IBOutlet weak var editProfileButton: UIButton!
+    
+    
     @IBOutlet weak var favoriteActivitiesCollectionView: UICollectionView!
     @IBOutlet weak var bucketListCollectionView: UICollectionView!
     
     @IBOutlet weak var placesVisitedMapView: MKMapView!
     
+    var places: [String] = []
+    var activities: [String] = []
+    var bucketList: [String] = []
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +59,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
         
+        places = UserDefaults.standard.stringArray(forKey: "places") ?? [String]()
+        activities = UserDefaults.standard.stringArray(forKey: "activities") ?? [String]()
+        bucketList = UserDefaults.standard.stringArray(forKey: "bucketListArray") ?? [String]()
+        
         print(UserDefaults.standard.string(forKey: "name"))
         print(UserDefaults.standard.string(forKey: "pictureURL"))
         print(UserDefaults.standard.string(forKey: "aboutMe"))
@@ -69,6 +82,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         if let aboutMe = UserDefaults.standard.string(forKey: "aboutMe") {
             self.aboutMeTextView.text = aboutMe
         }
+        
+        // Retrieve array from userdefaults and plot annotations to map
+        // Add map tap gesture to open bigger view controller map
         if let whereHaveYouTraveled = UserDefaults.standard.string(forKey: "whereHaveYouTraveled") {
             //self.countriesVisitedTextView.text = whereHaveYouTraveled
         }
@@ -86,11 +102,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1172)
         
+        self.navigationController?.navigationBar.isHidden = true
+        
         favoriteActivitiesCollectionView.delegate = self
         bucketListCollectionView.delegate = self
         
         favoriteActivitiesCollectionView.dataSource = self
         bucketListCollectionView.dataSource = self
+        
+        
+        editProfileButton.layer.cornerRadius = 27
+        nameView.layer.cornerRadius = 5
+        aboutMeTextView.layer.cornerRadius = 5
+        placesVisitedMapView.layer.cornerRadius = 5
+        
         
     }
     
@@ -101,8 +126,14 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             }.resume()
     }
     @IBAction func editProfile(_ sender: Any) {
-        let vc = CustomCellsController()
-        self.present(vc, animated: true, completion: nil)
+       // let vc = CustomCellsController()
+        //self.present(vc, animated: true, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "editProfile") as! EditProfileViewController
+    
+        //self.tabBarController?.present(vc, animated: true, completion: nil)
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -141,18 +172,28 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         if collectionView == self.bucketListCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bucketListCell", for: indexPath as IndexPath)
 
-            cell.frame = CGRect(x: 0, y: 0, width: 140, height: 30)
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = UIColor(hex: "61C561")
+            cell.layer.cornerRadius = 10
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath)
 
-            cell.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-            cell.backgroundColor = UIColor.green
+            cell.backgroundColor = UIColor(hex: "61C561")
+            cell.layer.cornerRadius = 7
             return cell
         }
         
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.bucketListCollectionView {
+            return CGSize(width: 140, height: 30)
+            
+        } else {
+            return CGSize(width: 100, height: 100)
+
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
