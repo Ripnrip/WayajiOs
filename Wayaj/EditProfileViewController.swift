@@ -43,12 +43,9 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         self.navigationItem.rightBarButtonItem  = saveButton
         self.title = "Edit Profile"
         
-        placesTokenView.frame = CGRect(x: 0, y: 0, width: placesVisitedView.frame.width, height: placesVisitedView.frame.height)
-        placesTokenView.backgroundColor = .white
-        activitiesTokenView.frame = CGRect(x: 0, y: 0, width: favoriteActivitiesView.frame.width, height: favoriteActivitiesView.frame.height)
-        activitiesTokenView.backgroundColor = .white
-        bucketListTokenView.frame = CGRect(x: 0, y: 0, width: bucketListView.frame.width, height: bucketListView.frame.height)
+       
         bucketListTokenView.backgroundColor = .white
+        
         
         
         bioTextView.text = "Bio"
@@ -67,6 +64,11 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         favoriteActivitiesView.addSubview(activitiesTokenView)
         bucketListView.addSubview(bucketListTokenView)
         
+        
+       
+        
+        //bucketListTokenView.frame = CGRect(x: 0, y: 0, width: bucketListTokenView.frame.width, height: 80)
+        
         bioTextView.delegate = self
         placesTokenView.delegate = self
         activitiesTokenView.delegate = self
@@ -74,6 +76,19 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        placesTokenView.frame = CGRect(x: 0, y: 0, width: placesVisitedView.frame.width, height: placesVisitedView.frame.height)
+        placesTokenView.backgroundColor = .white
+        activitiesTokenView.frame = CGRect(x: 0, y: 0, width: favoriteActivitiesView.frame.width, height: favoriteActivitiesView.frame.height)
+        activitiesTokenView.backgroundColor = .white
+        
+        bucketListTokenView.frame = CGRect(x: 0, y: 0, width: bucketListView.frame.width, height: bucketListView.frame.height)
+        
+        //NSLayoutConstraint(item: bucketListTokenView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 22.0).isActive = true
+        
+        //NSLayoutConstraint(item: bucketListTokenView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 10.0).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
