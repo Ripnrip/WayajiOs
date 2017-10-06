@@ -27,6 +27,7 @@ target 'Wayaj' do
   pod 'RealmSwift'
   pod 'Popover'
   pod 'CLTokenInputView'
+  pod 'UICollectionViewLeftAlignedLayout'
   pod "Cheers"
 
 

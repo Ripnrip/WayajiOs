@@ -8,8 +8,10 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import UICollectionViewLeftAlignedLayout
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate {
     
     
 
@@ -34,8 +36,17 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     var activities: [String] = []
     var bucketList: [String] = []
     
+    var annotations = [MKPointAnnotation]()
+
+    var attributedAboutMeString = NSAttributedString()
+    
+    var testLabel: UILabel = UILabel()
+
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        self.navigationController?.navigationBar.isHidden = true
+
         
         if let ns = (UserDefaults.standard.value(forKey: "name") as? String) {
 
@@ -59,16 +70,29 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
         }
         
-        places = UserDefaults.standard.stringArray(forKey: "places") ?? [String]()
-        activities = UserDefaults.standard.stringArray(forKey: "activities") ?? [String]()
+        places = UserDefaults.standard.stringArray(forKey: "placesTraveled") ?? [String]()
+        activities = UserDefaults.standard.stringArray(forKey: "favoriteActivities") ?? [String]()
         bucketList = UserDefaults.standard.stringArray(forKey: "bucketListArray") ?? [String]()
+        
+        //var layout = UICollectionViewLeftAlignedLayout()
+        
+        //bucketListCollectionView.
+        
+        favoriteActivitiesCollectionView.reloadData()
+        bucketListCollectionView.reloadData()
+        
+        addAnnotations()
+        placesVisitedMapView.showAnnotations(annotations, animated: true)
+        
+        //bucketListCollectionView.collectionViewLayout.invalidateLayout()
+
         
         print(UserDefaults.standard.string(forKey: "name"))
         print(UserDefaults.standard.string(forKey: "pictureURL"))
         print(UserDefaults.standard.string(forKey: "aboutMe"))
-        print(UserDefaults.standard.string(forKey: "whereHaveYouTraveled"))
-        print(UserDefaults.standard.string(forKey: "favoriteItems"))
-        print(UserDefaults.standard.string(forKey: "bucketList"))
+        print(places)
+        print(activities)
+        print(bucketList)
 
         
         if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
@@ -95,7 +119,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             //self.bucketListTextView.text = bucketList
         }
     
-        
+        //attributedAboutMeString.attribute(NSAttributedStringKey.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedAboutMeString.length))
+        //aboutMeTextView.attributedText = attributedAboutMeString
         
     }
     override func viewDidLoad() {
@@ -104,8 +129,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         self.navigationController?.navigationBar.isHidden = true
         
+        favoriteActivitiesCollectionView.register(ActivityCollectionViewCell.self, forCellWithReuseIdentifier: "activityCell")
+        bucketListCollectionView.register(BucketListCollectionViewCell.self, forCellWithReuseIdentifier: "bucketListCell")
+        
+        
+        aboutMeTextView.isEditable = false
+        
         favoriteActivitiesCollectionView.delegate = self
         bucketListCollectionView.delegate = self
+        
         
         favoriteActivitiesCollectionView.dataSource = self
         bucketListCollectionView.dataSource = self
@@ -116,6 +148,24 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         aboutMeTextView.layer.cornerRadius = 5
         placesVisitedMapView.layer.cornerRadius = 5
         
+        aboutMeTextView.layer.shadowColor = UIColor.black.cgColor
+        aboutMeTextView.layer.shadowOpacity = 0.5
+        aboutMeTextView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        aboutMeTextView.layer.shadowRadius = 1.0
+        aboutMeTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        aboutMeTextView.clipsToBounds = false
+        
+        nameView.layer.shadowColor = UIColor.black.cgColor
+        nameView.layer.shadowOpacity = 0.5
+        nameView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        nameView.layer.shadowRadius = 1.0
+        
+        placesVisitedMapView.layer.shadowColor = UIColor.black.cgColor
+        placesVisitedMapView.layer.shadowOpacity = 0.5
+        placesVisitedMapView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        placesVisitedMapView.layer.shadowRadius = 1.0
+        
+        placesVisitedMapView.clipsToBounds = false
         
     }
     
@@ -161,34 +211,62 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.bucketListCollectionView {
-            return 10
+            return bucketList.count
         } else {
-            return 5
+            return activities.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == self.bucketListCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bucketListCell", for: indexPath as IndexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bucketListCell", for: indexPath as IndexPath) as! BucketListCollectionViewCell
+            
 
             cell.backgroundColor = UIColor(hex: "61C561")
             cell.layer.cornerRadius = 10
+            
+            //testLabel.text = bucketList[indexPath.row]
+            //testLabel.sizeToFit()
+            
+            cell.title.text = bucketList[indexPath.row]
+            cell.title.sizeToFit()
+            cell.title.center = CGPoint(x: cell.bounds.midX, y: cell.bounds.midY)
+            
+            //cell.title.text = bucketList[indexPath.row]
+            //cell.title.sizeToFit()
+            //cell.title.center = cell.center
+            
+            
+            //textLabel = UILabel(frame: CGRect(x: 0, y: (self.frame.size.height / 2) - 9, width: self.frame.size.width, height: 18))
+            //textLabel.font = UIFont.systemFont(ofSize: 13)
+            //textLabel.textColor = .white
+            //cell.textLabel.center = cell.center
+            
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath) as! ActivityCollectionViewCell
 
             cell.backgroundColor = UIColor(hex: "61C561")
             cell.layer.cornerRadius = 7
+            
+            cell.textLabel.text = activities[indexPath.row]
             return cell
         }
         
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.bucketListCollectionView {
-            return CGSize(width: 140, height: 30)
+            
+            
+                testLabel.text = bucketList[indexPath.row]
+                testLabel.sizeToFit()
+            
+            
+            return CGSize(width: testLabel.frame.width + 20, height: 30)
             
         } else {
             return CGSize(width: 100, height: 100)
@@ -198,12 +276,80 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if collectionView == self.bucketListCollectionView {
-            return 2
+            return 1
         } else {
             return 1
         }
     }
     
+    func addAnnotations() {
+        
+        print("IM IN HERE")
+        
+        
+        annotations.removeAll()
+        
+        
+        places.forEach { (place) in
+            
+            var geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(place) {
+                placemarks, error in
+                let placemark = placemarks?.first
+                let lat = placemark?.location?.coordinate.latitude
+                let long = placemark?.location?.coordinate.longitude
+                
+                
+                let location = CLLocation(latitude: lat!, longitude: long!)
+                
+                let anno = MKPointAnnotation()
+                anno.coordinate = location.coordinate
+
+                
+                //TODO - custom anno with listing object then open listing when anno is tapped
+                self.placesVisitedMapView.addAnnotation(anno)
+                self.annotations.append(anno)
+            }
+            
+            
+        }
+        
+        annotations.forEach { (anno) in
+            //placesVisitedMapView.addAnnotation(anno)
+            print(anno)
+        }
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) {
+            return nil
+        }
+        
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            
+            
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
+            
+            
+        } else {
+            annotationView?.annotation = annotation
+        }
+        annotationView?.image = UIImage(named: "Pin")
+        annotationView?.frame = CGRect(x: 0, y: 0, width: 30, height: 45)
+        annotationView?.contentMode = UIViewContentMode.scaleAspectFit
+        //annotationView?.addGestureRecognizer(tap)
+        
+        return annotationView
+    }
+    
+ 
 }
 
 //extension ProfileViewController {

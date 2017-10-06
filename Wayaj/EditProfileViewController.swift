@@ -39,8 +39,8 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = false
-        //let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: Selector("saveProfile")) // action:#selector(Class.MethodName) for swift 3
-        //self.navigationItem.rightBarButtonItem  = saveButton
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action:#selector(self.saveProfile))
+        self.navigationItem.rightBarButtonItem  = saveButton
         self.title = "Edit Profile"
         
         placesTokenView.frame = CGRect(x: 0, y: 0, width: placesVisitedView.frame.width, height: placesVisitedView.frame.height)
@@ -85,7 +85,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     }
     
     func tokenInputView(_ view: CLTokenInputView, didChangeText text: String?) {
-        
+       
         
         
     }
@@ -129,18 +129,18 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
             
         } else if view == activitiesTokenView {
             var tok = CLToken(displayText: view.text!, context: nil)
-            placesTokenView.add(tok)
+            activitiesTokenView.add(tok)
 
         } else {
             var tok = CLToken(displayText: view.text!, context: nil)
-            placesTokenView.add(tok)
+            bucketListTokenView.add(tok)
         }
         
-        return false
+        return true
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if bioTextView.textColor == UIColor.lightGray {
+        if bioTextView.textColor == UIColor(hex: "C7C7CD") {
             bioTextView.text = nil
             bioTextView.textColor = UIColor.black
         }
@@ -149,11 +149,11 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     func textViewDidEndEditing(_ textView: UITextView) {
         if bioTextView.text.isEmpty {
             bioTextView.text = "Bio"
-            bioTextView.textColor = UIColor.lightGray
+            bioTextView.textColor = UIColor(hex: "C7C7CD")
         }
     }
     
-    func saveProfile() {
+    @objc func saveProfile() {
         
         UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
         UserDefaults.standard.setValue(bioTextView.text, forKey: "aboutMe")

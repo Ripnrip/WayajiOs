@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182E6F041F866F2F00CA071D /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E6F031F866F2F00CA071D /* ActivityCollectionViewCell.swift */; };
+		182E6F061F866F3D00CA071D /* BucketListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */; };
 		187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */; };
 		188A0F021F8558DC00673F66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A0F011F8558DC00673F66 /* EditProfileViewController.swift */; };
 		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
@@ -99,6 +101,9 @@
 
 /* Begin PBXFileReference section */
 		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
+		182E6F031F866F2F00CA071D /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
+		182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListCollectionViewCell.swift; sourceTree = "<group>"; };
+		182E6F071F87D37300CA071D /* UICollectionViewLeftAlignedLayoutBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayoutBridgingHeader.h; sourceTree = "<group>"; };
 		187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWayajAnnotationView.swift; sourceTree = "<group>"; };
 		188A0F011F8558DC00673F66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTokenInputBridgingHeader.h; sourceTree = "<group>"; };
@@ -341,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */,
+				182E6F071F87D37300CA071D /* UICollectionViewLeftAlignedLayoutBridgingHeader.h */,
 				843073541F744555007D6A70 /* Networking */,
 				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
@@ -427,6 +433,8 @@
 			children = (
 				840767961EBA654A00238327 /* OfferTableViewCell.swift */,
 				841C07C11F4F422900E17958 /* RatingScoreTableViewCell.swift */,
+				182E6F031F866F2F00CA071D /* ActivityCollectionViewCell.swift */,
+				182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -797,6 +805,7 @@
 				58A050141EFC50130050F718 /* CRNotifications.swift in Sources */,
 				5817D7C11EF18CF900ACA9E9 /* FloatLabelTextField.swift in Sources */,
 				58910CDC1EF2C5760049E477 /* AWSMobileClient.swift in Sources */,
+				182E6F061F866F3D00CA071D /* BucketListCollectionViewCell.swift in Sources */,
 				586266601ECDECD3006FC7BD /* TripAdvisorWebViewController.swift in Sources */,
 				843073561F744584007D6A70 /* ViewController+Onboarding.swift in Sources */,
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
@@ -815,6 +824,7 @@
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,
+				182E6F041F866F2F00CA071D /* ActivityCollectionViewCell.swift in Sources */,
 				18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */,
 				843073581F74467A007D6A70 /* ViewController+SignIn.swift in Sources */,
 				841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */,
