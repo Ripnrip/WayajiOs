@@ -105,6 +105,7 @@ extension ViewController: AWSSignInDelegate {
                 let u = User()
                 u.name = "test"
                 u.email = "taco@taco.com"
+                print(dict["email"])
                 u.facebook_id = dict["id"] as! String
                 u.gender = "male"
                 u.photo = "sampl.jpg"
@@ -131,8 +132,8 @@ extension ViewController: AWSSignInDelegate {
                 if error == nil {
                     let imageDownload = UIImage(data: data!)
                     profileImage = imageDownload!
-                    
-                    UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: imageDownload!), forKey: "profileImage")
+                    var profImage = UIImageJPEGRepresentation(profileImage, 1.0)
+                    UserDefaults.standard.set(profImage, forKey: "profileImage")
                     UserDefaults.standard.synchronize()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "MainController")

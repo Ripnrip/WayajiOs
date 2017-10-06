@@ -9,7 +9,7 @@
 import UIKit
 import CLTokenInputView
 
-class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UITextViewDelegate {
+class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -28,6 +28,14 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     var activities = [String]()
     var bucketList = [String]()
     
+    var imageURL:String = ""
+    var name:String = ""
+    var email:String = ""
+    var gender:String = ""
+    var image:UIImage = UIImage()
+    
+    let picker = UIImagePickerController()
+    
     
     // Add 3 cltokenviews to bucketlist, locations traveled, fav activities
     // 3 arrays to store all values for each
@@ -43,6 +51,10 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         self.navigationItem.rightBarButtonItem  = saveButton
         self.title = "Edit Profile"
         
+        picker.delegate = self
+       
+        loadImage()
+        profileImageView.image = image
        
         bucketListTokenView.backgroundColor = .white
         
@@ -97,6 +109,13 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     }
     
     @IBAction func changePictureButtonTapped(_ sender: Any) {
+        
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(picker, animated: true, completion: nil)
+        
+        
     }
     
     func tokenInputView(_ view: CLTokenInputView, didChangeText text: String?) {
@@ -175,9 +194,39 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         UserDefaults.standard.setValue(places, forKey: "placesTraveled")
         UserDefaults.standard.setValue(activities, forKey: "favoriteActivities")
         UserDefaults.standard.setValue(bucketList, forKey: "bucketListArray")
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        UserDefaults.standard.set(imageData, forKey: "profileImage")
         UserDefaults.standard.synchronize()
         
         
+    }
+    
+    func loadImage(){
+        self.name = FacebookIdentityProfile.sharedInstance().userName!
+        
+        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? Data {
+            if let image = UIImage(data: profileImage) {
+                self.image =  image
+            }
+            
+        }
+    }
+    
+    //MARK: - Delegates
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        profileImageView.contentMode = .scaleAspectFit //3
+        profileImageView.image = chosenImage //4
+        image = chosenImage
+        dismiss(animated:true, completion: nil) //5
+    }
+        
+        
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+
     }
     
 }

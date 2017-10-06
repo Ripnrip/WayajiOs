@@ -95,8 +95,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(bucketList)
 
         
-        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
-            let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
+        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? Data {
+            let image = UIImage(data: profileImage)
             self.profileImage.image =  image
         }
         
