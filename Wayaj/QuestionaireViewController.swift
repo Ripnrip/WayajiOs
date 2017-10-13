@@ -53,9 +53,10 @@ class CustomCellsController : FormViewController, UIImagePickerControllerDelegat
     func loadImage(){
         self.name = FacebookIdentityProfile.sharedInstance().userName!
         
-        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? NSData {
-            let image = NSKeyedUnarchiver.unarchiveObject(with: profileImage as Data) as! UIImage
-            self.image =  image
+        if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? Data {
+            if let image = UIImage(data: profileImage) {
+                self.image =  image
+            }
             
         }
     }

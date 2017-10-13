@@ -9,7 +9,7 @@ target 'Wayaj' do
   
   pod 'OneSignal'	
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
-  pod 'paper-onboarding', '~> 2.0.1' 
+  pod 'paper-onboarding', '~> 2.0.1'
   pod "AMTooltip"
   pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', :branch => 'Xcode9-Swift3_2'
   pod 'LocationPickerViewController'

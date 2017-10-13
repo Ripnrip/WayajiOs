@@ -5,9 +5,7 @@
 //  Created by Admin on 9/21/17.
 //  Copyright © 2017 GRC. All rights reserved.
 //
-
 // MARK: PaperOnboardingDataSource
-
 import paper_onboarding
 import Foundation
 
@@ -51,12 +49,12 @@ extension ViewController: PaperOnboardingDataSource {
         return 4
     }
     
-    func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
+    /*func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
         
         //    item.titleLabel?.backgroundColor = .redColor()
         //    item.descriptionLabel?.backgroundColor = .redColor()
         //    item.imageView = ...
-    }
+    }*/
     
     
 }
@@ -83,4 +81,3 @@ extension ViewController: PaperOnboardingDelegate {
         //    item.imageView = ...
     }
 }
-
