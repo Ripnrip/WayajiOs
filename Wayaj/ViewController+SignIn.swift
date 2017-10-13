@@ -133,7 +133,10 @@ extension ViewController: AWSSignInDelegate {
                     let imageDownload = UIImage(data: data!)
                     profileImage = imageDownload!
                     var profImage = UIImageJPEGRepresentation(profileImage, 1.0)
-                    UserDefaults.standard.set(profImage, forKey: "profileImage")
+                    if UserDefaults.standard.value(forKey: "profileImage") == nil {
+                        UserDefaults.standard.set(profImage, forKey: "profileImage")
+                    }
+                    
                     UserDefaults.standard.synchronize()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "MainController")

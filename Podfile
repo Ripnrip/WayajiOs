@@ -28,6 +28,8 @@ target 'Wayaj' do
   pod 'Popover'
   pod 'CLTokenInputView'
   pod 'UICollectionViewLeftAlignedLayout'
+  pod 'Magnetic'
+  pod 'IQKeyboardManagerSwift', '4.0.10'
   pod "Cheers"
 
 

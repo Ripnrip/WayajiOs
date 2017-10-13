@@ -87,6 +87,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         bucketListTokenView.delegate = self
         
 
+        
         // Do any additional setup after loading the view.
     }
     
@@ -192,7 +193,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
         UserDefaults.standard.setValue(bioTextView.text, forKey: "aboutMe")
         UserDefaults.standard.setValue(places, forKey: "placesTraveled")
-        UserDefaults.standard.setValue(activities, forKey: "favoriteActivities")
+        //UserDefaults.standard.setValue(activities, forKey: "favoriteActivities")
         UserDefaults.standard.setValue(bucketList, forKey: "bucketListArray")
         let imageData = UIImageJPEGRepresentation(image, 1.0)
         UserDefaults.standard.set(imageData, forKey: "profileImage")
@@ -212,6 +213,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         }
     }
     
+    
     //MARK: - Delegates
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -228,5 +230,22 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         dismiss(animated: true, completion: nil)
 
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    @IBAction func chooseActivitiesButtonTapped(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "toActivitiesSegue", sender:self)
+
+        
+        
+    }
+    
+    
+    
+    
     
 }

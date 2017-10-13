@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182DDFE41F906E7800939449 /* ActivitiesPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DDFE31F906E7800939449 /* ActivitiesPageViewController.swift */; };
+		182DDFE61F910F0600939449 /* ActivitiesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182DDFE51F910F0600939449 /* ActivitiesDetailViewController.swift */; };
 		182E6F041F866F2F00CA071D /* ActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E6F031F866F2F00CA071D /* ActivityCollectionViewCell.swift */; };
 		182E6F061F866F3D00CA071D /* BucketListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */; };
 		187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */; };
@@ -101,6 +103,8 @@
 
 /* Begin PBXFileReference section */
 		0A488D9653E00D368A7CD102 /* Pods-WayajUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajUITests/Pods-WayajUITests.release.xcconfig"; sourceTree = "<group>"; };
+		182DDFE31F906E7800939449 /* ActivitiesPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesPageViewController.swift; sourceTree = "<group>"; };
+		182DDFE51F910F0600939449 /* ActivitiesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesDetailViewController.swift; sourceTree = "<group>"; };
 		182E6F031F866F2F00CA071D /* ActivityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListCollectionViewCell.swift; sourceTree = "<group>"; };
 		182E6F071F87D37300CA071D /* UICollectionViewLeftAlignedLayoutBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayoutBridgingHeader.h; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 			children = (
 				58646AC91EC0C3E5000BAC36 /* ProfileViewController.swift */,
 				188A0F011F8558DC00673F66 /* EditProfileViewController.swift */,
+				182DDFE31F906E7800939449 /* ActivitiesPageViewController.swift */,
+				182DDFE51F910F0600939449 /* ActivitiesDetailViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -811,6 +817,7 @@
 				84A776991EBB721E00FF709F /* OfferPageViewController.swift in Sources */,
 				842074701F4729B100980800 /* User.swift in Sources */,
 				58608FAA1EE875D100A0FDF3 /* UIImage.swift in Sources */,
+				182DDFE61F910F0600939449 /* ActivitiesDetailViewController.swift in Sources */,
 				5817D7BF1EF18CDE00ACA9E9 /* ImageRow.swift in Sources */,
 				842074721F47307600980800 /* Listing.swift in Sources */,
 				58608F9C1EE86DCF00A0FDF3 /* Date.swift in Sources */,
@@ -821,6 +828,7 @@
 				586BAD9C1EC200EF00D792A8 /* SavedViewController.swift in Sources */,
 				58608F9B1EE86DCF00A0FDF3 /* UIColor.swift in Sources */,
 				188A0F021F8558DC00673F66 /* EditProfileViewController.swift in Sources */,
+				182DDFE41F906E7800939449 /* ActivitiesPageViewController.swift in Sources */,
 				58608F981EE86DC800A0FDF3 /* Utility.swift in Sources */,
 				58608F2F1EE0747800A0FDF3 /* QuestionaireViewController.swift in Sources */,
 				5817D7BE1EF18CDE00ACA9E9 /* ImagePickerController.swift in Sources */,

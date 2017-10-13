@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import UICollectionViewLeftAlignedLayout
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     
     
 
@@ -33,8 +33,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var placesVisitedMapView: MKMapView!
     
     var places: [String] = []
-    var activities: [String] = []
+    //var activities: [String] = []
     var bucketList: [String] = []
+    
+    var activities = [String]()
+    var attractions = [String]()
+    var naturalSetting = [String]()
+    var hotel = [String]()
+    
+    var setOfActivities = [[String]]()
+    var activityImages = [String]()
     
     var annotations = [MKPointAnnotation]()
 
@@ -71,7 +79,15 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         
         places = UserDefaults.standard.stringArray(forKey: "placesTraveled") ?? [String]()
-        activities = UserDefaults.standard.stringArray(forKey: "favoriteActivities") ?? [String]()
+        activities = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesDefault") ?? [String]()
+        attractions = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesAttractions") ?? [String]()
+        naturalSetting = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesNaturalSetting") ?? [String]()
+        hotel = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesHotel") ?? [String]()
+        
+        setOfActivities = [activities,attractions,naturalSetting,hotel]
+        activityImages = ["Runner", "attractionActivity", "naturalSettingActivity", "hotelActivity"]
+        
+
         bucketList = UserDefaults.standard.stringArray(forKey: "bucketListArray") ?? [String]()
         
         //var layout = UICollectionViewLeftAlignedLayout()
@@ -91,7 +107,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         print(UserDefaults.standard.string(forKey: "pictureURL"))
         print(UserDefaults.standard.string(forKey: "aboutMe"))
         print(places)
-        print(activities)
+        //print(activities)
         print(bucketList)
 
         
@@ -149,14 +165,14 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         placesVisitedMapView.layer.cornerRadius = 5
         
         aboutMeTextView.layer.shadowColor = UIColor.black.cgColor
-        aboutMeTextView.layer.shadowOpacity = 0.5
+        aboutMeTextView.layer.shadowOpacity = 0.2
         aboutMeTextView.layer.shadowOffset = CGSize(width: 2, height: 2)
         aboutMeTextView.layer.shadowRadius = 1.0
         aboutMeTextView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
         aboutMeTextView.clipsToBounds = false
         
         nameView.layer.shadowColor = UIColor.black.cgColor
-        nameView.layer.shadowOpacity = 0.5
+        nameView.layer.shadowOpacity = 0.2
         nameView.layer.shadowOffset = CGSize(width: 2, height: 2)
         nameView.layer.shadowRadius = 1.0
         
@@ -207,13 +223,58 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         print("shared!")
     }
     
+    
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.bucketListCollectionView {
+            
+        } else {
+            
+            
+            var popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "activityDetailVC") as! ActivitiesDetailViewController
+            
+            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+            popover.popoverPresentationController?.delegate = self
+            popover.popoverPresentationController?.sourceView = collectionView.cellForItem(at: indexPath)
+            popover.popoverPresentationController?.sourceRect = (collectionView.cellForItem(at: indexPath)?.bounds)!
+            popover.activities = setOfActivities[indexPath.row]
+            
+            if setOfActivities[indexPath.row].count < 10 {
+                popover.preferredContentSize = CGSize(width: 200, height: 45 * setOfActivities[indexPath.row].count)
+            } else {
+                popover.preferredContentSize = CGSize(width: 200, height: 450)
+            }
+            self.present(popover, animated: true, completion: nil)
+            
+            
+           
+            
+            
+            
+            
+        }
+    }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.bucketListCollectionView {
             return bucketList.count
         } else {
-            return activities.count
+            
+            var count = 0
+            
+            for item in setOfActivities {
+                
+                if item.count > 0 { count = count + 1}
+                
+            }
+            return count
         }
     }
     
@@ -250,7 +311,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.backgroundColor = UIColor(hex: "61C561")
             cell.layer.cornerRadius = 7
             
-            cell.textLabel.text = activities[indexPath.row]
+            //cell.textLabel.text = activities[indexPath.row]
+            
+            
+            if setOfActivities[indexPath.row].count > 0 {
+                cell.image.image = UIImage(named: activityImages[indexPath.row])
+            }
+            
             return cell
         }
         
