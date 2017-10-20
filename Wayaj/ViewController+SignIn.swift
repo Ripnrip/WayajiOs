@@ -61,13 +61,13 @@ extension ViewController: AWSSignInDelegate {
     
     func setupRealm(){
         // Log in existing user with username and password
-        let username = "gurinder@beeback.io"  // <--- Update this
-        let password = "Binarybros1"  // <--- Update this
+        let username = "zenun@isokanco.com"  // <--- Update this
+        let password = "GedeonGRC1"  // <--- Update this
         
         var fetchedItems =
             
             
-            SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-34-230-65-31.compute-1.amazonaws.com:9080")!) { user, error in
+            SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-54-236-13-40.compute-1.amazonaws.com:9080")!) { user, error in
                 guard let user = user else {
                     fatalError(String(describing: error))
                 }
@@ -75,12 +75,12 @@ extension ViewController: AWSSignInDelegate {
                 DispatchQueue.main.async {
                     // Open Realm
                     let configuration = Realm.Configuration(
-                        syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-34-230-65-31.compute-1.amazonaws.com:9080/4ca6917f529505872e6260600cf0d7ae/users")!)
+                        syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-54-236-13-40.compute-1.amazonaws.com:9080/551c0c624123f0796cb8eadd3167c59c/Realm/Wayaj-Listings")!)
                     )
                     self.realm = try! Realm(configuration: configuration)
                     
                     
-                    print("all the objects are \(self.realm.objects(Listing.self))")
+                    //print("all the objects are \(self.realm.objects(Listing.self))")
                 }
         }
     }

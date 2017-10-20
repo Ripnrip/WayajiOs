@@ -25,6 +25,8 @@ target 'Wayaj' do
   pod 'SwiftSpinner'
   pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'swift3'
   pod 'RealmSwift'
+  pod 'Realm'
+  pod 'SwiftRangeSlider'
   pod 'Popover'
   pod 'CLTokenInputView'
   pod 'UICollectionViewLeftAlignedLayout'

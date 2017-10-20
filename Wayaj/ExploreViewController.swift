@@ -15,11 +15,14 @@ import AudioToolbox
 import AVFoundation
 import Cheers
 import RealmSwift
+import Realm
 import Kingfisher
 import CoreData
 import CoreLocation
 import AddressBookUI
 import MapKit
+import SwiftRangeSlider
+
 
 struct AllListings {
     static var listings = [Listing]()
@@ -63,6 +66,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     @IBOutlet weak var listingsMapView: MKMapView!
+    
+    var isFiltering = false
+    var greyView = UIView()
+    var priceSlider:RangeSlider = RangeSlider()
+    var ratingSlider = UISlider()
+    
+    var filteredPrices =  ["$"]
+    var filteredRatings = [Int]()
     
 
 
@@ -138,6 +149,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         loadListings()
         self.loadMapSettings()
         
+        whereSearchBar.setImage(UIImage(named: "SearchBarImage"), for: UISearchBarIcon.search, state: .normal)
+        //whereSearchBar.backgroundColor = UIColor(hex: "50D172")
+        
+        for view in whereSearchBar.subviews {
+            for subview in view.subviews {
+                if let textField = subview as? UITextField {
+                    textField.backgroundColor = UIColor(hex: "50D172")
+                }
+            }
+        }
+        
         //datePicker.frame = whenButton.frame
         //occupantFilter.frame = howManyButton.frame
         //view.addSubview(datePicker)
@@ -156,9 +178,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }else{
             
         }
-        
+        setupFilters()
         self.setupRealm()
-        
+        //writeToRealm()
         
     }
 
@@ -426,16 +448,21 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         //self.locationManager2.startUpdatingLocation()
         //self.loadMapSettings()
         if listingState == "List" {
-            mapButton.setTitle("List", for: .normal)
+            //mapButton.setTitle("List", for: .normal)
+            mapButton.setImage(UIImage(named: "ListButton"), for: .normal)
             listingsMapView.isHidden = false
             tableView.isHidden = true
             listingState = "Map"
         } else if listingState == "Map" {
-            mapButton.setTitle("Map", for: .normal)
+            //mapButton.setTitle("Map", for: .normal)
+            mapButton.setImage(UIImage(named: "MapButton"), for: .normal)
             listingsMapView.isHidden = true
             tableView.isHidden = false
             listingState = "List"
         }
+        
+        isFiltering = false
+        greyView.isHidden = true
         
     }
     
@@ -548,7 +575,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
        dismissKeyboard()
         //self.whereSearchBar.isHidden = true
         
-        UIView.animate(withDuration: 0.2, animations: {
+       /* UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
             self.tableView.frame = CGRect(x: 0, y: 98, width: self.view.frame.width, height: self.view.frame.size.height)
         }, completion: {
@@ -558,15 +585,15 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //self.whereButton.isHidden = true
 
 
-        })
+        })*/
 
     }
     
     @IBAction func whereSearch(_ sender: Any) {
-        UIView.animate(withDuration: 0.2) {
+        /*UIView.animate(withDuration: 0.2) {
             self.whereSearchBar.frame = CGRect(x: self.whereButton.frame.origin.x + 100, y: self.whereButton.center.y - 22  , width: 180, height: 44)
             
-        }
+        }*/
         
         
     }
@@ -583,35 +610,171 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        
+        isFiltering = !isFiltering
+        
+        if isFiltering {
+            // set image
+            
+            showFilters()
+            dismissKeyboard()
+            
+            
+            
+            
+        } else {
+            // set image
+            
+            greyView.isHidden = true
+        }
+        
+        
+    }
+    
+    func setupFilters(){
+        
+        greyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+        greyView.center = tableView.center
+        greyView.backgroundColor = .gray
+        view.addSubview(greyView)
+        greyView.isHidden = true
+        
+        let priceView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y, width: greyView.frame.width, height: 88))
+        priceView.backgroundColor = .white
+        let ratingView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height, width: greyView.frame.width, height: 77))
+        ratingView.backgroundColor = .white
+        
+        let filterSearchButton = UIButton(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height + ratingView.frame.height, width: greyView.frame.width, height: 46))
+        filterSearchButton.backgroundColor = UIColor(hex: "4BBE4B")
+        filterSearchButton.setTitle("Filter Search", for: .normal)
+        filterSearchButton.titleLabel?.textColor = .white
+        filterSearchButton.addTarget(self, action: #selector(filterSearch), for: .touchUpInside)
+
+        
+        priceSlider = RangeSlider(frame: CGRect(x: 14, y: priceView.bounds.origin.y + 40, width: priceView.frame.width - 28, height: 6))
+        priceSlider.lowerValue = 1
+        priceSlider.upperValue = 4
+        priceSlider.minimumValue = 1
+        priceSlider.maximumValue = 4
+        //priceSlider.stepValue = 1
+        priceSlider.hideLabels = true
+        priceSlider.trackTintColor = .gray
+        priceSlider.trackHighlightTintColor = UIColor(hex: "4BBE4B")
+        priceSlider.trackThickness = 6
+        priceSlider.knobSize = 5
+        
+        ratingSlider = UISlider(frame: CGRect(x: 14, y: ratingView.bounds.origin.y + 20, width: priceView.frame.width - 28, height: 6))
+        ratingSlider.minimumValue = 1
+        ratingSlider.maximumValue = 4
+            
+        
+        
+        greyView.addSubview(priceView)
+        greyView.addSubview(ratingView)
+        greyView.addSubview(filterSearchButton)
+        greyView.addSubview(priceSlider)
+        greyView.addSubview(ratingSlider)
+
+        
+        
+        
+    }
+    
+    @objc func filterSearch(sender: UIButton!) {
+        print("Button tapped")
+        
+        SwiftSpinner.show("Searching")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            print("Are we there yet?")
+            SwiftSpinner.hide()
+            
+            self.filtered = self.itemResults.filter({ (item) -> Bool in
+                let location: NSString = item.location as NSString
+                
+                if let searchText = self.whereSearchBar.text {
+                    let range = location.range(of: searchText, options: .caseInsensitive)
+                    if (range.location != NSNotFound && self.filteredPrices.contains(item.price)) {
+                        return true
+                    } else {
+                        return false
+                    }
+                    
+                    
+                }
+                
+                return false
+                //return range.location != NSNotFound
+            })
+            if(self.filtered.count == 0){
+                searchActive = false;
+                //no results
+                print("No results")
+                let alertController = UIAlertController(title: "No luck", message: "Check back later", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in
+                    print("OK")
+                    self.itemResults = Listings
+                }
+                
+                
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                
+            } else {
+                searchActive = true
+                print("results \(self.filtered)")
+                self.itemResults = self.filtered
+                self.whereSearchBar.resignFirstResponder()
+                self.addAnnotations()
+                self.tableView.reloadData()
+            }
+        }
+        
+
+        
+        
+    }
+    
+    func showFilters() {
+        
+        
+        greyView.isHidden = false
+        
+        
+    }
+    
+    
     
     //MARK: Realm
     func setupRealm() {
         // Log in existing user with username and password
-        let username = "gurinder@beeback.io"  // <--- Update this
-        let password = "Binarybros1"  // <--- Update this
-        
+        let username = "zenun@isokanco.com"  // <--- Update this
+        let password
+            = "GedeonGRC1"  // <--- Update this
+
         var fetchedItems =
-            
-            
-            SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-34-230-65-31.compute-1.amazonaws.com:9080")!) { user, error in
+
+
+            SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-54-236-13-40.compute-1.amazonaws.com:9080")!) { user, error in
                 guard let user = user else {
                     fatalError(String(describing: error))
                 }
-                
+
                 DispatchQueue.main.async {
                     // Open Realm
                     let configuration = Realm.Configuration(
-                        syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-34-230-65-31.compute-1.amazonaws.com:9080/4ca6917f529505872e6260600cf0d7ae/realmListings")!)
+                        syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://ec2-54-236-13-40.compute-1.amazonaws.com:9080/551c0c624123f0796cb8eadd3167c59c/Realm/Wayaj-Listings")!)
                     )
                     self.realm = try! Realm(configuration: configuration)
                     
-                    
-                    print("all the objects are \(self.realm.objects(Listing.self))")
 
-                    
+                    //print("all the LISTING objects are \(self.realm.objects(Listing.self))")
                     // Show initial tasks
                     func updateList() {
                         let results = self.realm.objects(Listing.self)
+                        //print(results[0])
                         let converted = results.reduce(List<Listing>()) { (list, element) -> List<Listing> in
                             if element.completed == true {
                                 list.append(element)
@@ -619,26 +782,66 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             return list
                         }
                         
+                        for result in results {
+                            
+                           
+                                let temp = Listing()
+                                temp.id = result.id
+                                temp.image1 = result.image1
+                                temp.image2 = result.image2
+                                temp.image3 = result.image3
+                                temp.image4 = result.image4
+                                temp.name = result.name
+                                temp.location = result.location
+                                temp.stars = result.stars
+                                temp.isFavorited = result.isFavorited
+                                temp.URL = result.URL
+                                temp.listingDescription = result.listingDescription
+                                temp.completed = result.completed
+                                temp.price = result.price
+                                temp.overallRating = result.overallRating
+                                temp.materialAndResourceScore = result.materialAndResourceScore
+                                temp.managementScore = result.managementScore
+                                temp.communityScore = result.communityScore
+                                temp.waterScore = result.waterScore
+                                temp.recycleAndWaterScore = result.recycleAndWaterScore
+                                temp.energyScore = result.energyScore
+                                temp.indoorsScore = result.indoorsScore
+                                temp.longitude = result.longitude
+                                temp.latitude = result.latitude
+                            
+                            if temp.overallRating != 0 {
+                                Listings.append(temp)
+                                self.itemResults.append(temp)
+                                print(temp)
+                            }
+
+                            
+                        }
+
                         if self.items.realm == nil  {
                             self.items = converted
                         }
-                        Listings = Array(converted)
-                        self.itemResults = Array(converted)
+                        //Listings = Array(converted)
+                        //print(converted)
+                        //self.itemResults = Array(converted)
                         //self.itemResults.shuffle()
                         self.addAnnotations()
                         self.tableView.reloadData()
                     }
                     updateList()
-                    
+
                     // Notify us when Realm changes
                     self.notificationToken = self.realm.addNotificationBlock { _,_  in
                         updateList()
                     }
-                    
+
                 }
-                
+
         }
     }
+    
+   
     
     func add() {
 
@@ -671,6 +874,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             }
         }
     }
+    
+    
+    
+    
+    
     
     
 }
