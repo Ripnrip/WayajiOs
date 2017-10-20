@@ -21,7 +21,7 @@ import CoreData
 import CoreLocation
 import AddressBookUI
 import MapKit
-import SwiftRangeSlider
+import RangeSeekSlider
 
 
 struct AllListings {
@@ -45,7 +45,7 @@ var selectedListing = Listing()
 var searchActive : Bool = false
 
 
-class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, RangeSeekSliderDelegate {
 
 
     //let googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
@@ -61,6 +61,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var whenButton: UIButton!
     @IBOutlet weak var howManyButton: UIButton!
     
+    @IBOutlet weak var filterButton: UIButton!
+    
+    
     @IBOutlet weak var mapButton: UIButton!
     var listingState = "List"
     
@@ -68,9 +71,22 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var listingsMapView: MKMapView!
     
     var isFiltering = false
-    var greyView = UIView()
-    var priceSlider:RangeSlider = RangeSlider()
-    var ratingSlider = UISlider()
+    var greyView: UIView!
+    var priceSlider:RangeSeekSlider!
+    var ratingSlider:RangeSeekSlider!
+    
+    var ratingOneLabel: UILabel!
+    var ratingTwoLabel: UILabel!
+    var ratingThreeLabel: UILabel!
+    var ratingFourLabel: UILabel!
+    
+    var pvY: CGFloat!
+    
+    var filterPriceOptions = [String]()
+    var filterRatingOption = ""
+    
+
+    var divideValue:CGFloat!
     
     var filteredPrices =  ["$"]
     var filteredRatings = [Int]()
@@ -122,14 +138,16 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         fetchData()
 
     }
+    
+    override func viewDidLayoutSubviews() {
+        setupFilters()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager2 = CLLocationManager()
 
         // Do any additional setup after loading the view.
-        
-        
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         
@@ -146,7 +164,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         
         self.upButton.isHidden = true
-        loadListings()
+        //loadListings()
         self.loadMapSettings()
         
         whereSearchBar.setImage(UIImage(named: "SearchBarImage"), for: UISearchBarIcon.search, state: .normal)
@@ -178,7 +196,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }else{
             
         }
-        setupFilters()
         self.setupRealm()
         //writeToRealm()
         
@@ -617,15 +634,18 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if isFiltering {
             // set image
             
+            filterButton.imageView?.image = UIImage(named: "disableFilter")
             showFilters()
             dismissKeyboard()
             
             
             
             
+            
+            
         } else {
             // set image
-            
+            filterButton.imageView?.image = UIImage(named: "enableFilter")
             greyView.isHidden = true
         }
         
@@ -640,10 +660,25 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         view.addSubview(greyView)
         greyView.isHidden = true
         
-        let priceView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y, width: greyView.frame.width, height: 88))
+        let priceSliderLabel = UILabel(frame: CGRect(x: 14, y: greyView.bounds.origin.y + 14, width: 50, height: 20))
+        priceSliderLabel.text = "Price"
+        priceSliderLabel.font = UIFont(name: "Helvetica", size: 15)
+        priceSliderLabel.textColor = UIColor(hex: "3D444E")
+        priceSliderLabel.layer.opacity = 0.6
+        
+        
+        
+        
+        
+        
+        
+        let priceView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y, width: greyView.frame.width, height: 108))
+        pvY = priceView.bounds.origin.y
         priceView.backgroundColor = .white
-        let ratingView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height, width: greyView.frame.width, height: 77))
+        let ratingView = UIView(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height, width: greyView.frame.width, height: 128))
         ratingView.backgroundColor = .white
+        
+        
         
         let filterSearchButton = UIButton(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height + ratingView.frame.height, width: greyView.frame.width, height: 46))
         filterSearchButton.backgroundColor = UIColor(hex: "4BBE4B")
@@ -652,37 +687,274 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         filterSearchButton.addTarget(self, action: #selector(filterSearch), for: .touchUpInside)
 
         
-        priceSlider = RangeSlider(frame: CGRect(x: 14, y: priceView.bounds.origin.y + 40, width: priceView.frame.width - 28, height: 6))
-        priceSlider.lowerValue = 1
-        priceSlider.upperValue = 4
-        priceSlider.minimumValue = 1
-        priceSlider.maximumValue = 4
+        priceSlider = RangeSeekSlider(frame: CGRect(x: 14, y: priceView.bounds.origin.y + 50, width: priceView.frame.width - 28, height: 19))
+        priceSlider.isUserInteractionEnabled = true
+        priceSlider.minValue = 1
+        priceSlider.maxValue = 4
         //priceSlider.stepValue = 1
         priceSlider.hideLabels = true
-        priceSlider.trackTintColor = .gray
-        priceSlider.trackHighlightTintColor = UIColor(hex: "4BBE4B")
-        priceSlider.trackThickness = 6
-        priceSlider.knobSize = 5
+        priceSlider.handleDiameter = 30
+        priceSlider.handleColor = .white
+        priceSlider.colorBetweenHandles = UIColor(hex: "4BBE4B")
+        priceSlider.tintColor = .gray
+        priceSlider.lineHeight = 8
+        priceSlider.enableStep = true
+        priceSlider.step = 1
         
-        ratingSlider = UISlider(frame: CGRect(x: 14, y: ratingView.bounds.origin.y + 20, width: priceView.frame.width - 28, height: 6))
-        ratingSlider.minimumValue = 1
-        ratingSlider.maximumValue = 4
-            
+        ratingSlider = RangeSeekSlider(frame: CGRect(x: 14, y: priceView.bounds.height + 50, width: priceView.frame.width - 28, height: 19))
+        ratingSlider.delegate = self
+        ratingSlider.isUserInteractionEnabled = true
+        ratingSlider.maxValue = 3
+        ratingSlider.selectedMaxValue = 0
+        //priceSlider.stepValue = 1
+        ratingSlider.hideLabels = true
+        ratingSlider.handleDiameter = 30
+        ratingSlider.handleColor = .white
+        ratingSlider.colorBetweenHandles = UIColor(hex: "4BBE4B")
+        ratingSlider.tintColor = .gray
+        ratingSlider.lineHeight = 8
+        ratingSlider.enableStep = true
+        ratingSlider.step = 1
+        ratingSlider.disableRange = true
+        
+        divideValue = priceSlider.frame.width / 3
+        
+       
+        
+        let priceOneLabel = UILabel(frame: CGRect(x: 28, y: greyView.bounds.origin.y + 80, width: 20, height: 30))
+        priceOneLabel.text = "$"
+        priceOneLabel.font = UIFont(name: "Helvetica", size: 15)
+        priceOneLabel.textColor = UIColor(hex: "3D444E")
+        priceOneLabel.layer.opacity = 0.6
+        priceOneLabel.sizeToFit()
+        let priceTwoLabel = UILabel(frame: CGRect(x: 28 + divideValue, y: greyView.bounds.origin.y + 80, width: 30, height: 30))
+        priceTwoLabel.text = "$$"
+        priceTwoLabel.font = UIFont(name: "Helvetica", size: 15)
+        priceTwoLabel.textColor = UIColor(hex: "3D444E")
+        priceTwoLabel.layer.opacity = 0.6
+        priceTwoLabel.textAlignment = .center
+        priceTwoLabel.sizeToFit()
+        priceTwoLabel.frame.origin.x = priceTwoLabel.frame.origin.x - priceTwoLabel.bounds.width
+
+
+        let priceThreeLabel = UILabel(frame: CGRect(x: (divideValue * 2), y: greyView.bounds.origin.y + 80, width: 30, height: 30))
+        priceThreeLabel.text = "$$$"
+        priceThreeLabel.font = UIFont(name: "Helvetica", size: 15)
+        priceThreeLabel.textColor = UIColor(hex: "3D444E")
+        priceThreeLabel.layer.opacity = 0.6
+        priceThreeLabel.textAlignment = .center
+        priceThreeLabel.sizeToFit()
+        priceThreeLabel.frame.origin.x = (priceSlider.frame.width - divideValue) - (28-priceThreeLabel.frame.width)
+
+        let priceFourLabel = UILabel(frame: CGRect(x: (divideValue * 3), y: greyView.bounds.origin.y + 80, width: 30, height: 30))
+        priceFourLabel.text = "$$$$"
+        priceFourLabel.font = UIFont(name: "Helvetica", size: 15)
+        priceFourLabel.textColor = UIColor(hex: "3D444E")
+        priceFourLabel.layer.opacity = 0.6
+        priceFourLabel.sizeToFit()
+        priceFourLabel.frame.origin.x = (divideValue*3) - priceFourLabel.frame.width
+        
+        ratingOneLabel = UILabel(frame: CGRect(x: 28, y: ratingView.bounds.origin.y + 80, width: 50, height: 30))
+        ratingOneLabel.layer.cornerRadius = 5
+        ratingOneLabel.text = "GOOD"
+        ratingOneLabel.font = UIFont(name: "Helvetica", size: 11)
+        ratingOneLabel.textColor = .white
+        ratingOneLabel.textAlignment = .center
+        ratingOneLabel.backgroundColor = UIColor(hex: "4BBE4B")
+        ratingOneLabel.clipsToBounds = true
+
+        //ratingOneLabel.sizeToFit()
+        ratingTwoLabel = UILabel(frame: CGRect(x: 28 + divideValue, y: ratingView.bounds.origin.y + 80, width: 30, height: 30))
+        ratingTwoLabel.text = "GREAT"
+        ratingTwoLabel.font = UIFont(name: "Helvetica", size: 11)
+        ratingTwoLabel.textColor = .white
+        ratingTwoLabel.textAlignment = .center
+        ratingTwoLabel.backgroundColor = UIColor(hex: "4BBE4B")
+        //ratingTwoLabel.sizeToFit()
+        ratingTwoLabel.frame.origin.x = ratingTwoLabel.frame.origin.x - ratingTwoLabel.bounds.width
         
         
+        ratingThreeLabel = UILabel(frame: CGRect(x: (divideValue * 2), y: ratingView.bounds.origin.y + 80, width: 30, height: 30))
+        ratingThreeLabel.text = "EXCELLENT"
+        ratingThreeLabel.font = UIFont(name: "Helvetica", size: 11)
+        ratingThreeLabel.textColor = .white
+        ratingThreeLabel.textAlignment = .center
+        ratingThreeLabel.backgroundColor = UIColor(hex: "4BBE4B")
+        //ratingThreeLabel.sizeToFit()
+        ratingThreeLabel.frame.origin.x = (ratingSlider.frame.width - divideValue) - (28-ratingThreeLabel.frame.width)
+        
+        ratingFourLabel = UILabel(frame: CGRect(x: (divideValue * 3), y: ratingView.bounds.origin.y + 80, width: 30, height: 30))
+        ratingFourLabel.text = "OUTSTANDING"
+        ratingFourLabel.font = UIFont(name: "Helvetica", size: 11)
+        ratingFourLabel.textColor = .white
+        ratingFourLabel.backgroundColor = UIColor(hex: "4BBE4B")
+        //ratingFourLabel.sizeToFit()
+        ratingFourLabel.frame.origin.x = (divideValue*3) - ratingFourLabel.frame.width
+        
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0.0, y: priceView.frame.size.height - 1.0, width: priceView.frame.size.width, height: 1)
+        bottomBorder.backgroundColor = UIColor(hex: "D9E8FC").cgColor
+        priceView.layer.addSublayer(bottomBorder)
+        
+        
+        let ratingSliderLabel = UILabel(frame: CGRect(x: 14, y: ratingView.bounds.origin.y + 14, width: 50, height: 20))
+        ratingSliderLabel.text = "Eco-Rating"
+        ratingSliderLabel.font = UIFont(name: "Helvetica", size: 15)
+        ratingSliderLabel.textColor = UIColor(hex: "3D444E")
+        ratingSliderLabel.layer.opacity = 0.6
+        
+        priceView.addSubview(priceSliderLabel)
+        priceView.addSubview(priceOneLabel)
+        priceView.addSubview(priceTwoLabel)
+        priceView.addSubview(priceThreeLabel)
+        priceView.addSubview(priceFourLabel)
+        ratingView.addSubview(ratingOneLabel)
+
+        greyView.addSubview(ratingSliderLabel)
         greyView.addSubview(priceView)
         greyView.addSubview(ratingView)
         greyView.addSubview(filterSearchButton)
         greyView.addSubview(priceSlider)
         greyView.addSubview(ratingSlider)
+        greyView.isUserInteractionEnabled = true
+        //greyView.addSubview(ratingSlider)
 
         
         
         
     }
+
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        print("hello")
+        if slider == ratingSlider {
+            print("hiiii")
+            switch maxValue{
+                
+            case 0:
+                ratingOneLabel.text = "GOOD"
+                ratingOneLabel.sizeToFit()
+                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+                ratingOneLabel.layer.cornerRadius = 5
+                ratingOneLabel.frame.origin.x = 28
+                ratingOneLabel.clipsToBounds = true
+
+                
+            case 1:
+                ratingOneLabel.text = "GREAT"
+                ratingOneLabel.sizeToFit()
+                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+                ratingOneLabel.layer.cornerRadius = 5
+                ratingOneLabel.frame.origin.x = (28 + divideValue) - (ratingOneLabel.frame.width/2) - 10
+                ratingOneLabel.clipsToBounds = true
+                
+            case 2:
+                ratingOneLabel.text = "EXCELLENT"
+                ratingOneLabel.sizeToFit()
+                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+                ratingOneLabel.layer.cornerRadius = 5
+               ratingOneLabel.frame.origin.x = (ratingSlider.frame.width - divideValue) - (ratingOneLabel.frame.width / 2.0)
+                ratingOneLabel.clipsToBounds = true
+
+                
+            case 3:
+                
+                ratingOneLabel.text = "OUTSTANDING"
+                ratingOneLabel.sizeToFit()
+                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+                ratingOneLabel.layer.cornerRadius = 5
+                ratingOneLabel.frame.origin.x = (divideValue*3) - ratingOneLabel.frame.width
+                ratingOneLabel.clipsToBounds = true
+
+                
+                
+            default:
+                ratingOneLabel.text = "GOOD"
+                ratingOneLabel.sizeToFit()
+                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+                ratingOneLabel.layer.cornerRadius = 5
+                ratingOneLabel.frame.origin.x = 28
+                ratingOneLabel.clipsToBounds = true
+
+            }
+        }
+        
+    }
     
     @objc func filterSearch(sender: UIButton!) {
         print("Button tapped")
+        
+        dismissKeyboard()
+        filterPriceOptions.removeAll()
+        filterRatingOption = ""
+        
+        let minPrice = priceSlider.selectedMinValue
+        let maxPrice = priceSlider.selectedMaxValue
+        let rating = ratingSlider.selectedMaxValue
+            
+        switch minPrice {
+            
+        case 1:
+            filterPriceOptions.append("$")
+        case 2:
+            filterPriceOptions.append("$$")
+        case 3:
+            filterPriceOptions.append("$$$")
+        case 4:
+            filterPriceOptions.append("$$$$")
+        default: break
+            
+        }
+        
+        switch maxPrice {
+            
+        case 1:
+            filterPriceOptions.append("$")
+        case 2:
+            if minPrice == 1 { filterPriceOptions.append("$")}
+            filterPriceOptions.append("$$")
+        case 3:
+            if minPrice == 1 {
+                filterPriceOptions.append("$")
+                filterPriceOptions.append("$$")
+            }
+            if minPrice == 2 {
+                filterPriceOptions.append("$$")
+            }
+
+            filterPriceOptions.append("$$$")
+        case 4:
+            if minPrice == 1 {
+                filterPriceOptions.append("$")
+                filterPriceOptions.append("$$")
+                filterPriceOptions.append("$$$")
+
+            }
+            if minPrice == 2 {
+                filterPriceOptions.append("$$")
+                filterPriceOptions.append("$$$")
+            }
+            if minPrice == 3 {
+                filterPriceOptions.append("$$$")
+            }
+            filterPriceOptions.append("$$$$")
+        default: break
+            
+        }
+        
+        switch rating {
+            
+        case 0:
+            filterRatingOption = "GOOD"
+        case 1:
+            filterRatingOption = "GREAT"
+        case 2:
+            filterRatingOption = "EXCELLENT"
+        case 3:
+            filterRatingOption = "OUTSTANDING"
+        default:
+            filterRatingOption = "GOOD"
+        }
+        
         
         SwiftSpinner.show("Searching")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -691,10 +963,19 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             self.filtered = self.itemResults.filter({ (item) -> Bool in
                 let location: NSString = item.location as NSString
-                
+                let ratingNew = self.getRating(rating: item.overallRating)
+
                 if let searchText = self.whereSearchBar.text {
                     let range = location.range(of: searchText, options: .caseInsensitive)
-                    if (range.location != NSNotFound && self.filteredPrices.contains(item.price)) {
+                    if (range.location != NSNotFound && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                        return true
+                    } else {
+                        return false
+                    }
+                    
+                    
+                } else {
+                    if (self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
                         return true
                     } else {
                         return false
@@ -723,6 +1004,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 
             } else {
+                self.filterButton.imageView?.image = UIImage(named: "enableFilter")
+                self.greyView.isHidden = true
                 searchActive = true
                 print("results \(self.filtered)")
                 self.itemResults = self.filtered
@@ -739,7 +1022,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func showFilters() {
         
-        
+        filterButton.imageView?.image = UIImage(named: "disableFilter")
         greyView.isHidden = false
         
         
@@ -1149,6 +1432,21 @@ extension ExploreViewController:UISearchBarDelegate  {
 
     }
     
+    func getRating(rating: Int) -> String{
+        
+        if rating > 90 {
+            return "OUTSTANDING"
+        }
+        else if rating >= 76 {
+            return "EXCELLENT"
+            
+        }   else if rating >= 61 {
+            return "GREAT"
+        }   else  {
+            return "GOOD"
+        }
+        
+    }
     
 
     
