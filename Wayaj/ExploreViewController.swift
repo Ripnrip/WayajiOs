@@ -45,6 +45,8 @@ var selectedListing = Listing()
 var searchActive : Bool = false
 
 
+
+
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, RangeSeekSliderDelegate {
 
 
@@ -205,22 +207,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
         if let name:String = (UserDefaults.standard.value(forKey: "name") as? String) {
             if shouldNotShowQuestionaire == false && name.length > 1 {
-                let vc = CustomCellsController()
-                vc.name = UserDefaults.standard.value(forKey: "name") as! String
-                //vc.email = UserDefaults.standard.value(forKey: "email") as! String
-                vc.gender = UserDefaults.standard.value(forKey: "gender") as! String
-                let usersImageUrl = UserDefaults.standard.value(forKey: "pictureURL") as! String
                 
-                self.getDataFromUrl(url: URL(string:usersImageUrl)!, completion: { (data, response, error) in
-                    if error == nil {
-                        vc.image = UIImage(data: data!)!
-                        SwiftSpinner.hide()
-                        self.present(vc, animated: true, completion: nil)
-                    }else {
-                        print("there was an error getting the picure url \(error)")
-                    }
-                })
-                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+                let editPro = storyBoard.instantiateViewController(withIdentifier: "editProfile") as! EditProfileViewController
+                    DispatchQueue.main.async {
+                    self.navigationController?.present(editPro, animated: true, completion: nil)
+                    //self.navigationController?.pushViewController(editPro, animated: true)
+                    //self.present(editPro, animated: true, completion: nil)
+                    //self.navigationController?.tabBarController?.tabBar.isHidden = true
+
+                }
                 
             }else{
                 //self.performSegue(withIdentifier: "goHome", sender: self)
@@ -285,6 +282,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             listingsMapView.addAnnotation(anno)
             print(anno)
         }
+        
+        listingsMapView.showAnnotations(listingsMapView.annotations, animated: true)
         
     }
     
@@ -639,10 +638,6 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             dismissKeyboard()
             
             
-            
-            
-            
-            
         } else {
             // set image
             filterButton.imageView?.image = UIImage(named: "enableFilter")
@@ -656,7 +651,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         greyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
         greyView.center = tableView.center
-        greyView.backgroundColor = .gray
+        greyView.backgroundColor = UIColor(white: 1, alpha: 0.8)
         view.addSubview(greyView)
         greyView.isHidden = true
         
@@ -682,7 +677,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let filterSearchButton = UIButton(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height + ratingView.frame.height, width: greyView.frame.width, height: 46))
         filterSearchButton.backgroundColor = UIColor(hex: "4BBE4B")
-        filterSearchButton.setTitle("Filter Search", for: .normal)
+        filterSearchButton.setTitle("Search", for: .normal)
         filterSearchButton.titleLabel?.textColor = .white
         filterSearchButton.addTarget(self, action: #selector(filterSearch), for: .touchUpInside)
 
@@ -825,12 +820,12 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
 
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
-        print("hello")
-        if slider == ratingSlider {
+        print("hello\(maxValue)")
+        
             print("hiiii")
             switch maxValue{
                 
-            case 0:
+            case 0.0:
                 ratingOneLabel.text = "GOOD"
                 ratingOneLabel.sizeToFit()
                 ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
@@ -839,15 +834,16 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 ratingOneLabel.clipsToBounds = true
 
                 
-            case 1:
+            case 1.0:
                 ratingOneLabel.text = "GREAT"
                 ratingOneLabel.sizeToFit()
                 ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
                 ratingOneLabel.layer.cornerRadius = 5
                 ratingOneLabel.frame.origin.x = (28 + divideValue) - (ratingOneLabel.frame.width/2) - 10
-                ratingOneLabel.clipsToBounds = true
+                //ratingOneLabel.clipsToBounds = true
+                print("WELL HELLO")
                 
-            case 2:
+            case 2.0:
                 ratingOneLabel.text = "EXCELLENT"
                 ratingOneLabel.sizeToFit()
                 ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
@@ -856,7 +852,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 ratingOneLabel.clipsToBounds = true
 
                 
-            case 3:
+            case 3.0:
                 
                 ratingOneLabel.text = "OUTSTANDING"
                 ratingOneLabel.sizeToFit()
@@ -876,13 +872,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 ratingOneLabel.clipsToBounds = true
 
             }
-        }
+        
         
     }
     
     @objc func filterSearch(sender: UIButton!) {
         print("Button tapped")
         
+        isFiltering = false
         dismissKeyboard()
         filterPriceOptions.removeAll()
         filterRatingOption = ""
@@ -965,8 +962,15 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 let location: NSString = item.location as NSString
                 let ratingNew = self.getRating(rating: item.overallRating)
 
-                if let searchText = self.whereSearchBar.text {
-                    let range = location.range(of: searchText, options: .caseInsensitive)
+                let searchText = self.whereSearchBar.text
+                
+                if searchText != "" {
+                    
+                    if (item.location.lowercased().range(of:searchText!.lowercased()) != nil && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                        return true
+                    }
+                    
+                    let range = location.range(of: searchText!, options: .caseInsensitive)
                     if (range.location != NSNotFound && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
                         return true
                     } else {
@@ -1005,13 +1009,16 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
             } else {
                 self.filterButton.imageView?.image = UIImage(named: "enableFilter")
-                self.greyView.isHidden = true
-                searchActive = true
+                //searchActive = true
                 print("results \(self.filtered)")
                 self.itemResults = self.filtered
                 self.whereSearchBar.resignFirstResponder()
-                self.addAnnotations()
+                //self.addAnnotations()
+                self.greyView.isHidden = true
+                print("SHOULD FUCKING HIDE")
                 self.tableView.reloadData()
+                //self.listingsMapView.showAnnotations(self.listingsMapView.annotations, animated: true)
+
             }
         }
         
@@ -1360,6 +1367,7 @@ extension ExploreViewController:UISearchBarDelegate  {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
         //view.addGestureRecognizer(tap)
+        
 
     }
     
@@ -1379,44 +1387,51 @@ extension ExploreViewController:UISearchBarDelegate  {
         searchActive = false
         //view.removeGestureRecognizer(tap)
 
-        print(searchBar.text)
+        if isFiltering {
+            filterSearch(sender: nil)
+        } else {
         
-        SwiftSpinner.show("Searching")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            print("Are we there yet?")
-            SwiftSpinner.hide()
+            print(searchBar.text)
             
-            self.filtered = self.itemResults.filter({ (item) -> Bool in
-                let tmp: NSString = item.location as NSString
-                let range = tmp.range(of: searchBar.text!, options: .caseInsensitive)
-                return range.location != NSNotFound
-            })
-            if(self.filtered.count == 0){
-                searchActive = false;
-                //no results
-                print("No results")
-                let alertController = UIAlertController(title: "No luck", message: "Check back later", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                    (result : UIAlertAction) -> Void in
-                    print("OK")
-                    self.itemResults = Listings
+            SwiftSpinner.show("Searching")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                print("Are we there yet?")
+                SwiftSpinner.hide()
+                
+                self.filtered = self.itemResults.filter({ (item) -> Bool in
+                    let tmp: NSString = item.location as NSString
+                    if item.location.lowercased().range(of:searchBar.text!.lowercased()) != nil {
+                        return true
+                    }
+                    let range = tmp.range(of: searchBar.text!, options: .caseInsensitive)
+                    return range.location != NSNotFound
+                })
+                if(self.filtered.count == 0){
+                    searchActive = false;
+                    //no results
+                    print("No results")
+                    let alertController = UIAlertController(title: "No luck", message: "Check back later", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in
+                        print("OK")
+                        self.itemResults = Listings
+                    }
+                    
+                    
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                } else {
+                    searchActive = true
+                    print("results \(self.filtered)")
+                    self.itemResults = self.filtered
+                    searchBar.resignFirstResponder()
+                    self.addAnnotations()
+                    self.tableView.reloadData()
                 }
-                
-                
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-                
-            } else {
-                searchActive = true
-                print("results \(self.filtered)")
-                self.itemResults = self.filtered
-                searchBar.resignFirstResponder()
-                self.addAnnotations()
-                self.tableView.reloadData()
             }
         }
-
 
 
 
