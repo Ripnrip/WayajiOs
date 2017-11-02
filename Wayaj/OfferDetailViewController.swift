@@ -75,7 +75,7 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
         let pathArray:[String] = [listing.image1,listing.image2,listing.image3]
         gallery.frame = baseImageView.frame
         gallery.delegate = self
-        gallery.setCarouselData(paths: pathArray,  describedTitle: [listing.name], isAutoScroll: true, timer: 1.5, defaultImage:
+        gallery.setCarouselData(paths: pathArray,  describedTitle: [""], isAutoScroll: true, timer: 3.5, defaultImage:
             "defaultImage")
         //optional methods
         gallery.setCarouselLayout(displayStyle: 0, pageIndicatorPositon: 6, pageIndicatorColor: UIColor.lightGray, describedTitleColor: UIColor.white, layerColor: UIColor.gray)

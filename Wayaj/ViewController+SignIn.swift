@@ -128,16 +128,26 @@ extension ViewController: AWSSignInDelegate {
             
             var profileImage = UIImage()
             
+            
+            
             self.getDataFromUrl(url: URL(string:imageURL!)!, completion: { (data, response, error) in
                 if error == nil {
                     let imageDownload = UIImage(data: data!)
                     profileImage = imageDownload!
                     var profImage = UIImageJPEGRepresentation(profileImage, 1.0)
-                    UserDefaults.standard.set(profImage, forKey: "profileImage")
+                    
+                    if let profileImage = UserDefaults.standard.value(forKey: "profileImage") as? Data {
+                        
+                    } else {
+                        UserDefaults.standard.set(profImage, forKey: "profileImage")
+                        
+                    }
                     UserDefaults.standard.synchronize()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "MainController")
                     self.present(controller, animated: true, completion: nil)
+                    
+                    
                 }else{
                     print("the error in getting the datafromURL is \(error) with response \(response)")
                     

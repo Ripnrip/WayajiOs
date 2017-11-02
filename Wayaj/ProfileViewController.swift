@@ -366,7 +366,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let lat = placemark?.location?.coordinate.latitude
                 let long = placemark?.location?.coordinate.longitude
                 
-                
                 let location = CLLocation(latitude: lat!, longitude: long!)
                 
                 let anno = MKPointAnnotation()

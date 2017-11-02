@@ -45,9 +45,11 @@ var selectedListing = Listing()
 var searchActive : Bool = false
 
 
+
+
 class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, RangeSeekSliderDelegate {
-
-
+    
+    
     //let googleBaseUrl = "https://maps.googleapis.com/maps/api/geocode/json?"
     //let googleApikey = "AIzaSyCvaFusdMkQsS7VRZCIWbmkOFI7xP4qAQA"
     
@@ -85,18 +87,31 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var filterPriceOptions = [String]()
     var filterRatingOption = ""
     
-
+    
     var divideValue:CGFloat!
     
     var filteredPrices =  ["$"]
     var filteredRatings = [Int]()
     
+    var AFRICA = Continent(name: "AFRICA", countries: ["Algeria", "Angola", "Benin", "Botswana", "Burkina", "Burundi", "Cameroon", "Cape Verde", "Central African Republic", "Chad", "Comoros", "Congo", "Congo", "Democratic Republic of", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Swaziland", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"])
+    let ASIA = Continent(name: "ASIA",countries: ["Afghanistan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Burma (Myanmar)", "Cambodia", "China", "East Timor", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Korea", "North", "Korea", "South", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon", "Malaysia", "Maldives", "Mongolia", "Nepal", "Oman", "Pakistan", "Philippines", "Qatar", "Russian Federation", "Saudi Arabia", "Singapore", "Sri Lanka", "Syria", "Tajikistan", "Thailand", "Turkey", "Turkmenistan", "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen"])
+    let EUROPE = Continent(name: "EUROPE",countries: ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "United Kingdom", "Vatican City"])
+    let NORTH_AMERICA = Continent(name: "North america",countries: ["Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States"])
+    let SOUTH_AMERICA = Continent(name: "South america",countries: ["Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela"])
+    let OCEANIA = Continent(name: "oceania",countries: ["Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"])
 
 
+
+
+
+
+    
+    
+    
     var player: AVAudioPlayer?
-
+    
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExploreViewController.dismissKeyboard))
-
+    
     
     var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
     var filtered:[Listing] = []
@@ -136,17 +151,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         shouldShowQuestionare()
         fetchData()
-
+        
     }
     
     override func viewDidLayoutSubviews() {
         setupFilters()
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager2 = CLLocationManager()
-
+        
         // Do any additional setup after loading the view.
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
@@ -166,7 +181,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.upButton.isHidden = true
         //loadListings()
         self.loadMapSettings()
-        
+        listingsMapView.showsUserLocation = false
         whereSearchBar.setImage(UIImage(named: "SearchBarImage"), for: UISearchBarIcon.search, state: .normal)
         //whereSearchBar.backgroundColor = UIColor(hex: "50D172")
         
@@ -200,35 +215,30 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         //writeToRealm()
         
     }
-
+    
     func shouldShowQuestionare(){
         let shouldNotShowQuestionaire:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial2"))
         if let name:String = (UserDefaults.standard.value(forKey: "name") as? String) {
             if shouldNotShowQuestionaire == false && name.length > 1 {
-                let vc = CustomCellsController()
-                vc.name = UserDefaults.standard.value(forKey: "name") as! String
-                //vc.email = UserDefaults.standard.value(forKey: "email") as! String
-                vc.gender = UserDefaults.standard.value(forKey: "gender") as! String
-                let usersImageUrl = UserDefaults.standard.value(forKey: "pictureURL") as! String
                 
-                self.getDataFromUrl(url: URL(string:usersImageUrl)!, completion: { (data, response, error) in
-                    if error == nil {
-                        vc.image = UIImage(data: data!)!
-                        SwiftSpinner.hide()
-                        self.present(vc, animated: true, completion: nil)
-                    }else {
-                        print("there was an error getting the picure url \(error)")
-                    }
-                })
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 
+                let editPro = storyBoard.instantiateViewController(withIdentifier: "editProfile") as! EditProfileViewController
+                DispatchQueue.main.async {
+                    self.navigationController?.present(editPro, animated: true, completion: nil)
+                    //self.navigationController?.pushViewController(editPro, animated: true)
+                    //self.present(editPro, animated: true, completion: nil)
+                    //self.navigationController?.tabBarController?.tabBar.isHidden = true
+                    
+                }
                 
             }else{
                 //self.performSegue(withIdentifier: "goHome", sender: self)
             }
         }
-
+        
     }
-
+    
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
         URLSession.shared.dataTask(with: url) {
             (data, response, error) in
@@ -265,20 +275,20 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         itemResults.forEach { (listing) in
             
-         let lat = listing.latitude, long = listing.longitude
+            let lat = listing.latitude, long = listing.longitude
             
-         let location = CLLocation(latitude: lat, longitude: long)
-          
-         let anno = CustomMapPinAnnotation()
-         anno.coordinate = location.coordinate
-         anno.title = listing.name
-         anno.subtitle = listing.location
-         anno.listingObject = listing
-         //listingsMapView.addAnnotation(anno)
-         print("this hotel is \(listing.name)")
+            let location = CLLocation(latitude: lat, longitude: long)
             
-         //TODO - custom anno with listing object then open listing when anno is tapped
-         annotations.append(anno)
+            let anno = CustomMapPinAnnotation()
+            anno.coordinate = location.coordinate
+            anno.title = listing.name
+            anno.subtitle = listing.location
+            anno.listingObject = listing
+            //listingsMapView.addAnnotation(anno)
+            print("this hotel is \(listing.name)")
+            
+            //TODO - custom anno with listing object then open listing when anno is tapped
+            annotations.append(anno)
         }
         
         annotations.forEach { (anno) in
@@ -286,9 +296,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             print(anno)
         }
         
+        listingsMapView.showAnnotations(listingsMapView.annotations, animated: true)
+        
     }
     
-   
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("checking")
@@ -298,11 +310,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 5.0, longitudeDelta: 5.0))
         
         self.listingsMapView.setRegion(region, animated: true)
-       //Random comment
+        //Random comment
         locationManager2.stopUpdatingLocation()
     }
     
-
+    
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("Annotation selected")
@@ -310,14 +322,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         /*if let annotation = view.annotation {
-            print("Your annotation title: \(String(describing: annotation.title))");
-        }
-        */
+         print("Your annotation title: \(String(describing: annotation.title))");
+         }
+         */
         
         
         if let annoView = view as? CustomWayajAnnotationView {
             if let anno = view.annotation as? CustomMapPinAnnotation {
-              
+                
                 
                 
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
@@ -343,37 +355,37 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     @objc func tap(_ gestureRecognizer: UITapGestureRecognizer) {
-     
         
-            var myVC = self.storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
         
-            myVC.imageURL = annoSelectedListing.image1
-            myVC.name = annoSelectedListing.name
-            myVC.location = annoSelectedListing.location
-            myVC.information = annoSelectedListing.listingDescription
-            myVC.isFavorited = false
-            myVC.price = annoSelectedListing.price
-            myVC.currentListing = annoSelectedListing
+        var myVC = self.storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
         
-            let divideValue = CGFloat(annoSelectedListing.overallRating)/100.00
-            let dynamicWidth = myVC.scoreBar.frame.width * divideValue
-            let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
-            //print("the green bar dynamic width is \(dynamicWidth)")
-            //print("the score fraction to divide/multiply by is \(divideValue)")
-            myVC.scoreBar.frame = frame
+        myVC.imageURL = annoSelectedListing.image1
+        myVC.name = annoSelectedListing.name
+        myVC.location = annoSelectedListing.location
+        myVC.information = annoSelectedListing.listingDescription
+        myVC.isFavorited = false
+        myVC.price = annoSelectedListing.price
+        myVC.currentListing = annoSelectedListing
         
-            self.navigationController?.pushViewController(myVC, animated: true)
+        let divideValue = CGFloat(annoSelectedListing.overallRating)/100.00
+        let dynamicWidth = myVC.scoreBar.frame.width * divideValue
+        let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
+        //print("the green bar dynamic width is \(dynamicWidth)")
+        //print("the score fraction to divide/multiply by is \(divideValue)")
+        myVC.scoreBar.frame = frame
+        
+        self.navigationController?.pushViewController(myVC, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         
         if let anno = view.annotation as? CustomMapPinAnnotation {
-        
+            
             let selectedListing2 = anno.listingObject
-
+            
             var myVC = storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
-
+            
             myVC.imageURL = selectedListing2.image1
             myVC.name = selectedListing2.name
             myVC.location = selectedListing2.location
@@ -416,17 +428,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 myVC.ecoRatingScoreLabel.text = "Eco-Rating: GOOD"
                 //cell.scoreLabel.attributedText = combo
             }
-
-
+            
+            
             let divideValue = CGFloat(selectedListing2.overallRating)/100.00
             let dynamicWidth = myVC.scoreBar.frame.width * divideValue
             let frame = CGRect(x: myVC.scoreBar.frame.origin.x, y: myVC.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC.scoreBar.frame.height)
             //print("the green bar dynamic width is \(dynamicWidth)")
             //print("the score fraction to divide/multiply by is \(divideValue)")
             myVC.scoreBar.frame = frame
-
+            
             self.navigationController?.pushViewController(myVC, animated: true)
-        
+            
         }
     }
     
@@ -445,7 +457,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             
             annotationView?.canShowCallout = true
             annotationView?.rightCalloutAccessoryView = UIButton(type: .infoLight)
-
+            
             
         } else {
             annotationView?.annotation = annotation
@@ -460,7 +472,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     
     @IBAction func mapButtonTapped(_ sender: Any) {
-      
+        
         
         //self.locationManager2.startUpdatingLocation()
         //self.loadMapSettings()
@@ -470,6 +482,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             listingsMapView.isHidden = false
             tableView.isHidden = true
             listingState = "Map"
+            
         } else if listingState == "Map" {
             //mapButton.setTitle("Map", for: .normal)
             mapButton.setImage(UIImage(named: "MapButton"), for: .normal)
@@ -478,6 +491,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             listingState = "List"
         }
         
+        filterButton.setImage(UIImage(named: "enableFilter"), for: .normal)
         isFiltering = false
         greyView.isHidden = true
         
@@ -511,7 +525,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func loadListings() {
-
+        
         for i in 41...80 {
             let listing1 = Listing()
             listing1.id = String(i)
@@ -528,7 +542,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             listing1.URL = ""
             Listings.append(listing1)
         }
-
+        
         AllListings.listings = Listings
         tableView.reloadData()
         
@@ -551,9 +565,9 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     
-
+    
     @IBAction func expandSearchFilter(_ sender: Any) {
-
+        
         UIView.animate(withDuration: 0.2, animations: {
             self.searchView.frame = CGRect(x: 19, y: -90, width: 337, height: 47)
             self.tableView.frame = CGRect(x: 0, y: 366, width: self.view.frame.width, height: self.view.frame.size.height-44)
@@ -563,7 +577,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.upButton.isHidden = false
             self.whereButton.isHidden = false
             self.whereSearchBar.isHidden = false
-
+            
         })
         
         
@@ -581,36 +595,36 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }else{
             
         }
-
         
-
+        
+        
         
     }
-
+    
     @IBAction func retractSearchFilter(_ sender: Any) {
         //height is 98
-       dismissKeyboard()
+        dismissKeyboard()
         //self.whereSearchBar.isHidden = true
         
-       /* UIView.animate(withDuration: 0.2, animations: {
-            self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
-            self.tableView.frame = CGRect(x: 0, y: 98, width: self.view.frame.width, height: self.view.frame.size.height)
-        }, completion: {
-            (value: Bool) in
-            //self.blurBg.hidden = true
-            self.upButton.isHidden = true
-            //self.whereButton.isHidden = true
-
-
-        })*/
-
+        /* UIView.animate(withDuration: 0.2, animations: {
+         self.searchView.frame = CGRect(x: 19, y: 28, width: 337, height: 47)
+         self.tableView.frame = CGRect(x: 0, y: 98, width: self.view.frame.width, height: self.view.frame.size.height)
+         }, completion: {
+         (value: Bool) in
+         //self.blurBg.hidden = true
+         self.upButton.isHidden = true
+         //self.whereButton.isHidden = true
+         
+         
+         })*/
+        
     }
     
     @IBAction func whereSearch(_ sender: Any) {
         /*UIView.animate(withDuration: 0.2) {
-            self.whereSearchBar.frame = CGRect(x: self.whereButton.frame.origin.x + 100, y: self.whereButton.center.y - 22  , width: 180, height: 44)
-            
-        }*/
+         self.whereSearchBar.frame = CGRect(x: self.whereButton.frame.origin.x + 100, y: self.whereButton.center.y - 22  , width: 180, height: 44)
+         
+         }*/
         
         
     }
@@ -634,19 +648,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         if isFiltering {
             // set image
             
-            filterButton.imageView?.image = UIImage(named: "disableFilter")
+            filterButton.setImage(UIImage(named: "disableFilter"), for: .normal)
             showFilters()
             dismissKeyboard()
-            
-            
-            
-            
+            mapButton.isEnabled = false
             
             
         } else {
             // set image
-            filterButton.imageView?.image = UIImage(named: "enableFilter")
+            filterButton.setImage(UIImage(named: "enableFilter"), for: .normal)
             greyView.isHidden = true
+            mapButton.isEnabled = false
         }
         
         
@@ -656,7 +668,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         greyView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
         greyView.center = tableView.center
-        greyView.backgroundColor = .gray
+        greyView.backgroundColor = UIColor(white: 1, alpha: 0.8)
         view.addSubview(greyView)
         greyView.isHidden = true
         
@@ -682,10 +694,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let filterSearchButton = UIButton(frame: CGRect(x: greyView.bounds.origin.x, y: greyView.bounds.origin.y + priceView.frame.height + ratingView.frame.height, width: greyView.frame.width, height: 46))
         filterSearchButton.backgroundColor = UIColor(hex: "4BBE4B")
-        filterSearchButton.setTitle("Filter Search", for: .normal)
+        filterSearchButton.setTitle("Search", for: .normal)
         filterSearchButton.titleLabel?.textColor = .white
         filterSearchButton.addTarget(self, action: #selector(filterSearch), for: .touchUpInside)
-
+        
         
         priceSlider = RangeSeekSlider(frame: CGRect(x: 14, y: priceView.bounds.origin.y + 50, width: priceView.frame.width - 28, height: 19))
         priceSlider.isUserInteractionEnabled = true
@@ -719,7 +731,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         divideValue = priceSlider.frame.width / 3
         
-       
+        
         
         let priceOneLabel = UILabel(frame: CGRect(x: 28, y: greyView.bounds.origin.y + 80, width: 20, height: 30))
         priceOneLabel.text = "$"
@@ -735,8 +747,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         priceTwoLabel.textAlignment = .center
         priceTwoLabel.sizeToFit()
         priceTwoLabel.frame.origin.x = priceTwoLabel.frame.origin.x - priceTwoLabel.bounds.width
-
-
+        
+        
         let priceThreeLabel = UILabel(frame: CGRect(x: (divideValue * 2), y: greyView.bounds.origin.y + 80, width: 30, height: 30))
         priceThreeLabel.text = "$$$"
         priceThreeLabel.font = UIFont(name: "Helvetica", size: 15)
@@ -745,7 +757,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         priceThreeLabel.textAlignment = .center
         priceThreeLabel.sizeToFit()
         priceThreeLabel.frame.origin.x = (priceSlider.frame.width - divideValue) - (28-priceThreeLabel.frame.width)
-
+        
         let priceFourLabel = UILabel(frame: CGRect(x: (divideValue * 3), y: greyView.bounds.origin.y + 80, width: 30, height: 30))
         priceFourLabel.text = "$$$$"
         priceFourLabel.font = UIFont(name: "Helvetica", size: 15)
@@ -762,7 +774,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         ratingOneLabel.textAlignment = .center
         ratingOneLabel.backgroundColor = UIColor(hex: "4BBE4B")
         ratingOneLabel.clipsToBounds = true
-
+        
         //ratingOneLabel.sizeToFit()
         ratingTwoLabel = UILabel(frame: CGRect(x: 28 + divideValue, y: ratingView.bounds.origin.y + 80, width: 30, height: 30))
         ratingTwoLabel.text = "GREAT"
@@ -809,7 +821,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         priceView.addSubview(priceThreeLabel)
         priceView.addSubview(priceFourLabel)
         ratingView.addSubview(ratingOneLabel)
-
+        
         greyView.addSubview(ratingSliderLabel)
         greyView.addSubview(priceView)
         greyView.addSubview(ratingView)
@@ -818,71 +830,76 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         greyView.addSubview(ratingSlider)
         greyView.isUserInteractionEnabled = true
         //greyView.addSubview(ratingSlider)
-
+        
         
         
         
     }
-
+    
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
-        print("hello")
-        if slider == ratingSlider {
-            print("hiiii")
-            switch maxValue{
-                
-            case 0:
-                ratingOneLabel.text = "GOOD"
-                ratingOneLabel.sizeToFit()
-                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
-                ratingOneLabel.layer.cornerRadius = 5
-                ratingOneLabel.frame.origin.x = 28
-                ratingOneLabel.clipsToBounds = true
-
-                
-            case 1:
-                ratingOneLabel.text = "GREAT"
-                ratingOneLabel.sizeToFit()
-                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
-                ratingOneLabel.layer.cornerRadius = 5
-                ratingOneLabel.frame.origin.x = (28 + divideValue) - (ratingOneLabel.frame.width/2) - 10
-                ratingOneLabel.clipsToBounds = true
-                
-            case 2:
-                ratingOneLabel.text = "EXCELLENT"
-                ratingOneLabel.sizeToFit()
-                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
-                ratingOneLabel.layer.cornerRadius = 5
-               ratingOneLabel.frame.origin.x = (ratingSlider.frame.width - divideValue) - (ratingOneLabel.frame.width / 2.0)
-                ratingOneLabel.clipsToBounds = true
-
-                
-            case 3:
-                
-                ratingOneLabel.text = "OUTSTANDING"
-                ratingOneLabel.sizeToFit()
-                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
-                ratingOneLabel.layer.cornerRadius = 5
-                ratingOneLabel.frame.origin.x = (divideValue*3) - ratingOneLabel.frame.width
-                ratingOneLabel.clipsToBounds = true
-
-                
-                
-            default:
-                ratingOneLabel.text = "GOOD"
-                ratingOneLabel.sizeToFit()
-                ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
-                ratingOneLabel.layer.cornerRadius = 5
-                ratingOneLabel.frame.origin.x = 28
-                ratingOneLabel.clipsToBounds = true
-
-            }
+        print("hello\(maxValue)")
+        
+        print("hiiii")
+        switch maxValue{
+            
+        case 0.0:
+            ratingOneLabel.text = "GOOD"
+            ratingOneLabel.sizeToFit()
+            ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+            ratingOneLabel.layer.cornerRadius = 5
+            ratingOneLabel.frame.origin.x = 28
+            ratingOneLabel.clipsToBounds = true
+            
+            
+        case 1.0:
+            ratingOneLabel.text = "GREAT"
+            ratingOneLabel.sizeToFit()
+            ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+            ratingOneLabel.layer.cornerRadius = 5
+            ratingOneLabel.frame.origin.x = (28 + divideValue) - (ratingOneLabel.frame.width/2) - 10
+            //ratingOneLabel.clipsToBounds = true
+            print("WELL HELLO")
+            
+        case 2.0:
+            ratingOneLabel.text = "EXCELLENT"
+            ratingOneLabel.sizeToFit()
+            ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+            ratingOneLabel.layer.cornerRadius = 5
+            ratingOneLabel.frame.origin.x = (ratingSlider.frame.width - divideValue) - (ratingOneLabel.frame.width / 2.0)
+            ratingOneLabel.clipsToBounds = true
+            
+            
+        case 3.0:
+            
+            ratingOneLabel.text = "OUTSTANDING"
+            ratingOneLabel.sizeToFit()
+            ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+            ratingOneLabel.layer.cornerRadius = 5
+            ratingOneLabel.frame.origin.x = (divideValue*3) - ratingOneLabel.frame.width
+            ratingOneLabel.clipsToBounds = true
+            
+            
+            
+        default:
+            ratingOneLabel.text = "GOOD"
+            ratingOneLabel.sizeToFit()
+            ratingOneLabel.frame = CGRect(x: ratingOneLabel.bounds.origin.x, y: pvY + 80, width: ratingOneLabel.frame.width + 20, height: ratingOneLabel.frame.height + 20)
+            ratingOneLabel.layer.cornerRadius = 5
+            ratingOneLabel.frame.origin.x = 28
+            ratingOneLabel.clipsToBounds = true
+            
         }
+        
         
     }
     
     @objc func filterSearch(sender: UIButton!) {
         print("Button tapped")
-        
+        mapButton.isEnabled = true
+        var geocoder = CLGeocoder()
+
+        self.itemResults = Listings
+        //isFiltering = false
         dismissKeyboard()
         filterPriceOptions.removeAll()
         filterRatingOption = ""
@@ -890,7 +907,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let minPrice = priceSlider.selectedMinValue
         let maxPrice = priceSlider.selectedMaxValue
         let rating = ratingSlider.selectedMaxValue
-            
+        
         switch minPrice {
             
         case 1:
@@ -920,14 +937,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             if minPrice == 2 {
                 filterPriceOptions.append("$$")
             }
-
+            
             filterPriceOptions.append("$$$")
         case 4:
             if minPrice == 1 {
                 filterPriceOptions.append("$")
                 filterPriceOptions.append("$$")
                 filterPriceOptions.append("$$$")
-
+                
             }
             if minPrice == 2 {
                 filterPriceOptions.append("$$")
@@ -964,12 +981,49 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             self.filtered = self.itemResults.filter({ (item) -> Bool in
                 let location: NSString = item.location as NSString
                 let ratingNew = self.getRating(rating: item.overallRating)
+                
+                let searchText = self.whereSearchBar.text
+                
+                if searchText != "" {
+                    
+                    var isInContinent = false
+                    var continents = [self.AFRICA,self.ASIA,self.EUROPE,self.NORTH_AMERICA,self.SOUTH_AMERICA,self.OCEANIA]
+                    
+                    for continent in continents {
+                        
+                        for country in continent.countries {
+                            if (continent.name.lowercased().range(of: searchText!.lowercased()) != nil &&
+                                item.location.lowercased().range(of: country.lowercased()) != nil){
+                            
+                                isInContinent = true
+                                print("continent found")
+                                
+                            }
+                            
+                        
+                        }
+                    
+                    }
+                    
+                    if (isInContinent && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                        print("HERE 1")
+                        return true
+                    }
+                    
+                    
+                    if (item.location.lowercased().range(of:searchText!.lowercased()) != nil && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                        print("HERE 2")
 
-                if let searchText = self.whereSearchBar.text {
-                    let range = location.range(of: searchText, options: .caseInsensitive)
+                        return true
+                    }
+                    
+                    let range = location.range(of: searchText!, options: .caseInsensitive)
                     if (range.location != NSNotFound && self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                        print("HERE 3")
+
                         return true
                     } else {
+                        
                         return false
                     }
                     
@@ -977,6 +1031,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 } else {
                     if (self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
                         return true
+                        print("HERE 4")
+
                     } else {
                         return false
                     }
@@ -998,24 +1054,27 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     self.itemResults = Listings
                 }
                 
-                
+                self.isFiltering = true
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
                 
                 
             } else {
                 self.filterButton.imageView?.image = UIImage(named: "enableFilter")
-                self.greyView.isHidden = true
                 searchActive = true
                 print("results \(self.filtered)")
                 self.itemResults = self.filtered
                 self.whereSearchBar.resignFirstResponder()
                 self.addAnnotations()
+                self.greyView.isHidden = true
+                self.isFiltering = false
                 self.tableView.reloadData()
+                self.listingsMapView.showAnnotations(self.listingsMapView.annotations, animated: true)
+                
             }
         }
         
-
+        
         
         
     }
@@ -1036,15 +1095,15 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let username = "zenun@isokanco.com"  // <--- Update this
         let password
             = "GedeonGRC1"  // <--- Update this
-
+        
         var fetchedItems =
-
-
+            
+            
             SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://ec2-54-236-13-40.compute-1.amazonaws.com:9080")!) { user, error in
                 guard let user = user else {
                     fatalError(String(describing: error))
                 }
-
+                
                 DispatchQueue.main.async {
                     // Open Realm
                     let configuration = Realm.Configuration(
@@ -1052,7 +1111,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     )
                     self.realm = try! Realm(configuration: configuration)
                     
-
+                    
                     //print("all the LISTING objects are \(self.realm.objects(Listing.self))")
                     // Show initial tasks
                     func updateList() {
@@ -1067,41 +1126,41 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         for result in results {
                             
-                           
-                                let temp = Listing()
-                                temp.id = result.id
-                                temp.image1 = result.image1
-                                temp.image2 = result.image2
-                                temp.image3 = result.image3
-                                temp.image4 = result.image4
-                                temp.name = result.name
-                                temp.location = result.location
-                                temp.stars = result.stars
-                                temp.isFavorited = result.isFavorited
-                                temp.URL = result.URL
-                                temp.listingDescription = result.listingDescription
-                                temp.completed = result.completed
-                                temp.price = result.price
-                                temp.overallRating = result.overallRating
-                                temp.materialAndResourceScore = result.materialAndResourceScore
-                                temp.managementScore = result.managementScore
-                                temp.communityScore = result.communityScore
-                                temp.waterScore = result.waterScore
-                                temp.recycleAndWaterScore = result.recycleAndWaterScore
-                                temp.energyScore = result.energyScore
-                                temp.indoorsScore = result.indoorsScore
-                                temp.longitude = result.longitude
-                                temp.latitude = result.latitude
+                            
+                            let temp = Listing()
+                            temp.id = result.id
+                            temp.image1 = result.image1
+                            temp.image2 = result.image2
+                            temp.image3 = result.image3
+                            temp.image4 = result.image4
+                            temp.name = result.name
+                            temp.location = result.location
+                            temp.stars = result.stars
+                            temp.isFavorited = result.isFavorited
+                            temp.URL = result.URL
+                            temp.listingDescription = result.listingDescription
+                            temp.completed = result.completed
+                            temp.price = result.price
+                            temp.overallRating = result.overallRating
+                            temp.materialAndResourceScore = result.materialAndResourceScore
+                            temp.managementScore = result.managementScore
+                            temp.communityScore = result.communityScore
+                            temp.waterScore = result.waterScore
+                            temp.recycleAndWaterScore = result.recycleAndWaterScore
+                            temp.energyScore = result.energyScore
+                            temp.indoorsScore = result.indoorsScore
+                            temp.longitude = result.longitude
+                            temp.latitude = result.latitude
                             
                             if temp.overallRating != 0 {
                                 Listings.append(temp)
                                 self.itemResults.append(temp)
                                 print(temp)
                             }
-
+                            
                             
                         }
-
+                        
                         if self.items.realm == nil  {
                             self.items = converted
                         }
@@ -1113,35 +1172,35 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.tableView.reloadData()
                     }
                     updateList()
-
+                    
                     // Notify us when Realm changes
                     self.notificationToken = self.realm.addNotificationBlock { _,_  in
                         updateList()
                     }
-
+                    
                 }
-
+                
         }
     }
     
-   
+    
     
     func add() {
-
         
-            //self.items.append(Task(value: ["text": text]))
-            let items = Listings
-            
-           // let sampleListing = Listing()
-            try! self.realm.write {
-                //self.realm.add(Task(value: ["text": text]))
-                self.realm.add(items)
-                self.tableView.reloadData()
-                
-            }
+        
+        //self.items.append(Task(value: ["text": text]))
+        let items = Listings
+        
+        // let sampleListing = Listing()
+        try! self.realm.write {
+            //self.realm.add(Task(value: ["text": text]))
+            self.realm.add(items)
+            self.tableView.reloadData()
             
         }
-
+        
+    }
+    
     
     deinit {
         notificationToken.stop()
@@ -1189,7 +1248,7 @@ extension ExploreViewController {
             cell.heartButton.setImage(#imageLiteral(resourceName: "greenHeart"), for: UIControlState.normal)
         } else {
             cell.heartButton.setImage(#imageLiteral(resourceName: "whiteHeart"), for: UIControlState.normal)
-
+            
         }
         
         
@@ -1199,8 +1258,8 @@ extension ExploreViewController {
                                    value: UIFont.boldSystemFont(ofSize: 12),
                                    range: NSRange(location:0, length: mutableString.length)
         )
-
-
+        
+        
         if itemResults[indexPath.row].overallRating > 90 {
             var combo = NSMutableAttributedString()
             combo.append(mutableString)
@@ -1230,12 +1289,12 @@ extension ExploreViewController {
             cell.scoreLabel.text = "Eco-Rating: GOOD"
             //cell.scoreLabel.attributedText = combo
         }
-
+        
         
         let divideValue = CGFloat(itemResults[indexPath.row].overallRating)/100.00
         let dynamicWidth = (cell.frame.width * divideValue) - 30
         let frame = CGRect(x: cell.greenBar.frame.origin.x, y: cell.greenBar.frame.origin.y, width:dynamicWidth , height: cell.greenBar.frame.height)
-
+        
         
         cell.greenBar.frame = frame
         
@@ -1253,11 +1312,11 @@ extension ExploreViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         selectedListing = itemResults[indexPath.row]
-
+        
         var cell:OfferTableViewCell = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
-
+        
         var myVC = storyboard?.instantiateViewController(withIdentifier: "OfferDetailViewController") as! OfferDetailViewController
-
+        
         myVC.imageURL = selectedListing.image1
         myVC.name = selectedListing.name
         myVC.location = selectedListing.location
@@ -1307,7 +1366,7 @@ extension ExploreViewController {
         //print("the green bar dynamic width is \(dynamicWidth)")
         //print("the score fraction to divide/multiply by is \(divideValue)")
         myVC.scoreBar.frame = frame
-
+        
         self.navigationController?.pushViewController(myVC, animated: true)
     }
     func fetchData(){
@@ -1360,66 +1419,133 @@ extension ExploreViewController:UISearchBarDelegate  {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
         //view.addGestureRecognizer(tap)
-
+        
+        
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
         //view.removeGestureRecognizer(tap)
-
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         //view.removeGestureRecognizer(tap)
-
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         //view.removeGestureRecognizer(tap)
-
-        print(searchBar.text)
         
-        SwiftSpinner.show("Searching")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            print("Are we there yet?")
-            SwiftSpinner.hide()
-            
-            self.filtered = self.itemResults.filter({ (item) -> Bool in
-                let tmp: NSString = item.location as NSString
-                let range = tmp.range(of: searchBar.text!, options: .caseInsensitive)
-                return range.location != NSNotFound
-            })
-            if(self.filtered.count == 0){
-                searchActive = false;
-                //no results
-                print("No results")
-                let alertController = UIAlertController(title: "No luck", message: "Check back later", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
-                    (result : UIAlertAction) -> Void in
-                    print("OK")
-                    self.itemResults = Listings
+        mapButton.isEnabled = true
+        if isFiltering {
+            filterSearch(sender: nil)
+        } else {
+
+            print(searchBar.text)
+
+            SwiftSpinner.show("Searching")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                print("Are we there yet?")
+                SwiftSpinner.hide()
+
+                self.filtered = self.itemResults.filter({ (item) -> Bool in
+                    let location: NSString = item.location as NSString
+                    let ratingNew = self.getRating(rating: item.overallRating)
+                    
+                    let searchText = self.whereSearchBar.text
+                    
+                    if searchText != "" {
+                        
+                        var isInContinent = false
+                        var continents = [self.AFRICA,self.ASIA,self.EUROPE,self.NORTH_AMERICA,self.SOUTH_AMERICA,self.OCEANIA]
+                        
+                        for continent in continents {
+                            
+                            for country in continent.countries {
+                                if (continent.name.lowercased().range(of: searchText!.lowercased()) != nil &&
+                                    item.location.lowercased().range(of: country.lowercased()) != nil){
+                                    
+                                    isInContinent = true
+                                    print("continent found")
+                                    
+                                }
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        if (isInContinent) {
+                            print("HERE 1")
+                            return true
+                        }
+                        
+                        
+                        if (item.location.lowercased().range(of:searchText!.lowercased()) != nil) {
+                            print("HERE 2")
+                            
+                            return true
+                        }
+                        
+                        let range = location.range(of: searchText!, options: .caseInsensitive)
+                        if (range.location != NSNotFound) {
+                            print("HERE 3")
+                            
+                            return true
+                        } else {
+                            
+                            return false
+                        }
+                        
+                        
+                    } else {
+                        if (self.filterPriceOptions.contains(item.price) && self.filterRatingOption.contains(ratingNew)) {
+                            return true
+                            print("HERE 4")
+                            
+                        } else {
+                            return false
+                        }
+                        
+                        
+                    }
+                    
+                    return false
+                    //return range.location != NSNotFound
+                })
+                if(self.filtered.count == 0){
+                    searchActive = false;
+                    //no results
+                    print("No results")
+                    let alertController = UIAlertController(title: "No luck", message: "Check back later", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in
+                        print("OK")
+                        self.itemResults = Listings
+                    }
+
+
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+
+
+                } else {
+                    searchActive = true
+                    print("results \(self.filtered)")
+                    self.itemResults = self.filtered
+                    searchBar.resignFirstResponder()
+                    self.addAnnotations()
+                    self.tableView.reloadData()
+                    self.listingsMapView.showAnnotations(self.listingsMapView.annotations, animated: true)
                 }
-                
-                
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
-                
-                
-            } else {
-                searchActive = true
-                print("results \(self.filtered)")
-                self.itemResults = self.filtered
-                searchBar.resignFirstResponder()
-                self.addAnnotations()
-                self.tableView.reloadData()
             }
         }
-
-
-
-
+        
+        
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -1429,7 +1555,7 @@ extension ExploreViewController:UISearchBarDelegate  {
             self.itemResults = Listings
             self.tableView.reloadData()
         }
-
+        
     }
     
     func getRating(rating: Int) -> String{
@@ -1448,7 +1574,7 @@ extension ExploreViewController:UISearchBarDelegate  {
         
     }
     
-
+    
     
 }
 
@@ -1476,3 +1602,8 @@ extension Sequence {
     }
 }
 
+struct Continent {
+    var name : String!
+    var countries: [String]!
+    
+}
