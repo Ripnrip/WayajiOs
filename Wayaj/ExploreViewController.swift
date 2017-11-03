@@ -1255,8 +1255,35 @@ extension ExploreViewController {
             
         }
         
-        
-        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Offer")
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            let dateCreated = results as! [Offer]
+//
+//
+            for _datecreated in dateCreated {
+                let offer = Listing()
+                offer.isFavorited = _datecreated.isFavorited
+                offer.id = _datecreated.id!
+                let imageURL = URL(string:_datecreated.imageURL!)
+                //var imageView = UIImageView().kf.setImage(with: imageURL)
+
+                if (offer.id == itemResults[indexPath.row].id && offer.isFavorited == true) {
+                    cell.heartButton.setImage(#imageLiteral(resourceName: "greenHeart"), for: UIControlState.normal)
+                } else {
+                    cell.heartButton.setImage(#imageLiteral(resourceName: "whiteHeart"), for: UIControlState.normal)
+            }
+
+            
+            }
+            
+        }catch let err as NSError {
+            print(err.debugDescription)
+        }
+
+
         var mutableString = NSMutableAttributedString(string: "Eco-Rating")
         mutableString.addAttribute(NSAttributedStringKey.font,
                                    value: UIFont.boldSystemFont(ofSize: 12),

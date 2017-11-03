@@ -9,6 +9,8 @@
 import UIKit
 import Kingfisher
 import Popover
+import Spring
+import CoreData
 
 enum RatingType {
     case Material
@@ -33,6 +35,11 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var infoLabel: UITextView!
     @IBOutlet var scoreBar: UIView!
+    
+    @IBOutlet weak var heartButton: SpringButton!
+    
+    var isSaved = Bool()
+
     
     @IBOutlet weak var ecoRatingScoreLabel: UILabel!
     
@@ -145,7 +152,111 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
         self.navigationController?.pushViewController(myVC, animated: true)
         
     }
+    
+    
+    @IBAction func saveOffer(_ sender: Any) {
+        
+        heartButton.animation = "pop"
+        heartButton.animate()
+        
+        let imageData: NSData = UIImagePNGRepresentation(baseImageView.image!)! as NSData
+        
+            if let listing = currentListing {
+            
+                if isSaved == false {
+                    
+                    isSaved = true
+                    heartButton.setImage(UIImage(named: "greenHeart"), for: .normal)
+                    storeOffer(listingObject: listing, name: nameLabel.text!, location: locationLabel.text!, isFavorited: true, image: imageData , price: 199.99, id: listing.id)
+                    
+                } else {
+                    isSaved = false
+                    heartButton.setImage(UIImage(named: "whiteHeart"), for: .normal)
+                    storeOffer(listingObject: listing, name: nameLabel.text!, location: locationLabel.text!, isFavorited: false, image: imageData , price: 199.99, id: listing.id)
+                    
+                    
+                }
+        }
+    }
+    
+    func storeOffer (listingObject:Listing, name: String, location: String, isFavorited: Bool, image: NSData, price: Double, id:String) {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        // 1
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity = NSEntityDescription.entity(forEntityName: "Offer",in: managedContext)!
+        
+        
+        let offer = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        // 3
+        
+        offer.setValue(name, forKeyPath: "name")
+        offer.setValue(isFavorited, forKey: "isFavorited")
+        offer.setValue(location, forKey: "location")
+        offer.setValue(image, forKey: "image")
+        offer.setValue(listingObject.image1, forKey: "imageURL")
+        offer.setValue(listingObject.price, forKey: "price")
+        offer.setValue(listingObject.id, forKey: "id")
+        offer.setValue(listingObject.listingDescription, forKey: "information")
+        offer.setValue(listingObject.overallRating, forKey: "overallRating")
+        offer.setValue(listingObject.communityScore, forKey: "communityScore")
+        offer.setValue(listingObject.energyScore, forKey: "energyScore")
+        offer.setValue(listingObject.indoorsScore, forKey: "indoorsScore")
+        offer.setValue(listingObject.managementScore, forKey: "managementScore")
+        offer.setValue(listingObject.materialAndResourceScore, forKey: "materialAndResourceScore")
+        offer.setValue(listingObject.recycleAndWaterScore, forKey: "recycleAndWaterScore")
+        offer.setValue(listingObject.waterScore, forKey: "waterScore")
+        
+        
+        
+        // 4
+        do {
+            if isFavorited == false {
+                deleteRecord(withID: id)
+                return
+            }
+            try managedContext.save()
+            //people.append(person)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func deleteRecord(withID:String) -> Void {
+        let moc = getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Offer")
+        //fetchRequest.predicate = NSPredicate.init(format: "id==\(withID)")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", withID)
+        
+        let result = try? moc.fetch(fetchRequest)
+        let resultData = result as! [Offer]
+        
+        for object in resultData {
+            moc.delete(object)
+        }
+        
+        do {
+            try moc.save()
+            print("saved the delete!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        } catch {
+            
+        }
+        
+    }
 
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
 
 }
 

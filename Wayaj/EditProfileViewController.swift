@@ -31,9 +31,25 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     var activitiesTokenView = CLTokenInputView()
     var bucketListTokenView = CLTokenInputView()
     
-    var places = [String]()
+   
+    var places: [String] = []
+    var places2: [String] = []
+
+    //var activities: [String] = []
+    var bucketList: [String] = []
+    var bucketList2: [String] = []
+
+    
     var activities = [String]()
-    var bucketList = [String]()
+    var attractions = [String]()
+    var naturalSetting = [String]()
+    var hotel = [String]()
+    var activities2 = [String]()
+    var attractions2 = [String]()
+    var naturalSetting2 = [String]()
+    var hotel2 = [String]()
+    var setOfActivities = [[String]]()
+
     
     var imageURL:String = ""
     var name:String = ""
@@ -79,11 +95,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
         
         
-        bioTextView.text = "Bio"
-        bioTextView.textColor = UIColor(hex: "C7C7CD")
-        //bioTextView.font = UIFont(name: "Helvetica", size: 16)
-        bioTextView.font = UIFont.systemFont(ofSize: 16.5)
-        bioTextView.textContainerInset = UIEdgeInsetsMake(10, 8, 10, 16)
+        
         placesTokenView.placeholderText = "Where have you previously traveled"
         activitiesTokenView.placeholderText = "What are your favorite activities"
         bucketListTokenView.placeholderText = "What's on your bucket list?"
@@ -150,6 +162,17 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         placesVisitedView.layer.borderColor = UIColor(hex: "D9E8FC").cgColor
         chooseFavActivitiesButton.layer.borderWidth = 3
         chooseFavActivitiesButton.layer.borderColor = UIColor(hex: "D9E8FC").cgColor
+        
+        
+        if let aboutMe = UserDefaults.standard.string(forKey: "aboutMe") {
+            self.bioTextView.text = aboutMe
+        } else {
+            bioTextView.text = "Bio"
+            bioTextView.textColor = UIColor(hex: "C7C7CD")
+            //bioTextView.font = UIFont(name: "Helvetica", size: 16)
+            bioTextView.font = UIFont.systemFont(ofSize: 16.5)
+            bioTextView.textContainerInset = UIEdgeInsetsMake(10, 8, 10, 16)
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -295,16 +318,32 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
         UserDefaults.standard.setValue(true, forKey: "userViewedInitialTutorial2")
         
-        if bioTextView.text != "" {
+        places2 = UserDefaults.standard.stringArray(forKey: "placesTraveled") ?? [String]()
+        activities2 = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesDefault") ?? [String]()
+        attractions2 = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesAttractions") ?? [String]()
+        naturalSetting2 = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesNaturalSetting") ?? [String]()
+        hotel2 = UserDefaults.standard.stringArray(forKey: "favoriteActivitiesHotel") ?? [String]()
+        bucketList2 = UserDefaults.standard.stringArray(forKey: "bucketListArray") ?? [String]()
+
+        
+        setOfActivities = [activities,attractions,naturalSetting,hotel]
+        
+        if bioTextView.text != "" || bioTextView.text != "Bio" {
             UserDefaults.standard.setValue(bioTextView.text, forKey: "aboutMe")
         }
         if places.count > 0 {
+            for place in places2 {
+                places.append(place)
+            }
             UserDefaults.standard.setValue(places, forKey: "placesTraveled")
         }
         
         //UserDefaults.standard.setValue(activities, forKey: "favoriteActivities")
         
         if bucketList.count > 0 {
+            for bucket in bucketList2 {
+                bucketList.append(bucket)
+            }
             UserDefaults.standard.setValue(bucketList, forKey: "bucketListArray")
         }
         

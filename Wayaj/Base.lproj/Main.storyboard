@@ -988,6 +988,7 @@
                         <outlet property="ecoRatingScoreLabel" destination="HhS-VW-Gah" id="yLl-5I-zDz"/>
                         <outlet property="expandButton" destination="GXD-te-zTk" id="FWR-HQ-pUA"/>
                         <outlet property="gallery" destination="XdW-vJ-hxg" id="rY0-Rp-P3S"/>
+                        <outlet property="heartButton" destination="Vgb-eO-Vqb" id="Fft-5o-AGA"/>
                         <outlet property="infoLabel" destination="87U-JL-LoL" id="7Pp-dm-etD"/>
                         <outlet property="informationTextView" destination="87U-JL-LoL" id="lQm-wr-iKf"/>
                         <outlet property="locationLabel" destination="Eud-Pi-Ngi" id="SlS-9i-wdc"/>
@@ -1074,6 +1075,9 @@
                                             <real key="value" value="0.0"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="saveOffer:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="FoU-na-oVz"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
