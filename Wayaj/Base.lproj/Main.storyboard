@@ -840,6 +840,9 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-RV-Aq5">
                                                             <rect key="frame" x="345" y="36" width="43" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="43" id="UdM-m0-ogS"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -886,15 +889,15 @@
                                                     <constraints>
                                                         <constraint firstItem="tcS-72-hXI" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="22" id="0FE-a4-xri"/>
                                                         <constraint firstItem="6J4-lH-zwo" firstAttribute="leading" secondItem="dvJ-7c-P8B" secondAttribute="leading" constant="22" id="4q4-Sg-8Lw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dTg-RV-Aq5" secondAttribute="trailing" constant="26" id="796-yE-4G7"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="baseline" secondItem="6J4-lH-zwo" secondAttribute="baseline" id="AT5-bY-gBF"/>
                                                         <constraint firstAttribute="trailing" secondItem="5pS-KF-Ysp" secondAttribute="trailing" constant="32" id="Bx8-32-saW"/>
                                                         <constraint firstItem="5pS-KF-Ysp" firstAttribute="leading" secondItem="tcS-72-hXI" secondAttribute="trailing" constant="8" id="ENR-pQ-uSG"/>
-                                                        <constraint firstItem="dTg-RV-Aq5" firstAttribute="top" secondItem="5pS-KF-Ysp" secondAttribute="bottom" constant="5" id="McQ-Vd-0In"/>
+                                                        <constraint firstItem="dTg-RV-Aq5" firstAttribute="leading" secondItem="6J4-lH-zwo" secondAttribute="trailing" constant="15" id="L7s-AK-7Nu"/>
                                                         <constraint firstItem="tcS-72-hXI" firstAttribute="top" secondItem="dvJ-7c-P8B" secondAttribute="top" constant="8" id="PcE-zK-gmZ"/>
                                                         <constraint firstItem="dTg-RV-Aq5" firstAttribute="centerY" secondItem="dvJ-7c-P8B" secondAttribute="centerY" id="cJU-k6-iPP"/>
                                                         <constraint firstAttribute="trailing" secondItem="5pS-KF-Ysp" secondAttribute="trailing" constant="32" id="gzq-h2-1bS"/>
-                                                        <constraint firstItem="dTg-RV-Aq5" firstAttribute="leading" secondItem="6J4-lH-zwo" secondAttribute="trailing" constant="15" id="mgr-xu-plj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dTg-RV-Aq5" secondAttribute="trailing" constant="26" id="lxF-7d-sy5"/>
+                                                        <constraint firstItem="dTg-RV-Aq5" firstAttribute="top" secondItem="5pS-KF-Ysp" secondAttribute="bottom" constant="5" id="vOf-Zx-5Yq"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

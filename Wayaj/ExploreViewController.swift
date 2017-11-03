@@ -658,7 +658,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             // set image
             filterButton.setImage(UIImage(named: "enableFilter"), for: .normal)
             greyView.isHidden = true
-            mapButton.isEnabled = false
+            mapButton.isEnabled = true
         }
         
         
@@ -1068,6 +1068,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 self.addAnnotations()
                 self.greyView.isHidden = true
                 self.isFiltering = false
+                self.filterButton.setImage(UIImage(named: "enableFilter"), for: .normal)
                 self.tableView.reloadData()
                 self.listingsMapView.showAnnotations(self.listingsMapView.annotations, animated: true)
                 
@@ -1438,6 +1439,9 @@ extension ExploreViewController:UISearchBarDelegate  {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         //view.removeGestureRecognizer(tap)
+        
+        self.itemResults = Listings
+
         
         mapButton.isEnabled = true
         if isFiltering {
