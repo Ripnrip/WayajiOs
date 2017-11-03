@@ -99,27 +99,27 @@ class ActivitiesPageViewController: UIPageViewController, MagneticDelegate, UIPa
         }
         
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        label.text = "Activities"
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        label.text = "Activities - Page 1/4"
         label.textColor = UIColor(hex: "478147")
         label.backgroundColor = .clear
         label.font = UIFont(name: "Helvetica", size: 20)
         label.center = CGPoint(x: magneticView.bounds.width / 2, y: 90)
         label.textAlignment = .center
-        let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        label2.text = "Attractions"
+        let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        label2.text = "Attractions - Page 2/4"
         label2.textColor = UIColor(hex: "478147")
         label2.font = UIFont(name: "Helvetica", size: 20)
         label2.center = CGPoint(x: magneticView2.bounds.width / 2, y: 90)
         label2.textAlignment = .center
-        let label3 = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 40))
-        label3.text = "Natural Setting"
+        let label3 = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 40))
+        label3.text = "Natural Setting - Page 3/4"
         label3.textColor = UIColor(hex: "478147")
         label3.font = UIFont(name: "Helvetica", size: 20)
         label3.center = CGPoint(x: magneticView3.bounds.width / 2, y: 90)
         label3.textAlignment = .center
-        let label4 = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-        label4.text = "Hotel"
+        let label4 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
+        label4.text = "Hotel - Page 4/4"
         label4.textColor = UIColor(hex: "478147")
         label4.font = UIFont(name: "Helvetica", size: 20)
         label4.center = CGPoint(x: magneticView4.bounds.width / 2, y: 90)

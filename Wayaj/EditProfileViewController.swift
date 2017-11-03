@@ -154,6 +154,10 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         // Do any additional setup after loading the view.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLayoutSubviews() {
         placesTokenView.frame = CGRect(x: 0, y: 0, width: placesVisitedView.frame.width, height: placesVisitedView.frame.height)
         placesTokenView.backgroundColor = .white
@@ -162,6 +166,10 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
         bucketListTokenView.frame = CGRect(x: 0, y: 0, width: bucketListView.frame.width, height: bucketListView.frame.height)
         
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor(hex: "61C561")
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
         //NSLayoutConstraint(item: bucketListTokenView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 22.0).isActive = true
         
         //NSLayoutConstraint(item: bucketListTokenView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 10.0).isActive = true

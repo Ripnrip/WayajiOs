@@ -29,6 +29,16 @@ class SavedViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
 
     }
+    
+    override func viewDidLayoutSubviews() {
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor(hex: "61C561")
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     func fetchData(){
         self.results.removeAll()

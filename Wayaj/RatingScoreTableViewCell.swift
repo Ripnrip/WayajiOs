@@ -20,7 +20,7 @@ class RatingScoreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        infoButton.addTarget(self, action: #selector(presentPopUp2), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,5 +38,16 @@ class RatingScoreTableViewCell: UITableViewCell {
 //        let popover = Popover()
 //        popover.show(txtLabel, point: startPoint)
 //    }
+    
+    @objc func presentPopUp2() {
+        let startPoint = infoButton.center
+        let txtLabel = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 250))
+        txtLabel.text = popUpString
+        txtLabel.isEditable = false
+        print("POP UP")
+        
+        let popover = Popover()
+        popover.show(txtLabel, point: startPoint)
+    }
 
 }

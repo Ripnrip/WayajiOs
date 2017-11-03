@@ -139,6 +139,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         //aboutMeTextView.attributedText = attributedAboutMeString
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+        let statusBarColor = UIColor(hex: "61C561")
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1172)
