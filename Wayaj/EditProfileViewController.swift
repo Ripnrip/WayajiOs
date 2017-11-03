@@ -359,7 +359,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-        profileImageView.contentMode = .scaleAspectFit //3
+        profileImageView.contentMode = .scaleAspectFill //3
         profileImageView.image = chosenImage //4
         image = chosenImage
         dismiss(animated:true, completion: nil) //5

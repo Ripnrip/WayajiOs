@@ -393,6 +393,8 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
             myVC.isFavorited = false
             myVC.price = selectedListing2.price
             myVC.currentListing = selectedListing2
+            myVC.scoreVal = CGFloat(selectedListing2.overallRating)
+
             
             var mutableString = NSMutableAttributedString(string: "Eco-Rating")
             mutableString.addAttribute(NSAttributedStringKey.font,
@@ -1063,6 +1065,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 self.filterButton.imageView?.image = UIImage(named: "enableFilter")
                 searchActive = true
                 print("results \(self.filtered)")
+                self.itemResults.removeAll()
                 self.itemResults = self.filtered
                 self.whereSearchBar.resignFirstResponder()
                 self.addAnnotations()
@@ -1325,6 +1328,7 @@ extension ExploreViewController {
         myVC.isFavorited = false
         myVC.price = selectedListing.price
         myVC.currentListing = selectedListing
+        myVC.scoreVal = CGFloat(selectedListing.overallRating)
         
         var mutableString = NSMutableAttributedString(string: "Eco-Rating")
         mutableString.addAttribute(NSAttributedStringKey.font,
@@ -1539,6 +1543,7 @@ extension ExploreViewController:UISearchBarDelegate  {
                 } else {
                     searchActive = true
                     print("results \(self.filtered)")
+                    self.itemResults.removeAll()
                     self.itemResults = self.filtered
                     searchBar.resignFirstResponder()
                     self.addAnnotations()
