@@ -169,7 +169,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         dismissKeyboard()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedListing = results[indexPath.section]
+        selectedListing = results[indexPath.row]
         
         var cell:OfferTableViewCell = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
         
@@ -183,7 +183,9 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         myVC2.price = selectedListing.price
         myVC2.currentListing = selectedListing
         
-        let divideValue = CGFloat(results[indexPath.section].overallRating)/100.00
+        print(selectedListing.name)
+        
+        let divideValue = CGFloat(results[indexPath.row].overallRating)/100.00
         let dynamicWidth = myVC2.scoreBar.frame.width * divideValue
         let frame = CGRect(x: myVC2.scoreBar.frame.origin.x, y: myVC2.scoreBar.frame.origin.y, width:dynamicWidth , height: myVC2.scoreBar.frame.height)
         //print("the green bar dynamic width is \(dynamicWidth)")
