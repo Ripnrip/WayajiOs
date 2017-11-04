@@ -318,7 +318,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath as IndexPath) as! ActivityCollectionViewCell
 
-            cell.backgroundColor = UIColor(hex: "61C561")
+            var setOfColors = [UIColor(hex: "F5B700"),UIColor(hex: "DC0073"),UIColor(hex: "4EA3FF"),UIColor(hex: "138A36")]
+            
+            cell.backgroundColor = setOfColors[indexPath.row]
             cell.layer.cornerRadius = 7
             
             //cell.textLabel.text = activities[indexPath.row]
