@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         btn.isHidden = true
-        onboarding.isHidden = true
+        onboardingView.isHidden = true
         let shouldShowTutorial:Bool = (UserDefaults.standard.bool(forKey: "userViewedInitialTutorial1"))
         if ( shouldShowTutorial == false ) {
         self.navigationController?.isNavigationBarHidden = true
@@ -41,10 +41,10 @@ class ViewController: UIViewController {
         onboardingView.dataSource = self
         onboardingView.delegate = self
         onboardingView.translatesAutoresizingMaskIntoConstraints = false
-        //view.addSubview(onboardingView)
+        view.addSubview(onboardingView)
         
         // add constraints
-        /*for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
+        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
             let constraint = NSLayoutConstraint(item: onboardingView,
                                                 attribute: attribute,
                                                 relatedBy: .equal,
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                                                 constant: 0)
             view.addConstraint(constraint)
             
-        }*/
+        }
         skipButton.frame = CGRect(x: 251, y: self.view.frame.size.height-70, width: 98, height: 30)
 
         onboardingView.addSubview(skipButton)

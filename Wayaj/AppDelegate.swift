@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import OneSignal
 import IQKeyboardManagerSwift
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sync hashed email if you have a login system or collect it.
         //   Will be used to reach the user at the most optimal time of day.
         // OneSignal.syncHashedEmail(userEmail)                 application launch.
+        
+        Twitter.sharedInstance().start(withConsumerKey:"U35XX0kokpQ0OJReU8fnB0CAE", consumerSecret:"1LgG29TPaCwJtlxglNYxo4usSrQgc81pRUCJeTOjzTrtwE9Cjb")
+        
         return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     }
     
@@ -70,6 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return AWSMobileClient.sharedInstance.withApplication(application, withURL: url, withSourceApplication: sourceApplication, withAnnotation: annotation)
     }
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return Twitter.sharedInstance().application(app, open: url, options: options)
+    }
+    
     
     
      //MARK: - Core Data stack

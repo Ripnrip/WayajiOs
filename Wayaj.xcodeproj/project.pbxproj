@@ -13,6 +13,8 @@
 		182E6F061F866F3D00CA071D /* BucketListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182E6F051F866F3D00CA071D /* BucketListCollectionViewCell.swift */; };
 		187BD2371F7D79F500FF29D2 /* CustomWayajAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */; };
 		188A0F021F8558DC00673F66 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188A0F011F8558DC00673F66 /* EditProfileViewController.swift */; };
+		188F4A3A1FB6297500FE6CD6 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F4A371FB628A400FE6CD6 /* FBSDKMessengerShareKit.framework */; };
+		188F4A3B1FB6297500FE6CD6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F4A361FB628A300FE6CD6 /* FBSDKShareKit.framework */; };
 		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
@@ -111,6 +113,10 @@
 		187BD2361F7D79F500FF29D2 /* CustomWayajAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWayajAnnotationView.swift; sourceTree = "<group>"; };
 		188A0F011F8558DC00673F66 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLTokenInputBridgingHeader.h; sourceTree = "<group>"; };
+		188F4A351FB60A4100FE6CD6 /* TwitterKitBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterKitBridgingHeader.h; sourceTree = "<group>"; };
+		188F4A361FB628A300FE6CD6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		188F4A371FB628A400FE6CD6 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		188F4A391FB628BF00FE6CD6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapPinAnnotation.swift; sourceTree = "<group>"; };
 		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188F4A3A1FB6297500FE6CD6 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				188F4A3B1FB6297500FE6CD6 /* FBSDKShareKit.framework in Frameworks */,
 				58910CD91EF2C1700049E477 /* libsqlite3.tbd in Frameworks */,
 				58910CD71EF2C15D0049E477 /* libz.tbd in Frameworks */,
 				58910CD51EF2C09B0049E477 /* AWSMobileHubHelper.framework in Frameworks */,
@@ -235,6 +243,9 @@
 		4D1BDFF88D1AB0F001C889BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188F4A391FB628BF00FE6CD6 /* FBSDKShareKit.framework */,
+				188F4A371FB628A400FE6CD6 /* FBSDKMessengerShareKit.framework */,
+				188F4A361FB628A300FE6CD6 /* FBSDKShareKit.framework */,
 				841FF4411F40FEB00003A37F /* Realm.framework */,
 				841FF4421F40FEB00003A37F /* RealmSwift.framework */,
 				58910CD81EF2C1700049E477 /* libsqlite3.tbd */,
@@ -351,6 +362,7 @@
 			children = (
 				188A0F031F85796E00673F66 /* CLTokenInputBridgingHeader.h */,
 				182E6F071F87D37300CA071D /* UICollectionViewLeftAlignedLayoutBridgingHeader.h */,
+				188F4A351FB60A4100FE6CD6 /* TwitterKitBridgingHeader.h */,
 				843073541F744555007D6A70 /* Networking */,
 				840767901EBA596D00238327 /* Login */,
 				58608F2D1EE0746700A0FDF3 /* Questionaire */,
@@ -1004,6 +1016,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L7RW5A7QE3;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1030,6 +1043,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L7RW5A7QE3;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

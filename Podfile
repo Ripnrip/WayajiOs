@@ -22,6 +22,8 @@ target 'Wayaj' do
   pod 'AWSSNS'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  pod 'FacebookShare', :git => 'https://github.com/1amageek/facebook-sdk-swift'
   pod 'SwiftSpinner'
   pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'swift3'
   pod 'RealmSwift'
@@ -32,6 +34,7 @@ target 'Wayaj' do
   pod 'UICollectionViewLeftAlignedLayout'
   pod 'Magnetic'
   pod 'IQKeyboardManagerSwift', '4.0.10'
+  pod 'TwitterKit'
   pod "Cheers"
 
 

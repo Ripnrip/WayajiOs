@@ -8,6 +8,7 @@
 
 import UIKit
 import CLTokenInputView
+import TwitterKit
 
 class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -22,6 +23,13 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     @IBOutlet weak var placesVisitedView: UIView!
     @IBOutlet weak var favoriteActivitiesView: UIView!
     @IBOutlet weak var bucketListView: UIView!
+    @IBOutlet weak var settingsView: UIView!
+    
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var instagramButton: UIButton!
+    @IBOutlet weak var twitterButton: UIButton!
+    
+    
     
     
     @IBOutlet weak var chooseFavActivitiesButton: UIButton!
@@ -30,6 +38,8 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     var placesTokenView = CLTokenInputView()
     var activitiesTokenView = CLTokenInputView()
     var bucketListTokenView = CLTokenInputView()
+    
+    var twitterLoggedIn = false
     
    
     var places: [String] = []
@@ -56,6 +66,8 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     var email:String = ""
     var gender:String = ""
     var image:UIImage = UIImage()
+    
+    var twitterUserID = ""
     
     var shouldNotShowQuestionaire:Bool!
     
@@ -151,6 +163,13 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         chooseFavActivitiesButton.layer.shadowRadius = 1.0
         chooseFavActivitiesButton.layer.cornerRadius = 5
         
+        settingsView.layer.shadowColor = UIColor.black.cgColor
+        settingsView.layer.shadowOpacity = 0.2
+        settingsView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        settingsView.layer.shadowRadius = 1.0
+        settingsView.layer.cornerRadius = 5
+        settingsView.clipsToBounds = false
+        
         placesTokenView.layer.cornerRadius = 5
         bucketListTokenView.layer.cornerRadius = 5
         
@@ -162,13 +181,15 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         placesVisitedView.layer.borderColor = UIColor(hex: "D9E8FC").cgColor
         chooseFavActivitiesButton.layer.borderWidth = 3
         chooseFavActivitiesButton.layer.borderColor = UIColor(hex: "D9E8FC").cgColor
+        settingsView.layer.borderWidth = 3
+        settingsView.layer.borderColor = UIColor(hex: "D9E8FC").cgColor
         
         
         if let aboutMe = UserDefaults.standard.string(forKey: "aboutMe") {
             self.bioTextView.text = aboutMe
         } else {
             bioTextView.text = "Bio"
-            bioTextView.textColor = UIColor(hex: "C7C7CD")
+            bioTextView.textColor = UIColor(hex: "3D444E")
             //bioTextView.font = UIFont(name: "Helvetica", size: 16)
             bioTextView.font = UIFont.systemFont(ofSize: 16.5)
             bioTextView.textContainerInset = UIEdgeInsetsMake(10, 8, 10, 16)
@@ -189,6 +210,9 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
         bucketListTokenView.frame = CGRect(x: 0, y: 0, width: bucketListView.frame.width, height: bucketListView.frame.height)
         
+        twitterButton.imageView?.contentMode = .scaleAspectFit
+
+        
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor(hex: "61C561")
         statusBarView.backgroundColor = statusBarColor
@@ -196,6 +220,16 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         //NSLayoutConstraint(item: bucketListTokenView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 22.0).isActive = true
         
         //NSLayoutConstraint(item: bucketListTokenView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 10.0).isActive = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Twitter.sharedInstance().sessionStore.session() != nil {
+            self.twitterLoggedIn = true
+            self.twitterButton.alpha = 1.0
+            UserDefaults.standard.set(true, forKey: "twitterIntegrated")
+            print("TWITT LOGGED IN")
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -388,10 +422,85 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         //self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func facebookButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func instagramButtonTapped(_ sender: Any) {
+        
+//        let composer = TWTRComposer()
+//
+//        composer.setText("Testing Twitter API")
+//        composer.setImage(UIImage(named: "twitterkit"))
+//
+//        composer.show(from: self) { (result) in
+//
+//
+//            if (result == .done) {
+//                print("Successfully composed Tweet")
+//            } else {
+//                print("Cancelled composing")
+//
+//            }
+//        }
+//
+        
+        let alert = UIAlertController(title: "Instagram coming soon!", message: "Instragram integration coming soon! You'll soon be able to connect with your fellow instagrammers!", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+        })
+        
+        self.present(alert, animated: true, completion: nil)
+
+        
+    }
+    
+    func signInWithTwitter() {
+        
+        if !UserDefaults.standard.bool(forKey: "twitterIntegrated") {
+        
+            Twitter.sharedInstance().logIn(completion: { (session, error) in
+                print("SESSION121: \(session)")
+                if (session != nil) {
+                    self.twitterUserID = session!.userID
+                } else {
+                    print("error121: \(error!.localizedDescription)");
+                }
+            })
+            
+            
+        } else {
+            
+            
+            let alert = UIAlertController(title: "Twitter logged in.", message: "You are already connected to Twitter. Would you like to disconnect?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default) { action in
+                UserDefaults.standard.set(false, forKey: "twitterIntegrated")
+                self.twitterButton.alpha = 0.4
+                Twitter.sharedInstance().sessionStore.logOutUserID(self.twitterUserID)
+            })
+            alert.addAction(UIAlertAction(title: "No", style: .default) { action in
+                //UserDefaults.standard.set(true, forKey: "twitterIntegrated")
+            })
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+    
+    @IBAction func twitterButtonTapped(_ sender: Any) {
+        signInWithTwitter()        
+    }
+    
+    @IBAction func profileTypeValueChanged(_ sender: Any) {
+    }
+    
+    @IBAction func notificationsValueChanged(_ sender: Any) {
+    }
+    
     
     @IBAction func doneInitialTapped(_ sender: Any) {
         initialEdit()
     }
+    
+    
     
     
     //MARK: - Delegates

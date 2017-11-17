@@ -10,8 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 import UICollectionViewLeftAlignedLayout
+import TwitterKit
+import FacebookShare
+import MessageUI
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,MKMapViewDelegate, UIPopoverPresentationControllerDelegate, MFMessageComposeViewControllerDelegate {
     
     
 
@@ -31,6 +34,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var bucketListCollectionView: UICollectionView!
     
     @IBOutlet weak var placesVisitedMapView: MKMapView!
+    
+    @IBOutlet weak var facebookShareButton: UIButton!
+    
     
     var places: [String] = []
     //var activities: [String] = []
@@ -145,6 +151,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         let statusBarColor = UIColor(hex: "61C561")
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
+        
+        facebookShareButton.layer.cornerRadius = 5
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -173,6 +181,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         nameView.layer.cornerRadius = 5
         aboutMeTextView.layer.cornerRadius = 5
         placesVisitedMapView.layer.cornerRadius = 5
+        
         
         aboutMeTextView.layer.shadowColor = UIColor.black.cgColor
         aboutMeTextView.layer.shadowOpacity = 0.2
@@ -217,8 +226,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    @IBAction func shareButtonTapped(_ sender: Any) {
-        let textToShare = "Hey! Check out this awesome earth friendly travel app calle Wayaj!"
+    func shared(_ sender: Any) {
+        let textToShare = "Hey! Check out this awesome earth friendly travel app called Wayaj! https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8"
         
         if let appURL = NSURL(string: "https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8") {
             let objectsToShare = [textToShare, appURL] as [Any]
@@ -231,6 +240,123 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.present(activityVC, animated: true, completion: nil)
         }
         print("shared!")
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+     
+        let appURL = URL(string: "https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8")
+        let linkCont = LinkShareContent(url: appURL!, title: "Download this amazing earth friendly travel app!", description: "Discover and book eco-friendly hotels and resorts worldwide with Wayaj. From jungle lodges to LEED buildings in major international cities, Wayaj offers the right earth friendly destination to every traveler, no matter what the budget is. All the hotels are rated according to several criteria to ensure they are managed in a sustainable and socially responsible way.", quote: nil, imageURL: nil)
+        
+        let shareDialog = MessageDialog(content: linkCont)
+        shareDialog.completion = { result in
+            
+        }
+        
+        do {
+            
+            try shareDialog.show()
+        } catch {
+            let alert = UIAlertController(title: "You need to install Facebook Messenger to invite your Facebook Friends", message: "Would you like to install Facebook Messenger?", preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .default) { action in
+                        
+                        let fbURL = URL(string: "https://itunes.apple.com/us/app/messenger/id454638411?mt=8")
+                        
+                        UIApplication.shared.open(fbURL!, options: [:], completionHandler: nil)
+                    })
+                    alert.addAction(UIAlertAction(title: "No", style: .default) { action in
+                        
+                    })
+            
+                    self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    @IBAction func messagesShareButtonTapped(_ sender: Any) {
+        
+//        let phoneNumber = ""
+//        let text = "Some message"
+//
+//        let text = "Discover and book eco-friendly hotels and resorts worldwide with Wayaj. https://itunes.apple.com/us/app/messenger/id454638411?mt=8"
+//        guard let messageAppURL = URL(string: "sms:\(phoneNumber)&body=\(text)")
+//        else { return }
+//        if UIApplication.shared.canOpenURL(messageAppURL) {
+//            UIApplication.shared.open(messageAppURL, options: [:], completionHandler: nil)
+//        }
+        
+        
+        if MFMessageComposeViewController.canSendText() == true {
+            let recipients:[String] = []
+            let messageController = MFMessageComposeViewController()
+            messageController.messageComposeDelegate  = self
+            messageController.recipients = recipients
+            messageController.body = "Discover and book eco-friendly hotels and resorts worldwide with Wayaj. https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8"
+            self.present(messageController, animated: true, completion: nil)
+        } else {
+            //handle text messaging not available
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func signInWithTwitter() {
+        
+        Twitter.sharedInstance().logIn(completion: { (session, error) in
+            print("SESSION121: \(session)")
+            if (session != nil) {
+                print("signed121 in as \(session!.userName)")
+            } else {
+                print("error121: \(error!.localizedDescription)")
+            }
+        })
+        
+        
+    }
+    
+    @IBAction func tweetButtonTapped(_ sender: Any) {
+        
+                let composer = TWTRComposer()
+        
+                composer.setText("Testing Twitter API")
+                composer.setImage(UIImage(named: "twitterkit"))
+        
+                composer.show(from: self) { (result) in
+        
+        
+                    if (result == .done) {
+                        print("Successfully composed Tweet")
+                    } else {
+                        print("Cancelled composing")
+        
+                    }
+                }
+        
+        
+    }
+    
+    @IBAction func facebookShareButtonTapped(_ sender: Any) {
+        
+        let appURL = URL(string: "https://itunes.apple.com/us/app/wayaj/id1237768824?mt=8")
+        let linkCont = LinkShareContent(url: appURL!, title: "Download this amazing earth friendly travel app!", description: "Discover and book eco-friendly hotels and resorts worldwide with Wayaj. From jungle lodges to LEED buildings in major international cities, Wayaj offers the right earth friendly destination to every traveler, no matter what the budget is. All the hotels are rated according to several criteria to ensure they are managed in a sustainable and socially responsible way.", quote: nil, imageURL: nil)
+        
+        let shareDialog = ShareDialog(content: linkCont)
+        shareDialog.completion = { result in
+            
+        }
+        
+        do {
+            
+            try shareDialog.show()
+        } catch {
+            
+        }
+        
+        
+        
+        
     }
     
     
@@ -375,18 +501,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             geocoder.geocodeAddressString(place) {
                 placemarks, error in
                 let placemark = placemarks?.first
-                let lat = placemark?.location?.coordinate.latitude
-                let long = placemark?.location?.coordinate.longitude
                 
-                let location = CLLocation(latitude: lat!, longitude: long!)
+                if let lat = placemark?.location?.coordinate.latitude, let long = placemark?.location?.coordinate.longitude {
+                    let location = CLLocation(latitude: lat, longitude: long)
+                    let anno = MKPointAnnotation()
+                    anno.coordinate = location.coordinate
+                    
+                    
+                    //TODO - custom anno with listing object then open listing when anno is tapped
+                    self.placesVisitedMapView.addAnnotation(anno)
+                    self.annotations.append(anno)
+                }
                 
-                let anno = MKPointAnnotation()
-                anno.coordinate = location.coordinate
-
                 
-                //TODO - custom anno with listing object then open listing when anno is tapped
-                self.placesVisitedMapView.addAnnotation(anno)
-                self.annotations.append(anno)
+                
             }
             
             

@@ -49,12 +49,12 @@ extension ViewController: PaperOnboardingDataSource {
         return 4
     }
     
-    /*func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-        
-        //    item.titleLabel?.backgroundColor = .redColor()
-        //    item.descriptionLabel?.backgroundColor = .redColor()
-        //    item.imageView = ...
-    }*/
+//    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+//
+//            item.titleLabel?.backgroundColor = .redColor()
+//            item.descriptionLabel?.backgroundColor = .redColor()
+//            item.imageView = ...
+//    }
     
     
 }
@@ -75,7 +75,7 @@ extension ViewController: PaperOnboardingDelegate {
     }
     
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-        
+
         //    item.titleLabel?.backgroundColor = .redColor()
         //    item.descriptionLabel?.backgroundColor = .redColor()
         //    item.imageView = ...

@@ -18,6 +18,9 @@ final class User: Object {
     @objc dynamic var photo = ""
     @objc dynamic var info = ""
     @objc dynamic var gender = ""
+    @objc dynamic var notifications = false
+    @objc dynamic var profile = ""
+    
     
     override class func primaryKey() -> String? {
         return "facebook_id"
