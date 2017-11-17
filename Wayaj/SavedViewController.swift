@@ -29,7 +29,9 @@ class SavedViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
+
+        self.title = "Saved"
         
         fetchData()
 
@@ -37,7 +39,7 @@ class SavedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
 
     }
     
@@ -150,24 +152,31 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         )
         
         
-        if results[indexPath.row].overallRating >= 90 {
+        if results[indexPath.row].overallRating > 90 {
             var combo = NSMutableAttributedString()
             combo.append(mutableString)
-            combo.append(NSMutableAttributedString(string: ": Excellent"))
+            combo.append(NSMutableAttributedString(string: ": OUTSTANDING"))
+            
+            cell.scoreLabel.text = "Eco-Rating: OUTSTANDING"
+            //cell.scoreLabel.attributedText = combo
+        }
+        else if results[indexPath.row].overallRating >= 76 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": EXCELLENT"))
             
             cell.scoreLabel.text = "Eco-Rating: EXCELLENT"
-            //cell.scoreLabel.attributedText = combo
-        } else if results[indexPath.row].overallRating >= 76  {
+        }   else if results[indexPath.row].overallRating >= 61 {
             var combo = NSMutableAttributedString()
             combo.append(mutableString)
-            combo.append(NSMutableAttributedString(string: ": Great"))
+            combo.append(NSMutableAttributedString(string: ": GREAT"))
             
             cell.scoreLabel.text = "Eco-Rating: GREAT"
             //cell.scoreLabel.attributedText = combo
-        } else if results[indexPath.row].overallRating >= 40 && results[indexPath.row].overallRating < 76 {
+        }   else  {
             var combo = NSMutableAttributedString()
             combo.append(mutableString)
-            combo.append(NSMutableAttributedString(string: ": Good"))
+            combo.append(NSMutableAttributedString(string: ": GOOD"))
             
             cell.scoreLabel.text = "Eco-Rating: GOOD"
             //cell.scoreLabel.attributedText = combo
@@ -192,6 +201,7 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         
         dismissKeyboard()
         
+        selectedListing = Listing()
         tableView.deselectRow(at: indexPath, animated: true)
         selectedListing = results[indexPath.row]
         
@@ -206,8 +216,44 @@ extension SavedViewController: UITableViewDelegate, UITableViewDataSource{
         myVC2.isFavorited = false
         myVC2.price = selectedListing.price
         myVC2.currentListing = selectedListing
+        myVC2.scoreVal = CGFloat(selectedListing.overallRating)
         
         print(selectedListing.name)
+        
+        var mutableString = NSMutableAttributedString(string: "Eco-Rating")
+        mutableString.addAttribute(NSAttributedStringKey.font,
+                                   value: UIFont.boldSystemFont(ofSize: 12),
+                                   range: NSRange(location:0, length: mutableString.length)
+        )
+        
+        if selectedListing.overallRating > 90 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": OUTSTANDING"))
+            myVC2.ecoRatingScoreLabel.text = "Eco-Rating: OUTSTANDING"
+            //cell.scoreLabel.attributedText = combo
+        }
+        else if selectedListing.overallRating >= 76 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": EXCELLENT"))
+            
+            myVC2.ecoRatingScoreLabel.text = "Eco-Rating: EXCELLENT"
+        }   else if selectedListing.overallRating >= 61 {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GREAT"))
+            
+            myVC2.ecoRatingScoreLabel.text = "Eco-Rating: GREAT"
+            //cell.scoreLabel.attributedText = combo
+        }   else  {
+            var combo = NSMutableAttributedString()
+            combo.append(mutableString)
+            combo.append(NSMutableAttributedString(string: ": GOOD"))
+            
+            myVC2.ecoRatingScoreLabel.text = "Eco-Rating: GOOD"
+            //cell.scoreLabel.attributedText = combo
+        }
         
         let divideValue = CGFloat(results[indexPath.row].overallRating)/100.00
         let dynamicWidth = myVC2.scoreBar.frame.width * divideValue

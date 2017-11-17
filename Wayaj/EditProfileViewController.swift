@@ -73,6 +73,8 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     
     let picker = UIImagePickerController()
     
+    var initialTwitter = true
+    
     
     // Add 3 cltokenviews to bucketlist, locations traveled, fav activities
     // 3 arrays to store all values for each
@@ -88,8 +90,11 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
         
         if shouldNotShowQuestionaire == false {
             doneInitialButton.isHidden = false
+            initialTwitter = true
+            twitterButton.layer.opacity = 0.4
         } else {
             doneInitialButton.isHidden = true
+            initialTwitter = false
             
         }
         //scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 900)
@@ -486,7 +491,15 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     }
     
     @IBAction func twitterButtonTapped(_ sender: Any) {
-        signInWithTwitter()        
+        
+        if !initialTwitter {
+            signInWithTwitter()
+        } else {
+            let alert = UIAlertController(title: "Save profile to continue", message: "You can integrate Twitter at a later time. Visit your settings later to integrate Twitter", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            })
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func profileTypeValueChanged(_ sender: Any) {

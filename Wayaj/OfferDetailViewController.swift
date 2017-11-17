@@ -141,6 +141,10 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
 
  
     }
+    
+    override func viewDidLayoutSubviews() {
+        navigationController?.navigationBar.barTintColor = .white
+    }
 
     //require method
     func downloadImages(_ url: String, _ index: Int) {
