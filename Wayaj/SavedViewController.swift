@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Kingfisher
+import Spring
 
 
 class SavedViewController: UIViewController {
@@ -16,17 +17,27 @@ class SavedViewController: UIViewController {
     var offers: [NSManagedObject] = []
     var results:[Listing] = []
     @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet weak var saveBGImageView: UIImageView!
+    @IBOutlet weak var saveInfoLabel: UILabel!
+    @IBOutlet weak var boatImageView: SpringImageView!
+    @IBOutlet weak var airplaneImageView: SpringImageView!
+    
+    @IBOutlet weak var airBalloonImageView: SpringImageView!
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.navigationController?.navigationBar.isHidden = true
+        
         fetchData()
 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
 
     }
     
@@ -52,8 +63,21 @@ class SavedViewController: UIViewController {
             
             if results.count == 0 {
                 self.tableView.isHidden = true
+                saveBGImageView.isHidden = false
+                saveInfoLabel.isHidden = false
+                boatImageView.isHidden = false
+                airplaneImageView.isHidden = false
+                airBalloonImageView.isHidden = false
+                self.view.backgroundColor = UIColor(hex: "2C6CD8")
             }else{
                 self.tableView.isHidden = false
+                saveBGImageView.isHidden = true
+                saveInfoLabel.isHidden = true
+                boatImageView.isHidden = true
+                airplaneImageView.isHidden = true
+                airBalloonImageView.isHidden = true
+                self.view.backgroundColor = UIColor(hex: "EAF2F9")
+
             }
             
             for _datecreated in dateCreated {

@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var placesVisitedMapView: MKMapView!
     
     @IBOutlet weak var facebookShareButton: UIButton!
+    @IBOutlet weak var twitterShareButton: UIButton!
     
     
     var places: [String] = []
