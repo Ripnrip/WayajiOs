@@ -1157,7 +1157,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             temp.latitude = result.latitude
                             
                             if temp.overallRating != 0 {
-                                Listings.append(temp)
+                                //Listings.append(temp)
                                 self.itemResults.append(temp)
                                 print(temp)
                             }
@@ -1171,11 +1171,11 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         //Listings = Array(converted)
                         //print(converted)
                         //self.itemResults = Array(converted)
-                       // self.itemResults.shuffle()
+                        self.itemResults.shuffle()
                         
-//                        for item in self.itemResults {
-//                            Listings.append(item)
-//                        }
+                        for item in self.itemResults {
+                            Listings.append(item)
+                        }
                         self.addAnnotations()
                         self.tableView.reloadData()
                     }
