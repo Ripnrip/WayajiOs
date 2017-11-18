@@ -319,22 +319,36 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     @IBAction func tweetButtonTapped(_ sender: Any) {
         
-                let composer = TWTRComposer()
-        
-                composer.setText("Testing Twitter API")
-                composer.setImage(UIImage(named: "twitterkit"))
-        
-                composer.show(from: self) { (result) in
-        
-        
-                    if (result == .done) {
-                        print("Successfully composed Tweet")
-                    } else {
-                        print("Cancelled composing")
-        
+        if (UIApplication.shared.canOpenURL(URL(string:"twitter://")!)) {
+                    let composer = TWTRComposer()
+
+                    composer.setText("Testing Twitter API")
+                    composer.setImage(UIImage(named: "twitterkit"))
+
+                    composer.show(from: self) { (result) in
+
+
+                        if (result == .done) {
+                            print("Successfully composed Tweet")
+                        } else {
+                            print("Cancelled composing")
+
+                        }
                     }
-                }
-        
+        } else {
+            let alert = UIAlertController(title: "You need to install Twitter to be able to Tweet!", message: "Would you like to install Twitter?", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default) { action in
+
+                let twitterURL = URL(string: "https://itunes.apple.com/us/app/twitter/id333903271?mt=8")
+
+                UIApplication.shared.open(twitterURL!, options: [:], completionHandler: nil)
+            })
+            alert.addAction(UIAlertAction(title: "No", style: .default) { action in
+
+            })
+
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     

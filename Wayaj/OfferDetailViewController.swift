@@ -296,7 +296,7 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
 
 }
 
-extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -394,6 +394,27 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        var popover = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ratingDetail") as! RatingDetailViewController
+        
+        let cell = tableView.cellForRow(at: indexPath) as! RatingScoreTableViewCell
+        popover.rating = cell.popUpString
+        
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+        popover.popoverPresentationController?.delegate = self
+        popover.popoverPresentationController?.sourceView = ratingsTableView.cellForRow(at: indexPath)
+        popover.popoverPresentationController?.sourceRect = (ratingsTableView.cellForRow(at: indexPath)?.bounds)!
+        //popover.ratingTextView.text = popUpStrings[indexPath.row]
+        popover.preferredContentSize = CGSize(width: 250, height: 200)
+
+        
+        self.present(popover, animated: true, completion: nil)
+        
+    }
+    
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
     
     

@@ -4,38 +4,8 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>sms:</string>
-		<string>fbapi</string>
-		<string>fb-messenger-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-		<string>fb</string>
-		<string>twitter</string>
-		<string>twitterauth</string>
-	</array>
 	<key>AWS</key>
 	<dict>
-		<key>MobileHub</key>
-		<dict>
-			<key>ProjectClientId</key>
-			<string>MobileHub c693e468-9a6a-4b25-bcd5-13c4e2e797b1 aws-my-sample-app-ios-swift-v0.16</string>
-		</dict>
-		<key>UserFileManager</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>us-east-1</string>
-				<key>S3Bucket</key>
-				<string>wayaj-userfiles-mobilehub-711897623</string>
-			</dict>
-		</dict>
 		<key>Cognito</key>
 		<dict>
 			<key>Default</key>
@@ -62,41 +32,36 @@
 			<key>Default</key>
 			<dict/>
 		</dict>
+		<key>MobileHub</key>
+		<dict>
+			<key>ProjectClientId</key>
+			<string>MobileHub c693e468-9a6a-4b25-bcd5-13c4e2e797b1 aws-my-sample-app-ios-swift-v0.16</string>
+		</dict>
+		<key>UserFileManager</key>
+		<dict>
+			<key>Default</key>
+			<dict>
+				<key>Region</key>
+				<string>us-east-1</string>
+				<key>S3Bucket</key>
+				<string>wayaj-userfiles-mobilehub-711897623</string>
+			</dict>
+		</dict>
 	</dict>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We use your library for selecting pictures</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
-	</array>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.96</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>FacebookAppID</key>
-	<string>816265795187129</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>FacebookDisplayName</key>
-	<string>Wayaj</string>
+	<string>3.00</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -107,19 +72,54 @@
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>816265795187129</string>
+	<key>FacebookDisplayName</key>
+	<string>Wayaj</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>sms:</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>fb</string>
+		<string>twitter</string>
+		<string>twitterauth</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We use your library for selecting pictures</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to help enhance your experience, and enjoy all the features</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We Use your photos in some of our features</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We Use your photos in some of our features</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to help enhance your experience, and enjoy all the features</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

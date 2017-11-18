@@ -29,18 +29,18 @@ class RatingScoreTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    @IBAction func presentPopUp(_ sender: Any) {
-//        let startPoint = infoButton.center
-//        let txtLabel = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 250))
-//        txtLabel.text = popUpString
-//        txtLabel.isEditable = false
-//    
-//        let popover = Popover()
-//        popover.show(txtLabel, point: startPoint)
-//    }
+    @IBAction func presentPopUp(_ sender: Any) {
+        let startPoint = infoButton.center
+        let txtLabel = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 250))
+        txtLabel.text = popUpString
+        txtLabel.isEditable = false
+    
+        let popover = Popover()
+        popover.show(txtLabel, point: startPoint)
+    }
     
     @objc func presentPopUp2() {
-        let startPoint = infoButton.center
+        let startPoint = CGPoint(x: 178.5, y: 300)
         let txtLabel = UITextView(frame: CGRect(x: 0, y: 0, width: 300, height: 250))
         txtLabel.text = popUpString
         txtLabel.isEditable = false
@@ -48,6 +48,9 @@ class RatingScoreTableViewCell: UITableViewCell {
         
         let popover = Popover()
         popover.show(txtLabel, point: startPoint)
+        
+        
+        
     }
 
 }
