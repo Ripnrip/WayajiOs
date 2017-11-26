@@ -17,6 +17,8 @@
 		188F4A3A1FB6297500FE6CD6 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F4A371FB628A400FE6CD6 /* FBSDKMessengerShareKit.framework */; };
 		188F4A3B1FB6297500FE6CD6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F4A361FB628A300FE6CD6 /* FBSDKShareKit.framework */; };
 		18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */; };
+		18D99C101FC917A000888B4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18D99C0F1FC917A000888B4A /* GoogleService-Info.plist */; };
+		18D99C121FC9234000888B4A /* InstagramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D99C111FC9234000888B4A /* InstagramManager.swift */; };
 		53039F030A94BA98970F2EB5 /* Pods_WayajTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F78D9CBED3B423E33F173483 /* Pods_WayajTests.framework */; };
 		5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B01EF18A2C00ACA9E9 /* UtilityFunctions.swift */; };
 		5817D7B31EF18A4400ACA9E9 /* FacebookIdentityProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5817D7B21EF18A4400ACA9E9 /* FacebookIdentityProfile.swift */; };
@@ -120,6 +122,8 @@
 		188F4A371FB628A400FE6CD6 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		188F4A391FB628BF00FE6CD6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B3242D1F6C31A6000C995A /* CustomMapPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMapPinAnnotation.swift; sourceTree = "<group>"; };
+		18D99C0F1FC917A000888B4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18D99C111FC9234000888B4A /* InstagramManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramManager.swift; sourceTree = "<group>"; };
 		1E5DAE30669AEE9FA4747F14 /* Pods_WayajUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WayajUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		338E94323D7DEC58DAEC8DFA /* Pods-WayajTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.release.xcconfig"; sourceTree = "<group>"; };
 		34A207E42F3314F1E12A8D4A /* Pods-WayajTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WayajTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WayajTests/Pods-WayajTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				588922001EB78838005E5606 /* Info.plist */,
 				58608F2C1EDDF05000A0FDF3 /* Wayaj.entitlements */,
 				586BAD971EC1FFF700D792A8 /* Wayaj.xcdatamodeld */,
+				18D99C0F1FC917A000888B4A /* GoogleService-Info.plist */,
+				18D99C111FC9234000888B4A /* InstagramManager.swift */,
 			);
 			path = Wayaj;
 			sourceTree = "<group>";
@@ -635,6 +641,7 @@
 				8419CD871ECA26F300A15B1B /* Nunito-Bold.ttf in Resources */,
 				58A050111EFC50130050F718 /* CRNotificationsMedia.xcassets in Resources */,
 				5817D7C51EF18D1B00ACA9E9 /* EurekaSectionHeader.xib in Resources */,
+				18D99C101FC917A000888B4A /* GoogleService-Info.plist in Resources */,
 				588921FA1EB78838005E5606 /* Main.storyboard in Resources */,
 				58910CD41EF2C09B0049E477 /* AWSFacebookSignInResources.bundle in Resources */,
 			);
@@ -678,13 +685,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WayajTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2F44372B6D05D508E87EE2D2 /* [CP] Copy Pods Resources */ = {
@@ -708,9 +718,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,13 +737,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wayaj-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		84712D9D1F639C70005BBE15 /* ShellScript */ = {
@@ -751,9 +768,72 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wayaj/Pods-Wayaj-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AMTooltip/AMTooltip.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSLambda/AWSLambda.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSSNS/AWSSNS.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/CLTokenInputView/CLTokenInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/Cheers/Cheers.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnetic/Magnetic.framework",
+				"${BUILT_PRODUCTS_DIR}/Popover/Popover.framework",
+				"${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/UICollectionViewLeftAlignedLayout/UICollectionViewLeftAlignedLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMTooltip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSLambda.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSSNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CLTokenInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cheers.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnetic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Popover.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RangeSeekSlider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICollectionViewLeftAlignedLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -766,13 +846,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WayajUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D31A89A7BE746B7E67FD648C /* [CP] Embed Pods Frameworks */ = {
@@ -851,6 +934,7 @@
 				18B3242E1F6C31A6000C995A /* CustomMapPinAnnotation.swift in Sources */,
 				843073581F74467A007D6A70 /* ViewController+SignIn.swift in Sources */,
 				187A0AA81FC0D6E30054B7B7 /* RatingDetailViewController.swift in Sources */,
+				18D99C121FC9234000888B4A /* InstagramManager.swift in Sources */,
 				841C07C21F4F422900E17958 /* RatingScoreTableViewCell.swift in Sources */,
 				5817D7B11EF18A2C00ACA9E9 /* UtilityFunctions.swift in Sources */,
 				840767941EBA636800238327 /* ExploreViewController.swift in Sources */,

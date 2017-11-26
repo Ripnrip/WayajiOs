@@ -36,6 +36,7 @@ target 'Wayaj' do
   pod 'IQKeyboardManagerSwift', '4.0.10'
   pod 'TwitterKit'
   pod "Cheers"
+  pod 'Firebase/Core'
 
 
 

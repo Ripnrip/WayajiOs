@@ -61,7 +61,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.00</string>
+	<string>3.01</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -88,6 +88,7 @@
 		<string>fb</string>
 		<string>twitter</string>
 		<string>twitterauth</string>
+        <string>instagram</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

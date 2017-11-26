@@ -9,8 +9,10 @@
 import UIKit
 import CLTokenInputView
 import TwitterKit
+import Photos
+import Social
 
-class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentInteractionControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -30,7 +32,7 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     @IBOutlet weak var twitterButton: UIButton!
     
     
-    
+    var documentController: UIDocumentInteractionController!
     
     @IBOutlet weak var chooseFavActivitiesButton: UIButton!
     
@@ -432,6 +434,57 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     
     @IBAction func instagramButtonTapped(_ sender: Any) {
         
+        
+        InstagramManager.sharedManager.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "Rainforest")! , instagramCaption: "Testing API", view: self.view)
+        
+        DispatchQueue.main.async {
+            
+            //Share To Instagrma:
+            
+            let instagramURL = URL(string: "instagram://app")
+            
+            if UIApplication.shared.canOpenURL(instagramURL!) {
+                
+                let imageData = UIImageJPEGRepresentation(UIImage(named: "Rainforest")!, 100)
+                
+                let writePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(".igo")
+                
+                do {
+                    try imageData?.write(to: URL(fileURLWithPath: writePath), options: .atomic)
+                    
+                } catch {
+                    
+                    print(error)
+                }
+                
+                let fileURL = URL(fileURLWithPath: writePath)
+                
+                self.documentController = UIDocumentInteractionController(url: fileURL)
+                
+                self.documentController.delegate = self
+                
+                self.documentController.uti = "com.instagram.exclusivegram"
+                
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    
+                    self.documentController.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+                } else {
+                    
+                    //self.documentController.presentOpenInMenu(from: self.instagramButton, animated: true)
+                    
+                }
+                
+                
+            } else {
+                
+                print(" Instagram is not installed ")
+            }
+        }
+
+        
+        
+
+        
 //        let composer = TWTRComposer()
 //
 //        composer.setText("Testing Twitter API")
@@ -449,14 +502,15 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
 //        }
 //
         
-        let alert = UIAlertController(title: "Instagram coming soon!", message: "Instragram integration coming soon! You'll soon be able to connect with your fellow instagrammers!", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-        })
-        
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Instagram coming soon!", message: "Instragram integration coming soon! You'll soon be able to connect with your fellow instagrammers!", preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+//        })
+//        
+//        self.present(alert, animated: true, completion: nil)
 
         
     }
+   
     
     func signInWithTwitter() {
         
