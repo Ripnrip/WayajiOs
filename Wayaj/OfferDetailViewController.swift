@@ -22,7 +22,7 @@ enum RatingType {
     case Indoors
 }
 
-class OfferDetailViewController: UIViewController, AACarouselDelegate {
+class OfferDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AACarouselDelegate {
 
     var type = RatingType.self
     @IBOutlet var ratingsTableView: UITableView!
@@ -40,6 +40,7 @@ class OfferDetailViewController: UIViewController, AACarouselDelegate {
     
     var isSaved = Bool()
 
+    @IBOutlet weak var userImageCollectionView: UICollectionView!
     
     @IBOutlet weak var ecoRatingScoreLabel: UILabel!
     
@@ -417,6 +418,33 @@ extension OfferDetailViewController: UITableViewDelegate, UITableViewDataSource,
         return .none
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+       
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userImageCell", for: indexPath as IndexPath) as! UserImageCollectionViewCell
+        
+            cell.image.image = UIImage(named: "user")
+        
+            return cell
+        
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+            return CGSize(width: 100, height: 100)
+            
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
     
 }

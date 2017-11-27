@@ -1073,12 +1073,13 @@
                         <outlet property="ratingsTableView" destination="ito-56-ThQ" id="35p-Qq-Su4"/>
                         <outlet property="scoreBar" destination="gGg-RW-gfw" id="Utb-th-mGN"/>
                         <outlet property="scrollView" destination="XmC-Ws-NO1" id="AFk-5A-GdN"/>
+                        <outlet property="userImageCollectionView" destination="0Yt-8e-U4Y" id="QZR-Di-eVh"/>
                         <outlet property="view" destination="XmC-Ws-NO1" id="tED-95-haA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTx-BX-dLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="XmC-Ws-NO1">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1400"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XdW-vJ-hxg" customClass="AACarousel" customModule="Wayaj" customModuleProvider="target">
@@ -1543,18 +1544,49 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j64-gs-je0">
-                            <rect key="frame" x="89" y="984" width="196" height="76"/>
+                            <rect key="frame" x="90" y="1304" width="196" height="76"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="Action Book"/>
                             <connections>
                                 <action selector="book:" destination="3Jb-0E-NeR" eventType="touchUpInside" id="jRC-Wr-gYp"/>
                             </connections>
                         </button>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Yt-8e-U4Y">
+                            <rect key="frame" x="16" y="1026" width="343" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="Pzi-Tc-KuI"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dxH-57-hhC">
+                                <size key="itemSize" width="100" height="100"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userImageCell" id="fwX-kY-3aW">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </view>
+                                </collectionViewCell>
+                            </cells>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-de-xRG">
+                            <rect key="frame" x="20" y="1236" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="consulting-message"/>
+                            <connections>
+                                <segue destination="M7L-sX-cOA" kind="show" id="O9Y-zi-3v8"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.94012945889999999" green="0.97221320870000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </scrollView>
             </objects>
-            <point key="canvasLocation" x="3262" y="-1105"/>
+            <point key="canvasLocation" x="3277" y="-1138"/>
         </scene>
         <!--Rating Detail View Controller-->
         <scene sceneID="VPW-cb-xKa">
@@ -1624,6 +1656,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UaJ-LU-QmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5600" y="-1114"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Onp-8J-YrE">
+            <objects>
+                <viewController id="M7L-sX-cOA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MHx-Mp-30n"/>
+                        <viewControllerLayoutGuide type="bottom" id="fcS-Lh-ZaQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dli-hi-Lzj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Leave a review on this place or some tips you would like other Wayajers to know about!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-BX-rbj">
+                                <rect key="frame" x="20" y="122" width="374" height="385"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8u4-pr-hNR">
+                                <rect key="frame" x="107" y="579" width="200" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="YVM-4Y-KXL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                <state key="normal" title="Post Review"/>
+                                <connections>
+                                    <action selector="doneInitialTapped:" destination="0kg-p9-Ym4" eventType="touchUpInside" id="x7w-PW-xTw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4Q-xS-bhM">
+                                <rect key="frame" x="20" y="80" width="100" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705879999997" green="0.94901960780000005" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2D-Ma-Mxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4266.666666666667" y="-1994.021739130435"/>
         </scene>
         <!--Offer Page View Controller-->
         <scene sceneID="mpF-RJ-jUc">
@@ -2739,6 +2816,7 @@
         <image name="Messages-App-Icon" width="256" height="256"/>
         <image name="appLogo" width="391" height="250"/>
         <image name="bg" width="746" height="1332"/>
+        <image name="consulting-message" width="256" height="256"/>
         <image name="editProfileIcon" width="32" height="32"/>
         <image name="enableFilter" width="6" height="21"/>
         <image name="exploreIcon" width="24" height="24"/>

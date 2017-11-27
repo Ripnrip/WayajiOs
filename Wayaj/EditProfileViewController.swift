@@ -435,13 +435,13 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
     @IBAction func instagramButtonTapped(_ sender: Any) {
         
         
-        InstagramManager.sharedManager.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "Rainforest")! , instagramCaption: "Testing API", view: self.view)
+        //InstagramManager.sharedManager.postImageToInstagramWithCaption(imageInstagram: UIImage(named: "Rainforest")! , instagramCaption: "Testing API", view: self.view)
         
         DispatchQueue.main.async {
             
             //Share To Instagrma:
             
-            let instagramURL = URL(string: "instagram://app")
+            let instagramURL = URL(string: "instagram://camera")
             
             if UIApplication.shared.canOpenURL(instagramURL!) {
                 
@@ -457,22 +457,24 @@ class EditProfileViewController: UIViewController, CLTokenInputViewDelegate, UIT
                     print(error)
                 }
                 
-                let fileURL = URL(fileURLWithPath: writePath)
+                UIApplication.shared.open(instagramURL!, options: [:], completionHandler: nil)
                 
-                self.documentController = UIDocumentInteractionController(url: fileURL)
-                
-                self.documentController.delegate = self
-                
-                self.documentController.uti = "com.instagram.exclusivegram"
-                
-                if UIDevice.current.userInterfaceIdiom == .phone {
-                    
-                    self.documentController.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
-                } else {
-                    
-                    //self.documentController.presentOpenInMenu(from: self.instagramButton, animated: true)
-                    
-                }
+//                let fileURL = URL(fileURLWithPath: writePath)
+//
+//                self.documentController = UIDocumentInteractionController(url: fileURL)
+//
+//                self.documentController.delegate = self
+//
+//                self.documentController.uti = "com.instagram.exclusivegram"
+//
+//                if UIDevice.current.userInterfaceIdiom == .phone {
+//
+//                    self.documentController.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+//                } else {
+//
+//                    //self.documentController.presentOpenInMenu(from: self.instagramButton, animated: true)
+//
+//                }
                 
                 
             } else {
